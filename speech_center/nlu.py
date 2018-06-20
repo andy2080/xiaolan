@@ -13,6 +13,7 @@ import base64
 import hashlib
 from tts import baidu_tts
 from stt import baidu_stt
+from stt import ifly_stt
 from tts import youdao_tts
 sys.path.append('/home/pi/xiaolan/')
 from auditory_center.recorder import recorder
