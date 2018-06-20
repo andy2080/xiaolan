@@ -8,9 +8,10 @@ from tts import baidu_tts
 from tts import youdao_tts
 from stt import baidu_stt
 from stt import ifly_stt
-from auditory_center.recorder import recorder
 from nlu import Nlu
 sys.path.append('/home/pi/xiaolan/')
+from auditory_center.recorder import recorder
+from network_center.xiaolanskill import skills
 import setting
 
 
@@ -64,7 +65,7 @@ class dialogue(object):
         else:
             intentdict = self.xlnlu.xl_intent(text)
             sk = skills()
-            back = sk.req(intentdict['skillurl'], intentdict['intent'], intentdict['slots'], intentdict)
+            sk.skillReq(intentdict['skillurl'], intentdict['intent'], intentdict['slots'], intentdict)
 
     def conversationb(self):
 
@@ -99,7 +100,7 @@ class dialogue(object):
             'text': text
             }
 
-    def outputSpeech(text, service, more):
+    def tts_text(text, service, more):
 
         if service == 'baidu':
             tts = baidu_tts()
@@ -110,6 +111,14 @@ class dialogue(object):
             tts.tts(text, more)
         else:
             self.tts.tts(text, self.tok)
+            
+    def shouldEndConversation(self, data, c):
+        
+        if c == True or c == 'Ture':
+            os.system('python /home/pi/xiaolan/auditory_speech/awaken/snowboy.py xiaolan')
+        elif c == False or c == 'False':
+            os.system('python /home/pi/xiaolan/auditory_speech/awaken/snowboy.py conver ' + data['skillname'])
+            
             
             
         
