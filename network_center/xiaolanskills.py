@@ -22,13 +22,7 @@ class skills(object):
     def skillReq(self, url, intent, slots, intentdict):
 
         sk = skills()
-        data = {
-            'intent': intent,
-            'slots': slots,
-            'intentdict': intentdict,
-            'key': 'xiaolanserverpasswordYYH'
-            'states': 'NEWconversation'
-            }
+        data = 
         r = requests.post(url,
                           data=json.dumps(data))
         sk.command(r.json())
