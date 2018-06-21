@@ -10,6 +10,7 @@ import urllib
 import urllib2
 import hashlib
 import base64
+import time
 sys.path.append('/home/pi/xiaolan/')
 from speech_center.conversation import dialogue
 from display_center.display import screen
@@ -19,33 +20,87 @@ class skills(object):
 
     def __init__(self):
         pass
-    def skillReq(self, url, intent, slots, intentdict):
+    def skillReq(self, url, intent, slots, intentdict, converid):
 
         sk = skills()
-        data = 
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': intent,
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['clienttype'],
+                    'ClientId': setting.setting()['main_setting']['clientid']
+                },
+                'ConversationInfo': {
+                    'ConversationId': converid,
+                    'ShouldHandlerSkill': intentdict['skill'],
+                    'SkillShouldHandler': intent,
+                    'SkillAwakenKeyword': intentdict['keyword'],
+                    'SendToSkillInfo': {
+                        'Intent': intent,
+                        'Text': intentdict['text'],
+                        'Slots': slots
+                    }
+                }
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['clientid'],
+                'States': {
+                    'ClientStates': ['serviceing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['working'],
+                    'TtsStates': ['emptyling']
+                },
+                'Commands': {
+                    'ClientCommands': ['service for user'],
+                    'elseCommands': []
+                }
+            }
+        }
         r = requests.post(url,
                           data=json.dumps(data))
         sk.command(r.json())
     
-    def skillTryLive(self, url):
+    def skillTryLive(self, url, skillname):
         
         data = {
             'ClientEvent': {
                 'Header': {
-                    'Type': 'TestSkillAlive'
-                    'FromPlatfrom': 'from_user',
-                    'ShouldHandlerType': 'TestSkillAlive'
+                    'NameSpace': 'xiaolan.client.skill.tryalive',
+                    'ServerShouldHandler': 'tryskillalive'
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['clienttype'],
+                    'ClientId': setting.setting()['main_setting']['clientid']
                 },
-                'ConversationLog': {
-                    'Type': None
+                'ConversationInfo': {
+                    'ConversationId': None,
+                    'ShouldHandlerSkill': skillname,
+                    'SkillShouldHandler': None,
+                    'SkillAwakenKeyword': None,
+                    'SendToSkillInfo': {
+                        'Intent': None,
+                        'Text': None,
+                        'Slots': None
+                    }
                 }
             },
-            'ClientLog': {
-                'ClientType': setting.setting()['main_setting']['device_type'],
-                'RequestsID': None,
-                'Key': 'xiaolanserverpasswordYYH',
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['clientid'],
+                'States': {
+                    'ClientStates': ['serviceing'],
+                    'NluStates': ['emptyling'],
+                    'SttStates': ['emptying'],
+                    'TtsStates': ['emptyling']
+                },
+                'Commands': {
+                    'ClientCommands': ['service for user'],
+                    'elseCommands': []
+                }
             }
-            'SpecialNeed': None
         }
         r = requests.post(url,
                           data=json.dumps(data))
