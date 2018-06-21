@@ -11,7 +11,7 @@ from stt import ifly_stt
 from nlu import Nlu
 sys.path.append('/home/pi/xiaolan/')
 from auditory_center.recorder import recorder
-from network_center.xiaolanskill import skills
+from network_center.xiaolanClientToServer import ClientToServer
 import setting
 
 
@@ -65,7 +65,7 @@ class dialogue(object):
         else:
             intentdict = self.xlnlu.xl_intent(text)
             sk = skills()
-            sk.skillReq(intentdict['skillurl'], intentdict['intent'], intentdict['slots'], intentdict)
+            sk.ClientReq(intentdict['skillurl'], intentdict['intent'], intentdict['slots'], intentdict)
 
     def conversationb(self):
 
