@@ -2,8 +2,11 @@
 
 import sys
 import os
-import setting
 import time
+import requests
+import json
+sys.path.append('/home/pi/xiaolan/')
+import setting
 
 def intentlistturn():
     url = ''
@@ -43,6 +46,6 @@ def intentlistturn():
                 }
             }
         }
-    r = requests(url,
-                 data=data)
+    r = requests.post(url,
+                      data=data)
     return r.json()
