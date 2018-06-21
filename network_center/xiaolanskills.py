@@ -16,11 +16,11 @@ from speech_center.conversation import dialogue
 from display_center.display import screen
 import setting
 
-class skills(object):
+class ClientToServer(object):
 
     def __init__(self):
         pass
-    def skillReq(self, url, intent, slots, intentdict, converid):
+    def ClientReq(self, url, intent, slots, intentdict, converid):
 
         sk = skills()
         data = {
@@ -63,7 +63,7 @@ class skills(object):
                           data=json.dumps(data))
         sk.command(r.json())
     
-    def skillTryLive(self, url, skillname):
+    def ClientTrySkillLive(self, url, skillname):
         
         data = {
             'ClientEvent': {
