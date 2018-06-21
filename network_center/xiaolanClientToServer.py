@@ -20,6 +20,12 @@ class ClientToServer(object):
 
     def __init__(self):
         pass
+    
+    def ClientDiyReq(self, url, data):
+        
+        r = requests.post(url,
+                          data=data)
+        return r.json()
     def ClientReq(self, url, intent, slots, intentdict, converid):
 
         sk = skills()
