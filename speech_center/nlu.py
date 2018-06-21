@@ -135,16 +135,18 @@ class Nlu(object):
         def xl_intent(self, text):
 
             b = 0
+            a = 0
+            c = 0
             try:
                 while self.turn == 0:
                     
-                        if self.intentlist[b][1][b] in text:
+                        if self.intentlist[b][1][a][c] in text:
                                 if self.intentlist[b][2] != [] or self.intentlist[b][1] != None:
                                         slots = self.xlnlu.get_slots(self.intentlist[b][2], text)
                                 else:
                                         slots = None
                                 returndict = {
-                                        'intent': self.intentlist[b][0][b],
+                                        'intent': self.intentlist[b][0][a][c],
                                         'skill': self.intentlist[b][3],
                                         'slots': slots,
                                         'text': text,
@@ -158,6 +160,8 @@ class Nlu(object):
                                 break
                         else:
                                 b = b + 1
+                                a = a + 1
+                                c = c + 1
                 return returndict
             except KeyError:
                 return {
