@@ -12,6 +12,10 @@ from speech_center.tts import youdao_tts
 sys.path.append('/home/pi/xiaolan/speech_center')
 import speaker
 
+def awaken():
+    
+    os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py xiaolan')
+
 def welcome():
     
         print ('''
