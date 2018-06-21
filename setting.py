@@ -30,6 +30,7 @@ def setting():
                        'youdao': {       #有道STT服务配置，appid和appkey在有道智云申请
                            'appid': '2b3bd2665750d664',
                            'appkey': 'G6E8WI8kqeixpIyQaa2cCmj3sHHsgDm8'
+                           'lang': 'zh-CHS'
                        }
                    },
                    'NLU': {            #NLU语义理解服务配置
