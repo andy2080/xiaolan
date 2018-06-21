@@ -140,7 +140,7 @@ class Nlu(object):
             try:
                 while self.turn == 0:
                     
-                        if self.intentlist[b][1][a][c] in text:
+                        if self.intentlist[b][1][a] in text:
                                 if self.intentlist[b][2] != [] or self.intentlist[b][1] != None:
                                         slots = self.xlnlu.get_slots(self.intentlist[b][2], text)
                                 else:
