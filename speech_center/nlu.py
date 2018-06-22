@@ -168,6 +168,8 @@ class Nlu(object):
                             c = 0
                         elif len(self.intentlist) == a:
                             return data
+                        else:
+                            c = c + 1
                             
                 if data == None:
                     return {
