@@ -28,26 +28,29 @@ class Nlu(object):
         def get_slots(slotslist, text):
             
             returndict = {}
-            a = 0
+            a = 1
             b = 1
             c = 0
-            try:
-                if len(slotslist) != None or len(slotslist) != []:
-                    while self.turn == 0:
-                        if slotslist[b]['dict'][a] in text or slotslist[b]['same_means'][a] in text:
-                            returndict[slotslist[c]] = slotslist[b]['dict'][a]
-                            if len(slotslist) == b:
-                                break
-                            else:
-                                b = b + 2
-                                c = c + 2
+            if len(slotslist) != None or slotslist != []:
+                while self.turn == 0:
+                    try:
+                        var = slotslist[a]
+                    except IndexError:
+                        returndict = None
+                        break
+                    else:
+                        if var['dict'][b] in text or var['same_means'] in text:
+                                returndict[slotslist[a - 1]] = var['dict'][b]
                         else:
-                            a = a + 1
-                else:
-                    return returndict
+                            try:
+                                varss = var['dict'][b]
+                            except IndexError:
+                                a = a + 1
+                                b = 0
+                            else:
+                                b = b + 1
                 return returndict
-            except KeyError:
-                return returndict
+                    
                         
         def ifly_intent(self, text):
                 
@@ -136,42 +139,34 @@ class Nlu(object):
 
             b = 0
             a = 0
-            c = 0
-            try:
+            xlnlu = Nlu()
+            if self.turn == 0:
                 while self.turn == 0:
-                    
-                        if self.intentlist[b][1][a] in text:
-                                if self.intentlist[b][2] != [] or self.intentlist[b][1] != None:
-                                        slots = self.xlnlu.get_slots(self.intentlist[b][2], text)
-                                else:
-                                        slots = None
-                                returndict = {
-                                        'intent': self.intentlist[b][0][a][c],
-                                        'skill': self.intentlist[b][3],
-                                        'slots': slots,
-                                        'text': text,
-                                        'command': [
-                                                'skill', 'start'
-                                        ],
-                                        'states': [
-                                                'xl_nlu_intent_back'
-                                        ]
-                                }
-                                break
+                    try:
+                        var = [a][1]
+                    except IndexError:
+                        data = None
+                        break
+                    else:
+                        pass
+                    if var[b] in text:
+                        slots = xlnlu.get_slots(self.intentlist[a][2], text)
+                        data = {
+                                'intent': self.intentlist[a][0][b],
+                                'skill': self.intentlist[a][3],
+                                'slots': slots,
+                                'commands': [
+                                        'skill', 'start'
+                                ]
+                                'states': [
+                                        'xiaolan_nlu_intent_back'
+                                ]
+                        }
+                    else:
+                        try:
+                            varss = var[b]
+                        except IndexError:
+                            a = a + 1
+                            b = 0
                         else:
-                                b = b + 1
-                                a = a + 1
-                                c = c + 1
-                return returndict
-            except KeyError:
-                return {
-                        'intent': self.xlnlu.ifly_intent(text),
-                        'skill': self.xlnlu.ifly_intent(text),
-                        'slots': None,
-                        'commmands': [
-                                'skill', 'start'
-                        ],
-                        'states': [
-                                'ifly_nlu_intent_back'
-                        ]
-                }
+                            b = b + 1
