@@ -30,7 +30,6 @@ class Nlu(object):
             returndict = {}
             a = 1
             b = 1
-            c = 0
             if len(slotslist) != None or slotslist != []:
                 while self.turn == 0:
                     try:
@@ -64,7 +63,7 @@ class Nlu(object):
                         return {
                                 'intent': None,
                                 'skill': None,
-                                'command': [
+                                'commands': [
                                         'speaker', 'speacilrecorder'
                                 ],
                                 'states': [
@@ -90,7 +89,7 @@ class Nlu(object):
                         return {
                                 'intent': None,
                                 'skill': None,
-                                'command': [
+                                'commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
                                 'states': [
@@ -101,7 +100,7 @@ class Nlu(object):
                         return {
                                 'intent': None,
                                 'skill': None,
-                                'command': [
+                                'commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
                                 'states': [
@@ -114,7 +113,7 @@ class Nlu(object):
                             return {
                                     'intent': intent,
                                     'skill': intent,
-                                    'command': [
+                                    'commands': [
                                             'skills_requests'
                                     ],
                                     'states': [
@@ -125,7 +124,7 @@ class Nlu(object):
                             return {
                                     'intent': None,
                                     'skill': None,
-                                    'command': [
+                                    'commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                     ],
                                     'states': [
@@ -169,3 +168,19 @@ class Nlu(object):
                             b = 0
                         else:
                             b = b + 1
+                if data == None:
+                    return {
+                            'intent': xlnlu.ifly_intent(text),
+                            'skill': xlnlu.ifly_intent(text),
+                            'slots': None,
+                            'commands': [
+                                    'skill', 'start'
+                            ]
+                            'states': [
+                                    'ifly_nlu_intent_back'
+                            ]
+                    }
+                else:
+                    return data
+                
+                
