@@ -37,16 +37,13 @@ class Nlu(object):
                     except IndexError:
                         break
                     else:
-                        if var['dict'][b] in text or var['same_means'] in text:
+                        if var['dict'][b] in text or var['same_means'][b] in text:
                                 returndict[slotslist[a - 1]] = var['dict'][b]
+                        if len(var['dict']) == b:
+                            a = a + 2
+                            b = 0
                         else:
-                            try:
-                                varss = var['dict'][b]
-                            except IndexError:
-                                a = a + 1
-                                b = 0
-                            else:
-                                b = b + 1
+                            b = b + 1
                 return returndict
                     
                         
@@ -137,6 +134,8 @@ class Nlu(object):
 
             b = 0
             a = 0
+            c = 0
+            data = {}
             xlnlu = Nlu()
             if self.turn == 0:
                 while self.turn == 0:
@@ -147,7 +146,7 @@ class Nlu(object):
                         break
                     else:
                         pass
-                    if var[b] in text:
+                    if var[b][c] in text:
                         slots = xlnlu.get_slots(self.intentlist[a][2], text)
                         data = {
                                 'intent': self.intentlist[a][0][b],
@@ -160,14 +159,16 @@ class Nlu(object):
                                         'xiaolan_nlu_intent_back'
                                 ]
                         }
-                    else:
-                        try:
-                            varss = var[b]
-                        except IndexError:
+                        if len(var[b]) == c:
+                            b = b + 1
+                            c = 0
+                        elif len(var) == b:
                             a = a + 1
                             b = 0
-                        else:
-                            b = b + 1
+                            c = 0
+                        elif len(self.intentlist) == a:
+                            return data
+                            
                 if data == None:
                     return {
                             'intent': xlnlu.ifly_intent(text),
