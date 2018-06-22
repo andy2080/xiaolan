@@ -36,7 +36,6 @@ class Nlu(object):
                     try:
                         var = slotslist[a]
                     except IndexError:
-                        returndict = None
                         break
                     else:
                         if var['dict'][b] in text or var['same_means'] in text:
