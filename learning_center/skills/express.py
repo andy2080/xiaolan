@@ -8,7 +8,6 @@ import json
 import demjson
 import base64
 import hashlib
-import httplib
 import urllib
 import urllib2
 import re
@@ -64,9 +63,9 @@ def main(tok):
     speaker.dong()
     
     requestData = {
-                   'OrderCode': number_choose(bs.stt('./voice.wav', tok), tok),
+                   'OrderCode': '',
                    'ShipperCode':'YTO',
-                   'LogisticCode':'12345678'
+                   'LogisticCode':number_choose(bs.stt('./voice.wav', tok), tok)
                   }
     
     data = {
