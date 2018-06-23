@@ -44,7 +44,10 @@ class Nlu(object):
                             b = 0
                         else:
                             b = b + 1
+            else:
+                print('slots read error')
                 return returndict
+            return returndict
                     
                         
         def ifly_intent(self, text):
