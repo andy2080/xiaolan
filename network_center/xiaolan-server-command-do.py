@@ -11,4 +11,9 @@ sys.path.append('/home/pi/xiaolan/')
 from memory_center.commandslist import commandslist
 from speech_center.conversation import dialogue
 
-
+class CommandsDo(object):
+  
+    def _init__(self):
+        pass
+    def Do(self, respones):
+        pass
