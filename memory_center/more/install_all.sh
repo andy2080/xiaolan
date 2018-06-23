@@ -8,8 +8,8 @@ sudo apt-get install libatlas-base-dev
 echo "请输入root账号的密码："
 echo "如果输入完毕之后，停止了运行，在本脚本文件里找到本行，往下数第二行一直拖到最底复制带命令行中执行"
 su root
-cp /home/pi/xiaolan/more/autostartxl /etc/init.d/
+cp /home/pi/xiaolan/memory_center/more/autostartxl /etc/init.d/
 chmod +777 /etc/init.d/autostartxl
 sudo update-rc.d autostartxl defaults
 cd /home/pi/xiaolan
-python xldo.py
+python xiaolan.py
