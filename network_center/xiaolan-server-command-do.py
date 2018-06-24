@@ -21,6 +21,7 @@ class CommandsDo(object):
         self.d = dialogue()
     def Do(self, respones):
         syscommands = respones['ClientShouldDo']['System']['commands']
+        # SystemCommands
         if syscommands == 'ShutDown':
             os.system('sudo poweroff')
         elif syscommands == 'Reboot':
@@ -70,6 +71,18 @@ class CommandsDo(object):
             pass
         else:
             pass
-        self.respones['ClientShouldDo']['Skill']
-        
+        # SkillCommands
+        # OutputSpeech
+        if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
+            self.d.tts_text(respones['ClientShouldDo']['Skill']['OutputSpeech'], respones['ClientShouldDo']['Skill']['TtsService'], respones['ClientShouldDo']['Skill']['TtsMore'])
+        else:
+            pass
+        # AskSlots
+        if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != '':
+            self.f.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotDict'])
+        else:
+            pass
+        # 
+          
+            
         
