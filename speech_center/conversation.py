@@ -32,6 +32,7 @@ class dialogue(object):
             self.tok = setting.setting()['main_setting']['TTS']['youdao_tts']['lang']
         self.xlnlu = Nlu()
         self.r = recoder()
+        self.b = 0
     def replacenumber(self, text):
         try:
             text.replace('零', 0)
@@ -80,7 +81,7 @@ class dialogue(object):
         else:
             return text
 
-    def ask(self, ask, slot, recordtype):
+    def AskSlots(self, slotname, slotdicts, recordtype):
         
         d = dialogue()
         self.tts(ask, self.tok)
@@ -90,13 +91,27 @@ class dialogue(object):
             r.exrecord()
         elif recordtype == 'ts':
             r.tsrecord()
+        elif recordtype == 's':
+            r.srecord()
+        elif recordtype == 'ss':
+            r.ssrecord()
         else:
             r.record()
         speaker.dong()
         text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
         text = d.replacenumber(text)
+        slotlist = []
+        a = 0
+        while self.b = 0:
+            slotlist.append(slotname[a])
+            slotlist.append(slotdicts[a])
+            if len(slotdicts) == a:
+                break
+            else:
+                a = a + 1
+            
         return {
-            'slots': self.xlnlu.get_slots(slot, text),
+            'slots': self.xlnlu.get_slots(slotlist, text),
             'text': text
             }
 
@@ -112,12 +127,6 @@ class dialogue(object):
         else:
             self.tts.tts(text, self.tok)
             
-    def shouldEndConversation(self, data, c):
-        
-        if c == True or c == 'Ture':
-            os.system('python /home/pi/xiaolan/auditory_speech/awaken/snowboy.py xiaolan')
-        elif c == False or c == 'False':
-            os.system('python /home/pi/xiaolan/auditory_speech/awaken/snowboy.py conver ' + data['skillname'])
             
             
             
