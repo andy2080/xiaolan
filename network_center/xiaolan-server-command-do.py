@@ -80,7 +80,7 @@ class CommandsDo(object):
         # AskSlots
         if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != '':
             slotsturn = self.f.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotDict'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
-            self.xcts.SkillAskSlotsRes(slotsturn['slots'])
+            self.xcts.SkillAskSlotsRes(slotsturn['slots'], slotsturn['text'])
         else:
             pass
         # 
