@@ -10,6 +10,8 @@ def setting():
                'main_setting': {
                    'your_name': '翊闳',
                    'loc': '中山',
+                   'ClientId': '001',
+                   'ClientType': 'xiaolan-display-client'
                    'STT': {
                        'service': 'baidu', #STT服务选择 baidu ifly
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
