@@ -9,6 +9,7 @@ import requests
 import time
 import xiaolanClientToServer
 sys.path.append('/home/pi/xiaolan/')
+from memory_center.log import Log
 from memory_center.commandlist import clist
 from speech_center.conversation import dialogue
 
@@ -16,9 +17,10 @@ class CommandsDo(object):
   
     def _init__(self):
         self.xcts = xClientToServer()
+        self.l = Log()
+        self.d = dialogue()
     def Do(self, respones):
         syscommands = respones['ClientShouldDo']['System']['commands']
-        sysmore = respones['ClientShouldDo']['System']['more']
         if syscommands == 'ShutDown':
             os.system('sudo poweroff')
         elif syscommands == 'Reboot':
@@ -45,7 +47,8 @@ class CommandsDo(object):
                                           'slot1': None
                                       }
                                 }
-                            }
+                            },
+                            'ClientLog': sel.l.GetLog()
                         },
                         'Debug': {
                             'TimeStamp': str(time.time()),
@@ -63,5 +66,10 @@ class CommandsDo(object):
                         }
             }
             self.xcts.DiyReq(data)
-        elif syscommands == '
+        elif syscommands == None:
+            pass
+        else:
+            pass
+        self.respones['ClientShouldDo']['Skill']
+        
         
