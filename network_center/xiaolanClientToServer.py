@@ -26,6 +26,52 @@ class ClientToServer(object):
         r = requests.post(url,
                           data=data)
         return r.json()
+    
+    def DiyReq(self, data):
+        
+        r = requests.post(setting.setting()['main_setting']['xiaolan-server-url'],
+                          data=data)
+        return r.json()
+    
+    def ClientSkillAskSlotsRes(self, slots, text):
+        
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': None,
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': '7636',
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
+                },
+                'ConversationInfo': {
+                    'ConversationId': None,
+                    'ShouldHandlerSkill': None,
+                    'SkillShouldHandler': None,
+                    'SkillAwakenKeyword': None,
+                    'SendToSkillInfo': {
+                        'Intent': None,
+                        'Text': text,
+                        'Slots': slots
+                    }
+                }
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['clientid'],
+                'States': {
+                    'ClientStates': ['serviceing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['emptying'],
+                    'TtsStates': ['emptying']
+                },
+                'Commands': {
+                    'ClientCommands': ['service for user'],
+                    'elseCommands': []
+                }
+            }
+        }
+    
     def ClientReq(self, url, intent, slots, intentdict, converid):
 
         sk = skills()
@@ -35,8 +81,8 @@ class ClientToServer(object):
                     'NameSpace': intent,
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
-                    'RequestsFrom': setting.setting()['main_setting']['clienttype'],
-                    'ClientId': setting.setting()['main_setting']['clientid']
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
                 },
                 'ConversationInfo': {
                     'ConversationId': converid,
@@ -57,7 +103,7 @@ class ClientToServer(object):
                     'ClientStates': ['serviceing'],
                     'NluStates': ['working'],
                     'SttStates': ['working'],
-                    'TtsStates': ['emptyling']
+                    'TtsStates': ['emptyli
                 },
                 'Commands': {
                     'ClientCommands': ['service for user'],
