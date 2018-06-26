@@ -102,7 +102,7 @@ class dialogue(object):
         text = d.replacenumber(text)
         slotlist = []
         a = 0
-        while self.b = 0:
+        while self.b == 0:
             slotlist.append(slotname[a])
             slotlist.append(slotdicts[a])
             if len(slotdicts) == a:
