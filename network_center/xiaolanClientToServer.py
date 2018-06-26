@@ -103,7 +103,7 @@ class ClientToServer(object):
                     'ClientStates': ['serviceing'],
                     'NluStates': ['working'],
                     'SttStates': ['working'],
-                    'TtsStates': ['emptyli
+                    'TtsStates': ['emptying']
                 },
                 'Commands': {
                     'ClientCommands': ['service for user'],
@@ -146,7 +146,7 @@ class ClientToServer(object):
                     'ClientStates': ['serviceing'],
                     'NluStates': ['emptyling'],
                     'SttStates': ['emptying'],
-                    'TtsStates': ['emptyling']
+                    'TtsStates': ['emptying']
                 },
                 'Commands': {
                     'ClientCommands': ['service for user'],
@@ -158,22 +158,4 @@ class ClientToServer(object):
                           data=json.dumps(data))
         json = r.json()
         return json['state']
-        
-    def command(self, json):
-
-        s = screen()
-        d = dialogue()
-        m = music()
-        commands = json['commands'][0]
-        if commands == 'Ask':
-            respones = d.ask(json['commands'][1]['text'], json['commands'][1]['slot'], json['commands'][1]['recordtype'])
-            r = requests.post(url,
-                              data=json.dumps({'states': 'ASKturnback', 'key': 'xiaolanserverpasswordYYH', 'askturn': respones}))
-        elif commands == 'MusicPlay':
-            musicurl = json['commands'][1]
-            m.download(musicurl)
-            speaker.play(json['commands'][2])
-        elif commands == 'MusicStop':
-            speaker.stop()
-        elif comamnds == '
         
