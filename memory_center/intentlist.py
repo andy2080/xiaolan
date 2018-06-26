@@ -16,8 +16,8 @@ def intentlistturn():
                     'NameSpace': 'xiaolan.client.intentlist.get',
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
-                    'RequestsFrom': setting.setting()['main_setting']['clienttype'],
-                    'ClientId': setting.setting()['main_setting']['clientid']
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
                 },
                 'ConversationInfo': {
                     'ConversationId': None,
@@ -33,7 +33,7 @@ def intentlistturn():
             },
             'Debug': {
                 'TimeStamp': str(int(time.time())),
-                'ClientId': setting.setting()['main_setting']['clientid'],
+                'ClientId': setting.setting()['main_setting']['ClientId'],
                 'States': {
                     'ClientStates': ['serviceing'],
                     'NluStates': ['waitIntentList'],
