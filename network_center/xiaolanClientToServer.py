@@ -5,12 +5,10 @@ import os
 import json
 import demjson
 import requests
-import httplib
-import urllib
-import urllib2
 import hashlib
 import base64
 import time
+from xiaolan-server-command-do import CommandsDo
 sys.path.append('/home/pi/xiaolan/')
 import setting
 
