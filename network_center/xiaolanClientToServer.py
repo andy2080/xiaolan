@@ -12,8 +12,6 @@ import hashlib
 import base64
 import time
 sys.path.append('/home/pi/xiaolan/')
-from speech_center.conversation import dialogue
-from display_center.display import screen
 import setting
 
 class ClientToServer(object):
@@ -121,7 +119,7 @@ class ClientToServer(object):
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.skill.tryalive',
-                    'ServerShouldHandler': 'tryskillalive'
+                    'ServerShouldHandler': 'tryskillalive',
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
                     'RequestsFrom': setting.setting()['main_setting']['clienttype'],
