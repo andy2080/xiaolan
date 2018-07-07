@@ -7,7 +7,7 @@ import base64
 import hashlib
 import requests
 import time
-import xiaolanClientToServer
+from xiaolanClientToServer import ClientToServer
 sys.path.append('/home/pi/xiaolan/')
 import setting
 # from memory_center.log import Log
@@ -17,7 +17,7 @@ from speech_center.conversation import dialogue
 class CommandsDo(object):
   
     def _init__(self):
-        self.xcts = xClientToServer()
+        self.xcts = ClientToServer()
         self.l = Log()
         self.d = dialogue()
     def Do(self, respones):
