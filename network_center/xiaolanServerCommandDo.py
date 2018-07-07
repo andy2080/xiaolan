@@ -12,14 +12,20 @@ sys.path.append('/home/pi/xiaolan/')
 import setting
 # from memory_center.log import Log
 # from memory_center.commandlist import clist
-from speech_center.conversation import dialogue
+from speech_center.tts import baidu_tts
+from speech_center.tts import youdao_tts
 
 class CommandsDo(object):
   
     def _init__(self):
-        self.xcts = ClientToServer()
-        self.l = Log()
-        self.d = dialogue()
+        self.url = ''
+        self.xscd = CommandsDo()
+        if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
+            self.tts = baidu_tts()
+            self.token = self.tts.get_token()
+        elif setting.setting()['main_setting']['TTS']['service'] == 'youdao':
+            self.tts = youdao_tts()
+            self.token = 'ZH-hans'                     
     def Do(self, respones):
         syscommands = respones['ClientShouldDo']['System']['commands']
         # SystemCommands
@@ -67,7 +73,8 @@ class CommandsDo(object):
                             }
                         }
             }
-            self.xcts.DiyReq(data)
+            r = requests.post(self.url,
+                              data=data)
         # ScreeDisplay
         Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
         if Type == 'TextDisplay':
@@ -86,13 +93,13 @@ class CommandsDo(object):
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
         # OutputSpeech
         if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
-            self.d.tts_text(respones['ClientShouldDo']['Skill']['OutputSpeech'], respones['ClientShouldDo']['Skill']['TtsService'], respones['ClientShouldDo']['Skill']['TtsMore'])
+            self.tts.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'], self.token)
         else:
             pass
         # AskSlots
         if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != '':
             slotsturn = self.f.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotDict'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
-            self.xcts.SkillAskSlotsRes(slotsturn['slots'], slotsturn['text'])
+            self.xscd.SkillAskSlotsRes(slotsturn['slots'], slotsturn['text'])
         else:
             pass
         # WaitAnswer
