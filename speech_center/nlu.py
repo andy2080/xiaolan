@@ -157,7 +157,7 @@ class Nlu(object):
                                 'slots': slots,
                                 'commands': [
                                         'skill', 'start'
-                                ]
+                                ],
                                 'states': [
                                         'xiaolan_nlu_intent_back'
                                 ]
@@ -181,7 +181,7 @@ class Nlu(object):
                             'slots': None,
                             'commands': [
                                     'skill', 'start'
-                            ]
+                            ],
                             'states': [
                                     'ifly_nlu_intent_back'
                             ]

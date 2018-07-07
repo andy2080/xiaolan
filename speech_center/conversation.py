@@ -33,6 +33,7 @@ class dialogue(object):
         self.xlnlu = Nlu()
         self.r = recoder()
         self.b = 0
+        
     def replacenumber(self, text):
         try:
             text.replace('零', 0)
@@ -84,7 +85,7 @@ class dialogue(object):
     def AskSlots(self, slotname, slotdicts, recordtype):
         
         d = dialogue()
-        self.tts(ask, self.tok)
+        self.tts(slotdicts[slotname][1], self.tok)
         speaker.speak()
         speaker.ding()
         if recordtype == 'ex':
@@ -102,7 +103,7 @@ class dialogue(object):
         text = d.replacenumber(text)
         slotlist = []
         a = 0
-        while self.b = 0:
+        while self.b == 0:
             slotlist.append(slotname[a])
             slotlist.append(slotdicts[a])
             if len(slotdicts) == a:
@@ -126,6 +127,20 @@ class dialogue(object):
             tts.tts(text, more)
         else:
             self.tts.tts(text, self.tok)
+
+    def WaitAnswer(self, recordtype):
+        
+        if recordtype == 'ex':
+            r.exrecord()
+        elif recordtype == 'ts':
+            r.tsrecord()
+        elif recordtype == 's':
+            r.srecord()
+        elif recordtype == 'ss':
+            r.ssrecord()
+        else:
+            r.record()
+        return replacenumber(self.stt('./voice.wav', self.tok))
             
             
             

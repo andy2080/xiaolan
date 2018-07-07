@@ -1,14 +1,9 @@
 import snowboydecoder
 import sys
 import signal
-import speaker
-
 
 interrupted = False
 
-def stop():
-
-    sys.exit(-1)
 
 def signal_handler(signal, frame):
     global interrupted
@@ -18,10 +13,6 @@ def signal_handler(signal, frame):
 def interrupt_callback():
     global interrupted
     return interrupted
-
-def stop():
-    sys.exit(-1)
-
 
 if len(sys.argv) == 1:
     print("Error: need to specify model name")
@@ -37,7 +28,7 @@ detector = snowboydecoder.HotwordDetector(model, sensitivity=0.5)
 print('Listening... Press Ctrl+C to exit')
 
 # main loop
-detector.start(detected_callback=speaker.ding,
+detector.start(detected_callback=snowboydecoder.play_audio_file,
                interrupt_check=interrupt_callback,
                sleep_time=0.03)
 

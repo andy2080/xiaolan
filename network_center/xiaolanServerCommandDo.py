@@ -10,9 +10,9 @@ import time
 import xiaolanClientToServer
 sys.path.append('/home/pi/xiaolan/')
 import setting
-from memory_center.log import Log
-from memory_center.commandlist import clist
-from speech_center.conversation import dialogue
+# from meory_center.log import Log
+# from memory_center.commandlist import clist
+# from speech_center.conversation import dialogue
 
 class CommandsDo(object):
   
@@ -68,11 +68,22 @@ class CommandsDo(object):
                         }
             }
             self.xcts.DiyReq(data)
-        elif syscommands == None:
-            pass
-        else:
-            pass
-        # SkillCommands
+        # ScreeDisplay
+        Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
+        if Type == 'TextDisplay':
+            Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
+            Text = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Text']
+            Remind = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
+        elif Type == 'ImageDisplay':
+            Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
+            ImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['ImageUrl']
+            RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
+        elif Type == 'VideoDisplay':
+            Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
+            VideoUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['VideoUrl']
+            RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
+        elif Type == 'MusicDisplay':
+            Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
         # OutputSpeech
         if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
             self.d.tts_text(respones['ClientShouldDo']['Skill']['OutputSpeech'], respones['ClientShouldDo']['Skill']['TtsService'], respones['ClientShouldDo']['Skill']['TtsMore'])
@@ -84,7 +95,10 @@ class CommandsDo(object):
             self.xcts.SkillAskSlotsRes(slotsturn['slots'], slotsturn['text'])
         else:
             pass
-        # 
-          
+        # WaitAnswer
+        if respones['ClientShouldDo']['Skill']['ShouldEndConversation'] == 'Ture':
+            text = self.d.WaitAnswer(respones['ClientShouldDo']['Skill']['RecordType'])
+        else:
+            pass
             
         

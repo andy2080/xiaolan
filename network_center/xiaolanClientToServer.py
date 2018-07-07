@@ -5,15 +5,11 @@ import os
 import json
 import demjson
 import requests
-import httplib
-import urllib
-import urllib2
 import hashlib
 import base64
 import time
+from xiaolanServerCommandDo import CommandsDo
 sys.path.append('/home/pi/xiaolan/')
-from speech_center.conversation import dialogue
-from display_center.display import screen
 import setting
 
 class ClientToServer(object):
@@ -103,7 +99,7 @@ class ClientToServer(object):
                     'ClientStates': ['serviceing'],
                     'NluStates': ['working'],
                     'SttStates': ['working'],
-                    'TtsStates': ['emptyli
+                    'TtsStates': ['emptying']
                 },
                 'Commands': {
                     'ClientCommands': ['service for user'],
@@ -121,7 +117,7 @@ class ClientToServer(object):
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.skill.tryalive',
-                    'ServerShouldHandler': 'tryskillalive'
+                    'ServerShouldHandler': 'tryskillalive',
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
                     'RequestsFrom': setting.setting()['main_setting']['clienttype'],
@@ -146,7 +142,7 @@ class ClientToServer(object):
                     'ClientStates': ['serviceing'],
                     'NluStates': ['emptyling'],
                     'SttStates': ['emptying'],
-                    'TtsStates': ['emptyling']
+                    'TtsStates': ['emptying']
                 },
                 'Commands': {
                     'ClientCommands': ['service for user'],
@@ -159,21 +155,5 @@ class ClientToServer(object):
         json = r.json()
         return json['state']
         
-    def command(self, json):
 
-        s = screen()
-        d = dialogue()
-        m = music()
-        commands = json['commands'][0]
-        if commands == 'Ask':
-            respones = d.ask(json['commands'][1]['text'], json['commands'][1]['slot'], json['commands'][1]['recordtype'])
-            r = requests.post(url,
-                              data=json.dumps({'states': 'ASKturnback', 'key': 'xiaolanserverpasswordYYH', 'askturn': respones}))
-        elif commands == 'MusicPlay':
-            musicurl = json['commands'][1]
-            m.download(musicurl)
-            speaker.play(json['commands'][2])
-        elif commands == 'MusicStop':
-            speaker.stop()
-        elif comamnds == '
         
