@@ -14,7 +14,7 @@ import speaker
 
 def awaken():
     
-    os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py xiaolan')
+    os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
 
 def welcome():
     

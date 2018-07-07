@@ -154,6 +154,3 @@ class ClientToServer(object):
                           data=json.dumps(data))
         json = r.json()
         return json['state']
-        
-
-        

@@ -10,9 +10,9 @@ import time
 import xiaolanClientToServer
 sys.path.append('/home/pi/xiaolan/')
 import setting
-# from meory_center.log import Log
+# from memory_center.log import Log
 # from memory_center.commandlist import clist
-# from speech_center.conversation import dialogue
+from speech_center.conversation import dialogue
 
 class CommandsDo(object):
   
