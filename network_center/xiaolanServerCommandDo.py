@@ -7,7 +7,7 @@ import base64
 import hashlib
 import requests
 import time
-from xiaolanClientToServer import ClientToServer
+# from xiaolanClientToServer import ClientToServer
 sys.path.append('/home/pi/xiaolan/')
 import setting
 # from memory_center.log import Log
