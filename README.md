@@ -40,3 +40,4 @@
 - 进一步完善小蓝云端-客户端-技能的协议
 - 唤醒词升级更新，添加“小度小度”与“jarvis”两个新的唤醒词，都是.umdl（感谢陈果果大大的帮助）
 - snowboy引擎升级
+- 修复BUG-xiaolanServerCommandsDo
