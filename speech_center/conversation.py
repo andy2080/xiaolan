@@ -67,9 +67,9 @@ class dialogue(object):
         else:
             intentdict = self.xlnlu.xl_intent(text)
             sk = skills()
-            sk.ClientReq(intentdict['skillurl'], intentdict['intent'], intentdict['slots'], intentdict)
+            sk.ClientReq(intentdict['intent'], intentdict['slots'], intentdict)
 
-    def conversationb(self):
+    def waitAnswer(self, stttype, recordtype):
 
         d = dialogue()
         speaker.ding()

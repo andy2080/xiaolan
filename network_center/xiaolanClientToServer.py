@@ -15,17 +15,18 @@ import setting
 class ClientToServer(object):
 
     def __init__(self):
-        pass
+
+        self.url = setting.setting()['main_setting']['url']
     
-    def ClientDiyReq(self, url, data):
+    def ClientDiyReq(self, data):
         
-        r = requests.post(url,
+        r = requests.post(self.url,
                           data=data)
         return r.json()
     
     def DiyReq(self, data):
         
-        r = requests.post(setting.setting()['main_setting']['xiaolan-server-url'],
+        r = requests.post(self.url,
                           data=data)
         return r.json()
     
@@ -68,7 +69,7 @@ class ClientToServer(object):
             }
         }
     
-    def ClientReq(self, url, intent, slots, intentdict, converid):
+    def ClientReq(self, intent, slots, intentdict):
 
         sk = skills()
         data = {
@@ -81,7 +82,7 @@ class ClientToServer(object):
                     'ClientId': setting.setting()['main_setting']['ClientId']
                 },
                 'ConversationInfo': {
-                    'ConversationId': converid,
+                    'ConversationId': '456564889456',
                     'ShouldHandlerSkill': intentdict['skill'],
                     'SkillShouldHandler': intent,
                     'SkillAwakenKeyword': intentdict['keyword'],
@@ -107,11 +108,11 @@ class ClientToServer(object):
                 }
             }
         }
-        r = requests.post(url,
+        r = requests.post(self.url,
                           data=json.dumps(data))
         sk.command(r.json())
     
-    def ClientTrySkillLive(self, url, skillname):
+    def ClientTrySkillLive(self, skillname):
         
         data = {
             'ClientEvent': {
@@ -150,7 +151,7 @@ class ClientToServer(object):
                 }
             }
         }
-        r = requests.post(url,
+        r = requests.post(self.url,
                           data=json.dumps(data))
         json = r.json()
         return json['state']

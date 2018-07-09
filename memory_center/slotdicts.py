@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+sys.path.append('/home/pi/xiaolan/')
+import setting
 
 def dictcity():
     return {
@@ -52,3 +54,45 @@ def dicthassdevice():
             '电视', '风扇', '盒子', '机顶盒', '灯'
         ]
     }
+
+def GetSlotsDict():
+
+    data = {
+        'ClientEvent': {
+            'Header': {
+                'NameSpace': 'xiaolan.client.commands.slotsdict.get',
+                'TimeStamp': int(time.time()),
+                 'RequestsId': '7636',
+                 'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                 'ClientId': setting.setting()['main_setting']['ClientId']
+            },
+            'ConversationInfo': {
+                'ConversationId': None,
+                'ShouldHandlerSkill': None,
+                'SkillShouldHandler': None,
+                'SkillAwakenKeyword': None,
+                'SendToSkillInfo': {
+                    'Intent': None,
+                    'Text': None,
+                    'Slots': None
+                }
+            }
+        },
+        'Debug': {
+            'TimeStamp': str(int(time.time())),
+            'ClientId': setting.setting()['main_setting']['clientid'],
+            'States': {
+                'ClientStates': ['serviceing'],
+                'NluStates': ['working'],
+                'SttStates': ['emptying'],
+                'TtsStates': ['emptying']
+            },
+            'Commands': {
+                'ClientCommands': ['service for user'],
+                'elseCommands': []
+            }
+        }
+    }
+    r = requests.post(setting.setting()['main_setting']['url'],
+                      data=data)
+

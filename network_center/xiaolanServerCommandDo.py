@@ -25,7 +25,7 @@ class CommandsDo(object):
             self.token = self.tts.get_token()
         elif setting.setting()['main_setting']['TTS']['service'] == 'youdao':
             self.tts = youdao_tts()
-            self.token = 'ZH-hans'                     
+            self.token = setting.setting()['main_setting']['TTS']['youdao']['lang']
     def Do(self, respones):
         syscommands = respones['ClientShouldDo']['System']['commands']
         # SystemCommands
