@@ -56,7 +56,10 @@ def awaken(self):
     while 0 = 0:
         try:
             i = open(faceimg)
-        except
+        except IOError:
+            tts.tts('请对准摄像头，我们将采集你的头像', token)
+            speaker.speak()
+            os.system('raspistill -t 2000 -o /home/pi/xiaolan/memory_center/facedatebase/face.jpg')
         url = 'https://aip.baidubce.com/rest/2.0/face/v3/match'
         headers = {'Content-Type': 'application/json'}
         nowfaceimage = get_faceimage()
