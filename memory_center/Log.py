@@ -7,6 +7,8 @@ import requests
 import json
 import base64
 import logging
+import os.path
+import time
 
 class Log(object):
 
