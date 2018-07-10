@@ -56,7 +56,7 @@ class CommandsDo(object):
                                       }
                                 }
                             },
-                            'ClientLog': sel.l.GetLog()
+                            'ClientLog': ''
                         },
                         'Debug': {
                             'TimeStamp': str(time.time()),

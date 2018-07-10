@@ -66,8 +66,8 @@ class dialogue(object):
             speaker.speacilrecorder()
         else:
             intentdict = self.xlnlu.xl_intent(text)
-            sk = skills()
-            sk.ClientReq(intentdict['intent'], intentdict['slots'], intentdict)
+            cts = ClientToServer()
+            cts.ClientReq(intentdict['intent'], intentdict['slots'], intentdict)
 
     def waitAnswer(self, stttype, recordtype):
 

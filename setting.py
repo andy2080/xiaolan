@@ -3,6 +3,7 @@
 
 import sys
 import os
+from network_center.xiaolanClientToServer import ClientToServer
 
 
 def setting():
@@ -12,6 +13,7 @@ def setting():
                    'loc': '中山',
                    'ClientId': '001',
                    'ClientType': 'xiaolan-display-client-2.0',
+                   'userId': '',
                    'url': '',
                    'STT': {
                        'service': 'baidu', #STT服务选择 baidu ifly
@@ -40,6 +42,12 @@ def setting():
                        'ifly': {
                            'key': '9e1b8f6028b14b969cdec166eca127ea',
                            'appid': '5ace1bbb'
+                       }
+                   },
+                   'OCR': {
+                       'baidu': {
+                           'AK': 'GuagSnlhsP8qKX2Lj7RbLomq',
+                           'SK': 'PiwvPvXIyFdIO3Bc0F2GHtsGdAaeG73D'
                        }
                    }
                },
