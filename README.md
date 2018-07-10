@@ -43,3 +43,4 @@
 - 修复BUG-xiaolanServerCommandsDo
 - 代码BUG修复
 - 人脸唤醒模式增加
+- 添加Log记录
