@@ -14,5 +14,5 @@ class Log(object):
         pass
     def Get(self):
         pass
-    def addLog(self, log):
+    def addLog(self, log, level):
         pass
