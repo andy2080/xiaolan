@@ -42,3 +42,4 @@
 - snowboy引擎升级
 - 修复BUG-xiaolanServerCommandsDo
 - 代码BUG修复
+- 人脸唤醒模式增加
