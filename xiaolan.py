@@ -11,6 +11,8 @@ from speech_center.tts import baidu_tts
 from speech_center.tts import youdao_tts
 sys.path.append('/home/pi/xiaolan/speech_center')
 import speaker
+sys.path.append('/home/pi/xiaolan/speech_center')
+import face
 
 def awaken():
     
@@ -40,6 +42,11 @@ def welcome():
         bt.tts(setting.setting()['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)
         speaker.speak()
         os.system('pulseaudio --start')
-        os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
+        if setting.setting()['main_setting']['awaken'] == 'hotword':
+            os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
+        elif setting.setting()['main_setting']['awaken'] == 'face':
+            face.awaken()
+        elif setting.setting()['main_setting']['awaken'] == 'all':
+            passs
 
 welcome()

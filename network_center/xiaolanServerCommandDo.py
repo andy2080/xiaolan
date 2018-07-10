@@ -9,6 +9,7 @@ import requests
 import time
 # from xiaolanClientToServer import ClientToServer
 sys.path.append('/home/pi/xiaolan/')
+from memory_center.Log import Log
 import setting
 # from memory_center.log import Log
 # from memory_center.commandlist import clist
@@ -20,6 +21,7 @@ class CommandsDo(object):
     def _init__(self):
         self.url = ''
         self.xscd = CommandsDo()
+        self.l = Log()
         if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
             self.tts = baidu_tts()
             self.token = self.tts.get_token()
@@ -56,7 +58,7 @@ class CommandsDo(object):
                                       }
                                 }
                             },
-                            'ClientLog': ''
+                            'ClientLog': self.l.Get()
                         },
                         'Debug': {
                             'TimeStamp': str(time.time()),

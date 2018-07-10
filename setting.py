@@ -10,6 +10,7 @@ def setting():
     selfset = {
                'main_setting': {
                    'your_name': '翊闳',
+                   'awaken': 'hotword', # 唤醒方式：语音hotword, 人脸face, 人脸语音兼备all
                    'loc': '中山',
                    'ClientId': '001',
                    'ClientType': 'xiaolan-display-client-2.0',
