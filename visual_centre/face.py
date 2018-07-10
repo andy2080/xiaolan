@@ -83,7 +83,7 @@ def awaken(self):
             break
         else:
             pass
-    tts.tts('请问有什么需要吗？', token)
+    tts.tts(setting.setting()['main_setting']['your_name'] + '请问有什么需要吗？', token)
     speaker.speak()
     r = r.record()
     text = stt.stt('./voice.wav', tokens)
