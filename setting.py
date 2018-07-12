@@ -20,7 +20,7 @@ def setting():
                        'XiaolanSkillUrl', '',
                        'XiaolanSkillIntentList', '',
                        'XiaolanSkillImage', '',
-                       'XiaolanSkillSlotsDict', '',
+                       'XiaolanSkillSlotsDict', ''
                    ],
                    'STT': {
                        'service': 'baidu', #STT服务选择 baidu ifly
