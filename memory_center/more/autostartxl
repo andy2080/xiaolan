@@ -11,4 +11,4 @@
 ### END INIT INFO
 
 cd /home/pi/xiaolan
-python xldo.py
+python xiaolan.py
