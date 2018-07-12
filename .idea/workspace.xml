@@ -51,7 +51,7 @@
         <entry file="file://$PROJECT_DIR$/memory_center/DateBase.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-95">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding>
                 <element signature="e#46#61#0" expanded="true" />
               </folding>
@@ -63,7 +63,7 @@
         <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-817">
-              <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -75,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/speech_center/tts.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#30#40#0" expanded="true" />
               </folding>
@@ -87,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/auditory_center/recorder.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
-              <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -120,7 +120,7 @@
         <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-646">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#32#42#0" expanded="true" />
               </folding>
@@ -247,6 +247,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24934895" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -556,7 +557,7 @@
     <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-646">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#32#42#0" expanded="true" />
           </folding>
@@ -576,7 +577,7 @@
     <entry file="file://$PROJECT_DIR$/auditory_center/recorder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -623,7 +624,7 @@
     <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-817">
-          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
           </folding>
@@ -633,7 +634,7 @@
     <entry file="file://$PROJECT_DIR$/memory_center/DateBase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-95">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding>
             <element signature="e#46#61#0" expanded="true" />
           </folding>
@@ -643,7 +644,7 @@
     <entry file="file://$PROJECT_DIR$/speech_center/tts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#30#40#0" expanded="true" />
           </folding>
