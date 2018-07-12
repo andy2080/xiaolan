@@ -5,6 +5,11 @@ sudo apt-get install python-dev python3-dev python-pyaudio python3-pyaudio sox
 pip install pyaudio sendmail
 pip install requests hyper crypto
 sudo apt-get install libatlas-base-dev
+wget https://github.com/memcached/memcached/archive/1.4.19.tar.gz
+sudo apt-get install libevent-dev
+tar -zxvf memcached-1.4.19.tar.gz
+cd memcached-1.4.19
+./configure && make && make test && sudo make install
 echo "请输入root账号的密码："
 echo "如果输入完毕之后，停止了运行，在本脚本文件里找到本行，往下数第二行一直拖到最底复制带命令行中执行"
 su root
