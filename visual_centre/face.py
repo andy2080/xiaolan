@@ -53,7 +53,7 @@ def awaken(self):
             token = setting.setting()['main_setting']['STT']['ifly']['key']
     tok = get_token()
     faceimg = '/home/pi/xiaolan/memory_center/facedatebase/face.png'
-    while 0 = 0:
+    while 0 == 0:
         try:
             i = open(faceimg)
         except IOError:

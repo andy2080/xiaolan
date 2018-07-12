@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # 小蓝对话系统
+
 import sys
 import os
 import re

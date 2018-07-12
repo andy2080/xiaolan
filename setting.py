@@ -16,6 +16,12 @@ def setting():
                    'ClientType': 'xiaolan-display-client-2.0',
                    'userId': '',
                    'url': '',
+                   'DatebaseUrl': [
+                       'XiaolanSkillUrl', '',
+                       'XiaolanSkillIntentList', '',
+                       'XiaolanSkillImage', '',
+                       'XiaolanSkillSlotsDict', '',
+                   ],
                    'STT': {
                        'service': 'baidu', #STT服务选择 baidu ifly
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
