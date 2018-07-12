@@ -91,6 +91,31 @@ class DateBase(object):
                 print "Info: DatebaseReplaceComplete"
                 self.log.addLog("Info: DatebaseReplaceComplete", "info")
 
+    def DeleteDate(self, key, db):
+
+        turn = 0
+        while 0 == 0:
+            if db == self.dburl[turn]:
+                url = self.dburl[turn + 1]
+            else:
+                try:
+                    test = self.dburl[turn + 2]
+                except IndexError:
+                    break
+                else:
+                    turn = turn + 2
+        else:
+            pass
+        try:
+            dbc = memcache.Client([url + ':11211'], debug=True)
+        except:
+            print "Error: datebaseCE"
+            self.log.addLog("Error: BatebaseCanNotConnect", "error")
+        else:
+            dbc.delete(key)
+
+
+
 
 
 
