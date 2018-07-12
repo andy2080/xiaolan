@@ -74,7 +74,16 @@ class dialogue(object):
 
         d = dialogue()
         speaker.ding()
-        self.r.record()
+        if recordtype == 'ex':
+            self.r.exrecord()
+        elif recordtype == 'ts':
+            self.r.tsrecord()
+        elif recordtype == 's':
+            self.r.srecord()
+        elif recordtype == 'ss':
+            self.r.ssrecord()
+        else:
+            self.r.record()
         speaker.dong()
         text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
         text = d.replacenumber(text)
@@ -90,15 +99,15 @@ class dialogue(object):
         speaker.speak()
         speaker.ding()
         if recordtype == 'ex':
-            r.exrecord()
+            self.r.exrecord()
         elif recordtype == 'ts':
-            r.tsrecord()
+            self.r.tsrecord()
         elif recordtype == 's':
-            r.srecord()
+            self.r.srecord()
         elif recordtype == 'ss':
-            r.ssrecord()
+            self.r.ssrecord()
         else:
-            r.record()
+            self.r.record()
         speaker.dong()
         text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
         text = d.replacenumber(text)
@@ -129,19 +138,6 @@ class dialogue(object):
         else:
             self.tts.tts(text, self.tok)
 
-    def WaitAnswer(self, recordtype):
-        
-        if recordtype == 'ex':
-            r.exrecord()
-        elif recordtype == 'ts':
-            r.tsrecord()
-        elif recordtype == 's':
-            r.srecord()
-        elif recordtype == 'ss':
-            r.ssrecord()
-        else:
-            r.record()
-        return replacenumber(self.stt('./voice.wav', self.tok))
             
             
             

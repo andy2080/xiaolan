@@ -106,7 +106,7 @@ class CommandsDo(object):
             pass
         # WaitAnswer
         if respones['ClientShouldDo']['Skill']['ShouldEndConversation'] == 'Ture':
-            text = self.d.WaitAnswer(respones['ClientShouldDo']['Skill']['RecordType'])
+            text = self.d.waitAnswer(respones['ClientShouldDo']['Skill']['RecordType'])
         else:
             pass
             
