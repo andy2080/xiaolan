@@ -17,15 +17,18 @@ from stt import ifly_stt
 from tts import youdao_tts
 sys.path.append('/home/pi/xiaolan/')
 from auditory_center.recorder import recorder
+from memory_center.Log import Log
 sys.path.append('/home/pi/xiaolan/memory_center')
 import intentlist
 
 class Nlu(object):
         def __init__(self):
+
                 self.intentlist = intentlist.intentlistturn()
                 self.turn = 0
+                self.Log = Log()
         
-        def get_slots(slotslist, text):
+        def get_slots(self, slotslist, text):
             
             returndict = {}
             a = 1
@@ -46,6 +49,7 @@ class Nlu(object):
                             b = b + 1
             else:
                 print('slots read error')
+                self.log.addLog("Slots Read Error", "error")
                 return returndict
             return returndict
                     

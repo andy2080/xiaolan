@@ -61,12 +61,12 @@ class dialogue(object):
         小蓝对话处理
         :return:
         """
-        d = dialogue()
+
         speaker.ding()
         self.r.record()
         speaker.dong()
         text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
-        text = d.replacenumber(text)
+        text = self.replacenumber(text)
         if text == None or text == '':
             speaker.speacilrecorder()
         else:
@@ -84,7 +84,7 @@ class dialogue(object):
         :param recordtype: 录制类型
         :return:
         """
-        d = dialogue()
+
         speaker.ding()
         if recordtype == 'ex':
             self.r.exrecord()
@@ -98,13 +98,13 @@ class dialogue(object):
             self.r.record()
         speaker.dong()
         text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
-        text = d.replacenumber(text)
+        text = self.replacenumber(text)
         if text == None or text == '':
             speaker.speacilrecorder()
         else:
             return text
 
-    def AskSlots(self, slotname, slotdicts, recordtype):
+    def AskSlots(self, slotname, slotdicts, slotask, recordtype):
 
         """
         询问槽位信息处理
@@ -113,37 +113,33 @@ class dialogue(object):
         :param recordtype: 录制类型
         :return:
         """
-        d = dialogue()
-        self.tts(slotdicts[slotname][1], self.tok)
-        speaker.speak()
-        speaker.ding()
-        if recordtype == 'ex':
-            self.r.exrecord()
-        elif recordtype == 'ts':
-            self.r.tsrecord()
-        elif recordtype == 's':
-            self.r.srecord()
-        elif recordtype == 'ss':
-            self.r.ssrecord()
-        else:
-            self.r.record()
-        speaker.dong()
-        text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
-        text = d.replacenumber(text)
-        slotlist = []
         a = 0
-        while self.b == 0:
-            slotlist.append(slotname[a])
-            slotlist.append(slotdicts[a])
-            if len(slotdicts) == a:
-                break
-            else:
+        slotturn = {}
+        while 1 == 1:
+            if a < len(slotname) + 1:
+                self.tts.tts(slotask[a], self.tok)
+                speaker.speak()
+                if recordtype[a] == 'normal':
+                    self.r.record()
+                elif recordtype[a] == 's':
+                    self.r.srecord()
+                elif recordtype[a] == 'ss':
+                    self.r.ssrecord()
+                elif recordtype[a] == 'ex':
+                    self.r.exrecord()
+                elif recordtype[a] == 'ts':
+                    self.r.tsrecord()
+                else:
+                    self.r.record()
+                text = self.stt.stt("./voice.wav", self.tok)
+                text = self.replacenumber(text)
+                slotturn[slotname[a]] = self.xlnlu.get_slots([slotname[a], slotdicts[a]], text)
                 a = a + 1
-            
-        return {
-            'slots': self.xlnlu.get_slots(slotlist, text),
-            'text': text
-            }
+            else:
+                break
+        return slotturn
+
+
 
     def tts_text(text, service):
 

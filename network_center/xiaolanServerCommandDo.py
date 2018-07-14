@@ -107,8 +107,8 @@ class CommandsDo(object):
         else:
             pass
         # AskSlots
-        if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != '':
-            slotsturn = self.f.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotDict'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
+        if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != {}:
+            slotsturn = self.f.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
             self.xscd.SkillAskSlotsRes(slotsturn['slots'], slotsturn['text'])
         else:
             pass
