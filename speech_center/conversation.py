@@ -55,8 +55,12 @@ class dialogue(object):
             return text
         
     
-    def conversationa(self):
+    def conversation(self):
 
+        """
+        小蓝对话处理
+        :return:
+        """
         d = dialogue()
         speaker.ding()
         self.r.record()
@@ -67,11 +71,19 @@ class dialogue(object):
             speaker.speacilrecorder()
         else:
             intentdict = self.xlnlu.xl_intent(text)
-            cts = ClientToServer()
-            cts.ClientReq(intentdict['intent'], intentdict['slots'], intentdict)
+            if intentdict['intent'] == None or intentdict['intent'] == '':
+                intentdict['skill'] = 'tuling'
+            else:
+                cts = ClientToServer()
+                cts.ClientReq(intentdict['intent'], intentdict['slots'], intentdict)
 
-    def waitAnswer(self, stttype, recordtype):
+    def waitAnswer(self, recordtype):
 
+        """
+        等待答案处理
+        :param recordtype: 录制类型
+        :return:
+        """
         d = dialogue()
         speaker.ding()
         if recordtype == 'ex':
@@ -93,7 +105,14 @@ class dialogue(object):
             return text
 
     def AskSlots(self, slotname, slotdicts, recordtype):
-        
+
+        """
+        询问槽位信息处理
+        :param slotname: 槽位名称
+        :param slotdicts: 槽位字典
+        :param recordtype: 录制类型
+        :return:
+        """
         d = dialogue()
         self.tts(slotdicts[slotname][1], self.tok)
         speaker.speak()
@@ -126,8 +145,13 @@ class dialogue(object):
             'text': text
             }
 
-    def tts_text(text, service, more):
+    def tts_text(text, service):
 
+        """
+        TTS服务
+        :param service: 服务选择
+        :return:
+        """
         if service == 'baidu':
             tts = baidu_tts()
             tts.tts(text, self.token)

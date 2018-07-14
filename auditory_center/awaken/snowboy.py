@@ -18,7 +18,7 @@ def a():
         sys.exit(-1)
     except SystemExit:
         d = dialogue()
-        d.conversationa()
+        d.conversation()
 
 awaken()
     
