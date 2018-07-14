@@ -47,6 +47,6 @@ def welcome():
         elif setting.setting()['main_setting']['awaken'] == 'face':
             face.awaken()
         elif setting.setting()['main_setting']['awaken'] == 'all':
-            passs
+            pass
 
 welcome()

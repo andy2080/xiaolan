@@ -75,7 +75,7 @@ class ClientToServer(object):
         data = {
             'ClientEvent': {
                 'Header': {
-                    'NameSpace': intent,
+                    'NameSpace': 'xiaolan.client.requests.to.xiaolan.brain.skill',
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],

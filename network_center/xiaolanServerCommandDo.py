@@ -39,7 +39,7 @@ class CommandsDo(object):
             data = {
                         'ClientEvent': {
                             'Header': {
-                                'NameSpace': 'ClientLog',
+                                'NameSpace': 'xiaolan.client.send.ClientLog',
                                 'TimeStamp': int(time.time),
                                 'RequestsId': '8476',
                                 'RequestsFrom': setting.setting()['main_setting']['ClientType'],
@@ -82,17 +82,25 @@ class CommandsDo(object):
         if Type == 'TextDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
             Text = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Text']
+            BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
             Remind = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
         elif Type == 'ImageDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
             ImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['ImageUrl']
+            BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
             RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
         elif Type == 'VideoDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
             VideoUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['VideoUrl']
+            BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
             RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
         elif Type == 'MusicDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
+            MusicUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['MusicUrl']
+            BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
+            RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
+        else:
+            pass
         # OutputSpeech
         if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
             self.tts.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'], self.token)
