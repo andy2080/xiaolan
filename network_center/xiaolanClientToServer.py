@@ -18,32 +18,26 @@ class ClientToServer(object):
 
         self.url = setting.setting()['main_setting']['url']
     
-    def ClientDiyReq(self, data):
-        
-        r = requests.post(self.url,
-                          data=data)
-        return r.json()
-    
     def DiyReq(self, data):
         
         r = requests.post(self.url,
                           data=data)
         return r.json()
     
-    def SkillAskSlotsRes(self, slotturn):
+    def SkillAskSlotsRes(self, slotturn, skill):
         
         data = {
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.respones.skill.askslots',
-                    'TimeStamp': int(time.time()),
+                    'TimeStamp': time.time(),
                     'RequestsId': '7636',
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
                     'ClientId': setting.setting()['main_setting']['ClientId']
                 },
                 'ConversationInfo': {
                     'ConversationId': None,
-                    'ShouldHandlerSkill': None,
+                    'ShouldHandlerSkill': skill,
                     'SkillShouldHandler': None,
                     'SkillAwakenKeyword': None,
                     'SendToSkillInfo': {
@@ -69,13 +63,13 @@ class ClientToServer(object):
             }
         }
     
-    def ClientReq(self, intent, slots, intentdict):
+    def ClientSkillReq(self, intent, slots, intentdict):
 
         sk = skills()
         data = {
             'ClientEvent': {
                 'Header': {
-                    'NameSpace': 'xiaolan.client.requests.to.xiaolan.brain.skill',
+                    'NameSpace': 'xiaolan.client.requests.user.skill.need',
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
@@ -112,46 +106,4 @@ class ClientToServer(object):
                           data=json.dumps(data))
         sk.command(r.json())
     
-    def ClientTrySkillLive(self, skillname):
-        
-        data = {
-            'ClientEvent': {
-                'Header': {
-                    'NameSpace': 'xiaolan.client.skill.tryalive',
-                    'ServerShouldHandler': 'tryskillalive',
-                    'TimeStamp': int(time.time()),
-                    'RequestsId': time.time(),
-                    'RequestsFrom': setting.setting()['main_setting']['clienttype'],
-                    'ClientId': setting.setting()['main_setting']['clientid']
-                },
-                'ConversationInfo': {
-                    'ConversationId': None,
-                    'ShouldHandlerSkill': skillname,
-                    'SkillShouldHandler': None,
-                    'SkillAwakenKeyword': None,
-                    'SendToSkillInfo': {
-                        'Intent': None,
-                        'Text': None,
-                        'Slots': None
-                    }
-                }
-            },
-            'Debug': {
-                'TimeStamp': str(int(time.time())),
-                'ClientId': setting.setting()['main_setting']['clientid'],
-                'States': {
-                    'ClientStates': ['serviceing'],
-                    'NluStates': ['emptyling'],
-                    'SttStates': ['emptying'],
-                    'TtsStates': ['emptying']
-                },
-                'Commands': {
-                    'ClientCommands': ['service for user'],
-                    'elseCommands': []
-                }
-            }
-        }
-        r = requests.post(self.url,
-                          data=json.dumps(data))
-        json = r.json()
-        return json['state']
+

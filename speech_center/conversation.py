@@ -65,7 +65,7 @@ class dialogue(object):
         speaker.ding()
         self.r.record()
         speaker.dong()
-        text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
+        text = self.stt.stt("./voice.wav", self.tok).replace('，', '').replace('。', '')
         text = self.replacenumber(text)
         if text == None or text == '':
             speaker.speacilrecorder()
@@ -75,7 +75,7 @@ class dialogue(object):
                 intentdict['skill'] = 'tuling'
             else:
                 cts = ClientToServer()
-                cts.ClientReq(intentdict['intent'], intentdict['slots'], intentdict)
+                cts.ClientSkillReq(intentdict['intent'], intentdict['slots'], intentdict)
 
     def waitAnswer(self, recordtype):
 
