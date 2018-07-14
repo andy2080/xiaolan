@@ -30,12 +30,12 @@ class ClientToServer(object):
                           data=data)
         return r.json()
     
-    def ClientSkillAskSlotsRes(self, slots, text):
+    def SkillAskSlotsRes(self, slotturn):
         
         data = {
             'ClientEvent': {
                 'Header': {
-                    'NameSpace': None,
+                    'NameSpace': 'xiaolan.client.respones.skill.askslots',
                     'TimeStamp': int(time.time()),
                     'RequestsId': '7636',
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
@@ -48,8 +48,8 @@ class ClientToServer(object):
                     'SkillAwakenKeyword': None,
                     'SendToSkillInfo': {
                         'Intent': None,
-                        'Text': text,
-                        'Slots': slots
+                        'Text': None,
+                        'Slots': slotturn
                     }
                 }
             },
