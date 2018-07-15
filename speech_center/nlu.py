@@ -41,7 +41,8 @@ class Nlu(object):
                         break
                     else:
                         if var['dict'][b] in text or var['same_means'][b] in text:
-                                returndict[slotslist[a - 1]] = var['dict'][b]
+                                returndict['slotname'] = slotslist[a - 1]
+                                returndict['value'] = var['dict'][b]
                         if len(var['dict']) == b:
                             a = a + 2
                             b = 0

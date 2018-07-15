@@ -7,12 +7,13 @@ import base64
 import hashlib
 import requests
 import time
-# from xiaolanClientToServer import ClientToServer
+from xiaolanClientToServer import ClientToServer
 sys.path.append('/home/pi/xiaolan/')
 from memory_center.Log import Log
 import setting
 # from memory_center.log import Log
 # from memory_center.commandlist import clist
+from speech_center.conversation import dialogue
 from speech_center.tts import baidu_tts
 from speech_center.tts import youdao_tts
 
@@ -20,7 +21,8 @@ class CommandsDo(object):
   
     def _init__(self):
         self.url = ''
-        self.xscd = CommandsDo()
+        self.d = dialogue()
+        self.xcts = ClientToServer()
         self.l = Log()
         if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
             self.tts = baidu_tts()
@@ -28,6 +30,7 @@ class CommandsDo(object):
         elif setting.setting()['main_setting']['TTS']['service'] == 'youdao':
             self.tts = youdao_tts()
             self.token = setting.setting()['main_setting']['TTS']['youdao']['lang']
+
     def Do(self, respones):
         syscommands = respones['ClientShouldDo']['System']['commands']
         # SystemCommands
@@ -108,8 +111,8 @@ class CommandsDo(object):
             pass
         # AskSlots
         if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != {}:
-            slotsturn = self.f.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
-            self.xscd.SkillAskSlotsRes(slotsturn, respones['ClientShouldDo']['Skill']['SkillName'])
+            slotsturn = self.d.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
+            self.xcts.SkillAskSlotsRes(slotsturn, respones['ClientShouldDo']['Skill']['SkillName'])
         else:
             pass
         # WaitAnswer

@@ -114,7 +114,7 @@ class dialogue(object):
         :return:
         """
         a = 0
-        slotturn = {}
+        slotturn = []
         while 1 == 1:
             if a < len(slotname) + 1:
                 self.tts.tts(slotask[a], self.tok)
@@ -133,7 +133,7 @@ class dialogue(object):
                     self.r.record()
                 text = self.stt.stt("./voice.wav", self.tok)
                 text = self.replacenumber(text)
-                slotturn[slotname[a]] = self.xlnlu.get_slots([slotname[a], slotdicts[a]], text)
+                slotturn.append(self.xlnlu.get_slots([slotname[a], slotdicts[a]], text))
                 a = a + 1
             else:
                 break
