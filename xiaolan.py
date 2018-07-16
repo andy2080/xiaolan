@@ -9,16 +9,21 @@ from speech_center.stt import baidu_stt
 from speech_center.stt import ifly_stt
 from speech_center.tts import baidu_tts
 from speech_center.tts import youdao_tts
-sys.path.append('/home/pi/xiaolan/speech_center')
-import speaker
-sys.path.append('/home/pi/xiaolan/speech_center')
-import face
+from Base import xiaolanBase
+import speech_center.speaker as speaker
+import visual_centre.face as face
 
-def awaken():
+class Xiaolan(xiaolanBase):
+
+    def __init__(self):
+
+        super(Xiaolan, self).__init__()
+
+    def awaken(self):
     
-    os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
+        os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
 
-def welcome():
+    def welcome(self):
     
         print ('''
 
@@ -30,23 +35,15 @@ def welcome():
         ###################################
 
         ''')
-        if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
-            stt = baidu_tts(1, 2, 3, 4)
-            tok = tts.get_token()
-        elif setting.setting()['main_setting']['TTS']['service'] == 'youdao':
-            tts = youdao_tts()
-            tok = setting.setting()['main_setting']['TTS']['youdao_tts']['lang']
-        
-        bt = baidu_tts()
-        tok = bt.get_token()
-        bt.tts(setting.setting()['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)
+
+        self.tts.tts(setting.setting()['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)
         speaker.speak()
         os.system('pulseaudio --start')
-        if setting.setting()['main_setting']['awaken'] == 'hotword':
-            os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
-        elif setting.setting()['main_setting']['awaken'] == 'face':
+        if self.set['main_setting']['awaken'] == 'hotword':
+            self.awaken()
+        elif self.set['main_setting']['awaken'] == 'face':
             face.awaken()
-        elif setting.setting()['main_setting']['awaken'] == 'all':
+        elif self.set['main_setting']['awaken'] == 'all':
             pass
 
 welcome()
