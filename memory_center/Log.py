@@ -17,7 +17,7 @@ class Log(object):
     def Get(self, mode):
 
         if mode == 'all':
-            xiaolanlog = open("xiaolan.log", "r")
+            xiaolanlog = open("./more/xiaolan.log", "r")
             log = xiaolanlog.read()
             return log
         else:
@@ -28,7 +28,7 @@ class Log(object):
         logger = logging.getLogger()
         logger.setLevel(logging.DEBUG)
         rq = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
-        log_path = os.path.dirname(os.getcwd()) + '/home/pi/xiaolan/memory_center/'
+        log_path = os.path.dirname(os.getcwd()) + '/home/pi/xiaolan/memory_center/more/'
         log_name = log_path + 'xiaolan' + '.log'
         logfile = log_name
         fh = logging.FileHandler(logfile, mode='w')

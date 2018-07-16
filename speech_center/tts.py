@@ -21,6 +21,7 @@ import setting
 from Base import xiaolanBase
 
 class baidu_tts(xiaolanBase):
+
     def __init__(self):
         
         super(baidu_tts, self).__init__()
@@ -46,7 +47,7 @@ class baidu_tts(xiaolanBase):
           
         
     def tts(self, saytext, token):
-        bt = baidu_tts()
+
         data = {'tex': saytext,
                  'lan': 'zh',
                  'tok': token,
@@ -63,21 +64,19 @@ class baidu_tts(xiaolanBase):
                 r.raw.decode_content = True  
                 shutil.copyfileobj(r.raw, f)
         else:
-            bt.tts('对不起，我的语言中枢出错了，我不能跟你说话了', tok)
+            self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', tok)
             speaker.speak()
 
-class youdao_tts(object):
+class youdao_tts(xiaolanBase):
     
     def __init__(self):
         
-        pass
+        super(youdao_tts, self).__init__()
     
     def tts(self, saytext, lang):
-        
-        y = youdao_tts()
-        selfset = setting.setting()
-        appSecret = selfset['main_setting']['TTS']['youdao']['appkey']
-        appKey = selfset['main_setting']['TTS']['youdao']['appid']
+
+        appSecret = self.set['main_setting']['TTS']['youdao']['appkey']
+        appKey = self.set['main_setting']['TTS']['youdao']['appid']
         data = {}
         salt = random.randint(1, 65536)
 
@@ -102,6 +101,6 @@ class youdao_tts(object):
             fo.write(response.content)
             fo.close()
         else:
-            y.tts('对不起，我的语言中枢出错了，我不能跟你说话了', 'zh-CHS')
+            self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', 'zh-CHS')
             speaker.speak()
 

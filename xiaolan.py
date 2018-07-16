@@ -21,7 +21,7 @@ class Xiaolan(xiaolanBase):
 
     def awaken(self):
     
-        os.system('python /home/pi/xiaolan/auditory_center/awaken/snowboy.py')
+        self.snowboy.awaken()
 
     def welcome(self):
     

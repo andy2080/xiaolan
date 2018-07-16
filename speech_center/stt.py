@@ -26,7 +26,7 @@ class baidu_stt(xiaolanBase):
         super(baidu_stt, self).__init__()
 
     def get_token(self): #获取token
-        
+
         AK = self.set['main_setting']['STT']['baidu']['AK']
         SK = self.set['main_setting']['STT']['baidu']['SK']
         url = 'http://openapi.baidu.com/oauth/2.0/token'

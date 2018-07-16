@@ -16,6 +16,7 @@ from speech_center.nlu import Nlu
 from network_center.xiaolanClientToServer import ClientToServer
 from network_center.xiaolanServerCommandDo import CommandsDo
 from auditory_center.recorder import recorder
+from auditory_center.awaken.snowboy import snowboy
 
 
 
@@ -28,6 +29,7 @@ class xiaolanBase(object):
         self.Datebase = DateBase()
         self.dialogue = dialogue()
         self.recorder = recorder()
+        self.snowboy = snowboy()
         self.Nlu = Nlu()
         self.ClientToServer = ClientToServer()
         self.CommandsDo = CommandsDo()
