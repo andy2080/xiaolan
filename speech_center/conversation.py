@@ -92,7 +92,11 @@ class dialogue(xiaolanBase):
         if text == None or text == '':
             speaker.speacilrecorder()
         else:
-            return text
+            intentdict = self.xlnlu.xl_intent(text)
+            if intentdict['intent'] == None or intentdict['intent'] == '':
+                intentdict['skill'] = 'tuling'
+            else:
+                self.ClientToServer.ClientSkillResWaitAnswer(intentdict['intent'], intentdict['slots'], intentdict)
 
     def AskSlots(self, slotname, slotdicts, slotask, recordtype):
 
