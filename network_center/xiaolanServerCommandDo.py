@@ -23,7 +23,7 @@ class CommandsDo(object):
         self.url = ''
         self.d = dialogue()
         self.xcts = ClientToServer()
-        self.l = Log()
+        self.log = Log()
         if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
             self.tts = baidu_tts()
             self.token = self.tts.get_token()
@@ -61,7 +61,7 @@ class CommandsDo(object):
                                       }
                                 }
                             },
-                            'ClientLog': self.l.Get()
+                            'ClientLog': self.log.Get("all")
                         },
                         'Debug': {
                             'TimeStamp': str(time.time()),

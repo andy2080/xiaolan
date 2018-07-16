@@ -14,8 +14,12 @@ class Log(object):
 
     def __init__(self):
         pass
-    def Get(self):
-        pass
+    def Get(self, mode):
+
+        xiaolanlog = open("xiaolan.log", "r")
+        log = xiaolanlog.read()
+        return log
+
     def addLog(self, log, level):
 
         logger = logging.getLogger()
