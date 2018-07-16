@@ -8,14 +8,15 @@ import requests
 import hashlib
 import base64
 import time
-from xiaolanServerCommandDo import CommandsDo
 sys.path.append('/home/pi/xiaolan/')
 import setting
+from Base import xiaolanBase
 
-class ClientToServer(object):
+class ClientToServer(xiaolanBase):
 
     def __init__(self):
 
+        super(ClientToServer, self).__init__()
         self.url = setting.setting()['main_setting']['url']
     
     def DiyReq(self, data):
@@ -65,7 +66,6 @@ class ClientToServer(object):
     
     def ClientSkillReq(self, intent, slots, intentdict):
 
-        sk = skills()
         data = {
             'ClientEvent': {
                 'Header': {
@@ -104,6 +104,6 @@ class ClientToServer(object):
         }
         r = requests.post(self.url,
                           data=json.dumps(data))
-        sk.command(r.json())
+        self.CommandsDo.Do(r.json())
     
 

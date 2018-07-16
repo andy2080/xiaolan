@@ -7,29 +7,16 @@ import base64
 import hashlib
 import requests
 import time
-from xiaolanClientToServer import ClientToServer
 sys.path.append('/home/pi/xiaolan/')
 from memory_center.Log import Log
 import setting
-# from memory_center.log import Log
-# from memory_center.commandlist import clist
-from speech_center.conversation import dialogue
-from speech_center.tts import baidu_tts
-from speech_center.tts import youdao_tts
+from Base import xiaolanBase
 
-class CommandsDo(object):
+class CommandsDo(xiaolanBase):
   
     def _init__(self):
-        self.url = ''
-        self.d = dialogue()
-        self.xcts = ClientToServer()
-        self.log = Log()
-        if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
-            self.tts = baidu_tts()
-            self.token = self.tts.get_token()
-        elif setting.setting()['main_setting']['TTS']['service'] == 'youdao':
-            self.tts = youdao_tts()
-            self.token = setting.setting()['main_setting']['TTS']['youdao']['lang']
+
+        super(CommandsDo, self)._init__()
 
     def Do(self, respones):
         syscommands = respones['ClientShouldDo']['System']['commands']
@@ -39,6 +26,7 @@ class CommandsDo(object):
         elif syscommands == 'Reboot':
             os.system('sudo reboot')
         elif syscommands == 'SendLog':
+            """
             data = {
                         'ClientEvent': {
                             'Header': {
@@ -80,6 +68,9 @@ class CommandsDo(object):
             }
             r = requests.post(self.url,
                               data=data)
+            """
+            log = self.Log.Get("all")
+            self.ClientToServer.SendLogToServer(log)
         # ScreeDisplay
         Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
         if Type == 'TextDisplay':
@@ -106,18 +97,18 @@ class CommandsDo(object):
             pass
         # OutputSpeech
         if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
-            self.tts.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'], self.token)
+            self.tts.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'], self.tok)
         else:
             pass
         # AskSlots
         if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != {}:
-            slotsturn = self.d.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
-            self.xcts.SkillAskSlotsRes(slotsturn, respones['ClientShouldDo']['Skill']['SkillName'])
+            slotsturn = self.dialogue.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
+            self.ClientToServer.SkillAskSlotsRes(slotsturn, respones['ClientShouldDo']['Skill']['SkillName'])
         else:
             pass
         # WaitAnswer
         if respones['ClientShouldDo']['Skill']['ShouldEndConversation'] == 'Ture':
-            text = self.d.waitAnswer(respones['ClientShouldDo']['Skill']['RecordType'])
+            text = self.dialogue.waitAnswer(respones['ClientShouldDo']['Skill']['RecordType'])
         else:
             pass
             

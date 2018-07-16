@@ -11,31 +11,22 @@ from stt import baidu_stt
 from stt import ifly_stt
 from nlu import Nlu
 sys.path.append('/home/pi/xiaolan/')
-from auditory_center.recorder import recorder
-from network_center.xiaolanClientToServer import ClientToServer
-import setting
+from Base import xiaolanBase
 
 
-class dialogue(object):
+class dialogue(xiaolanBase):
+
     def __init__(self):
-        bt = baidu_tts()
-        if setting.setting()['main_setting']['STT']['service'] == 'baidu':
-            self.stt = baidu_stt(1, 2, 3, 4)
-            self.tok = self.stt.get_token()
-        elif setting.setting()['main_setting']['STT']['service'] == 'ifly':
-            self.stt = ifly_stt()
-            self.tok = 1
-        if setting.setting()['main_setting']['TTS']['service'] == 'baidu':
-            self.tts = baidu_tts()
-            self.tok = self.tts.get_token()
-        elif setting.setting()['main_setting']['TTS']['service'] == 'youdao':
-            self.tts = youdao_tts()
-            self.tok = setting.setting()['main_setting']['TTS']['youdao_tts']['lang']
-        self.xlnlu = Nlu()
-        self.r = recoder()
-        self.b = 0
+
+        super(dialogue, self).__init__()
         
     def replacenumber(self, text):
+
+        """
+        大写数字转为小写数字
+        :param text: 文本
+        :return:
+        """
         try:
             text.replace('零', 0)
             text.replace('一', 1)
@@ -63,7 +54,7 @@ class dialogue(object):
         """
 
         speaker.ding()
-        self.r.record()
+        self.recorder.record()
         speaker.dong()
         text = self.stt.stt("./voice.wav", self.tok).replace('，', '').replace('。', '')
         text = self.replacenumber(text)
@@ -74,8 +65,7 @@ class dialogue(object):
             if intentdict['intent'] == None or intentdict['intent'] == '':
                 intentdict['skill'] = 'tuling'
             else:
-                cts = ClientToServer()
-                cts.ClientSkillReq(intentdict['intent'], intentdict['slots'], intentdict)
+                self.ClientToServer.ClientSkillReq(intentdict['intent'], intentdict['slots'], intentdict)
 
     def waitAnswer(self, recordtype):
 
@@ -87,15 +77,15 @@ class dialogue(object):
 
         speaker.ding()
         if recordtype == 'ex':
-            self.r.exrecord()
+            self.recorder.exrecord()
         elif recordtype == 'ts':
-            self.r.tsrecord()
+            self.recorder.tsrecord()
         elif recordtype == 's':
-            self.r.srecord()
+            self.recorder.srecord()
         elif recordtype == 'ss':
-            self.r.ssrecord()
+            self.recorder.ssrecord()
         else:
-            self.r.record()
+            self.recorder.record()
         speaker.dong()
         text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
         text = self.replacenumber(text)
@@ -120,20 +110,20 @@ class dialogue(object):
                 self.tts.tts(slotask[a], self.tok)
                 speaker.speak()
                 if recordtype[a] == 'normal':
-                    self.r.record()
+                    self.recorder.record()
                 elif recordtype[a] == 's':
-                    self.r.srecord()
+                    self.recorder.srecord()
                 elif recordtype[a] == 'ss':
-                    self.r.ssrecord()
+                    self.recorder.ssrecord()
                 elif recordtype[a] == 'ex':
-                    self.r.exrecord()
+                    self.recorder.exrecord()
                 elif recordtype[a] == 'ts':
-                    self.r.tsrecord()
+                    self.recorder.tsrecord()
                 else:
-                    self.r.record()
+                    self.recorder.record()
                 text = self.stt.stt("./voice.wav", self.tok)
                 text = self.replacenumber(text)
-                slotturn.append(self.xlnlu.get_slots([slotname[a], slotdicts[a]], text))
+                slotturn.append(self.Nlu.get_slots([slotname[a], slotdicts[a]], text))
                 a = a + 1
             else:
                 break
@@ -156,7 +146,7 @@ class dialogue(object):
             tts = youdao_tts()
             tts.tts(text, more)
         else:
-            self.tts.tts(text, self.tok)
+            tts.tts(text, self.tok)
 
             
             

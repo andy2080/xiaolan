@@ -14,20 +14,21 @@ import urllib
 import urllib2
 sys.path.append('/home/pi/xiaolan/')
 import setting
+from Base import xiaolanBase
 
 
 domian = 'a'
 
-class baidu_stt(object):
+class baidu_stt(xiaolanBase):
+
     def __init__(self):
 
-        pass
+        super(baidu_stt, self).__init__()
 
     def get_token(self): #获取token
         
-        selfset = setting.setting()
-        AK = selfset['main_setting']['STT']['baidu']['AK']
-        SK = selfset['main_setting']['STT']['baidu']['SK']
+        AK = self.set['main_setting']['STT']['baidu']['AK']
+        SK = self.set['main_setting']['STT']['baidu']['SK']
         url = 'http://openapi.baidu.com/oauth/2.0/token'
         params = urllib.urlencode({'grant_type': 'client_credentials',
                                    'client_id': AK,
@@ -95,10 +96,14 @@ class baidu_stt(object):
                 transcribed.append(text.upper())
             print (json)
 
-class ifly_stt(object):
+class ifly_stt(xiaolanBase):
+
     def __init__(self):
-        pass
+
+        super(ifly_stt, self).__init__()
+
     def stt(self, fn, tok):
+
         f = open(fn, 'rb')
         file_content = f.read()
         base64_audio = base64.b64encode(file_content)

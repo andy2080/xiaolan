@@ -27,13 +27,12 @@ class Xiaolan(xiaolanBase):
     
         print ('''
 
-        ###################################
-        #     小蓝--中文智能家居对话机器人     #
-        #   (c)蓝之酱--1481605673@qq.com   #
-        # www.github.com/xiaoland/xiaolan #
-        #         欢迎使用!!!  :)           #
-        ###################################
-
+        #############################################
+        #       小蓝——语音交互式智能家居机器人        #  
+        #  https://www.github.com/xiaoland/xiaolan  #
+        #    （c）袁翊闳——1481605673@qq.com         #
+        #############################################
+        
         ''')
 
         self.tts.tts(setting.setting()['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)

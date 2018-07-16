@@ -22,6 +22,7 @@ sys.path.append('/home/pi/xiaolan/memory_center')
 import intentlist
 
 class Nlu(object):
+
         def __init__(self):
 
                 self.intentlist = intentlist.intentlistturn()

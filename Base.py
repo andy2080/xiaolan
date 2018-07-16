@@ -12,6 +12,7 @@ from speech_center.stt import ifly_stt
 from speech_center.tts import baidu_tts
 from speech_center.tts import youdao_tts
 from speech_center.conversation import dialogue
+from speech_center.nlu import Nlu
 from network_center.xiaolanClientToServer import ClientToServer
 from network_center.xiaolanServerCommandDo import CommandsDo
 from auditory_center.recorder import recorder
@@ -27,6 +28,7 @@ class xiaolanBase(object):
         self.Datebase = DateBase()
         self.dialogue = dialogue()
         self.recorder = recorder()
+        self.Nlu = Nlu()
         self.ClientToServer = ClientToServer()
         self.CommandsDo = CommandsDo()
         if self.set['main_setting']['TTS']['service'] == 'baidu':

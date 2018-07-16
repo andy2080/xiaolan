@@ -18,18 +18,17 @@ import tempfile
 from urllib import quote
 sys.path.append('/home/pi/xiaolan/')
 import setting
+from Base import xiaolanBase
 
-
-class baidu_tts(object):
+class baidu_tts(xiaolanBase):
     def __init__(self):
         
-        pass
+        super(baidu_tts, self).__init__()
         
     def get_token(self):
-        
-        selfset = setting.setting()
-        AK = selfset['main_setting']['TTS']['baidu']['AK']
-        SK = selfset['main_setting']['TTS']['baidu']['SK']
+
+        AK = self.set['main_setting']['TTS']['baidu']['AK']
+        SK = self.set['main_setting']['TTS']['baidu']['SK']
         URL = 'http://openapi.baidu.com/oauth/2.0/token'
         
         params = urllib.urlencode({'grant_type': 'client_credentials',
