@@ -19,11 +19,9 @@ import setting
 domian = 'a'
 
 class baidu_stt(object):
-    def __init__(self, text, token, domain, transcribed):
-        self.text = text
-        self.domian = json
-        self.token = token
-        self.transcribed = transcribed
+    def __init__(self):
+
+        pass
 
     def get_token(self): #获取token
         
@@ -57,8 +55,6 @@ class baidu_stt(object):
         frame_rate = wav_file.getframerate()
         audio = wav_file.readframes(n_frames)
         base_data = base64.b64encode(audio)
-        if self.token == '':
-            self.token = self.get_token()
         dataf = {"format": "wav",
                 "token": token,
                 "len": len(audio),
