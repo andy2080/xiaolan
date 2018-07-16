@@ -16,9 +16,12 @@ class Log(object):
         pass
     def Get(self, mode):
 
-        xiaolanlog = open("xiaolan.log", "r")
-        log = xiaolanlog.read()
-        return log
+        if mode == 'all':
+            xiaolanlog = open("xiaolan.log", "r")
+            log = xiaolanlog.read()
+            return log
+        else:
+            pass
 
     def addLog(self, log, level):
 
