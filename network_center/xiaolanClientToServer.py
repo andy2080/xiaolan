@@ -105,5 +105,7 @@ class ClientToServer(xiaolanBase):
         r = requests.post(self.url,
                           data=json.dumps(data))
         self.CommandsDo.Do(r.json())
+
+    def ClientSkillResWaitAnswer(self, intent, slots, intentdict):
     
 
