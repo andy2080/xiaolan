@@ -45,4 +45,5 @@ class Xiaolan(xiaolanBase):
         elif self.set['main_setting']['awaken'] == 'all':
             pass
 
-welcome()
+x = Xiaolan()
+x.welcome()
