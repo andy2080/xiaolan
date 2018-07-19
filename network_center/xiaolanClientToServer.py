@@ -119,7 +119,7 @@ class ClientToServer(xiaolanBase):
                     'ConversationId': '456564889456',
                     'ShouldHandlerSkill': intentdict['Skill'],
                     'SkillShouldHandler': intent,
-                    'SkillAwakenKeyword': intentdict['Text'],
+                    'SkillAwakenKeyword': intentdict['KeyWord'],
                     'SendToSkillInfo': {
                         'Intent': intent,
                         'Text': intentdict['Text'],

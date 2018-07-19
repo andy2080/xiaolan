@@ -167,6 +167,7 @@ class Nlu(object):
                                 'Intent': self.intentlist[a][1][b],
                                 'Skill': self.intentlist[a][3],
                                 'Slots': slots,
+                                'KeyWord': self.intentlist[a][2][b][c]
                                 'Commands': [
                                         'skill', 'start'
                                 ],

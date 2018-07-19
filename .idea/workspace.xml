@@ -89,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+            <state relative-caret-position="351">
+              <caret line="121" column="58" selection-start-line="121" selection-start-column="58" selection-end-line="121" selection-end-column="58" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -113,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nlu.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="nlu.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/speech_center/nlu.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-814">
-              <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
+            <state relative-caret-position="426">
+              <caret line="169" column="69" selection-start-line="169" selection-start-column="69" selection-end-line="169" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -157,9 +157,9 @@
         <option value="$PROJECT_DIR$/xiaolan.py" />
         <option value="$PROJECT_DIR$/speech_center/nlp.py" />
         <option value="$PROJECT_DIR$/setting.py" />
-        <option value="$PROJECT_DIR$/speech_center/nlu.py" />
         <option value="$PROJECT_DIR$/speech_center/conversation.py" />
         <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
+        <option value="$PROJECT_DIR$/speech_center/nlu.py" />
       </list>
     </option>
   </component>
@@ -705,10 +705,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/nlu.py">
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-814">
-          <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
+        <state relative-caret-position="351">
+          <caret line="121" column="58" selection-start-line="121" selection-start-column="58" selection-end-line="121" selection-end-column="58" />
+          <folding>
+            <element signature="e#25#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -722,13 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/nlu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="426">
+          <caret line="169" column="69" selection-start-line="169" selection-start-column="69" selection-end-line="169" selection-end-column="69" />
         </state>
       </provider>
     </entry>
