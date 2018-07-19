@@ -67,12 +67,13 @@ class Nlu(object):
                         textl = base64.b64encode(text)
                 except TypeError:
                         return {
-                                'intent': None,
-                                'skill': None,
-                                'commands': [
+                                'MainIntent': None,
+                                'Intent': None,
+                                'Skill': None,
+                                'Commands': [
                                         'speaker', 'speacilrecorder'
                                 ],
-                                'states': [
+                                'States': [
                                         'nlu_intent_back_none'
                                 ]
                         }
@@ -93,47 +94,51 @@ class Nlu(object):
                         intent = json['data']['service']
                 except KeyError:
                         return {
-                                'intent': None,
-                                'skill': None,
-                                'commands': [
+                                'MainIntent': None,
+                                'Intent': None,
+                                'Skill': None,
+                                'Commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
-                                'states': [
+                                'States': [
                                         'nlu_intent_back_none'
                                 ]
                         }
                 except TypeError:
                         return {
-                                'intent': None,
-                                'skill': None,
+                                'MainIntent': None,
+                                'Intent': None,
+                                'Skill': None,
                                 'commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
                                 'states': [
-                                        'nlu_intent_back_none'
+                                       'nlu_intent_back_none'
                                 ]
                                         
                         }
                 else:
                         if intent != None or intent != '':
                             return {
-                                    'intent': intent,
-                                    'skill': intent,
-                                    'commands': [
+                                    'MainIntent': intent,
+                                    'Intent': intent,
+                                    'Skill': intent,
+                                    'Commands': [
                                             'skills_requests'
                                     ],
-                                    'states': [
+                                    'States': [
                                         'nlu_intent_back_none'
                                     ]
                             }
                         else:
                             return {
-                                    'intent': None,
-                                    'skill': None,
-                                    'commands': [
+                                    'MainIntent': None,
+                                    'Intent': None,
+                                    'Skill': None,
+                                    'Commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                     ],
-                                    'states': [
+                                    'States': [
                                         'nlu_intent_back_none'
                                     ]
                             }
@@ -158,13 +163,14 @@ class Nlu(object):
                     if var[b][c] in text:
                         slots = xlnlu.get_slots(self.intentlist[a][2], text)
                         data = {
-                                'intent': self.intentlist[a][0][b],
-                                'skill': self.intentlist[a][3],
-                                'slots': slots,
-                                'commands': [
+                                'MainIntent': self.intentlist[a][0],
+                                'Intent': self.intentlist[a][1][b],
+                                'Skill': self.intentlist[a][3],
+                                'Slots': slots,
+                                'Commands': [
                                         'skill', 'start'
                                 ],
-                                'states': [
+                                'States': [
                                         'xiaolan_nlu_intent_back'
                                 ]
                         }
@@ -182,13 +188,13 @@ class Nlu(object):
                             
                 if data == None:
                     return {
-                            'intent': xlnlu.ifly_intent(text),
-                            'skill': xlnlu.ifly_intent(text),
-                            'slots': None,
-                            'commands': [
+                            'Intent': xlnlu.ifly_intent(text),
+                            'Skill': xlnlu.ifly_intent(text),
+                            'Slots': None,
+                            'Commands': [
                                     'skill', 'start'
                             ],
-                            'states': [
+                            'States': [
                                     'ifly_nlu_intent_back'
                             ]
                     }

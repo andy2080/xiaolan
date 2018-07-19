@@ -63,12 +63,11 @@ class dialogue(xiaolanBase):
         else:
             intentdict = self.ClientToServer.XiaolanNluReq(text)
             if intentdict == 'Error:NluReqError' or intentdict == {}:
-                intentdict = self.xlnlu.xl_intent(text)
+                intentdict = self.Nlu.xl_intent(text)
+                if intentdict['Intent'] == None or intentdict['Intent'] == '':
+                    intentdict['Skill'] == 'tuling'
             else:
-            if intentdict['intent'] == None or intentdict['intent'] == '':
-                intentdict['skill'] = 'tuling'
-            else:
-                self.ClientToServer.ClientSkillReq(intentdict['intent'], intentdict['slots'], intentdict)
+                self.ClientToServer.ClientSkillReq(intentdict['Intent'], intentdict['Slots'], intentdict)
 
     def waitAnswer(self, recordtype):
 
