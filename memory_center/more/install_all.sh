@@ -5,6 +5,7 @@ sudo apt-get install python-dev python3-dev python-pyaudio python3-pyaudio sox
 pip install pyaudio sendmail
 pip install requests hyper crypto
 sudo apt-get install libatlas-base-dev
+sudo apt-get install python-opencv
 wget https://github.com/memcached/memcached/archive/1.4.19.tar.gz
 sudo apt-get install libevent-dev
 tar -zxvf memcached-1.4.19.tar.gz

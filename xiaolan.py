@@ -11,7 +11,6 @@ from speech_center.tts import baidu_tts
 from speech_center.tts import youdao_tts
 from Base import xiaolanBase
 import speech_center.speaker as speaker
-import visual_centre.face as face
 
 class Xiaolan(xiaolanBase):
 
@@ -41,9 +40,9 @@ class Xiaolan(xiaolanBase):
         if self.set['main_setting']['awaken'] == 'hotword':
             self.awaken()
         elif self.set['main_setting']['awaken'] == 'face':
-            face.awaken()
+            self.face.awaken()
         elif self.set['main_setting']['awaken'] == 'all':
-            pass
+            self.tts.tts("对不起，我现在还不支持双唤醒，我会努力的", self.tok)
 
 x = Xiaolan()
 x.welcome()
