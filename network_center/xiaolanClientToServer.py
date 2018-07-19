@@ -24,9 +24,32 @@ class ClientToServer(xiaolanBase):
         r = requests.post(self.url,
                           data=data)
         return r.json()
-    
+
+    def XiaolanNluReq(self, text):
+
+        """
+        小蓝客户端发送给小蓝语义理解引擎HTTP请求
+        :param text: 用户输入文本
+        :return:
+        """
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': 'xiaolan.client.requests.xiaolannlu',
+                    'TimeStamp': time.time(),
+                    'ClientId': self.set['main_setting']['']
+                }
+            }
+        }
+
     def SkillAskSlotsRes(self, slotturn, skill):
-        
+
+        """
+        小蓝客户端发送给技能的槽位信息反馈
+        :param slotturn: 槽位
+        :param skill: 技能
+        :return:
+        """
         data = {
             'ClientEvent': {
                 'Header': {
@@ -66,6 +89,13 @@ class ClientToServer(xiaolanBase):
     
     def ClientSkillReq(self, intent, slots, intentdict):
 
+        """
+        小蓝客户端发送给技能的请求
+        :param intent: 意图
+        :param slots: 槽位
+        :param intentdict: Nlu识别结果
+        :return:
+        """
         data = {
             'ClientEvent': {
                 'Header': {
@@ -107,5 +137,14 @@ class ClientToServer(xiaolanBase):
         self.CommandsDo.Do(r.json())
 
     def ClientSkillResWaitAnswer(self, intent, slots, intentdict):
+
+        """
+        小蓝客户端发送给技能的waitanswer反馈
+        shouldEndConversatiom为False的返回（waitAnswer为True）
+        :param intent: 意图
+        :param slots: 槽位
+        :param intentdict: Nlu识别结果
+        :return:
+        """
     
 

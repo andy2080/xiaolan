@@ -1,215 +1,195 @@
-
 # -*- coding: utf-8 -*-
+# XiaolanNlp
 
-"""
-自然语言处理
-"""
-
-import re
+import os
+import json
 import sys
-import math
+import requests
 import time
+import urllib
+import urllib2
+sys.path.append('/home/pi/xiaolan/')
+import setting
+from Base import xiaolanBase
 
-from .base import AipBase
-from .base import base64
-from .base import json
-from .base import urlencode
-from .base import quote
+class XiaolanNlp(xiaolanBase):
 
-class AipNlp(AipBase):
+    def __init__(self):
 
-    """
-    自然语言处理
-    """
+        super(XiaolanNlp, self).__init__(self)
+        self.AK = self.set['main_setting']['NLP']['baidu']['AK']
+        self.SK = self.set['main_setting']['NLP']['baidu']['SK']
+        self.nlptoken = self.get_token()
 
-    __lexerUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/lexer'
+    def get_token(self):
 
-    __lexerCustomUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/lexer_custom'
-
-    __depParserUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/depparser'
-
-    __wordEmbeddingUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/word_emb_vec'
-
-    __dnnlmCnUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/dnnlm_cn'
-
-    __wordSimEmbeddingUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/word_emb_sim'
-
-    __simnetUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/simnet'
-
-    __commentTagUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/comment_tag'
-
-    __sentimentClassifyUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/sentiment_classify'
-
-    __keywordUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/keyword'
-
-    __topicUrl = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/topic'
-
-    def _proccessResult(self, content):
         """
-            formate result
+        获取token
+        :return:
         """
-        
-        if sys.version_info.major == 2:
-            return json.loads(content.decode('gbk', 'ignore').encode('utf8')) or {}
+        AK = self.AK
+        SK = self.SK
+        URL = 'http://openapi.baidu.com/oauth/2.0/token'
+
+        params = urllib.urlencode({'grant_type': 'client_credentials',
+                                   'client_id': AK,
+                                   'client_secret': SK})
+        r = requests.get(URL, params=params)
+        try:
+            r.raise_for_status()
+            token = r.json()['access_token']
+            return token
+        except requests.exceptions.HTTPError:
+            self._logger.critical('Token request failed with response: %r',
+                                  r.text,
+                                  exc_info=True)
+
+    def BaiduWordLexicalAnalysis(self, text):
+
+        """
+        百度词法分析
+        :param text: 用户输入文本
+        :return:
+        """
+        url = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/lexer?access_token=' + self.nlptoken
+
+        body = {
+            "text": text.decode('UTF-8').encode('GBK')
+        }
+
+        r = requests.post(url,
+                          body = body,
+                          headers = {'Content-Type': '	application/json'})
+
+        json = r.json()
+
+        trunlist = []
+
+        a = 1
+        while 1 == 1:
+            word = []
+            try:
+                word.append(json['items'][len(json['itmes']) - a]['item'])
+                if json['items'][len(json['itmes']) - a]['pos'] != None or json['items'][len(json['itmes']) - a]['pos'] != "":
+                    word.append(json['items'][len(json['itmes']) - a]['pos'])
+                else:
+                    word.append(json['items'][len(json['itmes']) - a]['ne'])
+                trunlist.append(word)
+            except:
+                break
+            else:
+                a = a + 1
+
+        return trunlist
+
+    def BaiduTextLikeInfo(self, text_1, text_2):
+
+        """
+        百度短文本相似度分析
+        :param text_1: 分析文本1
+        :param text_2: 分析文本2
+        :return:
+        """
+        url = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/simnet?access_token=' + self.nlptoken
+
+        body = {
+            'text_1': text_1.decode('UTF-8').encode('GBK'),
+            'text_2': text_2.decode('UTF-8').encode('GBK')
+        }
+
+        r = requests.post(url,
+                          body = body,
+                          headers = {'Content-Type':	'application/json'})
+
+        json = r.json()
+
+        if json['score'] > 0.5:
+            return True
         else:
-            return json.loads(str(content, 'gbk')) or {}
+            return False
 
-    def _proccessRequest(self, url, params, data, headers):
-        """
-            _proccessRequest
-        """
+    def BaiduWordLikeInfo(self, word_1, word_2):
 
-        if sys.version_info.major == 2:
-            return json.dumps(data, ensure_ascii=False).decode('utf8').encode('gbk')
+        """
+        百度词语相似度分析
+        :param word_1: 分析词语1
+        :param word_2: 分析词语2
+        :return:
+        """
+        url = 'https://aip.baidubce.com/rpc/2.0/nlp/v2/word_emb_sim?access_token=' + self.nlptoken
+
+        body = {
+            'word_1': word_1.decode('UTF-8').encode('GBK'),
+            'word_2': word_2.decode('UTF-8').encode('GBK')
+        }
+
+        r = requests.post(url,
+                          body = body,
+                          headers = {'Content-Type': 'application/json'})
+
+
+        json = r.json()
+
+        if json['score'] > 0.5:
+            return True
         else:
-            return json.dumps(data, ensure_ascii=False).encode('gbk')
-    
-    def lexer(self, text, options=None):
+            return False
+
+    def BaiduTextDepparser(self, text):
+
         """
-            词法分析
+        百度依存词法分析
+        :param text: 用户输入文本
+        :return:
         """
-        options = options or {}
+        url = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/depparser?access_token=' + self.nlptoken
 
-        data = {}
-        data['text'] = text
+        body = {
+            "text": text.decode('UTF-8').encode('GBK'),
+            "mode": 1
+        }
 
-        data.update(options)
-        
-        parsed_text = 
-        return self._request(self.__lexerUrl, data)
-        return parsed_text
-    
-    def lexerCustom(self, text, options=None):
+        r = requests.post(url,
+                          body = body,
+                          headers = {'Content-Type': 'application/json'})
+
+        json = r.json()
+
+        trunlist = []
+
+        a = 1
+        while 1 == 1:
+            word = []
+            try:
+                word.append(json['items'][len(json['itmes']) - a]['item'])
+                word.append(json['items'][len(json['itmes']) - a]['postag'])
+                word.append(json['items'][len(json['itmes']) - a]['deprel'])
+                trunlist.append(word)
+            except:
+                break
+            else:
+                a = a + 1
+
+        return trunlist
+
+    def BaiduTextErrorFix(self, text):
+
         """
-            词法分析（定制版）
+        百度文本纠错
+        :param text: 用户输入文本
+        :return:
         """
-        options = options or {}
+        url = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/ecnet?access_token=' + self.nlptoken
 
-        data = {}
-        data['text'] = text
+        body = {
+            'text': text
+        }
 
-        data.update(options)
+        r = requests.post(url,
+                          body = body,
+                          headers = {'Content-Type': 'application/json'})
 
-        return self._request(self.__lexerCustomUrl, data)
-    
-    def depParser(self, text, options=None):
-        """
-            依存句法分析
-        """
-        options = options or {}
+        json = r.json()
 
-        data = {}
-        data['text'] = text
-
-        data.update(options)
-
-        return self._request(self.__depParserUrl, data)
-    
-    def wordEmbedding(self, word, options=None):
-        """
-            词向量表示
-        """
-        options = options or {}
-
-        data = {}
-        data['word'] = word
-
-        data.update(options)
-
-        return self._request(self.__wordEmbeddingUrl, data)
-    
-    def dnnlm(self, text, options=None):
-        """
-            DNN语言模型
-        """
-        options = options or {}
-
-        data = {}
-        data['text'] = text
-
-        data.update(options)
-
-        return self._request(self.__dnnlmCnUrl, data)
-    
-    def wordSimEmbedding(self, word_1, word_2, options=None):
-        """
-            词义相似度
-        """
-        options = options or {}
-
-        data = {}
-        data['word_1'] = word_1
-        data['word_2'] = word_2
-
-        data.update(options)
-
-        return self._request(self.__wordSimEmbeddingUrl, data)
-    
-    def simnet(self, text_1, text_2, options=None):
-        """
-            短文本相似度
-        """
-        options = options or {}
-
-        data = {}
-        data['text_1'] = text_1
-        data['text_2'] = text_2
-
-        data.update(options)
-
-        return self._request(self.__simnetUrl, data)
-    
-    def commentTag(self, text, options=None):
-        """
-            评论观点抽取
-        """
-        options = options or {}
-
-        data = {}
-        data['text'] = text
-
-        data.update(options)
-
-        return self._request(self.__commentTagUrl, data)
-    
-    def sentimentClassify(self, text, options=None):
-        """
-            情感倾向分析
-        """
-        options = options or {}
-
-        data = {}
-        data['text'] = text
-
-        data.update(options)
-
-        return self._request(self.__sentimentClassifyUrl, data)
-    
-    def keyword(self, title, content, options=None):
-        """
-            文章标签
-        """
-        options = options or {}
-
-        data = {}
-        data['title'] = title
-        data['content'] = content
-
-        data.update(options)
-
-        return self._request(self.__keywordUrl, data)
-    
-    def topic(self, title, content, options=None):
-        """
-            文章分类
-        """
-        options = options or {}
-
-        data = {}
-        data['title'] = title
-        data['content'] = content
-
-        data.update(options)
-
-        return self._request(self.__topicUrl, data)
-    
+        if json['item']['score'] > 0.5:
+            return json['item']['correct_query']

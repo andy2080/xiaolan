@@ -1,16 +1,12 @@
 # -*- coding: utf-8 -*-
 # 小蓝设置部分
 
-import sys
-import os
-from network_center.xiaolanClientToServer import ClientToServer
-
 
 def setting():
     selfset = {
                'main_setting': {
                    'your_name': '翊闳',
-                   'awaken': 'hotword', # 唤醒方式：语音hotword, 人脸face, 人脸语音兼备all
+                   'awaken': 'hotword',  # 唤醒方式：语音hotword, 人脸face, 人脸语音兼备all
                    'loc': 'ZhongShan',
                    'ClientId': '001',
                    'ClientType': 'xiaolan-display-client-2.0',
@@ -49,6 +45,12 @@ def setting():
                        'ifly': {
                            'key': '9e1b8f6028b14b969cdec166eca127ea',
                            'appid': '5ace1bbb'
+                       }
+                   },
+                   'NLP': {
+                       'baidu': {
+                           'SK': 'Zsyx4x9LiuzNMfhyAH2B4yCBluYCRnS2',
+                           'AK': 'EzSEdCoje0SVvCUsFmI7bLwG'
                        }
                    },
                    'OCR': {
