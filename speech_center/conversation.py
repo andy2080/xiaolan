@@ -61,7 +61,10 @@ class dialogue(xiaolanBase):
         if text == None or text == '':
             speaker.speacilrecorder()
         else:
-            intentdict = self.xlnlu.xl_intent(text)
+            intentdict = self.ClientToServer.XiaolanNluReq(text)
+            if intentdict == 'Error:NluReqError' or intentdict == {}:
+                intentdict = self.xlnlu.xl_intent(text)
+            else:
             if intentdict['intent'] == None or intentdict['intent'] == '':
                 intentdict['skill'] = 'tuling'
             else:

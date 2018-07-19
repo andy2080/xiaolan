@@ -45,10 +45,12 @@ class ClientToServer(xiaolanBase):
                 'Text': text,
             }
         }
-
-        r = requests.post(self.set['main_setting']['url']['xiaolannlu'])
-
-        return r.json()
+        try:
+            r = requests.post(self.set['main_setting']['url']['xiaolannlu'])
+        except:
+            return "Error:NluReqError"
+        else:
+            return r.json()
 
     def SkillAskSlotsRes(self, slotturn, skill):
 
