@@ -18,7 +18,7 @@ import setting
 
 domian = 'a'
 
-class baidu_stt(xiaolanBase):
+class baidu_stt(object):
 
     def __init__(self):
 
@@ -95,7 +95,7 @@ class baidu_stt(xiaolanBase):
                 transcribed.append(text.upper())
             print (json)
 
-class ifly_stt(xiaolanBase):
+class ifly_stt(object):
 
     def __init__(self):
 

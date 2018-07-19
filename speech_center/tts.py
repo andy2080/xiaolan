@@ -19,7 +19,7 @@ from urllib import quote
 sys.path.append('/home/pi/xiaolan/')
 import setting
 
-class baidu_tts(xiaolanBase):
+class baidu_tts(object):
 
     def __init__(self):
         
@@ -66,7 +66,7 @@ class baidu_tts(xiaolanBase):
             self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', tok)
             speaker.speak()
 
-class youdao_tts(xiaolanBase):
+class youdao_tts(object):
     
     def __init__(self):
         
