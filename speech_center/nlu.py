@@ -70,6 +70,8 @@ class Nlu(object):
                                 'MainIntent': None,
                                 'Intent': None,
                                 'Skill': None,
+                                'WordLexer': '',
+                                'KeyWord': self.intentlist[a][2][b][c],
                                 'Commands': [
                                         'speaker', 'speacilrecorder'
                                 ],
@@ -97,6 +99,8 @@ class Nlu(object):
                                 'MainIntent': None,
                                 'Intent': None,
                                 'Skill': None,
+                                'WordLexer': '',
+                                'KeyWord': self.intentlist[a][2][b][c],
                                 'Commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
@@ -109,6 +113,8 @@ class Nlu(object):
                                 'MainIntent': None,
                                 'Intent': None,
                                 'Skill': None,
+                                'WordLexer': '',
+                                'KeyWord': self.intentlist[a][2][b][c],
                                 'commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
@@ -135,6 +141,8 @@ class Nlu(object):
                                     'MainIntent': None,
                                     'Intent': None,
                                     'Skill': None,
+                                    'WordLexer': '',
+                                    'KeyWord': self.intentlist[a][2][b][c],
                                     'Commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                     ],
@@ -167,7 +175,8 @@ class Nlu(object):
                                 'Intent': self.intentlist[a][1][b],
                                 'Skill': self.intentlist[a][3],
                                 'Slots': slots,
-                                'KeyWord': self.intentlist[a][2][b][c]
+                                'WordLexer': '',
+                                'KeyWord': self.intentlist[a][2][b][c],
                                 'Commands': [
                                         'skill', 'start'
                                 ],
@@ -188,10 +197,14 @@ class Nlu(object):
                             c = c + 1
                             
                 if data == None:
+                    inten = self.ifly_intent(text)
                     return {
-                            'Intent': xlnlu.ifly_intent(text),
-                            'Skill': xlnlu.ifly_intent(text),
+                            'MainIntent': intent,
+                            'Intent': intent,
+                            'Skill': intent,
                             'Slots': None,
+                            'WordLexer': '',
+                            'KeyWord': self.intentlist[a][2][b][c],
                             'Commands': [
                                     'skill', 'start'
                             ],
