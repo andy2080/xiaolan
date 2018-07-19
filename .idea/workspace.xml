@@ -14,8 +14,8 @@
       <file leaf-file-name="setting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="76" lean-forward="true" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
+            <state relative-caret-position="285">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -56,11 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
+            <state relative-caret-position="437">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -89,7 +89,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="nlp.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nlp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speech_center/nlp.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
@@ -157,9 +157,9 @@
         <option value="$PROJECT_DIR$/memory_center/Log.py" />
         <option value="$PROJECT_DIR$/speech_center/conversation.py" />
         <option value="$PROJECT_DIR$/xiaolan.py" />
+        <option value="$PROJECT_DIR$/speech_center/nlp.py" />
         <option value="$PROJECT_DIR$/setting.py" />
         <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
-        <option value="$PROJECT_DIR$/speech_center/nlp.py" />
       </list>
     </option>
   </component>
@@ -658,13 +658,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="76" lean-forward="true" selection-start-line="8" selection-start-column="76" selection-end-line="8" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/tts.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -702,16 +695,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="39" column="58" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="58" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/memory_center/intentlist.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -728,6 +711,23 @@
           <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding>
             <element signature="e#38#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+          <folding>
+            <element signature="e#25#35#0" expanded="true" />
           </folding>
         </state>
       </provider>

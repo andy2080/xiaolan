@@ -17,7 +17,7 @@ class ClientToServer(xiaolanBase):
     def __init__(self):
 
         super(ClientToServer, self).__init__()
-        self.url = setting.setting()['main_setting']['url']
+        self.url = self.set['main_setting']['url']['xiaolanbrain']
     
     def DiyReq(self, data):
         
@@ -37,10 +37,18 @@ class ClientToServer(xiaolanBase):
                 'Header': {
                     'NameSpace': 'xiaolan.client.requests.xiaolannlu',
                     'TimeStamp': time.time(),
-                    'ClientId': self.set['main_setting']['']
-                }
+                    'ClientId': self.set['main_setting']['ClientId'],
+                    'ClientType': self.set['main_setting']['CLientType']
+                },
+            },
+            'Info': {
+                'Text': text,
             }
         }
+
+        r = requests.post(self.set['main_setting']['url']['xiaolannlu'])
+
+        return r.json()
 
     def SkillAskSlotsRes(self, slotturn, skill):
 

@@ -11,7 +11,10 @@ def setting():
                    'ClientId': '001',
                    'ClientType': 'xiaolan-display-client-2.0',
                    'userId': '',
-                   'url': '',
+                   'url': {
+                       'xiaolannlu': '',
+                       'xiaolanbrain': ''
+                   },
                    'DatebaseUrl': [
                        'XiaolanSkillUrl', '',
                        'XiaolanSkillIntentList', '',
