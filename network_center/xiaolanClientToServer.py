@@ -122,6 +122,7 @@ class ClientToServer(xiaolanBase):
                     'SkillAwakenKeyword': intentdict['KeyWord'],
                     'SendToSkillInfo': {
                         'Intent': intent,
+                        'WordLexer': intentdict['WordLexer'],
                         'Text': intentdict['Text'],
                         'Slots': slots
                     }
