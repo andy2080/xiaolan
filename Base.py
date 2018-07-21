@@ -5,7 +5,6 @@ import sys
 import json
 import requests
 
-
 class xiaolanBase(object):
 
     def __init__(self):
@@ -30,6 +29,8 @@ class xiaolanBase(object):
         self.ClientToServer = ClientToServer()
         from network_center.xiaolanServerCommandDo import CommandsDo
         self.CommandsDo = CommandsDo()
+        from learning_center.SpeacilSkills import SpeacilSkills
+        self.SpeacilSkills = SpeacilSkills()
         from speech_center.stt import baidu_stt
         from speech_center.stt import ifly_stt
         from speech_center.tts import baidu_tts

@@ -77,6 +77,7 @@ class ClientToServer(xiaolanBase):
                     'SendToSkillInfo': {
                         'Intent': None,
                         'Text': None,
+                        'SkillDate': None,
                         'Slots': slotturn
                     }
                 }
@@ -124,6 +125,7 @@ class ClientToServer(xiaolanBase):
                         'Intent': intent,
                         'WordLexer': intentdict['WordLexer'],
                         'Text': intentdict['Text'],
+                        'SkillDate': self.set[intentdict['Skill']],
                         'Slots': slots
                     }
                 }

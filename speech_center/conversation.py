@@ -66,6 +66,10 @@ class dialogue(xiaolanBase):
                 intentdict = self.Nlu.xl_intent(text)
                 if intentdict['Intent'] == None or intentdict['Intent'] == '':
                     intentdict['Skill'] == 'tuling'
+                elif intentdict['Skill'] == 'hass':
+                    self.SpeacilSkills.Hass()
+                else:
+                    pass
             else:
                 self.ClientToServer.ClientSkillReq(intentdict['Intent'], intentdict['Slots'], intentdict)
 
