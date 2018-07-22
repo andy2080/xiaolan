@@ -14,16 +14,16 @@
       <file leaf-file-name="xiaolan.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            <state relative-caret-position="-111">
+              <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Base.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Base.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
+            <state relative-caret-position="608">
               <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
               <folding>
                 <element signature="e#25#34#0" expanded="true" />
@@ -56,10 +56,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="171">
               <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
@@ -158,8 +158,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="width" value="699" />
-    <option name="height" value="775" />
+    <option name="x" value="952" />
+    <option name="width" value="977" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -664,16 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learning_center/SpeacilSkills.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -681,13 +672,6 @@
           <folding>
             <element signature="e#25#34#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xiaolan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -703,10 +687,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="171">
           <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xiaolan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
