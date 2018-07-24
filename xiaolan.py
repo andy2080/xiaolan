@@ -34,7 +34,7 @@ class Xiaolan(xiaolanBase):
         
         ''')
 
-        self.tts.tts(setting.setting()['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)
+        self.tts.tts(self.set['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)
         speaker.speak()
         os.system('pulseaudio --start')
         if self.set['main_setting']['awaken'] == 'hotword':

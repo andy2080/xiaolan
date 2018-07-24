@@ -6,6 +6,7 @@ import json
 sys.path.append('/home/pi/xiaolan/')
 import setting
 from Base import xiaolanBase
+from learning_center.skills.smarthome import hass
 
 class SpeacilSkills(xiaolanBase):
 
@@ -13,10 +14,10 @@ class SpeacilSkills(xiaolanBase):
 
         super(SpeacilSkills, self).__init__()
 
-    def Hass(self):
+    def Hass(self, intentdict):
 
         """
         特殊技能：智能家居
         :return:
         """
-        pass
+        hass.start(intentidct)

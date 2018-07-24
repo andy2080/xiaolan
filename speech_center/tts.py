@@ -19,8 +19,9 @@ import tempfile
 from urllib import quote
 sys.path.append('/home/pi/xiaolan/')
 import setting
+from Base import xiaolanBase
 
-class baidu_tts(object):
+class baidu_tts(xiaolanBase):
 
     def __init__(self):
         
@@ -28,8 +29,8 @@ class baidu_tts(object):
         
     def get_token(self):
 
-        AK = setting.setting()['main_setting']['TTS']['baidu']['AK']
-        SK = setting.setting()['main_setting']['TTS']['baidu']['SK']
+        AK = self.set['main_setting']['TTS']['baidu']['AK']
+        SK = self.set['main_setting']['TTS']['baidu']['SK']
         URL = 'http://openapi.baidu.com/oauth/2.0/token'
         
         params = urllib.urlencode({'grant_type': 'client_credentials',
@@ -67,7 +68,7 @@ class baidu_tts(object):
             self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', tok)
             speaker.speak()
 
-class youdao_tts(object):
+class youdao_tts(xiaolanBase):
     
     def __init__(self):
         
@@ -75,8 +76,8 @@ class youdao_tts(object):
     
     def tts(self, saytext, lang):
 
-        appSecret = setting.setting()['main_setting']['TTS']['youdao']['appkey']
-        appKey = setting.setting()['main_setting']['TTS']['youdao']['appid']
+        appSecret = self.set['main_setting']['TTS']['youdao']['appkey']
+        appKey = self.set['main_setting']['TTS']['youdao']['appid']
         data = {}
         salt = random.randint(1, 65536)
 

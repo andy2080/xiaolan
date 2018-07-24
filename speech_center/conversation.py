@@ -67,7 +67,7 @@ class dialogue(xiaolanBase):
                 if intentdict['Intent'] == None or intentdict['Intent'] == '':
                     intentdict['Skill'] == 'tuling'
                 elif intentdict['Skill'] == 'hass':
-                    self.SpeacilSkills.Hass()
+                    self.SpeacilSkills.Hass(intentdict)
                 else:
                     pass
             else:

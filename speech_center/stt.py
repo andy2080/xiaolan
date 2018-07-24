@@ -14,11 +14,12 @@ import urllib
 import urllib2
 sys.path.append('/home/pi/xiaolan/')
 import setting
+from Base import xiaolanBase
 
 
 domian = 'a'
 
-class baidu_stt(object):
+class baidu_stt(xiaolanBase):
 
     def __init__(self):
 
@@ -26,8 +27,8 @@ class baidu_stt(object):
 
     def get_token(self): #获取token
 
-        AK = setting.setting()['main_setting']['STT']['baidu']['AK']
-        SK = setting.setting()['main_setting']['STT']['baidu']['SK']
+        AK = self.set['main_setting']['STT']['baidu']['AK']
+        SK = self.set['main_setting']['STT']['baidu']['SK']
         url = 'http://openapi.baidu.com/oauth/2.0/token'
         params = urllib.urlencode({'grant_type': 'client_credentials',
                                    'client_id': AK,
@@ -95,7 +96,7 @@ class baidu_stt(object):
                 transcribed.append(text.upper())
             print (json)
 
-class ifly_stt(object):
+class ifly_stt(xiaolanBase):
 
     def __init__(self):
 
@@ -108,10 +109,10 @@ class ifly_stt(object):
         base64_audio = base64.b64encode(file_content)
         body = urllib.urlencode({'audio': base64_audio})
 
-        api_key = setting.setting()['main_setting']['STT']['ifly']['key']
+        api_key = self.set['main_setting']['STT']['ifly']['key']
         param = {"engine_type": "sms16k", "aue": "raw"}
 
-        x_appid = setting.setting()['main_setting']['STT']['IFLY']['appid']
+        x_appid = self.set['main_setting']['STT']['IFLY']['appid']
         x_param = base64.b64encode(json.dumps(param).replace(' ', ''))
         x_header = {'X-Appid': x_appid,
                     'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
