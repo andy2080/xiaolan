@@ -45,19 +45,19 @@ def setting():
                        }
                    },
                    'NLU': {            #NLU语义理解服务配置
-                       'ifly': {
+                       'ifly': {       #讯飞
                            'key': '9e1b8f6028b14b969cdec166eca127ea',
                            'appid': '5ace1bbb'
                        }
                    },
-                   'NLP': {
-                       'baidu': {
-                           'SK': 'Zsyx4x9LiuzNMfhyAH2B4yCBluYCRnS2',
-                           'AK': 'EzSEdCoje0SVvCUsFmI7bLwG'
+                   'NLP': {            # NLP自然语言处理引擎服务配置
+                       'baidu': {      # 百度自然语言处理引擎
+                           'SK': '',
+                           'AK': ''
                        }
                    },
-                   'OCR': {
-                       'baidu': {
+                   'OCR': {            # 人脸识别服务配置
+                       'baidu': {      # 百度人脸识别
                            'AK': 'GuagSnlhsP8qKX2Lj7RbLomq',
                            'SK': 'PiwvPvXIyFdIO3Bc0F2GHtsGdAaeG73D'
                        }

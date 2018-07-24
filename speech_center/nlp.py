@@ -171,25 +171,3 @@ class XiaolanNlp(xiaolanBase):
                 a = a + 1
 
         return trunlist
-
-    def BaiduTextErrorFix(self, text):
-
-        """
-        百度文本纠错
-        :param text: 用户输入文本
-        :return:
-        """
-        url = 'https://aip.baidubce.com/rpc/2.0/nlp/v1/ecnet?access_token=' + self.nlptoken
-
-        body = {
-            'text': text
-        }
-
-        r = requests.post(url,
-                          body = body,
-                          headers = {'Content-Type': 'application/json'})
-
-        json = r.json()
-
-        if json['item']['score'] > 0.5:
-            return json['item']['correct_query']
