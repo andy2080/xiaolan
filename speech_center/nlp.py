@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 # XiaolanNlp
 
+# description:
+# author: xiaoland
+# create_time: 2018/7/13
+
+"""
+    desc:pass
+"""
+
 import os
 import json
 import sys
@@ -171,3 +179,6 @@ class XiaolanNlp(xiaolanBase):
                 a = a + 1
 
         return trunlist
+
+if __name__ == '__main__':
+    pass

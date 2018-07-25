@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 # 百度STT
+
+# description:
+# author: xiaoland
+# create_time: 2018/4/23
+
+"""
+    desc:pass
+"""
+
 import sys
 import requests
 import os

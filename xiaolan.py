@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 # 小蓝中央控制
 
+# description:
+# author: xiaoland
+# create_time: 2018/4/23
+
+"""
+    desc:pass
+"""
+
 import sys
 import os
 import re
@@ -18,11 +26,7 @@ class Xiaolan(xiaolanBase):
 
         super(Xiaolan, self).__init__()
 
-    def awaken(self):
-    
-        self.snowboy.awaken()
-
-    def welcome(self):
+    def start(self):
     
         print ('''
 
@@ -38,11 +42,15 @@ class Xiaolan(xiaolanBase):
         speaker.speak()
         os.system('pulseaudio --start')
         if self.set['main_setting']['awaken'] == 'hotword':
-            self.awaken()
+            self.snowboy.awaken()
         elif self.set['main_setting']['awaken'] == 'face':
             self.face.awaken()
         elif self.set['main_setting']['awaken'] == 'all':
-            self.tts.tts("对不起，我现在还不支持双唤醒，我会努力的", self.tok)
+            # thridings for two
+            self.face.awaken()
+            self.snowboy.awaken()
 
-x = Xiaolan()
-x.welcome()
+if __name__ == '__main__':
+
+    x = Xiaolan()
+    x.start()

@@ -2,6 +2,8 @@
 # 小蓝设置部分
 
 
+
+
 def setting():
     selfset = {
                'main_setting': {

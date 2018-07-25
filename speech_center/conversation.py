@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 # 小蓝对话系统
 
+# description:
+# author: xiaoland
+# create_time: 2018/7/9
+
+"""
+    desc:pass
+"""
+
 import sys
 import os
 import re
