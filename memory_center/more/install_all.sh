@@ -8,7 +8,7 @@ sudo apt-get install libatlas-base-dev
 sudo apt-get install python-opencv
 wget https://github.com/memcached/memcached/archive/1.4.19.tar.gz
 sudo apt-get install libevent-dev
-tar -zxvf memcached-1.4.19.tar.gz
+tar -zxvf 1.4.19.tar.gz
 cd memcached-1.4.19
 ./configure && make && make test && sudo make install
 echo "请输入root账号的密码："
