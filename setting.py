@@ -15,7 +15,7 @@ def setting():
                    'userId': '',
                    'url': {
                        'xiaolannlu': '',
-                       'xiaolanbrain': ''
+                       'xiaolanbrain': '180.76.186.145'
                    },
                    'DatebaseUrl': [
                        'XiaolanSkillUrl', '',
