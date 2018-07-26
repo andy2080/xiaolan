@@ -9,7 +9,7 @@ from Log import Log
 sys.path.append('/home/pi/xiaolan/')
 import setting
 
-class DateBase(object):
+class Datebase(object):
 
     def __init__(self):
 

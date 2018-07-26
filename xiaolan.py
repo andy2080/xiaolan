@@ -41,17 +41,17 @@ class Xiaolan(xiaolanBase):
         
         ''')
 
-        self.tts.tts(self.set['main_setting']['your_name'] + '，你好啊，我是你的小蓝', tok)
+        self.tts(self.set['main_setting']['your_name'] + '，你好啊，我是你的小蓝')
         speaker.speak()
         os.system('pulseaudio --start')
         if self.set['main_setting']['awaken'] == 'hotword':
-            self.snowboy.awaken()
+            self.snowboy()
         elif self.set['main_setting']['awaken'] == 'face':
-            self.face_awaken.awaken()
+            self.face_awaken()
         elif self.set['main_setting']['awaken'] == 'all':
             # thridings for two
-            self.face_awaken.awaken()
-            self.snowboy.awaken()
+            self.face_awaken()
+            self.snowboy()
 
 x = Xiaolan()
 x.start()

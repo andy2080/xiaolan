@@ -25,11 +25,12 @@ class ClientToServer(xiaolanBase):
     def __init__(self):
 
         super(ClientToServer, self).__init__()
-        self.url = self.set['main_setting']['url']['xiaolanbrain']
+        self.brainurl = self.set['main_setting']['url']['xiaolan_brain']
+        self.nluurl = self.set['main_setting']['url']['xiaolan_nlu']
     
     def DiyReq(self, data):
         
-        r = requests.post(self.url,
+        r = requests.post(self.brainurl,
                           data=data)
         return r.json()
 
@@ -54,7 +55,7 @@ class ClientToServer(xiaolanBase):
             }
         }
         try:
-            r = requests.post(self.set['main_setting']['url']['xiaolannlu'])
+            r = requests.post(self.nluurl)
         except:
             return "Error:NluReqError"
         else:
@@ -105,6 +106,9 @@ class ClientToServer(xiaolanBase):
                 }
             }
         }
+        r = requests.post(self.brainurl,
+                          data=data)
+        return r.json()
     
     def ClientSkillReq(self, intent, slots, intentdict):
 
@@ -153,9 +157,9 @@ class ClientToServer(xiaolanBase):
                 }
             }
         }
-        r = requests.post(self.url,
+        r = requests.post(self.brainurl,
                           data=json.dumps(data))
-        self.CommandsDo.Do(r.json())
+        self.commands_do('Normal', {'Respones': r.json()})
 
     def ClientSkillResWaitAnswer(self, intent, slots, intentdict):
 

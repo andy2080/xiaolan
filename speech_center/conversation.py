@@ -27,32 +27,6 @@ class dialogue(xiaolanBase):
     def __init__(self):
 
         super(dialogue, self).__init__()
-        
-    def replacenumber(self, text):
-
-        """
-        大写数字转为小写数字
-        :param text: 文本
-        :return:
-        """
-        try:
-            text.replace('零', 0)
-            text.replace('一', 1)
-            text.replace('二', 2)
-            text.replace('三', 3)
-            text.replace('四', 4)
-            text.replace('五', 5)
-            text.replace('六', 6)
-            text.replace('七', 7)
-            text.replace('八', 8)
-            text.replace('九', 9)
-        except TypeError:
-            return text
-        except KeyError:
-            return text
-        else:
-            return text
-        
     
     def conversation(self):
 
@@ -61,25 +35,12 @@ class dialogue(xiaolanBase):
         :return:
         """
 
-        speaker.ding()
-        self.recorder.record()
-        speaker.dong()
-        text = self.stt.stt("./voice.wav", self.tok).replace('，', '').replace('。', '')
-        text = self.replacenumber(text)
-        if text == None or text == '':
-            speaker.speacilrecorder()
-        else:
-            intentdict = self.ClientToServer.XiaolanNluReq(text)
-            if intentdict == 'Error:NluReqError' or intentdict == {}:
-                intentdict = self.Nlu.xl_intent(text)
-                if intentdict['Intent'] == None or intentdict['Intent'] == '':
-                    intentdict['Skill'] == 'tuling'
-                elif intentdict['Skill'] == 'hass':
-                    self.SpeacilSkills.Hass(intentdict)
-                else:
-                    pass
-            else:
-                self.ClientToServer.ClientSkillReq(intentdict['Intent'], intentdict['Slots'], intentdict)
+        self.speaker('ding')
+        self.recorder('Normal', 'a')
+        self.speaker('dong')
+        text = self.stt("./voice.wav")
+        intentdict = self.client_to_server('NluReq', {'Text': text})
+        self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'], 'IntentDict': intentdict})
 
     def waitAnswer(self, recordtype):
 
@@ -146,25 +107,6 @@ class dialogue(xiaolanBase):
             else:
                 break
         return slotturn
-
-
-
-    def tts_text(text, service):
-
-        """
-        TTS服务
-        :param service: 服务选择
-        :return:
-        """
-        if service == 'baidu':
-            tts = baidu_tts()
-            tts.tts(text, self.token)
-            speaker.speak()
-        elif service == 'youdao':
-            tts = youdao_tts()
-            tts.tts(text, more)
-        else:
-            tts.tts(text, self.tok)
 
             
             

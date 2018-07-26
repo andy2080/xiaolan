@@ -30,6 +30,7 @@ def stop():
         sys.exit(-1)
     except:
         os.system('python /home/pi/auditory_center/awaken/snowboy.py')
+
 def speacilrecorder():
 
     os.system('mplayer /home/pi/xiaolan/memory_center/musiclib/speacilrecorder.mp3')
