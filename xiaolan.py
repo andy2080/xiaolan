@@ -44,10 +44,10 @@ class Xiaolan(xiaolanBase):
         if self.set['main_setting']['awaken'] == 'hotword':
             self.snowboy.awaken()
         elif self.set['main_setting']['awaken'] == 'face':
-            self.face.awaken()
+            self.face_awaken.awaken()
         elif self.set['main_setting']['awaken'] == 'all':
             # thridings for two
-            self.face.awaken()
+            self.face_awaken.awaken()
             self.snowboy.awaken()
 
 if __name__ == '__main__':

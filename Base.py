@@ -20,7 +20,7 @@ class xiaolanBase(object):
         import setting
         self.set = setting.setting()
         from visual_centre.face import XiaolanFaceAwaken
-        self.face = XiaolanFaceAwaken()
+        self.face_awaken = XiaolanFaceAwaken()
         from memory_center.Log import Log
         self.Log = Log()
         from memory_center.DateBase import DateBase

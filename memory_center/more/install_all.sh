@@ -10,7 +10,7 @@ wget https://github.com/memcached/memcached/archive/1.4.19.tar.gz
 sudo apt-get install libevent-dev
 tar -zxvf 1.4.19.tar.gz
 cd memcached-1.4.19
-./configure && make && make test && sudo make install
+sudo apt-get install memcached
 echo "请输入root账号的密码："
 echo "如果输入完毕之后，停止了运行，在本脚本文件里找到本行，往下数第二行一直拖到最底复制带命令行中执行"
 su root

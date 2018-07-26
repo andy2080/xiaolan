@@ -5,7 +5,6 @@ import os
 import sys
 import json
 import requests
-import cv2
 import base64
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
