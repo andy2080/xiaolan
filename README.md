@@ -2,6 +2,7 @@
 ![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
 ![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
 ![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
+![WeChat](https://img.shields.io/badge/WeChat-18680171381-orange.svg)
 ![QQ](https://img.shields.io/badge/QQ-1481605673-yellow.svg)
 
 这是一个中文的智能家居控制对话机器人——由叮当衍生而来，目前还未100%完成，所以发上来，希望大家一起研发，一个人研发也没那么多点子和经验
