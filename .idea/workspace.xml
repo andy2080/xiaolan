@@ -20,11 +20,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaolan.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="xiaolan.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+            <state relative-caret-position="380">
+              <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -32,11 +32,20 @@
       <file leaf-file-name="Base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-358">
+            <state relative-caret-position="-95">
               <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
                 <element signature="e#108#117#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="install_all.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/memory_center/more/install_all.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -150,8 +159,8 @@
         <option value="$PROJECT_DIR$/learning_center/SpeacilSkills.py" />
         <option value="$PROJECT_DIR$/speech_center/nlp.py" />
         <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
-        <option value="$PROJECT_DIR$/memory_center/more/install_all.sh" />
         <option value="$PROJECT_DIR$/xiaolan.py" />
+        <option value="$PROJECT_DIR$/memory_center/more/install_all.sh" />
       </list>
     </option>
   </component>
@@ -594,16 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-358">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#108#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/learning_center/SpeacilSkills.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
@@ -624,13 +623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/memory_center/more/install_all.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/visual_centre/face.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1444">
@@ -643,8 +635,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xiaolan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+        <state relative-caret-position="380">
+          <caret line="20" column="39" lean-forward="true" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-95">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#108#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/install_all.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
