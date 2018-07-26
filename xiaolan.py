@@ -50,7 +50,5 @@ class Xiaolan(xiaolanBase):
             self.face_awaken.awaken()
             self.snowboy.awaken()
 
-if __name__ == '__main__':
-
-    x = Xiaolan()
-    x.start()
+x = Xiaolan()
+x.start()

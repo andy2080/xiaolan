@@ -167,7 +167,4 @@ class ClientToServer(xiaolanBase):
         :param intentdict: Nlu识别结果
         :return:
         """
-    
-
-if __name__ == '__main__':
-    pass
+        pass

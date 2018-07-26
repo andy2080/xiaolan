@@ -29,7 +29,3 @@ class SpeacilSkills(xiaolanBase):
         :return:
         """
         hass.start(intentidct)
-
-
-if __name__ == '__main__':
-    pass

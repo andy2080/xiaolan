@@ -179,6 +179,3 @@ class XiaolanNlp(xiaolanBase):
                 a = a + 1
 
         return trunlist
-
-if __name__ == '__main__':
-    pass
