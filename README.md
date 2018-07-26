@@ -2,6 +2,7 @@
 ![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
 ![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
 ![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
+![WeChat](https://img.shields.io/badge/WeChat-18680171381-orange.svg)
 ![QQ](https://img.shields.io/badge/QQ-1481605673-yellow.svg)
 
 这是一个中文的智能家居控制对话机器人——由叮当衍生而来，目前还未100%完成，所以发上来，希望大家一起研发，一个人研发也没那么多点子和经验
@@ -10,13 +11,16 @@
 - 如果大家有点子的话，加我QQ：1481605673，我真诚的邀请您成为小蓝的开发者
 
 ## 唤醒词问题：
-- 由于本机器人的语音唤醒引擎是snowboy的
-- 所以唤醒词英文的会比较准确，所以使用了唤醒词blueberry，比以前的中文唤醒词要好得多，翻译过来就是蓝莓，也没有脱离主题
-- 但是snowboy的唤醒词是越多人训练则越准确，所以希望大家在使用小蓝的同时，打开下面的snowboy训练连接，只需要录制三次音频即可
-- 网址：https://snowboy.kitt.ai/hotword/20710 （记得录音时说blueberry）
+- 根据百度的唤醒词测试，得出“小蓝小蓝”并不适合作为唤醒词，所以更换为五星的“小紫小紫”作为预训练唤醒词
+
 ## 介绍本开源项目和WIKI请看：
 ### https://github.com/xiaoland/xiaolan-dev/wiki
 ![服务架构](https://github.com/xiaoland/xiaolan-dev/blob/master/%E5%B0%8F%E8%93%9D%E6%9C%8D%E5%8A%A1%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.PNG)
+
+## 下载&使用：
+- git clone https://github.com/xiaoland/xiaolan.git xiaolan
+- cd xiaolan
+- python2.7 xiaolan
 
 
 ## 更新：（有时间先后顺序）
