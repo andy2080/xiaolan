@@ -28,6 +28,8 @@ from urllib import quote
 sys.path.append('/home/pi/xiaolan/')
 import setting
 from Base import xiaolanBase
+sys.path.append('/home/pi/xiaolan/speech_center')
+import speaker
 
 class baidu_tts(xiaolanBase):
 
@@ -68,13 +70,15 @@ class baidu_tts(xiaolanBase):
                           data=data,
                           headers={'content-type': 'application/json'},stream=True)
 
-        if r.status_code == 200:  
+        if r.status_code == 200:
             with open(r"/home/pi/xiaolan/memory_center/musiclib/say.mp3", 'wb') as f:  
                 r.raw.decode_content = True  
                 shutil.copyfileobj(r.raw, f)
+                return {'States': 'BaiduTTSComplete'}
         else:
-            self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', tok)
+            self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', token)
             speaker.speak()
+            return {'States': 'Error:BaiduTTSError'}
 
 class youdao_tts(xiaolanBase):
     
@@ -109,7 +113,9 @@ class youdao_tts(xiaolanBase):
             fo = open(filePath,'wb')
             fo.write(response.content)
             fo.close()
+            return {'States': 'YoudaoTTSComplete'}
         else:
-            self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', 'zh-CHS')
+            self.tts('对不起，我的语言中枢出错了，我不能跟你说话了', self.set['main_setting']['TTS']['youdao']['lang'])
             speaker.speak()
+            return {'States': 'Error:YoudaoTTSError'}
 

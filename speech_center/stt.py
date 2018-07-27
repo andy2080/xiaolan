@@ -84,21 +84,21 @@ class baidu_stt(xiaolanBase):
             text = ''
             if 'result' in r.json():
                 text = r.json()['result'][0].encode('utf-8')
-                return text
+                return {'States': 'BaiduSTTComplete', 'Text': text}
         except requests.exceptions.HTTPError:
             print ('Request failed with response: %r',
                    r.text)
-            return []
+            return {'States': 'BaiduSTTError:Request failed with response'}
         except requests.exceptions.RequestException:
             print ('Request failed.')
-            return []
+            return {'States': 'BaiduSTTError:Request failed.'}
         except ValueError as e:
             print ('Cannot parse response: %s',
                                   e.args[0])
-            return []
+            return {'States': 'BaiduSTTError:Request failed.'}
         except KeyError:
             print ('Cannot parse response')
-            return []
+            return {'States': 'BaiduSTTError:Cannot parse response'}
         else:
             transcribed = []
             if text:
@@ -130,4 +130,4 @@ class ifly_stt(xiaolanBase):
         req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
         result = urllib2.urlopen(req)
         result = result.read()
-        return json.loads(result)['data']
+        return {'States': 'IflySTTComplete', 'Text': json.loads(result)['data']}
