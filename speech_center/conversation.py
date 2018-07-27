@@ -50,28 +50,21 @@ class dialogue(xiaolanBase):
         :return:
         """
 
-        speaker.ding()
+        self.speaker('ding')
         if recordtype == 'ex':
-            self.recorder.exrecord()
+            self.recorder('express', 0)
+        elif recordtype == 'normal':
+            self.recorder('normal', 0)
         elif recordtype == 'ts':
-            self.recorder.tsrecord()
+            self.recorder('translate', 0)
         elif recordtype == 's':
-            self.recorder.srecord()
-        elif recordtype == 'ss':
-            self.recorder.ssrecord()
+            self.recorder('less_time', 0)
         else:
-            self.recorder.record()
-        speaker.dong()
-        text = self.stt.stt("/home/pi/xiaolan/voice.wav", self.tok).replace('，', '').replace('。', '')
-        text = self.replacenumber(text)
-        if text == None or text == '':
-            speaker.speacilrecorder()
-        else:
-            intentdict = self.xlnlu.xl_intent(text)
-            if intentdict['intent'] == None or intentdict['intent'] == '':
-                intentdict['skill'] = 'tuling'
-            else:
-                self.ClientToServer.ClientSkillResWaitAnswer(intentdict['intent'], intentdict['slots'], intentdict)
+            self.recorder('normal', 0)
+        self.speaker('dong')
+        text = self.stt("/home/pi/xiaolan/voice.wav")
+        intentdict = self.client_to_server('NluReq', {'Text': text})
+        self.client_to_server('SkillResForWaitAnswer', {'Intent': intentdict['intent'], 'Slots': intentdict['slots'], 'IntentDict': intentdict})
 
     def AskSlots(self, slotname, slotdicts, slotask, recordtype):
 
@@ -86,23 +79,19 @@ class dialogue(xiaolanBase):
         slotturn = []
         while 1 == 1:
             if a < len(slotname) + 1:
-                self.tts.tts(slotask[a], self.tok)
-                speaker.speak()
+                self.tts(slotask[a])
                 if recordtype[a] == 'normal':
-                    self.recorder.record()
+                    self.recorder('normal', 0)
                 elif recordtype[a] == 's':
-                    self.recorder.srecord()
-                elif recordtype[a] == 'ss':
-                    self.recorder.ssrecord()
+                    self.recorder('less_time', 0)
                 elif recordtype[a] == 'ex':
-                    self.recorder.exrecord()
+                    self.recorder('express', 0)
                 elif recordtype[a] == 'ts':
-                    self.recorder.tsrecord()
+                    self.recorder('translate', 0)
                 else:
                     self.recorder.record()
-                text = self.stt.stt("./voice.wav", self.tok)
-                text = self.replacenumber(text)
-                slotturn.append(self.Nlu.get_slots([slotname[a], slotdicts[a]], text))
+                text = self.stt("/home/pi/xiaolan/voice.wav")
+                slotturn.append(self.client_nlu('get_slots', {'Text': text, 'SlotsList': [slotname[a], slotdicts[a]]}))
                 a = a + 1
             else:
                 break

@@ -20,7 +20,7 @@ class SpeacilSkills(xiaolanBase):
 
     def __init__(self):
 
-        pass
+        super(SpeacilSkills, self).__init__()
 
     def Hass(self, intentdict):
 

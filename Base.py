@@ -237,6 +237,16 @@ class xiaolanBase(object):
             else:
                 self.log('write', {'log': 'XiaolanClientIntentDoComplete', 'level': 'debug'})
 
+        elif mode == 'get_slots':
+
+            states = Nlu.get_slots(more['SlotsList'], more['Text'])
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientNluGetSlotsError:' + states['States'], 'level': 'warning'})
+                return states
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientNluGetSlotsComplete', 'level': 'debug'})
+                return states
+
         elif mode == 'ifly':
 
             states = Nlu.ifly_intent(text)
