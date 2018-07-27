@@ -19,6 +19,7 @@ class CommandsDo(xiaolanBase):
         super(CommandsDo, self)._init__()
 
     def Do(self, respones):
+
         syscommands = respones['ClientShouldDo']['System']['commands']
         # SystemCommands
         if syscommands == 'ShutDown':
@@ -26,7 +27,7 @@ class CommandsDo(xiaolanBase):
         elif syscommands == 'Reboot':
             os.system('sudo reboot')
         elif syscommands == 'SendLog':
-            """
+
             data = {
                         'ClientEvent': {
                             'Header': {
@@ -68,9 +69,9 @@ class CommandsDo(xiaolanBase):
             }
             r = requests.post(self.url,
                               data=data)
-            """
-            log = self.Log.Get("all")
-            self.ClientToServer.SendLogToServer(log)
+
+            log = self.log('read', {'mode': 'all'})
+            self.client_to_server('LogResForBrain')
         # ScreeDisplay
         Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
         if Type == 'TextDisplay':
@@ -97,18 +98,18 @@ class CommandsDo(xiaolanBase):
             pass
         # OutputSpeech
         if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
-            self.tts.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'], self.tok)
+            self.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'])
         else:
             pass
         # AskSlots
         if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != {}:
-            slotsturn = self.dialogue.AskSlots(respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], respones['ClientShouldDo']['Skill']['AskSlots']['RecordType'])
-            self.ClientToServer.SkillAskSlotsRes(slotsturn, respones['ClientShouldDo']['Skill']['SkillName'])
+            slotsturn = self.dialogue('ask_slots', {'SlotNames': respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], 'SlotDicts': respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], 'SlotAsks': respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], 'RecordTypes': respones['ClientShouldDo']['Skill']['AskSlots']['RecordType']})
+            self.client_to_server('SkillResForAskSlots', {'SkillName': respones['ClientShouldDo']['Skill']['SkillName'], 'Slots': slotsturn})
         else:
             pass
         # WaitAnswer
         if respones['ClientShouldDo']['Skill']['ShouldEndConversation'] == 'Ture':
-            text = self.dialogue.waitAnswer(respones['ClientShouldDo']['Skill']['RecordType'])
+            text = self.dialogue('wait_answer', {'RecordType': respones['ClientShouldDo']['Skill']['RecordType']})
         else:
             pass
             

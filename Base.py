@@ -63,8 +63,9 @@ class xiaolanBase(object):
             tts = youdao_tts()
             tok = self.set['main_setting']['TTS']['youdao']['lang']
         else:
-            self.log('write', {'Error:UnreadSettingForTTS', 'level': 'waring'})
+            self.log('write', {'log': 'Error:UnreadSettingForTTS', 'level': 'waring'})
 
+        self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
         states = tts.tts(saytext, tok)
         if 'Error' in states:
             self.log('write', {'log': states['States'], 'level': 'error'})
@@ -89,6 +90,7 @@ class xiaolanBase(object):
             tts = youdao_tts()
             tok = more['lang']
 
+        self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
         states = tts.tts(saytext, tok)
         if 'Error' in states['States']:
             self.log('write', {'log': states['States'], 'level': 'error'})
@@ -116,6 +118,7 @@ class xiaolanBase(object):
             self.log('write', {'log': 'BaseSTTUnkonwCommands', 'level': 'warning'})
             return None
 
+        self.log('write', {'log': 'StartSTT', 'level': 'info'})
         states = stt.stt(path, tok)
         if 'Error' in states['States']:
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
@@ -163,7 +166,7 @@ class xiaolanBase(object):
         if mode == 'write':
             Log.addLog(more['log'], more['level'])
         elif mode == 'read':
-            Log.Get(more)
+            Log.Get(more['mode'])
         else:
             self.log('write', {'log': 'BaseLogError:UnknowLogCommands', 'level': 'wraning'})
 
@@ -257,36 +260,54 @@ class xiaolanBase(object):
         from auditory_center.recorder import recorder
         recorder = recorder()
         if mode == 'normal':
-            return recorder.record()
+
+            self.log('write', {'log': 'Event:StartNormalRecording', 'level': 'info'})
+            recorder.record()
         elif mode == 'less_time':
-            return recorder.ssrecord()
+
+            self.log('write', {'log': 'Event:StartLess_TimeRecording', 'level': 'info'})
+            recorder.ssrecord()
         elif mode == 'translate':
-            return recorder.tsrecord()
+
+            self.log('write', {'log': 'Event:StartTranslateRecording', 'level': 'info'})
+            recorder.tsrecord()
         elif mode == 'express':
-            return recorder.exrecord()
+
+            self.log('write', {'log': 'Event:StartExpressRecording', 'level': 'info'})
+            recorder.exrecord()
         elif mode == 'Diy':
-            return recorder.diy_record(more['seconds'])
+
+            self.log('write', {'log': 'Event:StartDiyRecordingFor' + more['seconds'] + 's', 'level': 'info'})
+            recorder.diy_record(more['seconds'])
         else:
-            return  {'States': 'Error:UnkonwRecordMode'}
+
+            self.log('write', {'log': 'Error:UnkonwRecordMode', 'level': 'warning'})
 
     def dialogue(self, mode, more):
 
         """
         对话
-        :param mode:
-        :param more:
+        :param mode: 模式
+        :param more: 更多
         :return:
         """
         from speech_center.conversation import dialogue
         dialogue = dialogue()
         if mode == 'conversation':
-            return dialogue.conversation()
+
+            self.log('write', {'log': 'Event:StartConversation', 'level': 'info'})
+            dialogue.conversation()
         elif mode == 'wait_answer':
-            return dialogue.waitAnswer(more['RecordType'])
+
+            self.log('write', {'log': 'Event:StartProcessingWaitAnswer', 'level': 'info'})
+            dialogue.waitAnswer(more['RecordType'])
         elif mode == 'ask_slots':
-            return dialogue.AskSlots(more['SlotName'], more['SlotDicts'], more['SlotAsk'], more['RecordType'])
+
+            self.log('write', {'log': 'Event:StartProcessingAskSlots', 'level': 'info'})
+            dialogue.AskSlots(more['SlotNames'], more['SlotDicts'], more['SlotAsks'], more['RecordTypes'])
         else:
-            return {'States': 'Error:UnknowConversationCommands'}
+
+            self.log('write', {'log': 'Error:UnknowConversationCommands', 'level': 'warning'})
 
     def client_to_server(self, mode, more):
 
@@ -329,7 +350,7 @@ class xiaolanBase(object):
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillWaitAnswerResponesStart', 'level': 'info'})
             return ClientToServer.ClientSkillResWaitAnswer(more['Intent'], more['Slots'], more['IntentDict'])
-        elif mode == 'SkillResForAsklots':
+        elif mode == 'SkillResForAskSlots':
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillAskSlotsResponesStart', 'level': 'info'})
             return ClientToServer.SkillAskSlotsRes(more['Slots'], more['SkillName'])
@@ -337,6 +358,9 @@ class xiaolanBase(object):
 
             self.log('write', {'log': 'Event:DiyRequestsStart', 'level': 'info'})
             return ClientToServer.DiyReq(more['Data'])
+        elif mode == 'LogResForBrain':
+
+            self.log('write', {'log': 'Event:StartSendLogToXiaolanBrain'})
         else:
             self.log('write', {'log': 'Error:UnknowRequestsCommands', 'level': 'warning'})
 
@@ -351,9 +375,15 @@ class xiaolanBase(object):
         from network_center.xiaolanServerCommandDo import CommandsDo
         CommandsDo = CommandsDo()
         if mode == 'Normal':
-            return CommandsDo.Do(more['Respones'])
+
+            self.log('write', {'log': 'Event:StartServerProcessing', 'level': 'info'})
+            states = CommandsDo.Do(more['Respones'])
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanBrainCommandsProcessingError', 'level': 'error'})
+            else:
+                pass
         else:
-            return {'States': 'Error:UnknowBrainCommandsDoCommands'}
+            self.log('write', {'log': 'Error:UnknowBrainCommandsDoCommands', 'level': 'warning'})
 
     def speacil_skill(self, skill, more):
 

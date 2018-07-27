@@ -26,16 +26,17 @@ from tts import youdao_tts
 sys.path.append('/home/pi/xiaolan/')
 from auditory_center.recorder import recorder
 from memory_center.Log import Log
+from Base import xiaolanBase
 sys.path.append('/home/pi/xiaolan/memory_center')
 import intentlist
 
-class Nlu(object):
+class Nlu(xiaolanBase):
 
         def __init__(self):
 
-                self.intentlist = intentlist.intentlistturn()
-                self.turn = 0
-                self.Log = Log()
+            super(Nlu, self).__init__()
+            self.intentlist = intentlist.intentlistturn()
+            self.turn = 0
         
         def get_slots(self, slotslist, text):
             
@@ -59,7 +60,7 @@ class Nlu(object):
                             b = b + 1
             else:
                 print('slots read error')
-                self.log.addLog("Slots Read Error", "error")
+                self.log('write', {'log': "Slots Read Error", 'level': "error"})
                 return returndict
             return returndict
                     
@@ -79,7 +80,7 @@ class Nlu(object):
                                 'Intent': None,
                                 'Skill': None,
                                 'WordLexer': '',
-                                'KeyWord': self.intentlist[a][2][b][c],
+                                'KeyWord': None,
                                 'Commands': [
                                         'speaker', 'speacilrecorder'
                                 ],
@@ -108,7 +109,7 @@ class Nlu(object):
                                 'Intent': None,
                                 'Skill': None,
                                 'WordLexer': '',
-                                'KeyWord': self.intentlist[a][2][b][c],
+                                'KeyWord': None,
                                 'Commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
@@ -122,7 +123,7 @@ class Nlu(object):
                                 'Intent': None,
                                 'Skill': None,
                                 'WordLexer': '',
-                                'KeyWord': self.intentlist[a][2][b][c],
+                                'KeyWord':  None,
                                 'commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                 ],
@@ -150,7 +151,7 @@ class Nlu(object):
                                     'Intent': None,
                                     'Skill': None,
                                     'WordLexer': '',
-                                    'KeyWord': self.intentlist[a][2][b][c],
+                                    'KeyWord': None,
                                     'Commands': [
                                         'tts', '对不起，我无法理解您的意思'
                                     ],
@@ -204,15 +205,15 @@ class Nlu(object):
                         else:
                             c = c + 1
                             
-                if data == None:
-                    inten = self.ifly_intent(text)
+                if not data:
+                    intent = self.ifly_intent(text)
                     return {
                             'MainIntent': intent,
                             'Intent': intent,
                             'Skill': intent,
                             'Slots': None,
                             'WordLexer': '',
-                            'KeyWord': self.intentlist[a][2][b][c],
+                            'KeyWord': None,
                             'Commands': [
                                     'skill', 'start'
                             ],

@@ -36,7 +36,7 @@ class dialogue(xiaolanBase):
         """
 
         self.speaker('ding')
-        self.recorder('Normal', 'a')
+        self.recorder('normal', 'a')
         self.speaker('dong')
         text = self.stt("./voice.wav")
         intentdict = self.client_to_server('NluReq', {'Text': text})
