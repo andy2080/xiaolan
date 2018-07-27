@@ -1,4 +1,4 @@
-# 小蓝--中文交互式智能家居机器人(在树莓派raspberrypi上运行)
+# 小蓝（小紫）--中文交互式智能家居机器人(在树莓派raspberrypi上运行)
 ![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
 ![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
 ![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
@@ -12,6 +12,7 @@
 
 ## 唤醒词问题：
 - 根据百度的唤醒词测试，得出“小蓝小蓝”并不适合作为唤醒词，所以更换为五星的“小紫小紫”作为预训练唤醒词
+- 目前默认唤醒词依然为“jarvis”
 
 ## 介绍本开源项目和WIKI请看：
 ### https://github.com/xiaoland/xiaolan-dev/wiki
@@ -21,6 +22,11 @@
 - git clone https://github.com/xiaoland/xiaolan.git xiaolan
 - cd xiaolan
 - python2.7 xiaolan
+
+## 感谢：
+- 感谢@陈果果哥哥为小蓝更新了snowboy和修复了snowboy的唤醒词问题
+- 感谢@赵磊哥哥为小蓝提供了建议
+- 感谢dingdang-robotQQ群中的绝对零度为小蓝的代码架构做出了概念
 
 
 ## 更新：（有时间先后顺序）
