@@ -63,14 +63,13 @@ class xiaolanBase(object):
             tts = youdao_tts()
             tok = self.set['main_setting']['TTS']['youdao']['lang']
         else:
-            return {'States': 'Error:UnreadSettingForTts'}
+            self.log('write', {'Error:UnreadSettingForTTS', 'level': 'waring'})
+
         states = tts.tts(saytext, tok)
         if 'Error' in states:
             self.log('write', {'log': states['States'], 'level': 'error'})
-            return states
         else:
             speaker.speak()
-            return states
 
     def diy_tts(self, saytext, service, more):
 
@@ -140,6 +139,17 @@ class xiaolanBase(object):
         self.log('write', {'log': 'Event:XiaolanFaceAwakenStart', 'level': 'info'})
         face_awaken.awaken()
 
+    def snowboy(self):
+        
+        """
+        snowboy离线唤醒引擎
+        :return:
+        """
+        from auditory_center.awaken.snowboy import snowboy
+        snowboy = snowboy()
+        self.log('write', {'log': 'Event:SnowboyVoiceAwakenStart', 'level': 'info'})
+        snowboy.awaken()
+
     def log(self, mode, more):
 
         """
@@ -179,7 +189,7 @@ class xiaolanBase(object):
         elif mode == 'Get':
 
             self.log('write', {'log': 'DatebaseGet:' + more['key'] + 'In' + more['db']})
-            Datebase.GetDate(more['key'], mode['db'])
+            states = Datebase.GetDate(more['key'], mode['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -188,7 +198,7 @@ class xiaolanBase(object):
         elif mode == 'Delete':
 
             self.log('write', {'log': 'DatebaseDelete:' + more['key'] + 'In' + more['db']})
-            Datebase.DeleteDate(more['key'], more['db'])
+            states = Datebase.DeleteDate(more['key'], more['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -197,7 +207,7 @@ class xiaolanBase(object):
         elif mode == 'Replace':
 
             self.log('write', {'log': 'DatebaseReplace:' + more['date'][0] + ',Date' + more['date'][1] + 'In' + more['db']})
-            Datebase.ReplaceDate(more['date'], more['db'])
+            states = Datebase.ReplaceDate(more['date'], more['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -206,17 +216,6 @@ class xiaolanBase(object):
         else:
 
             self.log('write', {'log': 'Error:UnknowCommandsForBaseDatebase', 'level': 'warning'})
-
-    def snowboy(self):
-
-        """
-        snowboy离线唤醒引擎
-        :return:
-        """
-        from auditory_center.awaken.snowboy import snowboy
-        snowboy = snowboy()
-        self.log('write', {'log': 'Event:SnowboyVoiceAwakenStart', 'level': 'info'})
-        snowboy.awaken()
 
     def client_nlu(self, mode, text):
 
