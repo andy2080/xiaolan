@@ -140,7 +140,7 @@ class xiaolanBase(object):
         face_awaken.awaken()
 
     def snowboy(self):
-        
+
         """
         snowboy离线唤醒引擎
         :return:
