@@ -17,12 +17,10 @@ def setting():
                        'xiaolan_nlu': '',
                        'xiaolan_brain': '180.76.186.145'
                    },
-                   'DatebaseUrl': [
-                       'XiaolanSkillUrl', '',
-                       'XiaolanSkillIntentList', '',
-                       'XiaolanSkillImage', '',
-                       'XiaolanSkillSlotsDict', ''
-                   ],
+                   'DatebaseUrl': {
+                       'XiaolanSkill': '',
+                       'XiaolanFace': ''
+                   },
                    'STT': {
                        'service': 'baidu', #STT服务选择 baidu ifly
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请

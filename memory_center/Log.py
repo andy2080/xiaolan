@@ -13,8 +13,10 @@ import time
 class Log(object):
 
     def __init__(self):
+
         pass
-    def Get(self, mode):
+
+    def get(self, mode):
 
         if mode == 'all':
             xiaolanlog = open("./more/xiaolan.log", "r")
@@ -23,7 +25,7 @@ class Log(object):
         else:
             pass
 
-    def addLog(self, log, level):
+    def add_log(self, log, level):
 
         logger = logging.getLogger()
         logger.setLevel(logging.DEBUG)

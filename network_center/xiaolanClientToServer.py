@@ -106,9 +106,15 @@ class ClientToServer(xiaolanBase):
                 }
             }
         }
-        r = requests.post(self.brainurl,
-                          data=data)
-        return r.json()
+        try:
+            r = requests.post(self.brainurl,
+                              data=data)
+        except:
+            return {'States': 'Error:Unknow...'}
+        else:
+            json = r.json()
+            json['States'] = 'Complete'
+            return json
     
     def ClientSkillReq(self, intent, slots, intentdict):
 

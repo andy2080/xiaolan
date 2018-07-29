@@ -17,7 +17,7 @@ class Datebase(xiaolanBase):
         super(Datebase, self).__init__()
         self.dburl = self.set['main_setting']['DatebaseUrl']
 
-    def SetDate(self, date, db):
+    def set_date(self, date, db):
 
         url = self.dburl[db]
         try:
@@ -28,21 +28,9 @@ class Datebase(xiaolanBase):
         else:
             dbc.set(date[0], date[1])
 
-    def GetDate(self, key, db):
+    def get_date(self, key, db):
 
-        turn = 0
-        while 0 == 0:
-            if db == self.dburl[turn]:
-                url = self.dburl[turn + 1]
-            else:
-                try:
-                    test = self.dburl[turn + 2]
-                except IndexError:
-                    break
-                else:
-                    turn = turn + 2
-        else:
-            pass
+        url = self.dburl[db]
         try:
             dbc = memcache.Client([url + ':11211'], debug=True)
         except:
@@ -51,21 +39,9 @@ class Datebase(xiaolanBase):
         else:
             return dbc.get(key)
 
-    def ReplaceDate(self, date, db):
+    def replace_date(self, date, db):
 
-        turn = 0
-        while 0 == 0:
-            if db == self.dburl[turn]:
-                url = self.dburl[turn + 1]
-            else:
-                try:
-                    test = self.dburl[turn + 2]
-                except IndexError:
-                    break
-                else:
-                    turn = turn + 2
-        else:
-            pass
+        url = self.dburl[db]
         try:
             dbc = memcache.Client([url + ':11211'], debug=True)
         except:
@@ -79,21 +55,9 @@ class Datebase(xiaolanBase):
             else:
                 print "Info: DatebaseReplaceComplete"
 
-    def DeleteDate(self, key, db):
+    def delete_date(self, key, db):
 
-        turn = 0
-        while 0 == 0:
-            if db == self.dburl[turn]:
-                url = self.dburl[turn + 1]
-            else:
-                try:
-                    test = self.dburl[turn + 2]
-                except IndexError:
-                    break
-                else:
-                    turn = turn + 2
-        else:
-            pass
+        url = self.dburl[db]
         try:
             dbc = memcache.Client([url + ':11211'], debug=True)
         except:

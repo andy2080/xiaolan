@@ -131,16 +131,22 @@ class xiaolanBase(object):
                 self.log('write', {'log': 'BaseSTTComplete' + states['Text'], 'level': 'debug'})
                 return self.replace_number(text.replace('，', '').replace('。', ''))
 
-    def face_awaken(self):
+    def face_awaken(self, mode):
 
         """
         视觉唤醒（人脸唤醒）
+        :param mode: 更多
         :return:
         """
         from visual_centre.face import XiaolanFaceAwaken
         face_awaken = XiaolanFaceAwaken()
-        self.log('write', {'log': 'Event:XiaolanFaceAwakenStart', 'level': 'info'})
-        face_awaken.awaken()
+        if mode == 'awaken':
+
+            self.log('write', {'log': 'Event:XiaolanFaceAwakenStart', 'level': 'info'})
+            face_awaken.awaken()
+        elif mode == 'all_new_sign_up':
+
+            face_awaken.all_new_sign_up_face()
 
     def snowboy(self):
 
@@ -162,11 +168,11 @@ class xiaolanBase(object):
         :return:
         """
         from memory_center.Log import Log
-        Log = Log()
+        log = Log()
         if mode == 'write':
-            Log.addLog(more['log'], more['level'])
+            log.add_log(more['log'], more['level'])
         elif mode == 'read':
-            Log.Get(more['mode'])
+            log.get(more['mode'])
         else:
             self.log('write', {'log': 'BaseLogError:UnknowLogCommands', 'level': 'wraning'})
 
@@ -179,11 +185,11 @@ class xiaolanBase(object):
         :return:
         """
         from memory_center.DateBase import Datebase
-        Datebase = Datebase()
+        datebase = Datebase()
         if mode == 'Set':
 
             self.log('write', {'log': 'DatebaseWrite:' + more['date'] + 'In' + more['db']})
-            states = Datebase.SetDate(more['date'], more['db'])
+            states = datebase.set_date(more['date'], more['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -192,7 +198,7 @@ class xiaolanBase(object):
         elif mode == 'Get':
 
             self.log('write', {'log': 'DatebaseGet:' + more['key'] + 'In' + more['db']})
-            states = Datebase.GetDate(more['key'], mode['db'])
+            states = datebase.get_date(more['key'], mode['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -201,7 +207,7 @@ class xiaolanBase(object):
         elif mode == 'Delete':
 
             self.log('write', {'log': 'DatebaseDelete:' + more['key'] + 'In' + more['db']})
-            states = Datebase.DeleteDate(more['key'], more['db'])
+            states = datebase.delete_date(more['key'], more['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -210,7 +216,7 @@ class xiaolanBase(object):
         elif mode == 'Replace':
 
             self.log('write', {'log': 'DatebaseReplace:' + more['date'][0] + ',Date' + more['date'][1] + 'In' + more['db']})
-            states = Datebase.ReplaceDate(more['date'], more['db'])
+            states = datebase.replace_date(more['date'], more['db'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:DatebaseSetDateFaild:' + states['States'], 'level': 'warning'})
             else:
@@ -225,13 +231,14 @@ class xiaolanBase(object):
         """
         小蓝语义理解引擎
         :param mode: 模式
+        :param text: 文本
         :return:
         """
-        from speech_center.nlu import Nlu
-        Nlu = Nlu()
+        from speech_center.nlu import nlu
+        nlu = nlu()
         if mode == 'xiaolan':
 
-            states = Nlu.xl_intent(text)
+            states = nlu.xl_intent(text)
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanClientIntentDoError:' + states['States'], 'level': 'error'})
             else:
@@ -239,7 +246,7 @@ class xiaolanBase(object):
 
         elif mode == 'get_slots':
 
-            states = Nlu.get_slots(more['SlotsList'], more['Text'])
+            states = nlu.get_slots(more['SlotsList'], more['Text'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanClientNluGetSlotsError:' + states['States'], 'level': 'warning'})
                 return states
@@ -249,7 +256,7 @@ class xiaolanBase(object):
 
         elif mode == 'ifly':
 
-            states = Nlu.ifly_intent(text)
+            states = nlu.ifly_intent(text)
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:IflyIntentDoError:' + states['States'], 'level': 'error'})
             else:
@@ -328,15 +335,15 @@ class xiaolanBase(object):
         :return:
         """
         from network_center.xiaolanClientToServer import ClientToServer
-        ClientToServer = ClientToServer()
+        client_to_server = ClientToServer()
         if mode == 'SkillReq':
 
             self.log('write', {'log': 'Event:XiaolanBrainRequestsStart', 'level': 'info'})
-            states = ClientToServer.ClientSkillReq(more['Intent'], more['Slots'], more['IntentDict'])
+            states = client_to_server.ClientSkillReq(more['Intent'], more['Slots'], more['IntentDict'])
         elif mode == 'NluReq':
 
             self.log('write', {'log': 'Event:XiaolanNluRequestsStart', 'level': 'info'})
-            intentdict = ClientToServer.XiaolanNluReq(more['Text'])
+            intentdict = client_to_server.XiaolanNluReq(more['Text'])
             if 'Error' in intentdict['States'] or not intentdict:
 
                 self.log('write', {'log': 'Error:XiaolanClientRequestsXiaolanNluProcessingEngineError', 'level': 'error'})
@@ -359,15 +366,23 @@ class xiaolanBase(object):
         elif mode == 'SkillResForWaitAnswer':
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillWaitAnswerResponesStart', 'level': 'info'})
-            return ClientToServer.ClientSkillResWaitAnswer(more['Intent'], more['Slots'], more['IntentDict'])
+            stats = client_to_server.ClientSkillResWaitAnswer(more['Intent'], more['Slots'], more['IntentDict'])
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanSkillRequestsForSkillWaitAnswerResponesError:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanSkillRequestsForSkillWaitAnswerResponesComplete', 'level': 'debug'})
         elif mode == 'SkillResForAskSlots':
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillAskSlotsResponesStart', 'level': 'info'})
-            return ClientToServer.SkillAskSlotsRes(more['Slots'], more['SkillName'])
+            states = client_to_server.SkillAskSlotsRes(more['Slots'], more['SkillName'])
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanSkillRequestsForSkillAskSlotsResponesError:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanSkillRequestsForSkillAskSlotsResponesComplete', 'level': 'debug'})
         elif mode == 'DiyReq':
 
             self.log('write', {'log': 'Event:DiyRequestsStart', 'level': 'info'})
-            return ClientToServer.DiyReq(more['Data'])
+            states = client_to_server.DiyReq(more['Data'])
         elif mode == 'LogResForBrain':
 
             self.log('write', {'log': 'Event:StartSendLogToXiaolanBrain'})
@@ -383,11 +398,11 @@ class xiaolanBase(object):
         :return:
         """
         from network_center.xiaolanServerCommandDo import CommandsDo
-        CommandsDo = CommandsDo()
+        commands_do = CommandsDo()
         if mode == 'Normal':
 
             self.log('write', {'log': 'Event:StartServerProcessing', 'level': 'info'})
-            states = CommandsDo.Do(more['Respones'])
+            states = commands_do.process(more['Respones'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanBrainCommandsProcessingError', 'level': 'error'})
             else:
@@ -404,9 +419,9 @@ class xiaolanBase(object):
         :return:
         """
         from learning_center.SpeacilSkills import SpeacilSkills
-        SpeacilSkills = SpeacilSkills()
+        speacil_skills = SpeacilSkills()
         if skill == 'Hass':
-            return SpeacilSkills.Hass(more['IntentDict'])
+            return speacil_skill.Hass(more['IntentDict'])
         else:
             return {'States': 'UnknowSpeacilSkillCommands'}
 

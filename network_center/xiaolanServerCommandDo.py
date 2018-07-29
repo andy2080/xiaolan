@@ -18,7 +18,7 @@ class CommandsDo(xiaolanBase):
 
         super(CommandsDo, self)._init__()
 
-    def Do(self, respones):
+    def process(self, respones):
 
         syscommands = respones['ClientShouldDo']['System']['commands']
         # SystemCommands
