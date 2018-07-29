@@ -81,7 +81,7 @@ class baidu_stt(xiaolanBase):
                 "len": len(audio),
                 "rate": frame_rate,
                 "speech": base_data,
-                "dev_id": dev_id,
+                "dev_pid": dev_id,
                 "cuid": 'b0-10-41-92-84-4d',
                 "channel": 1}
         
