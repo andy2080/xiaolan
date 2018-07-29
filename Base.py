@@ -62,6 +62,7 @@ class xiaolanBase(object):
             tts = youdao_tts()
             tok = self.set['main_setting']['TTS']['youdao']['lang']
         else:
+            tts = baidu_tts()
             self.log('write', {'log': 'Error:UnreadSettingForTTS', 'level': 'waring'})
 
         self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
@@ -88,6 +89,8 @@ class xiaolanBase(object):
         elif service == 'youdao':
             tts = youdao_tts()
             tok = more['lang']
+        else:
+            tts = baidu_tts()
 
         self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
         states = tts.tts_start(saytext, tok)
