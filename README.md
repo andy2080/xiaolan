@@ -1,4 +1,4 @@
-# 小蓝--智能家居语音交互式人工智能机器人(Run on RaspberryPi)
+# 小蓝--智能家居语音交互式人工智能机器人(在树莓派上运行)
 ![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
 ![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
 ![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
@@ -63,3 +63,30 @@
 - 小蓝语义理解引擎添加文本纠错、分词、依存词法分析、词语相似度分析、短文本相似度分析、关键字提取
 - 小蓝语义理解引擎将可以更加准确的判断用户的需求
 - 小蓝语义理解转移到云端
+
+# 英文版本README（EnglishReadmeRelease）【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
+Xiaolan----SmarthomeVoiceTalkAIRobot(Run on RaspberryPi)
+![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
+![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
+![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
+![WeChat](https://img.shields.io/badge/WeChat-18680171381-orange.svg)
+![QQ](https://img.shields.io/badge/QQ-1481605673-yellow.svg)
+
+
+## HotWord：
+- FromBaiduHotwordTest，WeKnow"小蓝小蓝"is not a good hotword，So we change hotword to FiveStars's"小蓝同学" to be a WaitTrainingHotWord
+- But now the default hotword still is"jarvis"
+
+## OurProgramWiki'sURL：
+### https://github.com/xiaoland/xiaolan-dev/wiki
+![服务架构](https://github.com/xiaoland/xiaolan/blob/master/%E5%B0%8F%E8%93%9D%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE2.PNG)
+
+## Download&Use：
+- git clone https://github.com/xiaoland/xiaolan.git xiaolan
+- cd xiaolan
+- python2.7 xiaolan
+
+## Thanks：
+- Thanks@chengguoguo update the snowboy and fix snowboy's HOTWORD
+- Thanks@zhaolei give xiaolan an idea
+- Thanks dingdang-robotQQGroup's @绝对零度 give xiaolan's code a ...(概念)
