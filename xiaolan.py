@@ -39,7 +39,6 @@ class Xiaolan(xiaolanBase):
         ''')
 
         self.tts(self.set['main_setting']['your_name'] + '，你好啊，我是你的小蓝')
-        speaker.speak()
         os.system('pulseaudio --start')
         if self.set['main_setting']['awaken'] == 'hotword':
             self.snowboy()

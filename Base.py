@@ -63,6 +63,7 @@ class xiaolanBase(object):
             tok = self.set['main_setting']['TTS']['youdao']['lang']
         else:
             tts = baidu_tts()
+            tok = tts.get_token()
             self.log('write', {'log': 'Error:UnreadSettingForTTS', 'level': 'waring'})
 
         self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
@@ -90,6 +91,7 @@ class xiaolanBase(object):
             tts = youdao_tts()
             tok = more['lang']
         else:
+            tok = tts.get_token()
             tts = baidu_tts()
 
         self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
