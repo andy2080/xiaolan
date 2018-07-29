@@ -158,8 +158,8 @@ class xiaolanBase(object):
         snowboy离线唤醒引擎
         :return:
         """
-        from auditory_center.awaken.snowboy import snowboy
-        snowboy = snowboy()
+        from auditory_center.awaken.snowboy import Snowboy
+        snowboy = Snowboy()
         self.log('write', {'log': 'Event:SnowboyVoiceAwakenStart', 'level': 'info'})
         snowboy.awaken()
 
