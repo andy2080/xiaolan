@@ -64,8 +64,9 @@
 - 小蓝语义理解引擎将可以更加准确的判断用户的需求
 - 小蓝语义理解转移到云端
 
-# 英文版本README（EnglishReadmeRelease）【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
-Xiaolan----SmarthomeVoiceTalkAIRobot(Run on RaspberryPi)
+### 英文版本README（EnglishReadmeRelease）
+- 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
+# Xiaolan----SmarthomeVoiceTalkAIRobot(Run on RaspberryPi)
 ![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
 ![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
 ![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
