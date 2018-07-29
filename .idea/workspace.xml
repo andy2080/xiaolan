@@ -24,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="face.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="face.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/visual_centre/face.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
+            <state relative-caret-position="2508">
+              <caret line="132" column="29" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
               <folding>
                 <element signature="e#32#41#0" expanded="true" />
               </folding>
@@ -53,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Log.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Log.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/memory_center/Log.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -80,8 +80,8 @@
       <file leaf-file-name="conversation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
-              <caret line="93" column="119" selection-start-line="93" selection-start-column="119" selection-end-line="93" selection-end-column="119" />
+            <state relative-caret-position="285">
+              <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
               </folding>
@@ -105,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/learning_center/skills/smarthome.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#25#35#0" expanded="true" />
               </folding>
@@ -179,7 +179,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="977" />
@@ -205,31 +205,12 @@
             <path>
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
               <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
-              <item name="auditory_center" type="462c0819:PsiDirectoryNode" />
-              <item name="awaken" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
-              <item name="auditory_center" type="462c0819:PsiDirectoryNode" />
-              <item name="awaken" type="462c0819:PsiDirectoryNode" />
-              <item name="snowboy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
               <item name="display_center" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
               <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
               <item name="learning_center" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
-              <item name="learning_center" type="462c0819:PsiDirectoryNode" />
-              <item name="skills" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
@@ -300,7 +281,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17838542" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -592,7 +572,7 @@
     <entry file="file://$PROJECT_DIR$/xiaolan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
@@ -606,29 +586,9 @@
     <entry file="file://$PROJECT_DIR$/learning_center/skills/smarthome.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#25#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="93" column="119" selection-start-line="93" selection-start-column="119" selection-end-line="93" selection-end-column="119" />
-          <folding>
-            <element signature="e#116#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visual_centre/face.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
-          <folding>
-            <element signature="e#32#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -670,6 +630,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/Log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="e#31#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-696">
@@ -680,12 +650,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/memory_center/Log.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        <state relative-caret-position="285">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
           <folding>
-            <element signature="e#31#41#0" expanded="true" />
+            <element signature="e#116#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visual_centre/face.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2508">
+          <caret line="132" column="29" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
+          <folding>
+            <element signature="e#32#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
