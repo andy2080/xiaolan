@@ -12,7 +12,8 @@ sudo apt-get install libevent-dev
 tar -zxvf 1.4.19.tar.gz
 cd memcached-1.4.19
 sudo apt-get install memcached
-wget https://sourceforge.net/projects/swig/files/swig/swig-3.0.10/swig-3.0.10.tar.gz/download
+git clone https://github.com/Kitt-AI/snowboy.git snowbot-github
+cd snowboy-github/swig/
 tar -zxvf swig-3.0.10.tar.gz
 cd swig-3.0.10
 ./configure
