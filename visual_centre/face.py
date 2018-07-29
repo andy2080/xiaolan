@@ -126,6 +126,7 @@ class XiaolanFaceAwaken(xiaolanBase):
             self.baidu_face_track_camera()
             os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
             face_num = self.baidu_face_track_image('/home/pi/xiaolan/memory_center/face_img/face.jpg')
+            lib = self.ll('./visual_centre/baidu_face_api_linux_c++/cpp/xiaolan_face.so')
             if face_num > 0:
                 face_users_img_date = self.datebase('Get', {'key': 'XiaolanFaceUsersDate', 'db': 'XiaolanFace'})
                 face_users = self.datebase('Get', {'key': 'XiaolanFaceUsers', 'db': 'XiaolanFace'})

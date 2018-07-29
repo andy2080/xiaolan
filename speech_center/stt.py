@@ -21,7 +21,6 @@ import demjson
 import base64
 import urllib
 import urllib2
-import ctypes
 sys.path.append('/home/pi/xiaolan/')
 import setting
 from Base import xiaolanBase
