@@ -12,13 +12,7 @@
 import sys
 import os
 import re
-import setting
-from speech_center.stt import baidu_stt
-from speech_center.stt import ifly_stt
-from speech_center.tts import baidu_tts
-from speech_center.tts import youdao_tts
 from Base import xiaolanBase
-import speech_center.speaker as speaker
 
 class Xiaolan(xiaolanBase):
 

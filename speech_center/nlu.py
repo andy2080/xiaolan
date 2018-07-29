@@ -19,23 +19,15 @@ import requests
 import demjson
 import base64
 import hashlib
-from tts import baidu_tts
-from stt import baidu_stt
-from stt import ifly_stt
-from tts import youdao_tts
 sys.path.append('/home/pi/xiaolan/')
-from auditory_center.recorder import recorder
-from memory_center.Log import Log
 from Base import xiaolanBase
-sys.path.append('/home/pi/xiaolan/memory_center')
-import intentlist
 
 class Nlu(xiaolanBase):
 
         def __init__(self):
 
             super(Nlu, self).__init__()
-            self.intentlist = intentlist.intentlistturn()
+            self.intentlist = self.datebase('Get', {'key': 'XiaolanIntentList', 'db': 'XiaolanSkill'})
             self.turn = 0
         
         def get_slots(self, slotslist, text):
