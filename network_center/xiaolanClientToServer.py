@@ -17,7 +17,6 @@ import hashlib
 import base64
 import time
 sys.path.append('/home/pi/xiaolan/')
-import setting
 from Base import xiaolanBase
 
 class ClientToServer(xiaolanBase):
