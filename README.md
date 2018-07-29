@@ -5,8 +5,6 @@
 ![WeChat](https://img.shields.io/badge/WeChat-18680171381-orange.svg)
 ![QQ](https://img.shields.io/badge/QQ-1481605673-yellow.svg)
 
-这是一个中文的智能家居控制对话机器人——由叮当衍生而来，目前还未100%完成，所以发上来，希望大家一起研发，一个人研发也没那么多点子和经验
-
 - 对不起！因为我只是一个刚上初一的小孩，所以如果有任何觉得使用不方便或者错误的地方，希望多多谅解
 - 如果大家有点子的话，加我QQ：1481605673，我真诚的邀请您成为小蓝的开发者
 
@@ -21,6 +19,12 @@
 ## 下载&使用：
 - git clone https://github.com/xiaoland/xiaolan.git xiaolan
 - cd xiaolan
+- 对不起！由于百度离线人脸识别SDK太大，所以无法发到github上面，只好储存在百度云盘
+- 请在百度云盘上下载百度离线人脸识别SDK，地址：， 密码：
+- 下载完毕之后，请将该压缩包解压缩在xiaolan/visual_centre下面
+- cd xiaolan/visual_centre
+- unzip baidu_face_api_linux_c++.zip
+- cd ../
 - python2.7 xiaolan
 
 ## 感谢：
@@ -63,6 +67,8 @@
 - 小蓝语义理解引擎添加文本纠错、分词、依存词法分析、词语相似度分析、短文本相似度分析、关键字提取
 - 小蓝语义理解引擎将可以更加准确的判断用户的需求
 - 小蓝语义理解转移到云端
+- 添加百度离线人脸识别SDK
+- 人脸唤醒研发完毕，即将公开
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
