@@ -30,7 +30,8 @@
 ## 感谢：
 - 感谢@陈果果哥哥为小蓝更新了snowboy和修复了snowboy的唤醒词问题
 - 感谢@赵磊哥哥为小蓝提供了建议
-- 感谢dingdang-robotQQ群中的绝对零度为小蓝的代码架构做出了概念
+- 感谢dingdang-robotQQ群中的@绝对零度为小蓝的代码架构做出了概念
+- 感谢@蒋小明哥哥为小蓝提供百度离线人脸识别SDK-Linux版本
 
 
 ## 更新：（有时间先后顺序）
@@ -69,6 +70,10 @@
 - 小蓝语义理解转移到云端
 - 添加百度离线人脸识别SDK
 - 人脸唤醒研发完毕，即将公开
+- 语音识别支持远场识别
+- 修复一个巨大的BUG
+- 代码重构，不再混乱、互相依赖
+- 在设置中添加sys_lang，有En(英文)，Zh-Hans(普通话)，Zh-Yue（粤语），Zh-Chun（四川话），通过您的设置来判断语音识别的dev_id，提升用户的体验
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
