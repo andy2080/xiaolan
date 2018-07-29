@@ -1,4 +1,4 @@
-# 小蓝（小紫）--中文交互式智能家居机器人(在树莓派raspberrypi上运行)
+# 小蓝--智能家居语音交互式人工智能机器人(Run on RaspberryPi)
 ![Code主要语言](https://img.shields.io/badge/main_code-python-blue.svg)
 ![Version版本](https://img.shields.io/badge/last_version-V2.0-green.svg)
 ![build编写进度](https://img.shields.io/badge/first_ver-37%25-brightgreen.svg)
@@ -11,7 +11,7 @@
 - 如果大家有点子的话，加我QQ：1481605673，我真诚的邀请您成为小蓝的开发者
 
 ## 唤醒词问题：
-- 根据百度的唤醒词测试，得出“小蓝小蓝”并不适合作为唤醒词，所以更换为五星的“小紫小紫”作为预训练唤醒词
+- 根据百度的唤醒词测试，得出“小蓝小蓝”并不适合作为唤醒词，所以更换为五星的“小蓝同学”作为预训练唤醒词
 - 目前默认唤醒词依然为“jarvis”
 
 ## 介绍本开源项目和WIKI请看：
