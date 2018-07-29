@@ -3,7 +3,7 @@
 import os
 import sys
 import json
-from tkinter import *
+
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
 

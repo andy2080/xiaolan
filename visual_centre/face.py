@@ -127,29 +127,38 @@ class XiaolanFaceAwaken(xiaolanBase):
             os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
             face_num = self.baidu_face_track_image('/home/pi/xiaolan/memory_center/face_img/face.jpg')
             lib = self.ll('./visual_centre/baidu_face_api_linux_c++/cpp/xiaolan_face.so')
-            if face_num > 0:
-                face_users_img_date = self.datebase('Get', {'key': 'XiaolanFaceUsersDate', 'db': 'XiaolanFace'})
-                face_users = self.datebase('Get', {'key': 'XiaolanFaceUsers', 'db': 'XiaolanFace'})
-                trun = 0
-                while 1 == 1:
-                    imgf = '/home/pi/xiaolan/memory_center/face_img/face.jpg'
-                    name = face_users[trun]
-                    imgs = face_users_img_date[name]
-                    result = self.baidu_face_match(imgf, imgs)
-                    result = json.loads(result)
-                    if result['score'] > 49.5:
-                        self.tts(name + '，有什么我可以帮到您的吗？')
-                        self.dialogue('conversation', 0)
-                        break
+            result = json.loads(lib.img_quation('/home/pi/xiaolan/memory_center/face_img/face.jpg'))
+            print result
+            if int(result['score']) > 0.49:
+                if int(result['Occl_chin']) > 0.49 or int(result['Occl_Occl_r_contour']) > 0.49 or int(result['Occl_l_contour']) > 0.49 or int(result['Occl_l_eye']) > 0.49 or int(result['Occl_r_eye']) > 0.49:
+                    pass
+                else:
+                    if face_num > 0:
+                        face_users_img_date = self.datebase('Get', {'key': 'XiaolanFaceUsersDate', 'db': 'XiaolanFace'})
+                        face_users = self.datebase('Get', {'key': 'XiaolanFaceUsers', 'db': 'XiaolanFace'})
+                        trun = 0
+                        while 1 == 1:
+                            imgf = '/home/pi/xiaolan/memory_center/face_img/face.jpg'
+                            name = face_users[trun]
+                            imgs = face_users_img_date[name]
+                            result = self.baidu_face_match(imgf, imgs)
+                            result = json.loads(result)
+                            print result
+                            if result['score'] > 49.5:
+                                self.tts(name + '，有什么我可以帮到您的吗？')
+                                self.dialogue('conversation', 0)
+                                break
+                            else:
+                                try:
+                                    face_users[trun + 1]
+                                except IndexError:
+                                    self.new_sign_up_face()
+                                    self.dialogue('conversation', 0)
+                                    break
+                                else:
+                                    trun = trun + 1
                     else:
-                        try:
-                            face_users[trun + 1]
-                        except IndexError:
-                            self.new_sign_up_face()
-                            self.dialogue('conversation', 0)
-                            break
-                        else:
-                            trun = trun + 1
+                        pass
             else:
                 pass
 
