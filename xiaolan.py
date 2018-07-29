@@ -35,8 +35,8 @@ class Xiaolan(xiaolanBase):
 
         #############################################
         #       小蓝——语音交互式智能家居机器人        #  
-        #  https://www.github.com/xiaoland/xiaolan  #
-        #    （c）袁翊闳——1481605673@qq.com         #
+        #  https://www.github.com/xiaoland/xiaolan   #
+        #    （c）2018袁翊闳——1481605673@qq.com     #
         #############################################
         
         ''')
@@ -47,10 +47,15 @@ class Xiaolan(xiaolanBase):
         if self.set['main_setting']['awaken'] == 'hotword':
             self.snowboy()
         elif self.set['main_setting']['awaken'] == 'face':
-            self.face_awaken()
+            try:
+                f = open('./memory_center/face_img/face_datebase/main.jpg')
+            except:
+                self.face_awaken('all_new_sign_up')
+            finally:
+                self.face_awaken('awaken')
         elif self.set['main_setting']['awaken'] == 'all':
             # thridings for two
-            self.face_awaken()
+            self.face_awaken('awaken')
             self.snowboy()
 
 x = Xiaolan()
