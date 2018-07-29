@@ -22,11 +22,11 @@ sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
 
 
-class dialogue(xiaolanBase):
+class Dialogue(xiaolanBase):
 
     def __init__(self):
 
-        super(dialogue, self).__init__()
+        super(Dialogue, self).__init__()
     
     def conversation(self):
 
@@ -42,7 +42,7 @@ class dialogue(xiaolanBase):
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'], 'IntentDict': intentdict})
 
-    def waitAnswer(self, recordtype):
+    def wait_answer(self, recordtype):
 
         """
         等待答案处理
@@ -66,13 +66,14 @@ class dialogue(xiaolanBase):
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillResForWaitAnswer', {'Intent': intentdict['intent'], 'Slots': intentdict['slots'], 'IntentDict': intentdict})
 
-    def AskSlots(self, slotname, slotdicts, slotask, recordtype):
+    def ask_slots(self, slotname, slotdicts, slotask, recordtype):
 
         """
         询问槽位信息处理
         :param slotname: 槽位名称
         :param slotdicts: 槽位字典
         :param recordtype: 录制类型
+        :param slotask: 槽位询问语句
         :return:
         """
         a = 0

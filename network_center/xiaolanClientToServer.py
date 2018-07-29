@@ -28,13 +28,13 @@ class ClientToServer(xiaolanBase):
         self.brainurl = self.set['main_setting']['url']['xiaolan_brain']
         self.nluurl = self.set['main_setting']['url']['xiaolan_nlu']
     
-    def DiyReq(self, data):
+    def diy_req(self, data):
         
         r = requests.post(self.brainurl,
                           data=data)
         return r.json()
 
-    def XiaolanNluReq(self, text):
+    def xiaolan_nlu_req(self, text):
 
         """
         小蓝客户端发送给小蓝语义理解引擎HTTP请求
@@ -55,13 +55,14 @@ class ClientToServer(xiaolanBase):
             }
         }
         try:
-            r = requests.post(self.nluurl)
-        except:
+            r = requests.post(self.nluurl,
+                              data = data)
+        except requests.exceptions.HTTPError:
             return "Error:NluReqError"
         else:
             return r.json()
 
-    def SkillAskSlotsRes(self, slotturn, skill):
+    def skill_ask_slots_res(self, slotturn, skill):
 
         """
         小蓝客户端发送给技能的槽位信息反馈
@@ -109,14 +110,14 @@ class ClientToServer(xiaolanBase):
         try:
             r = requests.post(self.brainurl,
                               data=data)
-        except:
+        except requests.exceptions.HTTPError:
             return {'States': 'Error:Unknow...'}
         else:
             json = r.json()
             json['States'] = 'Complete'
             return json
     
-    def ClientSkillReq(self, intent, slots, intentdict):
+    def client_skill_req(self, intent, slots, intentdict):
 
         """
         小蓝客户端发送给技能的请求
@@ -167,7 +168,7 @@ class ClientToServer(xiaolanBase):
                           data=json.dumps(data))
         self.commands_do('Normal', {'Respones': r.json()})
 
-    def ClientSkillResWaitAnswer(self, intent, slots, intentdict):
+    def client_skill_res_wait_answer(self, intent, slots, intentdict):
 
         """
         小蓝客户端发送给技能的waitanswer反馈

@@ -7,11 +7,10 @@
 """
     desc:pass
 """
-
+import sys
 sys.path.append('/home/pi/xiaolan/speech_center')
 import speaker
 import os
-import sys
 import re
 sys.path.append('/home/pi/xiaolan')
 
@@ -66,7 +65,7 @@ class xiaolanBase(object):
             self.log('write', {'log': 'Error:UnreadSettingForTTS', 'level': 'waring'})
 
         self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
-        states = tts.tts(saytext, tok)
+        states = tts.tts_start(saytext, tok)
         if 'Error' in states:
             self.log('write', {'log': states['States'], 'level': 'error'})
         else:
@@ -91,7 +90,7 @@ class xiaolanBase(object):
             tok = more['lang']
 
         self.log('write', {'log': 'StartTTS:' + saytext, 'level': 'info'})
-        states = tts.tts(saytext, tok)
+        states = tts.tts_start(saytext, tok)
         if 'Error' in states['States']:
             self.log('write', {'log': states['States'], 'level': 'error'})
         else:
@@ -119,7 +118,7 @@ class xiaolanBase(object):
             return None
 
         self.log('write', {'log': 'StartSTT', 'level': 'info'})
-        states = stt.stt(path, tok)
+        states = stt.stt_start(path, tok)
         if 'Error' in states['States']:
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
             return None
@@ -308,8 +307,8 @@ class xiaolanBase(object):
         :param more: 更多
         :return:
         """
-        from speech_center.conversation import dialogue
-        dialogue = dialogue()
+        from speech_center.conversation import Dialogue
+        dialogue = Dialogue()
         if mode == 'conversation':
 
             self.log('write', {'log': 'Event:StartConversation', 'level': 'info'})
@@ -317,11 +316,11 @@ class xiaolanBase(object):
         elif mode == 'wait_answer':
 
             self.log('write', {'log': 'Event:StartProcessingWaitAnswer', 'level': 'info'})
-            dialogue.waitAnswer(more['RecordType'])
+            dialogue.wait_answer(more['RecordType'])
         elif mode == 'ask_slots':
 
             self.log('write', {'log': 'Event:StartProcessingAskSlots', 'level': 'info'})
-            dialogue.AskSlots(more['SlotNames'], more['SlotDicts'], more['SlotAsks'], more['RecordTypes'])
+            dialogue.ask_slots(more['SlotNames'], more['SlotDicts'], more['SlotAsks'], more['RecordTypes'])
         else:
 
             self.log('write', {'log': 'Error:UnknowConversationCommands', 'level': 'warning'})
@@ -339,11 +338,11 @@ class xiaolanBase(object):
         if mode == 'SkillReq':
 
             self.log('write', {'log': 'Event:XiaolanBrainRequestsStart', 'level': 'info'})
-            states = client_to_server.ClientSkillReq(more['Intent'], more['Slots'], more['IntentDict'])
+            states = client_to_server.client_skill_req(more['Intent'], more['Slots'], more['IntentDict'])
         elif mode == 'NluReq':
 
             self.log('write', {'log': 'Event:XiaolanNluRequestsStart', 'level': 'info'})
-            intentdict = client_to_server.XiaolanNluReq(more['Text'])
+            intentdict = client_to_server.xiaolan_nlu_req(more['Text'])
             if 'Error' in intentdict['States'] or not intentdict:
 
                 self.log('write', {'log': 'Error:XiaolanClientRequestsXiaolanNluProcessingEngineError', 'level': 'error'})
@@ -366,7 +365,7 @@ class xiaolanBase(object):
         elif mode == 'SkillResForWaitAnswer':
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillWaitAnswerResponesStart', 'level': 'info'})
-            stats = client_to_server.ClientSkillResWaitAnswer(more['Intent'], more['Slots'], more['IntentDict'])
+            states = client_to_server.client_skill_res_wait_answer(more['Intent'], more['Slots'], more['IntentDict'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanSkillRequestsForSkillWaitAnswerResponesError:' + states['States'], 'level': 'error'})
             else:
@@ -374,7 +373,7 @@ class xiaolanBase(object):
         elif mode == 'SkillResForAskSlots':
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillAskSlotsResponesStart', 'level': 'info'})
-            states = client_to_server.SkillAskSlotsRes(more['Slots'], more['SkillName'])
+            states = client_to_server.skill_ask_slots_res(more['Slots'], more['SkillName'])
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanSkillRequestsForSkillAskSlotsResponesError:' + states['States'], 'level': 'error'})
             else:
@@ -382,7 +381,7 @@ class xiaolanBase(object):
         elif mode == 'DiyReq':
 
             self.log('write', {'log': 'Event:DiyRequestsStart', 'level': 'info'})
-            states = client_to_server.DiyReq(more['Data'])
+            states = client_to_server.diy_req(more['Data'])
         elif mode == 'LogResForBrain':
 
             self.log('write', {'log': 'Event:StartSendLogToXiaolanBrain'})

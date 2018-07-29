@@ -47,11 +47,13 @@ class Xiaolan(xiaolanBase):
         if self.set['main_setting']['awaken'] == 'hotword':
             self.snowboy()
         elif self.set['main_setting']['awaken'] == 'face':
-            try:
-                f = open('./memory_center/face_img/face_datebase/main.jpg')
-            except:
+            f = open('./memory_center/more/first_start_xiaolan.txt', "r")
+            if f.read() == '0':
+                self.datebase('Set', {'date': ['XiaolanFaceUsers', []], 'db': 'XiaolanFace'})
+                self.datebase('Set', {'date': ['XiaolanFaceUsersDate', {}], 'db': 'XiaolanFace'})
                 self.face_awaken('all_new_sign_up')
-            finally:
+                self.face_awaken('awaken')
+            else:
                 self.face_awaken('awaken')
         elif self.set['main_setting']['awaken'] == 'all':
             # thridings for two

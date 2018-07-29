@@ -53,7 +53,7 @@ class baidu_stt(xiaolanBase):
                                   exc_info=True)
             return token
         
-    def stt(self, fp, token): #开始
+    def stt_start(self, fp, token):
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
@@ -65,11 +65,23 @@ class baidu_stt(xiaolanBase):
         frame_rate = wav_file.getframerate()
         audio = wav_file.readframes(n_frames)
         base_data = base64.b64encode(audio)
+        lang = self.set['main_setting']['sys_lang']
+        if lang == 'En':
+            dev_id = 1737
+        elif lang == 'Zh-Hans':
+            dev_id = 1936
+        elif lang == 'Zh-Yue':
+            dev_id = 1637
+        elif lang == 'Zh-Chun':
+            dev_id = 1837
+        else:
+            dev_id = 1536
         dataf = {"format": "wav",
                 "token": token,
                 "len": len(audio),
                 "rate": frame_rate,
                 "speech": base_data,
+                "dev_id": dev_id,
                 "cuid": 'b0-10-41-92-84-4d',
                 "channel": 1}
         
@@ -111,7 +123,7 @@ class ifly_stt(xiaolanBase):
 
         super(ifly_stt, self).__init__()
 
-    def stt(self, fn, tok):
+    def stt_start(self, fn, tok):
 
         f = open(fn, 'rb')
         file_content = f.read()
@@ -126,7 +138,8 @@ class ifly_stt(xiaolanBase):
         x_header = {'X-Appid': x_appid,
                     'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
                     'X-Param': x_param,
-                    'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()}
+                    'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()
+                    }
         req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
         result = urllib2.urlopen(req)
         result = result.read()

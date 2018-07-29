@@ -144,6 +144,8 @@ class XiaolanFaceAwaken(xiaolanBase):
                         try:
                             face_users[trun + 1]
                         except IndexError:
+                            self.new_sign_up_face()
+                            self.dialogue('conversation', 0)
                             break
                         else:
                             trun = trun + 1

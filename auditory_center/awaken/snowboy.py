@@ -7,11 +7,11 @@ from Base import xiaolanBase
 sys.path.append('/home/pi/xiaolan/auditory_center/awaken/snowboy/')
 import snowboydecoder
 
-class snowboy(xiaolanBase):
+class Snowboy(xiaolanBase):
 
     def __init__(self):
 
-        super(snowboy, self).__init__()
+        super(Snowboy, self).__init__()
 
     def awaken(self):
 
@@ -22,7 +22,7 @@ class snowboy(xiaolanBase):
         try:
             sys.exit(-1)
         except SystemExit:
-            self.dialogue.conversation()
+            self.dialogue('conversation', 0)
 
 awaken()
     

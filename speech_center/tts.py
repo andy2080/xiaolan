@@ -57,7 +57,7 @@ class baidu_tts(xiaolanBase):
                                   exc_info=True)
           
         
-    def tts(self, saytext, token):
+    def tts_start(self, saytext, token):
 
         data = {'tex': saytext,
                  'lan': 'zh',
@@ -86,7 +86,7 @@ class youdao_tts(xiaolanBase):
         
         super(youdao_tts, self).__init__()
     
-    def tts(self, saytext, lang):
+    def tts_start(self, saytext, lang):
 
         appSecret = self.set['main_setting']['TTS']['youdao']['appkey']
         appKey = self.set['main_setting']['TTS']['youdao']['appid']

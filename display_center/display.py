@@ -2,19 +2,16 @@
 
 import os
 import sys
-import requests
 import json
-import demjson
+from tkinter import *
 sys.path.append('/home/pi/xiaolan/')
-from speech_center.stt import baidu_stt
-from speech_center.tts import baidu_tts
-from speech_center.tts import youdao_tts
-from speech_center.stt import ifly_stt
-import speech_center.speaker
+from Base import xiaolanBase
 
-class ScreenDisplay(object):
+class ScreenDisplay(xiaolanBase):
     
     def __init__(self):
-        pass
-    def CardDo(self, info):
+
+        super(ScreenDisplay, self).__init__()
+
+    def display_video_process(self, info):
         pass

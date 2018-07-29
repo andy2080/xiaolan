@@ -2,7 +2,6 @@
 # Datebase: memcache
 
 import memcache
-import json
 import os
 import sys
 from Log import Log
