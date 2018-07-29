@@ -19,7 +19,4 @@ cp /home/pi/xiaolan/memory_center/more/autostartxl /etc/init.d/
 chmod +777 /etc/init.d/autostartxl
 sudo update-rc.d autostartxl defaults
 cd /home/pi/xiaolan
-cd visual_centre
-unzip baidu_face_api_linux_c++.zip
-cd ../
 python2.7 xiaolan.py
