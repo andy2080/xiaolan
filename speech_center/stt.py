@@ -21,6 +21,7 @@ import demjson
 import base64
 import urllib
 import urllib2
+import ctypes
 sys.path.append('/home/pi/xiaolan/')
 import setting
 from Base import xiaolanBase
@@ -52,7 +53,16 @@ class baidu_stt(xiaolanBase):
                                   r.text,
                                   exc_info=True)
             return token
-        
+
+    def time_on_stt(self):
+
+        """
+        百度实时语音识别
+        :return:
+        """
+        ll = ctypes.cdll.LoadLibrary
+        lib = ll('./baidu_time_on_sdk/demo/xiaolan_asr.so')
+
     def stt_start(self, fp, token):
         try:
             wav_file = wave.open(fp, 'rb')

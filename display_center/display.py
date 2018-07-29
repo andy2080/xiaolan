@@ -13,5 +13,5 @@ class ScreenDisplay(xiaolanBase):
 
         super(ScreenDisplay, self).__init__()
 
-    def display_video_process(self, info):
+    def display_text_process(self, info):
         pass

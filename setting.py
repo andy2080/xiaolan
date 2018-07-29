@@ -25,8 +25,8 @@ def setting():
                    'STT': {
                        'service': 'baidu', #STT服务选择 baidu ifly
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
-                               'AK': '87oa8ZdtoVLSuVwV4YPqaeD3',
-                               'SK': 'wi8G8UEa1tkgAKZbKsUHaZk8V6p4NxvL'
+                            'AK': 'jGMUON1SIkkGKo1Va3QmfY4y',
+                            'SK': 'IYRvknURMMQeywrYsu03LejnIl32EFZj'
                        },
                        'ifly': {
                            'key': '',
@@ -36,8 +36,8 @@ def setting():
                    'TTS': {
                        'service': 'baiud', #TTS服务选择 baidu youdao
                        'baidu': {        #百度TTS服务配置，AK和SK在百度云申请
-                           'AK': 'M9jz0511Yfbb15d1BshqtC5g',
-                           'SK': 'Z73I2jvytEa8QydGnNlP3oOKfudIlvgE'
+                           'AK': 'jGMUON1SIkkGKo1Va3QmfY4y',
+                           'SK': 'IYRvknURMMQeywrYsu03LejnIl32EFZj'
                        },
                        'youdao': {       #有道STT服务配置，appid和appkey在有道智云申请
                            'appid': '2b3bd2665750d664',
