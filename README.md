@@ -5,7 +5,7 @@
 ![WeChat](https://img.shields.io/badge/WeChat-18680171381-orange.svg)
 ![QQ](https://img.shields.io/badge/QQ-1481605673-yellow.svg)
 
-- 对不起！因为我只是一个刚上初一的小孩，所以如果有任何觉得使用不方便或者错误的地方，希望多多谅解
+- 对不起！因为我只是一个准备上初二的小孩，所以如果有任何觉得使用不方便或者错误的地方，希望多多谅解
 - 如果大家有点子的话，加我QQ：1481605673，我真诚的邀请您成为小蓝的开发者
 
 ## 唤醒词问题：
@@ -13,19 +13,18 @@
 - 目前默认唤醒词依然为“jarvis”
 
 ## 介绍本开源项目和WIKI请看：
-### https://github.com/xiaoland/xiaolan-dev/wiki
+### https://github.com/xiaoland/xiaolan/wiki
 ![服务架构](https://github.com/xiaoland/xiaolan/blob/master/%E5%B0%8F%E8%93%9D%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE2.PNG)
 
 ## 下载&使用：
 - git clone https://github.com/xiaoland/xiaolan.git xiaolan
 - cd xiaolan
-- 对不起！由于百度离线人脸识别SDK太大，所以无法发到github上面，只好储存在百度云盘
-- 请在百度云盘上下载百度离线人脸识别SDK，[百度云盘:百度离线人脸识别SDK地址](https://pan.baidu.com/s/13oWlL38SjPWE4TlnhomsQg)， 密码：7awr
-- 下载完毕之后，请将该压缩包解压缩在xiaolan/visual_centre下面
-- (如果您没有安装swig，请安装一下swig)
-- cd xiaolan/visual_centre
-- unzip baidu_face_api_linux_c++.zip
-- cd ../
+- cd memory_center/more
+- su root（没有解锁root的请sudo passwd root;sudo passwd --unlock root）
+- chmod 777 install.sh
+- ./install_all.sh
+- su pi
+- cd ../../
 - python2.7 xiaolan
 
 ## 感谢：
