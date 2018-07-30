@@ -13,7 +13,7 @@
 - 目前默认唤醒词依然为“jarvis”
 
 ## 介绍本开源项目和WIKI请看：
-### https://github.com/xiaoland/xiaolan-dev/wiki
+### https://github.com/xiaoland/xiaolan/wiki
 ![服务架构](https://github.com/xiaoland/xiaolan/blob/master/%E5%B0%8F%E8%93%9D%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE2.PNG)
 
 ## 下载&使用：
