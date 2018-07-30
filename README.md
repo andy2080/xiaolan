@@ -17,7 +17,7 @@
 ![服务架构](https://github.com/xiaoland/xiaolan/blob/master/%E5%B0%8F%E8%93%9D%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE2.PNG)
 
 
-### 注意问题：
+## 注意问题：
 - 如果您要使用人脸唤醒，那么请先设置setting.py里的main_setting的awaken为face，然后请看visual_centre下面的人脸唤醒必读.txt
 - 如果您要使用实时语音识别，那么请在setting.py里的main_setting中设置STT的service选项，填写time_on即可，然后因为离线实时语音识别SDK过大，所以被放到了百度云盘上，请先下载到speech_center里解压缩出来使用
 
