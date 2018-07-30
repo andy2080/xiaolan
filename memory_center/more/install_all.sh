@@ -1,16 +1,9 @@
 #!/bin/bash
-sudo apt-get install omxplayer pulseaudio fswebcam
-sudo apt-get install cmake g++ gcc python2.7 python3
-sudo apt-get install python-dev python3-dev python-pyaudio python3-pyaudio sox
-sudo apt-get install python-demjson
-pip install pyaudio sendmail
-pip install requests hyper crypto
-sudo apt-get install libatlas-base-dev
-sudo apt-get install python-opencv
-wget https://github.com/memcached/memcached/archive/1.4.19.tar.gz
+sudo apt-get install omxplayer pulseaudio fswebcam cmake g++ gcc python2.7 python3 git python-dev python3-dev python-pyaudio python3-pyaudio sox python-demjson
+sudo apt-get install python-wxgtk3.0
+pip install pyaudio requests hyper crypto
+sudo apt-get install python-opencv libatlas-base-dev
 sudo apt-get install libevent-dev
-tar -zxvf 1.4.19.tar.gz
-cd memcached-1.4.19
 sudo apt-get install memcached
 echo "Installing SWIG"
 
@@ -44,5 +37,3 @@ su root
 cp /home/pi/xiaolan/memory_center/more/autostartxl /etc/init.d/
 chmod +777 /etc/init.d/autostartxl
 sudo update-rc.d autostartxl defaults
-cd /home/pi/xiaolan
-python2.7 xiaolan.py
