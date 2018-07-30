@@ -101,7 +101,13 @@ class xiaolanBase(object):
         else:
             speaker.speak()
 
+    def time_on_stt(self, fn):
 
+        """
+        实时语音识别
+        :param fn: 文件路径
+        :return:
+        """
 
     def stt(self, path):
 

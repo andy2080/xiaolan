@@ -144,22 +144,3 @@ class ifly_stt(xiaolanBase):
         result = urllib2.urlopen(req)
         result = result.read()
         return {'States': 'IflySTTComplete', 'Text': json.loads(result)['data']}
-
-class AliAsr(xiaolanBase):
-
-    def __init__(self):
-
-        super(AliAsr, self).__init__()
-
-    def get_token(self):
-
-        pass
-
-    def stt_start(self, token):
-
-        """
-        阿里云实时语音识别
-        :return:
-        """
-        os.system('./speech_center/NlsSdkCpp/demo/speechTranscriberDemo.cpp config-speechTranscriber.txt ' + token)
-        f = open()

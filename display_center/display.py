@@ -3,6 +3,8 @@
 import os
 import sys
 import json
+import wx
+
 
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase

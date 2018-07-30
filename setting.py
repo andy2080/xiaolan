@@ -23,7 +23,7 @@ def setting():
                        'XiaolanFace': ''
                    },
                    'STT': {
-                       'service': 'baidu', #STT服务选择 baidu ifly
+                       'service': 'baidu', #STT服务选择 百度baidu 讯飞ifly 实时语音识别time_on
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
                             'AK': 'jGMUON1SIkkGKo1Va3QmfY4y',
                             'SK': 'IYRvknURMMQeywrYsu03LejnIl32EFZj'
