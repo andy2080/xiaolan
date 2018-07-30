@@ -19,13 +19,12 @@
 ## 下载&使用：
 - git clone https://github.com/xiaoland/xiaolan.git xiaolan
 - cd xiaolan
-- 对不起！由于百度离线人脸识别SDK太大，所以无法发到github上面，只好储存在百度云盘
-- 请在百度云盘上下载百度离线人脸识别SDK，[百度云盘:百度离线人脸识别SDK地址](https://pan.baidu.com/s/13oWlL38SjPWE4TlnhomsQg)， 密码：7awr
-- 下载完毕之后，请将该压缩包解压缩在xiaolan/visual_centre下面
-- (如果您没有安装swig，请安装一下swig)
-- cd xiaolan/visual_centre
-- unzip baidu_face_api_linux_c++.zip
-- cd ../
+- cd memory_center/more
+- su root（没有解锁root的请sudo passwd root;sudo passwd --unlock root）
+- chmod 777 install.sh
+- ./install_all.sh
+- su pi
+- cd ../../
 - python2.7 xiaolan
 
 ## 感谢：
