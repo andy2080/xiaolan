@@ -127,7 +127,7 @@ class XiaolanFaceAwaken(xiaolanBase):
             os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
             face_num = self.baidu_face_track_image('/home/pi/xiaolan/memory_center/face_img/face.jpg')
             lib = self.ll('./visual_centre/baidu_face_api_linux_c++/cpp/xiaolan_face.so')
-            result = json.loads(lib.img_quation('/home/pi/xiaolan/memory_center/face_img/face.jpg'))
+            result = json.loads(lib.xiaolan_face_quality('/home/pi/xiaolan/memory_center/face_img/face.jpg'))
             print result
             if int(result['score']) > 0.49:
                 if int(result['Occl_chin']) > 0.49 or int(result['Occl_Occl_r_contour']) > 0.49 or int(result['Occl_l_contour']) > 0.49 or int(result['Occl_l_eye']) > 0.49 or int(result['Occl_r_eye']) > 0.49:
