@@ -12,9 +12,15 @@
 - 根据百度的唤醒词测试，得出“小蓝小蓝”并不适合作为唤醒词，所以更换为五星的“小蓝同学”作为预训练唤醒词
 - 目前默认唤醒词依然为“jarvis”
 
-## 介绍本开源项目和WIKI请看：
+## 小蓝的WIKI和安装请看：
 ### https://github.com/xiaoland/xiaolan/wiki
 ![服务架构](https://github.com/xiaoland/xiaolan/blob/master/%E5%B0%8F%E8%93%9D%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE2.PNG)
+
+
+### 注意问题：
+- 如果您要使用人脸唤醒，那么请先设置setting.py里的main_setting的awaken为face，然后请看visual_centre下面的人脸唤醒必读.txt
+- 如果您要使用实时语音识别，那么请在setting.py里的main_setting中设置STT的service选项，填写time_on即可
+
 
 ## 下载&使用：
 - git clone https://github.com/xiaoland/xiaolan.git xiaolan
@@ -74,6 +80,8 @@
 - 修复一个巨大的BUG
 - 代码重构，不再混乱、互相依赖
 - 在设置中添加sys_lang，有En(英文)，Zh-Hans(普通话)，Zh-Yue（粤语），Zh-Chun（四川话），通过您的设置来判断语音识别的dev_id，提升用户的体验
+- 添加实时语音识别SDK
+- 支持实时语音识别，对话速度提升6秒！
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
