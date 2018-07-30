@@ -31,7 +31,7 @@ class Xiaolan(xiaolanBase):
         #############################################
         
         ''')
-
+        self.log('write', {'log': 'Event:StartXiaolan', 'level': 'info'})
         self.tts(self.set['main_setting']['your_name'] + '，你好啊，我是你的小蓝')
         os.system('pulseaudio --start')
         if self.set['main_setting']['awaken'] == 'hotword':

@@ -11,7 +11,9 @@ import sys
 sys.path.append('/home/pi/xiaolan/speech_center')
 import speaker
 import os
+import requests
 import re
+import ctypes
 sys.path.append('/home/pi/xiaolan')
 
 
@@ -101,13 +103,7 @@ class xiaolanBase(object):
         else:
             speaker.speak()
 
-    def time_on_stt(self, fn):
 
-        """
-        实时语音识别
-        :param fn: 文件路径
-        :return:
-        """
 
     def stt(self, path):
 
@@ -118,12 +114,16 @@ class xiaolanBase(object):
         """
         from speech_center.stt import baidu_stt
         from speech_center.stt import ifly_stt
+        from speech_center.stt import TimeOnStt
         if self.set['main_setting']['STT']['service'] == 'baidu':
             stt = baidu_stt()
             tok = stt.get_token()
         elif self.set['main_setting']['STT']['service'] == 'ifly':
             stt = ifly_stt()
             tok = ''
+        elif self.set['main_setting']['STT']['service'] == 'time_on':
+            stt = TimeOnStt()
+            tok = stt.get_time_on_token()
         else:
             self.log('write', {'log': 'BaseSTTUnkonwCommands', 'level': 'warning'})
             return None
@@ -134,11 +134,12 @@ class xiaolanBase(object):
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
             return None
         else:
-            if states['Text'] == 'None':
+            text = states['Text']
+            if text == 'None':
                 self.log('write', {'log': 'BaseSTTTextNone', 'level': 'debug'})
                 speaker.speacilrecorder()
             else:
-                self.log('write', {'log': 'BaseSTTComplete' + states['Text'], 'level': 'debug'})
+                self.log('write', {'log': 'BaseSTTComplete' + text, 'level': 'debug'})
                 return self.replace_number(text.replace('，', '').replace('。', ''))
 
     def face_awaken(self, mode):

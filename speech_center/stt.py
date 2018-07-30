@@ -144,3 +144,41 @@ class ifly_stt(xiaolanBase):
         result = urllib2.urlopen(req)
         result = result.read()
         return {'States': 'IflySTTComplete', 'Text': json.loads(result)['data']}
+
+class TimeOnStt(xiaolanBase):
+
+    def __init__(self):
+
+        super(TimeOnStt, self).__init__()
+
+    def stt_start(self, fn, tok):
+
+        """
+        实时语音识别
+        :param fn: 文件路径
+        :return:
+        """
+        ll = ctypes.cdll.LoadLibrary
+        lib = ll('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/speechTranscriberDemo.so')
+        text = lib.speechTranscriberFile('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/config-speechTranscriber.txt', tok)
+        return {'States': 'Complete', 'Text': text}
+
+    def get_time_on_token(self):
+
+        """
+        获取实时语音识别token
+        :return:
+        """
+        client = AcsClient(
+            "LTAIkaRtI8UlbkCv",
+            "QUZ1lPauoBE9pt27iRx13s226OzFoo",
+            "cn-shanghai"
+        );
+        # 创建request，并设置参数
+        request = CommonRequest()
+        request.set_method('POST')
+        request.set_domain('nls-meta.cn-shanghai.aliyuncs.com')
+        request.set_version('2018-05-18')
+        request.set_uri_pattern('/pop/2018-05-18/tokens')
+        response = client.do_action_with_exception(request)
+        return json.loads(response)['Token']['Id']

@@ -1,0 +1,76 @@
+2018-03-15 Version: 2.8.2
+1, Optimize endpoint resolve logic
+
+
+2018-02-23 Version: 2.8.1
+1, add 'remove all test instances' feature to ecs integration test
+
+2018-02-13 Version: 2.8.0
+1, Supported Sts Token / RamRoleArn / EcsRamRole verify
+
+2018-02-13 Version: 2.7.2
+1, bugfix: request reuse
+
+2018-02-13 Version: 2.7.1
+1, bugfix for #53
+
+2018-02-13 Version: 2.7.0
+1, add integration tests
+
+2017-12-14 Version: 2.6.2
+1, disable [publicKeyId] auth type in Windows because 'pycrypto' is not supported
+
+2017-12-12 Version: 2.6.1
+1, remove bad smell codes
+2, bugfix: the invoke-type metric will lost while send rpc request with common api
+
+2017-11-18 Version: 2.6.0
+1, 修正了一处不规范的try-catch语句。
+2, 增加了HTTP/HTTPS协议的全局默认设置接口。
+
+2017-11-02 Version: 2.5.2
+1, 修复了某些情况下会出现签名异常的bug
+
+2017-10-26 Version: 2.5.1
+1, 精简sdk自带参数
+
+2017-10-26 Version: 2.5.0
+1, 支持common API的泛化调用接口
+2, 修复了python3环境下，有时会出现typeError的bug
+
+2017-09-28 Version: 2.4.4
+1, 优化了某些情况下，部分api返回HttpStatus = 406的情况。
+
+2017-09-26 Version: 2.4.3
+1, 修正在某些情况下，解析应答时会出现TypeError的bug
+2, 修正在某些情况下，请求的content-type会被修改为application/octet-stream 的bug
+
+2017-09-25 Version: 2.4.2
+1, 修复roa请求中，会丢失stream body的bug
+
+2017-09-20 Version: 2.4.1
+1, 修正在某些情况下会导致"No module named Signature"的问题
+
+2017-09-19 Version: 2.4.0
+1, 增加对Ak2.0(sts session token)验证模式的支持
+
+
+2017-08-25 Version: 2.3.9
+1,  EMR增加德国和张北region的SDK endpoint
+
+2017-08-15 Version: 2.3.8
+1, 修正某些场景下x-sdk-client未生效的bug
+
+2017-08-15 Version: 2.3.7
+1, 修正某些场景下x-sdk-client未生效的bug
+
+2017-08-11 Version: 2.3.6
+1, 解决某些场景下会丢失body参数的bug
+
+2017-07-27 Version: 2.3.5
+1, 支持自动寻址，自动寻址endpoint缓存失效时间为1小时
+2, 增加新方法add_endpoint：允许手工添加endpoint，优先级高于自动寻址
+
+2017-07-21 Version: 2.3.3
+1, 解决了 do_action_with_exception 不能处理非200的2XX状态码的bug。
+
