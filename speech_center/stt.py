@@ -21,8 +21,9 @@ import demjson
 import base64
 import urllib
 import urllib2
+from aliyun_python_sdk_core.aliyunsdkcore.client import AcsClient
+from aliyun_python_sdk_core.aliyunsdkcore.request import CommonRequest
 sys.path.append('/home/pi/xiaolan/')
-import setting
 from Base import xiaolanBase
 
 
@@ -156,11 +157,12 @@ class TimeOnStt(xiaolanBase):
         """
         实时语音识别
         :param fn: 文件路径
+        :param tok: token
         :return:
         """
         ll = ctypes.cdll.LoadLibrary
         lib = ll('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/speechTranscriberDemo.so')
-        text = lib.speechTranscriberFile('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/config-speechTranscriber.txt', tok)
+        text = lib.speechTranscriberFile('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/config-speechTranscriber.txt', tok, fn)
         return {'States': 'Complete', 'Text': text}
 
     def get_time_on_token(self):
