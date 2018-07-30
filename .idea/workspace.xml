@@ -32,8 +32,8 @@
       <file leaf-file-name="xiaolan.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+            <state relative-caret-position="133">
+              <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding>
                 <element signature="e#117#127#0" expanded="true" />
               </folding>
@@ -248,6 +248,12 @@
               <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
               <item name="visual_centre" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
+              <item name="visual_centre" type="462c0819:PsiDirectoryNode" />
+              <item name="baidu_face_api_linux_c++" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -290,7 +296,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19661458" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -599,8 +604,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xiaolan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="33" column="70" selection-start-line="33" selection-start-column="70" selection-end-line="33" selection-end-column="70" />
+        <state relative-caret-position="133">
+          <caret line="22" column="20" lean-forward="true" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding>
             <element signature="e#117#127#0" expanded="true" />
           </folding>
