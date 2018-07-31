@@ -126,7 +126,7 @@ class xiaolanBase(object):
             return None
 
         self.log('write', {'log': 'StartSTT', 'level': 'info'})
-        states = stt.stt_start(path, tok)
+        states = stt.stt_starts(path, tok)
         if 'Error' in states['States']:
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
             return None
