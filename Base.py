@@ -482,3 +482,6 @@ class xiaolanBase(object):
         if mode == 'video_display':
 
             self.log('write', {'log': 'Event:ScreeVideoDisplay', 'level': 'info'})
+        elif mode == 'music_display':
+
+            self.log('write', {'log': 'Event:ScreeMusicDisplay', 'level': 'info'})
