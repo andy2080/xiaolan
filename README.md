@@ -19,7 +19,6 @@
 
 ## 注意问题：
 - 如果您要使用人脸唤醒，那么请先设置setting.py里的main_setting的awaken为face，然后请看visual_centre下面的人脸唤醒必读.txt
-- 如果您要使用实时语音识别，那么请在setting.py里的main_setting中设置STT的service选项，填写time_on即可，然后因为离线实时语音识别SDK过大，所以被放到了百度云盘上，请先下载到speech_center里解压缩出来使用
 
 
 ## 下载&使用：
@@ -80,8 +79,8 @@
 - 修复一个巨大的BUG
 - 代码重构，不再混乱、互相依赖
 - 在设置中添加sys_lang，有En(英文)，Zh-Hans(普通话)，Zh-Yue（粤语），Zh-Chun（四川话），通过您的设置来判断语音识别的dev_id，提升用户的体验
-- 添加实时语音识别SDK
-- 支持实时语音识别，对话速度提升6秒！
+- 百度STTRestapi代码重构，支持实时语音识别
+- 使用多线程方式支持实时语音识别，对话速度提升至少6秒！
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
