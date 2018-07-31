@@ -56,17 +56,37 @@ class Dialogue(xiaolanBase):
 
         self.speaker('ding')
         if recordtype == 'ex':
-            self.recorder('express', 0)
+            threads = []
+            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('express', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
         elif recordtype == 'normal':
-            self.recorder('normal', 0)
+            threads = []
+            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
         elif recordtype == 'ts':
-            self.recorder('translate', 0)
+            threads = []
+            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('translate', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
         elif recordtype == 's':
-            self.recorder('less_time', 0)
+            threads = []
+            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('less_time', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
         else:
-            self.recorder('normal', 0)
+            threads = []
+            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
         self.speaker('dong')
-        text = self.stt("/home/pi/xiaolan/voice.wav")
+        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillResForWaitAnswer', {'Intent': intentdict['intent'], 'Slots': intentdict['slots'], 'IntentDict': intentdict})
 
@@ -85,17 +105,37 @@ class Dialogue(xiaolanBase):
         while 1 == 1:
             if a < len(slotname) + 1:
                 self.tts(slotask[a])
-                if recordtype[a] == 'normal':
-                    self.recorder('normal', 0)
-                elif recordtype[a] == 's':
-                    self.recorder('less_time', 0)
-                elif recordtype[a] == 'ex':
-                    self.recorder('express', 0)
-                elif recordtype[a] == 'ts':
-                    self.recorder('translate', 0)
+                if recordtype == 'ex':
+                    threads = []
+                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('express', 0))
+                    threads.append(stt);threads.append(record)
+                    stt.start();record.start()
+                    for t in threads: t.join()
+                elif recordtype == 'normal':
+                    threads = []
+                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+                    threads.append(stt);threads.append(record)
+                    stt.start();record.start()
+                    for t in threads: t.join()
+                elif recordtype == 'ts':
+                    threads = []
+                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('translate', 0))
+                    threads.append(stt);threads.append(record)
+                    stt.start();record.start()
+                    for t in threads: t.join()
+                elif recordtype == 's':
+                    threads = []
+                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('less_time', 0))
+                    threads.append(stt);threads.append(record)
+                    stt.start();record.start()
+                    for t in threads: t.join()
                 else:
-                    self.recorder.record()
-                text = self.stt("/home/pi/xiaolan/voice.wav")
+                    threads = []
+                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+                    threads.append(stt);threads.append(record)
+                    stt.start();record.start()
+                    for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
                 slotturn.append(self.client_nlu('get_slots', {'Text': text, 'SlotsList': [slotname[a], slotdicts[a]]}))
                 a = a + 1
             else:
