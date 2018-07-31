@@ -135,6 +135,7 @@ class baidu_stt(xiaolanBase):
 
         f = open(fn, 'rb')
         file_content = len(f.read())
+        a = 0
         for long in file_content:
             if int(long) % 1024 == 0:
                 times = int(long) / 1024
@@ -145,7 +146,8 @@ class baidu_stt(xiaolanBase):
                         info = {'States': 'BaiduSttComplete', 'Text': texts}
                         break
                     else:
-                        file = f.read(times * 1024)
+                        file = f.read()
+                        file = file[a:times * 1024]
                         base_data = base64.b64encode(file)
 
                         dataf = {"format": "wav",
@@ -166,7 +168,14 @@ class baidu_stt(xiaolanBase):
                         try:
                             if 'result' in r.json():
                                 text = r.json()['result'][0].encode('utf-8')
-                                texts.append(text)
+                                if text == None:
+                                    texts.append('')
+                                else:
+                                    texts.append(text)
+                                if a == 0:
+                                    a = 1024
+                                else:
+                                    a = times * 1024
                                 times += 1
                             else:
                                 info = {'States': 'Error:ResultUnfound', 'Text': None}
@@ -212,7 +221,15 @@ class baidu_stt(xiaolanBase):
                         try:
                             if 'result' in r.json():
                                 text = r.json()['result'][0].encode('utf-8')
-                                texts.append(text)
+                                if text == None:
+                                    texts.append('')
+                                else:
+                                    texts.append(text)
+                                if a == 0:
+                                    a = 1024
+                                else:
+                                    a = times * 1024
+                                times += 1
 
                             else:
                                 info = {'States': 'Error:ResultUnfound', 'Text': None}
@@ -233,7 +250,8 @@ class baidu_stt(xiaolanBase):
                         info = {'States': 'BaiduSttComplete', 'Text': texts}
                         break
                     else:
-                        file = f.read(times * 1024)
+                        file = f.read()
+                        file = file[a:times * 1024]
                         base_data = base64.b64encode(file)
 
                         dataf = {"format": "wav",
@@ -254,7 +272,14 @@ class baidu_stt(xiaolanBase):
                         try:
                             if 'result' in r.json():
                                 text = r.json()['result'][0].encode('utf-8')
-                                texts.append(text)
+                                if text == None:
+                                    texts.append('')
+                                else:
+                                    texts.append(text)
+                                if a == 0:
+                                    a = 1024
+                                else:
+                                    a = times * 1024
                                 times += 1
                             else:
                                 info = {'States': 'Error:ResultUnfound', 'Text': None}

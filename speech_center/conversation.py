@@ -13,6 +13,7 @@ import sys
 import os
 import re
 import speaker
+import threading
 from tts import baidu_tts
 from tts import youdao_tts
 from stt import baidu_stt
@@ -36,9 +37,12 @@ class Dialogue(xiaolanBase):
         """
 
         self.speaker('ding')
-        self.recorder('normal', 'a')
+        threads = [];stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+        threads.append(stt);threads.append(record)
+        stt.start();record.start()
+        for t in threads: t.join()
         self.speaker('dong')
-        text = self.stt("./voice.wav")
+        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r");text = f.read();f.close()
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'], 'IntentDict': intentdict})
 

@@ -131,13 +131,26 @@ class xiaolanBase(object):
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
             return None
         else:
-            text = states['Text']
+            text = 'a'
+            a = 0
+            i = len(states['Text'])
+            while 1 == 1:
+                try:
+                    text = text + states['Text'][a]
+                except IndexError:
+                    break
+                else:
+                    a += 1
+            text = text[1:-1]
+            print "YourSttResult:" + text
             if text == 'None':
                 self.log('write', {'log': 'BaseSTTTextNone', 'level': 'debug'})
                 speaker.speacilrecorder()
             else:
                 self.log('write', {'log': 'BaseSTTComplete' + text, 'level': 'debug'})
-                return self.replace_number(text.replace('，', '').replace('。', ''))
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "w")
+                f.write(self.replace_number(text.replace('，', '').replace('。', '')))
+                f.close()
 
     def face_awaken(self, mode):
 
