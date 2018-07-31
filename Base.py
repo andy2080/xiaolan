@@ -467,3 +467,18 @@ class xiaolanBase(object):
             speaker.speacilrecorder()
         else:
             self.log('write', {'log': 'Error:UnknowSpeakerCommands', 'level': 'warning'})
+
+    def display(self, mode, more):
+
+        """
+        显示
+        :param mode: 模式
+        :param more: 更多
+        :return:
+        """
+
+        from display_center.display import ScreenDisplay
+        display = ScreenDisplay()
+        if mode == 'video_display':
+
+            self.log('write', {'log': 'Event:ScreeVideoDisplay', 'level': 'info'})

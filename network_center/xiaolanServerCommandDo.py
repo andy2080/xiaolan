@@ -71,7 +71,7 @@ class CommandsDo(xiaolanBase):
                               data=data)
 
             log = self.log('read', {'mode': 'all'})
-            self.client_to_server('LogResForBrain')
+            self.client_to_server('LogResForBrain', data)
         # ScreeDisplay
         Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
         if Type == 'TextDisplay':
