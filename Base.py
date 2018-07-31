@@ -114,16 +114,13 @@ class xiaolanBase(object):
         """
         from speech_center.stt import baidu_stt
         from speech_center.stt import ifly_stt
-        from speech_center.stt import TimeOnStt
+        from speech_center.stt import ActualTimeStt
         if self.set['main_setting']['STT']['service'] == 'baidu':
             stt = baidu_stt()
             tok = stt.get_token()
         elif self.set['main_setting']['STT']['service'] == 'ifly':
             stt = ifly_stt()
             tok = ''
-        elif self.set['main_setting']['STT']['service'] == 'time_on':
-            stt = TimeOnStt()
-            tok = stt.get_time_on_token()
         else:
             self.log('write', {'log': 'BaseSTTUnkonwCommands', 'level': 'warning'})
             return None
