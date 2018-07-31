@@ -138,8 +138,8 @@ class baidu_stt(xiaolanBase):
         a = 0
         for long in file_content:
             if int(long) % 1024 == 0:
-                times = int(long) / 1024
-                timess = times
+                times = 1
+                timess = int(long) / 1024
                 while 1 == 1:
 
                     if times == timess + 1:
@@ -195,12 +195,13 @@ class baidu_stt(xiaolanBase):
                             break
                 break
             else:
-                times = int(long) / 1024
-                timess = times
+                times = 1
+                timess = int(long) / 1024 - int(long) // 1024
                 while 1 == 1:
 
                     if times == timess + 1:
-                        file = f.read(long - times * 1024)
+                        file = f.read()
+                        file = file[a:times * 1024]
                         base_data = base64.b64encode(file)
 
                         dataf = {"format": "wav",
@@ -298,6 +299,7 @@ class baidu_stt(xiaolanBase):
                             info = {'States': 'BaiduSTTError:Cannot parse response', 'Text': None}
                             break
                 break
+        f.close()
         return info
 
 class ifly_stt(xiaolanBase):
@@ -330,44 +332,44 @@ class ifly_stt(xiaolanBase):
 
     def stt_starts(self, fn, tok):
 
+        texts = []
         f = open(fn, 'rb')
-        file_content = f.read()
-        base64_audio = base64.b64encode(file_content)
-        body = urllib.urlencode({'audio': base64_audio})
+        file_content = len(f.read())
+        for long in file_content:
+            times = 1
+            timess = long / 1024
+            a = 0
+            if times == 0:
+                while 1 == 1:
+                    file = f.read()
+                    file = file[a:times * 1024]
+                    base64_audio = base64.b64encode(file)
+                    body = urllib.urlencode({'audio': base64_audio})
 
-        api_key = self.set['main_setting']['STT']['ifly']['key']
-        param = {"engine_type": "sms16k", "aue": "raw"}
+                    api_key = self.set['main_setting']['STT']['ifly']['key']
+                    param = {"engine_type": "sms16k", "aue": "raw"}
 
-        x_appid = self.set['main_setting']['STT']['IFLY']['appid']
-        x_param = base64.b64encode(json.dumps(param).replace(' ', ''))
-        x_header = {'X-Appid': x_appid,
-                    'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
-                    'X-Param': x_param,
-                    'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()
-                    }
-        req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
-        result = urllib2.urlopen(req)
-        result = result.read()
-        return {'States': 'IflySTTComplete', 'Text': json.loads(result)['data']}
+                    x_appid = self.set['main_setting']['STT']['IFLY']['appid']
+                    x_param = base64.b64encode(json.dumps(param).replace(' ', ''))
+                    x_header = {'X-Appid': x_appid,
+                                'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
+                                'X-Param': x_param,
+                                'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()
+                                }
+                    req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
+                    result = urllib2.urlopen(req)
+                    result = result.read()
+                    times += 1
+                    info = {'States': 'IflySTTComplete', 'Text': texts.append(json.loads(result)['data'])}
+
+        f.close()
+        return info
 
 class 	ActualTimeStt(xiaolanBase):
 
     def __init__(self):
 
         super(ActualTimeStt, self).__init__()
-
-    def stt_start(self, fn, tok):
-
-        """
-        实时语音识别
-        :param fn: 文件路径
-        :param tok: token
-        :return:
-        """
-        ll = ctypes.cdll.LoadLibrary
-        lib = ll('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/speechTranscriberDemo.so')
-        text = lib.speechTranscriberFile('/home/pi/xiaolan/speech_center/NlsSdkCpp/demo/config-speechTranscriber.txt', tok, fn)
-        return {'States': 'Complete', 'Text': text}
 
     def get_actual_time_token(self):
 
