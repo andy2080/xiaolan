@@ -137,7 +137,7 @@ class baidu_stt(xiaolanBase):
         file_content = len(f.read())
         a = 0
         for long in file_content:
-            if int(long) % 1024 == 0:
+            if long % 1024 == 0:
                 times = 1
                 timess = int(long) / 1024
                 while 1 == 1:
@@ -196,7 +196,7 @@ class baidu_stt(xiaolanBase):
                 break
             else:
                 times = 1
-                timess = int(long) / 1024 - int(long) // 1024
+                timess = long / 1024 - long // 1024
                 while 1 == 1:
 
                     if times == timess + 1:
@@ -339,28 +339,32 @@ class ifly_stt(xiaolanBase):
             times = 1
             timess = long / 1024
             a = 0
-            if times == 0:
+            if long % 1024 == 0:
                 while 1 == 1:
-                    file = f.read()
-                    file = file[a:times * 1024]
-                    base64_audio = base64.b64encode(file)
-                    body = urllib.urlencode({'audio': base64_audio})
+                    if times == timess:
+                        break
+                    else:
+                        file = f.read()
+                        file = file[a:times * 1024]
+                        base64_audio = base64.b64encode(file)
+                        body = urllib.urlencode({'audio': base64_audio})
 
-                    api_key = self.set['main_setting']['STT']['ifly']['key']
-                    param = {"engine_type": "sms16k", "aue": "raw"}
+                        api_key = self.set['main_setting']['STT']['ifly']['key']
+                        param = {"engine_type": "sms16k", "aue": "raw"}
 
-                    x_appid = self.set['main_setting']['STT']['IFLY']['appid']
-                    x_param = base64.b64encode(json.dumps(param).replace(' ', ''))
-                    x_header = {'X-Appid': x_appid,
-                                'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
-                                'X-Param': x_param,
-                                'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()
-                                }
-                    req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
-                    result = urllib2.urlopen(req)
-                    result = result.read()
-                    times += 1
-                    info = {'States': 'IflySTTComplete', 'Text': texts.append(json.loads(result)['data'])}
+                        x_appid = self.set['main_setting']['STT']['IFLY']['appid']
+                        x_param = base64.b64encode(json.dumps(param).replace(' ', ''))
+                        x_header = {'X-Appid': x_appid,
+                                    'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
+                                    'X-Param': x_param,
+                                    'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()
+                                    }
+                        req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
+                        result = urllib2.urlopen(req)
+                        result = result.read()
+                        a = times * 1024
+                        times += 1
+                        info = {'States': 'IflySTTComplete', 'Text': texts.append(json.loads(result)['data'])}
 
         f.close()
         return info
