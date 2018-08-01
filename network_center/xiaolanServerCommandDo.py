@@ -87,7 +87,6 @@ class CommandsDo(xiaolanBase):
         elif Type == 'VideoDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
             VideoUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['VideoUrl']
-            BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
             RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
         elif Type == 'MusicDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
