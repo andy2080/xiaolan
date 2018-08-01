@@ -152,8 +152,7 @@ class baidu_stt(xiaolanBase):
 
                         dataf = {"format": "wav",
                                  "token": token,
-                                 "len": len(audio),
-                                 "rate": frame_rate,
+                                 "rate": 16000,
                                  "speech": base_data,
                                  "dev_pid": dev_id,
                                  "cuid": 'b0-10-41-92-84-4d',
@@ -206,8 +205,7 @@ class baidu_stt(xiaolanBase):
 
                         dataf = {"format": "wav",
                                  "token": token,
-                                 "len": len(audio),
-                                 "rate": frame_rate,
+                                 "rate": 16000,
                                  "speech": base_data,
                                  "dev_pid": dev_id,
                                  "cuid": 'b0-10-41-92-84-4d',
@@ -257,8 +255,7 @@ class baidu_stt(xiaolanBase):
 
                         dataf = {"format": "wav",
                                  "token": token,
-                                 "len": len(audio),
-                                 "rate": frame_rate,
+                                 "rate": 16000,
                                  "speech": base_data,
                                  "dev_pid": dev_id,
                                  "cuid": 'b0-10-41-92-84-4d',
@@ -273,7 +270,7 @@ class baidu_stt(xiaolanBase):
                         try:
                             if 'result' in r.json():
                                 text = r.json()['result'][0].encode('utf-8')
-                                if text == None:
+                                if not text:
                                     texts.append('')
                                 else:
                                     texts.append(text)
