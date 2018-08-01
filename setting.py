@@ -23,10 +23,10 @@ def setting():
                        'XiaolanFace': ''
                    },
                    'STT': {
-                       'service': 'actual_time', #STT服务选择 百度:baidu 讯飞:ifly
+                       'service': 'baidu', #STT服务选择 百度:baidu 讯飞:ifly
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
-                            'AK': 'jGMUON1SIkkGKo1Va3QmfY4y',
-                            'SK': 'IYRvknURMMQeywrYsu03LejnIl32EFZj'
+                            'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
+                            'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
                        },
                        'ifly': {
                            'key': '',
