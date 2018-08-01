@@ -137,9 +137,9 @@ class baidu_stt(xiaolanBase):
         file_content = len(f.read())
         a = 0
         for long in file_content:
-            if long % 1024 == 0:
+            if long % 30720 == 0:
                 times = 1
-                timess = int(long) / 1024
+                timess = int(long) / 30720
                 while 1 == 1:
 
                     if times == timess + 1:
@@ -147,7 +147,7 @@ class baidu_stt(xiaolanBase):
                         break
                     else:
                         file = f.read()
-                        file = file[a:times * 1024]
+                        file = file[a:times * 30720]
                         base_data = base64.b64encode(file)
 
                         dataf = {"format": "wav",
@@ -173,9 +173,9 @@ class baidu_stt(xiaolanBase):
                                 else:
                                     texts.append(text)
                                 if a == 0:
-                                    a = 1024
+                                    a = 30720
                                 else:
-                                    a = times * 1024
+                                    a = times * 30720
                                 times += 1
                             else:
                                 info = {'States': 'Error:ResultUnfound', 'Text': None}
@@ -196,12 +196,12 @@ class baidu_stt(xiaolanBase):
                 break
             else:
                 times = 1
-                timess = long / 1024 - long // 1024
+                timess = long / 30720 - long // 30720
                 while 1 == 1:
 
                     if times == timess + 1:
                         file = f.read()
-                        file = file[a:times * 1024]
+                        file = file[a:times * 30720]
                         base_data = base64.b64encode(file)
 
                         dataf = {"format": "wav",
@@ -227,9 +227,9 @@ class baidu_stt(xiaolanBase):
                                 else:
                                     texts.append(text)
                                 if a == 0:
-                                    a = 1024
+                                    a = 30720
                                 else:
-                                    a = times * 1024
+                                    a = times * 30720
                                 times += 1
 
                             else:
@@ -252,7 +252,7 @@ class baidu_stt(xiaolanBase):
                         break
                     else:
                         file = f.read()
-                        file = file[a:times * 1024]
+                        file = file[a:times * 30720]
                         base_data = base64.b64encode(file)
 
                         dataf = {"format": "wav",
@@ -278,9 +278,9 @@ class baidu_stt(xiaolanBase):
                                 else:
                                     texts.append(text)
                                 if a == 0:
-                                    a = 1024
+                                    a = 30720
                                 else:
-                                    a = times * 1024
+                                    a = times * 30720
                                 times += 1
                             else:
                                 info = {'States': 'Error:ResultUnfound', 'Text': None}
@@ -337,15 +337,15 @@ class ifly_stt(xiaolanBase):
         file_content = len(f.read())
         for long in file_content:
             times = 1
-            timess = long / 1024
+            timess = long / 30720
             a = 0
-            if long % 1024 == 0:
+            if long % 30720 == 0:
                 while 1 == 1:
                     if times == timess:
                         break
                     else:
                         file = f.read()
-                        file = file[a:times * 1024]
+                        file = file[a:times * 30720]
                         base64_audio = base64.b64encode(file)
                         body = urllib.urlencode({'audio': base64_audio})
 
@@ -362,7 +362,7 @@ class ifly_stt(xiaolanBase):
                         req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
                         result = urllib2.urlopen(req)
                         result = result.read()
-                        a = times * 1024
+                        a = times * 30720
                         times += 1
                         info = {'States': 'IflySTTComplete', 'Text': texts.append(json.loads(result)['data'])}
 
