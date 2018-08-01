@@ -369,16 +369,16 @@ class ifly_stt(xiaolanBase):
         f.close()
         return info
 
-class 	ActualTimeStt(xiaolanBase):
+class 	AliStt(xiaolanBase):
 
     def __init__(self):
 
-        super(ActualTimeStt, self).__init__()
+        super(AliStt, self).__init__()
 
-    def get_actual_time_token(self):
+    def get_token(self):
 
         """
-        获取实时语音识别token
+        获取阿里云实时语音识别token
         :return:
         """
         client = AcsClient(
