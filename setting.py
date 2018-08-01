@@ -36,8 +36,8 @@ def setting():
                    'TTS': {
                        'service': 'baiud', #TTS服务选择 baidu youdao
                        'baidu': {        #百度TTS服务配置，AK和SK在百度云申请
-                           'AK': 'jGMUON1SIkkGKo1Va3QmfY4y',
-                           'SK': 'IYRvknURMMQeywrYsu03LejnIl32EFZj'
+                           'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
+                           'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
                        },
                        'youdao': {       #有道STT服务配置，appid和appkey在有道智云申请
                            'appid': '2b3bd2665750d664',
@@ -53,8 +53,8 @@ def setting():
                    },
                    'NLP': {            # NLP自然语言处理引擎服务配置
                        'baidu': {      # 百度自然语言处理引擎
-                           'SK': '',
-                           'AK': ''
+                           'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe',
+                           'AK': 'TSFp0BKH547h7Agjf2WkV2Ll'
                        }
                    },
                    'OCR': {            # 人脸识别服务配置
