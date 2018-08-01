@@ -339,6 +339,7 @@ class ifly_stt(xiaolanBase):
             if long % 30720 == 0:
                 while 1 == 1:
                     if times == timess:
+                        info = {'States': 'BaiduSttComplete', 'Text': texts}
                         break
                     else:
                         file = f.read()
