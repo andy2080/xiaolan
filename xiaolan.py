@@ -48,9 +48,7 @@ class Xiaolan(xiaolanBase):
                 self.face_awaken('awaken')
             else:
                 self.face_awaken('awaken')
-        elif self.set['main_setting']['awaken'] == 'all':
-            # thridings for two
-            self.face_awaken('awaken')
+        else:
             self.snowboy()
 
 x = Xiaolan()
