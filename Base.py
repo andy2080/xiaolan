@@ -414,11 +414,23 @@ class xiaolanBase(object):
 
             self.log('write', {'log': 'Event:DiyRequestsStart', 'level': 'info'})
             states = client_to_server.diy_req(more['Data'])
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerDiyReqFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerDiyReqComplete', 'level': 'debug'})
         elif mode == 'LogResForBrain':
 
             self.log('write', {'log': 'Event:StartSendLogToXiaolanBrain'})
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerDiyReqFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerDiyReqComplete', 'level': 'debug'})
         else:
             self.log('write', {'log': 'Error:UnknowRequestsCommands', 'level': 'warning'})
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerLogResFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerLogResComplete', 'level': 'debug'})
 
     def commands_do(self, mode, more):
 
@@ -437,7 +449,7 @@ class xiaolanBase(object):
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanBrainCommandsProcessingError', 'level': 'error'})
             else:
-                pass
+                self.log('write', {'log': 'Complete:XiaolanBrainCommandsProcessingComplete', 'level': 'debug'})
         else:
             self.log('write', {'log': 'Error:UnknowBrainCommandsDoCommands', 'level': 'warning'})
 
