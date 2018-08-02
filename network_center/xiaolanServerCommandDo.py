@@ -8,8 +8,6 @@ import hashlib
 import requests
 import time
 sys.path.append('/home/pi/xiaolan/')
-from memory_center.Log import Log
-import setting
 from Base import xiaolanBase
 
 class CommandsDo(xiaolanBase):
