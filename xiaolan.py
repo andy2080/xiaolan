@@ -13,6 +13,7 @@ import sys
 import os
 import re
 from Base import xiaolanBase
+from speech_center.conversation import Dialogue
 
 class Xiaolan(xiaolanBase):
 
@@ -24,11 +25,12 @@ class Xiaolan(xiaolanBase):
     
         print ('''
 
-        #############################################
-        #       小蓝——语音交互式人工智能机器人        #  
-        #  https://www.github.com/xiaoland/xiaolan   #
-        #    （c）2018袁翊闳——1481605673@qq.com     #
-        #############################################
+        ###########################################
+            小蓝——智能家居语音交互式人工智能机器人
+          https://www.github.com/xiaoland/xiaolan
+            （c）2018袁翊闳——1481605673@qq.com
+        ###########################################
+        运行log请看/home/pi/xiaolan/memory_center/more/xiaolan.log
         
         ''')
 
@@ -52,4 +54,16 @@ class Xiaolan(xiaolanBase):
             self.snowboy()
 
 x = Xiaolan()
-x.start()
+d = Dialogue()
+
+try:
+    mode = sys.argv[1]
+except:
+    x.start()
+else:
+    if mode == 'unawaken':
+        d.conversation()
+    else:
+        x.start()
+
+
