@@ -130,13 +130,30 @@ class xiaolanBase(object):
 
         self.log('write', {'log': 'StartSTT', 'level': 'info'})
         states = stt.stt_starts(path, tok)
+
         if 'Error' in states['States']:
+
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
             return None
         else:
-            text = states['Text'][-1]
+
+            if self.set['main_setting']['STT']['service'] == 'tencent':
+                text = states['Text'][-1]
+            else:
+                text = 'a'
+                a = 0
+                i = len(states['Text'])
+                while 1 == 1:
+                    try:
+                        text = text + states['Text'][a]
+                    except IndexError:
+                        break
+                    else:
+                        a += 1
+                text = text[1:-1]
             print "YourSttResult:" + text
-            if text == 'None':
+
+            if not text or text == '':
                 self.log('write', {'log': 'BaseSTTTextNone', 'level': 'debug'})
                 speaker.speacilrecorder()
             else:
@@ -149,7 +166,7 @@ class xiaolanBase(object):
 
         """
         视觉唤醒（人脸唤醒）
-        :param mode: 更多
+        :param mode: 模式
         :return:
         """
         from visual_centre.face import XiaolanFaceAwaken
