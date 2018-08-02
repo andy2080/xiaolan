@@ -23,7 +23,7 @@ def setting():
                        'XiaolanFace': ''
                    },
                    'STT': {
-                       'service': 'baidu', #STT服务选择 百度:baidu 讯飞:ifly
+                       'service': 'baidu', #STT服务选择 百度:baidu 讯飞:ifly 腾讯：tencent（推荐腾讯，速度会快很多）
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
                             'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
                             'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
@@ -31,6 +31,10 @@ def setting():
                        'ifly': {
                            'key': '',
                            'appid': ''
+                       },
+                       'tencent': {
+                           'SI': 'AKIDOtpcw7aMZHlvx9o0m2J94KHbY0yQvxNt', # 腾讯云SecretId
+                           'SK': 'GotMV9pLaNod1SbW0jY1AVEkPlEOWEjY' # 腾讯云SecretKey
                        }
                    },
                    'TTS': {

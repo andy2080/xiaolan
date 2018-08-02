@@ -14,8 +14,8 @@
       <file leaf-file-name="setting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
+            <state relative-caret-position="399">
+              <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
             </state>
           </provider>
         </entry>
@@ -35,7 +35,7 @@
       <file leaf-file-name="Base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
+            <state relative-caret-position="711">
               <caret line="135" column="35" lean-forward="true" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
             </state>
           </provider>
@@ -104,8 +104,8 @@
       <file leaf-file-name="stt.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="341" column="76" selection-start-line="341" selection-start-column="76" selection-end-line="341" selection-end-column="76" />
+            <state relative-caret-position="535">
+              <caret line="453" column="24" selection-start-line="453" selection-start-column="24" selection-end-line="453" selection-end-column="24" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
               </folding>
@@ -197,7 +197,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="1005" />
     <option name="height" value="1030" />
   </component>
@@ -335,12 +335,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/speech_center/stt.py</url>
-          <line>359</line>
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
   </component>
@@ -551,16 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xiaolan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
-          <folding>
-            <element signature="e#117#127#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -581,10 +565,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/xiaolan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+          <folding>
+            <element signature="e#117#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
+        <state relative-caret-position="399">
+          <caret line="36" column="82" selection-start-line="36" selection-start-column="82" selection-end-line="36" selection-end-column="82" />
         </state>
       </provider>
     </entry>
@@ -600,15 +594,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
+        <state relative-caret-position="711">
           <caret line="135" column="35" lean-forward="true" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="341" column="76" selection-start-line="341" selection-start-column="76" selection-end-line="341" selection-end-column="76" />
+        <state relative-caret-position="535">
+          <caret line="453" column="24" selection-start-line="453" selection-start-column="24" selection-end-line="453" selection-end-column="24" />
           <folding>
             <element signature="e#116#126#0" expanded="true" />
           </folding>

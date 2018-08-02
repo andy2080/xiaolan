@@ -21,6 +21,8 @@ import demjson
 import base64
 import urllib
 import urllib2
+import hmac
+from hashlib import sha1
 from aliyun_python_sdk_core.aliyunsdkcore.client import AcsClient
 from aliyun_python_sdk_core.aliyunsdkcore.request import CommonRequest
 sys.path.append('/home/pi/xiaolan/')
@@ -120,6 +122,13 @@ class baidu_stt(xiaolanBase):
 
     def stt_starts(self, fn, token):
 
+        """
+        百度实时语音识别
+        :param fn: 文件路径
+        :param token: token
+        :return:
+        """
+        sleep(1)
         texts = []
         lang = self.set['main_setting']['sys_lang']
         if lang == 'En':
@@ -329,6 +338,13 @@ class ifly_stt(xiaolanBase):
 
     def stt_starts(self, fn, tok):
 
+        """
+        讯飞实时语音识别
+        :param fn: 文件路径
+        :param tok: 其他
+        :return:
+        """
+        sleep(1)
         texts = []
         f = open(fn, 'rb')
         file_content = len(f.read())
@@ -367,28 +383,78 @@ class ifly_stt(xiaolanBase):
         f.close()
         return info
 
-class 	AliStt(xiaolanBase):
+class 	TencentStt(xiaolanBase):
 
     def __init__(self):
 
-        super(AliStt, self).__init__()
+        super(TencentStt, self).__init__()
 
-    def get_token(self):
+    def get_auth_signature(self, req):
 
         """
-        获取阿里云实时语音识别token
+        获取腾讯云请求签名认证
         :return:
         """
-        client = AcsClient(
-            "LTAIkaRtI8UlbkCv",
-            "QUZ1lPauoBE9pt27iRx13s226OzFoo",
-            "cn-shanghai"
-        );
-        # 创建request，并设置参数
-        request = CommonRequest()
-        request.set_method('POST')
-        request.set_domain('nls-meta.cn-shanghai.aliyuncs.com')
-        request.set_version('2018-05-18')
-        request.set_uri_pattern('/pop/2018-05-18/tokens')
-        response = client.do_action_with_exception(request)
-        return json.loads(response)['Token']['Id']
+        SK = self.set['main_setting']['STT']['tencent']['SK']
+        signf = 'POSTaai.tencentcloudapi.com/?' + req
+        signs = hmac.new(signf, SK, sha1).digest()
+        signt = base64.b64encode(signs)
+        return urllib.parse.quote(signt)
+
+
+    def stt_starts(self, fn, token):
+
+        """
+        腾讯云实时语音识别
+        :param fn: 文件路径
+        :param token: 其他
+        :return:
+        """
+        sleep(1)
+        texts = []
+        url = 'https://aai.tencentcloudapi.com/?'
+        SI = self.set['main_setting']['STT']['tencent']['SI']
+
+        time = 1
+
+        while 1 == 1:
+            if time == 6:
+                break
+            else:
+                f = open(fn, 'rb')
+                voice = f.read()
+                audio = base64.b64encode(voice)
+                data = {
+                    'Action': 'SentenceRecognition',
+                    'Data': audio,
+                    'DataLen': long,
+                    'EngSerViceType': '16k',
+                    'Nonce': 12345,
+                    'ProjectId': 0,
+                    'SubServiceType': 1,
+                    'SourceType': 1,
+                    'SecretId': SI,
+                    'Timestamp': time.time(),
+                    'UsrAudioKey': 'xiaolan',
+                    'Version': '2018-05-22',
+                    'VoiceFormat': 'wav'
+                }
+                signtrue = self.get_auth_signature(urllib.parse.urlencode(data))
+                data['Signature'] = signtrue
+                data = urllib.parse.urlencode(data)
+
+                url = url + data
+                r = requests.post(url)
+
+                text = r.json()['Response']['Result']
+                if not text or text == '':
+                    texts.append('')
+                else:
+                    texts.append(text)
+                f.close()
+                time += 1
+
+        return {'States': 'TencentSTTComplete', 'Text': texts}
+
+
+
