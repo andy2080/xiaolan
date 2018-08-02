@@ -81,6 +81,9 @@
 - 在设置中添加sys_lang，有En(英文)，Zh-Hans(普通话)，Zh-Yue（粤语），Zh-Chun（四川话），通过您的设置来判断语音识别的dev_id，提升用户的体验
 - 百度STTRestapi代码重构，支持实时语音识别
 - 使用多线程方式支持实时语音识别，对话速度提升至少6秒！
+- 添加腾讯语音识别
+- 支持腾讯实时语音识别
+- 推荐使用腾讯实时语音识别，效率高，但是识别率没有百度高
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
