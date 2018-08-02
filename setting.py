@@ -13,7 +13,7 @@ def setting():
                    'sys_lang': 'Zh-Hans', # 你的语言：En英文/Zh-Hans普通话/Zh-Yue粤语/Zh-Chun四川话
                    'ClientId': '001',
                    'ClientType': 'xiaolan-display-client-2.0',
-                   'userId': '',
+                   'userId': '1',
                    'url': {
                        'xiaolan_nlu': '',
                        'xiaolan_brain': '180.76.186.145'

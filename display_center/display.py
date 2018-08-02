@@ -41,8 +41,8 @@ class ScreenDisplay(xiaolanBase):
         """
         音乐播放
         :param title: 标题
-        :param url: 音乐url猎豹
-        :param remind: 提醒词猎豹
+        :param url: 音乐url列表
+        :param remind: 提醒词列表
         :param background_image: 背景图片
         :return:
         """
