@@ -114,12 +114,15 @@ class xiaolanBase(object):
         """
         from speech_center.stt import baidu_stt
         from speech_center.stt import ifly_stt
-        from speech_center.stt import ActualTimeStt
+        from speech_center.stt import TencentStt
         if self.set['main_setting']['STT']['service'] == 'baidu':
             stt = baidu_stt()
             tok = stt.get_token()
         elif self.set['main_setting']['STT']['service'] == 'ifly':
             stt = ifly_stt()
+            tok = ''
+        elif self.set['main_setting']['STT']['service'] == 'tencent':
+            stt = TencentStt()
             tok = ''
         else:
             self.log('write', {'log': 'BaseSTTUnkonwCommands', 'level': 'warning'})
@@ -131,17 +134,7 @@ class xiaolanBase(object):
             self.log('write', {'log': 'Error:BaseStt:' + states['States']})
             return None
         else:
-            text = 'a'
-            a = 0
-            i = len(states['Text'])
-            while 1 == 1:
-                try:
-                    text = text + states['Text'][a]
-                except IndexError:
-                    break
-                else:
-                    a += 1
-            text = text[1:-1]
+            text = states['Text'][-1]
             print "YourSttResult:" + text
             if text == 'None':
                 self.log('write', {'log': 'BaseSTTTextNone', 'level': 'debug'})
