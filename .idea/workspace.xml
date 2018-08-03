@@ -23,7 +23,8 @@
       <file leaf-file-name="xiaolan.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
+            <state relative-caret-position="235">
+              <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
               <folding>
                 <element signature="e#117#127#0" expanded="true" />
               </folding>
@@ -31,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Base.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="611">
-              <caret line="527" column="37" selection-start-line="527" selection-start-column="37" selection-end-line="527" selection-end-column="37" />
+            <state relative-caret-position="312">
+              <caret line="448" column="28" lean-forward="true" selection-start-line="448" selection-start-column="28" selection-end-line="448" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -79,8 +80,8 @@
       <file leaf-file-name="conversation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+            <state>
+              <caret selection-end-line="9" selection-end-column="3" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
               </folding>
@@ -88,25 +89,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+      <file leaf-file-name="xiaolanServerCommandDo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2524">
-              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="171">
+              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
               <folding>
-                <element signature="e#107#117#0" expanded="true" />
+                <element signature="e#25#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="face.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visual_centre/face.py">
+      <file leaf-file-name="text.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/visual_centre/text.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1295">
-              <caret line="172" column="16" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
+            <state relative-caret-position="418">
+              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
               <folding>
-                <element signature="e#32#41#0" expanded="true" />
+                <element signature="e#116#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,6 +133,7 @@
       <find>stt</find>
       <find>1024</find>
       <find>face</find>
+      <find>commands</find>
     </findStrings>
     <replaceStrings>
       <replace>30720</replace>
@@ -180,15 +182,19 @@
         <option value="$PROJECT_DIR$/display_center/display.py" />
         <option value="$PROJECT_DIR$/setting.py" />
         <option value="$PROJECT_DIR$/visual_centre/gesture.py" />
-        <option value="$PROJECT_DIR$/visual_centre/face.py" />
-        <option value="$PROJECT_DIR$/xiaolan.py" />
         <option value="$PROJECT_DIR$/Base.py" />
+        <option value="$PROJECT_DIR$/xiaolan.py" />
+        <option value="$PROJECT_DIR$/visual_centre/face.py" />
+        <option value="$PROJECT_DIR$/memory_center/more/face_track.txt" />
+        <option value="$PROJECT_DIR$/visual_centre/text.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1005" />
-    <option name="height" value="1030" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -250,6 +256,11 @@
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
               <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
               <item name="speech_center" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
+              <item name="visual_centre" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -323,20 +334,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/setting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xiaolan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="38">
@@ -488,32 +485,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/display_center/display.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
           <folding>
             <element signature="e#25#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/visual_centre/gesture.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="63" column="42" lean-forward="true" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
-          <folding>
-            <element signature="e#116#125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -538,14 +515,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
+    <entry file="file://$PROJECT_DIR$/visual_centre/baidu_face_api_linux_c++（这个文件夹仅仅作为解压缩之后的示例，里面包含了小蓝的人脸唤醒C++代码）/cpp/xiaolan_face.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="42" column="34" lean-forward="true" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-          <folding>
-            <element signature="e#116#126#0" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-342" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setting.py">
@@ -555,24 +527,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+    <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2524">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="312">
+          <caret line="448" column="28" lean-forward="true" selection-start-line="448" selection-start-column="28" selection-end-line="448" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/xiaolan.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
           <folding>
-            <element signature="e#107#117#0" expanded="true" />
+            <element signature="e#117#127#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visual_centre/baidu_face_api_linux_c++（这个文件夹仅仅作为解压缩之后的示例，里面包含了小蓝的人脸唤醒C++代码）/cpp/xiaolan_face.cpp">
+    <entry file="file://$PROJECT_DIR$/visual_centre/gesture.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-342" />
+        <state relative-caret-position="1197">
+          <caret line="63" column="42" lean-forward="true" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+          <folding>
+            <element signature="e#116#125#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visual_centre/face.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1295">
+        <state relative-caret-position="615">
           <caret line="172" column="16" selection-start-line="172" selection-start-column="16" selection-end-line="172" selection-end-column="16" />
           <folding>
             <element signature="e#32#41#0" expanded="true" />
@@ -580,19 +564,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/xiaolan.py">
+    <entry file="file://$PROJECT_DIR$/memory_center/more/face_track.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2467">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
-            <element signature="e#117#127#0" expanded="true" />
+            <element signature="e#107#117#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="611">
-          <caret line="527" column="37" selection-start-line="527" selection-start-column="37" selection-end-line="527" selection-end-column="37" />
+        <state>
+          <caret selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="e#116#126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <element signature="e#25#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visual_centre/text.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding>
+            <element signature="e#116#126#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -126,6 +126,7 @@ class XiaolanFaceAwaken(xiaolanBase):
         """
         f = open('/home/pi/xiaolan/memory_center/more/face_track.txt', "r")
         while 1 == 1:
+            sleep(1)
             if int(f.read()) > 0:
                 while 1 == 1:
                     os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
@@ -168,6 +169,8 @@ class XiaolanFaceAwaken(xiaolanBase):
                                 pass
                     else:
                         pass
+            elif 1 == 0:
+                break
             else:
                 pass
         f.close()
