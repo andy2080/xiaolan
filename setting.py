@@ -61,10 +61,10 @@ def setting():
                            'AK': 'TSFp0BKH547h7Agjf2WkV2Ll'
                        }
                    },
-                   'OCR': {            # 人脸识别服务配置
-                       'baidu': {      # 百度人脸识别
-                           'AK': 'GuagSnlhsP8qKX2Lj7RbLomq',
-                           'SK': 'PiwvPvXIyFdIO3Bc0F2GHtsGdAaeG73D'
+                   'OCR': {            # 识别服务配置
+                       'baidu': {      # 百度识别（人脸、人体、文字，物体）
+                           'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
+                           'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
                        }
                    },
                    'Gesture': {        # 手势识别服务配置

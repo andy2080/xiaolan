@@ -46,7 +46,7 @@ class Gesture(xiaolanBase):
         }
 
         r = requests.post(url,
-                          body = data)
+                          data = data)
 
         json = r.json()
 

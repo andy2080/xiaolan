@@ -431,10 +431,6 @@ class xiaolanBase(object):
                 self.log('write', {'log': 'Complete:XiaolanClientToServerDiyReqComplete', 'level': 'debug'})
         else:
             self.log('write', {'log': 'Error:UnknowRequestsCommands', 'level': 'warning'})
-            if 'Error' in states['States']:
-                self.log('write', {'log': 'Error:XiaolanClientToServerLogResFailed:' + states['States'], 'level': 'error'})
-            else:
-                self.log('write', {'log': 'Complete:XiaolanClientToServerLogResComplete', 'level': 'debug'})
 
     def commands_do(self, mode, more):
 
@@ -511,6 +507,9 @@ class xiaolanBase(object):
         elif mode == 'music_display':
 
             self.log('write', {'log': 'Event:ScreeMusicDisplay', 'level': 'info'})
+        else:
+
+            self.log('write', {'log': 'Waring:UnknowScreeDisplayModelCommand', 'level': 'warning'})
 
     def gesture(self, mode, more):
 
@@ -526,3 +525,26 @@ class xiaolanBase(object):
 
             self.log('write', {'log': 'Event:StartXiaolanGestureFace++', 'level': 'info'})
             gesture.start(more['image'])
+        else:
+
+            self.log('write', {'log': 'Waring:UnknowGestureModelCommand', 'level': 'warning'})
+
+    def text_recognition(self, mode, more):
+
+        """
+        文字识别
+        :param mode: 模式
+        :param more: 更多
+        :return:
+        """
+        from visual_centre.text import XiaolanTextRecognition
+        text_recognition = XiaolanTextRecognition()
+        if mode == 'start':
+
+            self.log('write', {'log': 'Event:XiaolanTextRecognitionStart', 'level': 'info'})
+            return text_recognition.start(more['Image'], text_recognition.get_token())
+
+        else:
+
+            self.log('write', {'log': 'Waring:UnknowTextRecognitionCommand', 'level': 'warning'})
+            return 'Error'
