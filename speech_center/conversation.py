@@ -31,7 +31,7 @@ class Dialogue(xiaolanBase):
         """
 
         self.speaker('ding')
-        threads = [];stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+        threads = [];stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
         threads.append(stt);threads.append(record)
         stt.start();record.start()
         for t in threads: t.join()
@@ -51,31 +51,31 @@ class Dialogue(xiaolanBase):
         self.speaker('ding')
         if recordtype == 'ex':
             threads = []
-            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('express', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
             threads.append(stt);threads.append(record)
             stt.start();record.start()
             for t in threads: t.join()
         elif recordtype == 'normal':
             threads = []
-            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
             threads.append(stt);threads.append(record)
             stt.start();record.start()
             for t in threads: t.join()
         elif recordtype == 'ts':
             threads = []
-            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('translate', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
             threads.append(stt);threads.append(record)
             stt.start();record.start()
             for t in threads: t.join()
         elif recordtype == 's':
             threads = []
-            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('less_time', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
             threads.append(stt);threads.append(record)
             stt.start();record.start()
             for t in threads: t.join()
         else:
             threads = []
-            stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
             threads.append(stt);threads.append(record)
             stt.start();record.start()
             for t in threads: t.join()
@@ -101,31 +101,31 @@ class Dialogue(xiaolanBase):
                 self.tts(slotask[a])
                 if recordtype == 'ex':
                     threads = []
-                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('express', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
                     threads.append(stt);threads.append(record)
                     stt.start();record.start()
                     for t in threads: t.join()
                 elif recordtype == 'normal':
                     threads = []
-                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
                     threads.append(stt);threads.append(record)
                     stt.start();record.start()
                     for t in threads: t.join()
                 elif recordtype == 'ts':
                     threads = []
-                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('translate', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
                     threads.append(stt);threads.append(record)
                     stt.start();record.start()
                     for t in threads: t.join()
                 elif recordtype == 's':
                     threads = []
-                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('less_time', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
                     threads.append(stt);threads.append(record)
                     stt.start();record.start()
                     for t in threads: t.join()
                 else:
                     threads = []
-                    stt = threading.Thread(self.stt, ("/home/pi/xiaolan/voice.wav",));record = threading.Thread(self.recorder, ('normal', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
                     threads.append(stt);threads.append(record)
                     stt.start();record.start()
                     for t in threads: t.join()
