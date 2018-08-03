@@ -9,6 +9,7 @@ def setting():
                'main_setting': {
                    'your_name': '翊闳',
                    'awaken': 'hotword',  # 唤醒方式：语音hotword, 人脸face
+                   'talk_mode': 'voice',  # 交互方式：语音交互voice，手势与文字交互gesture
                    'loc': 'china',
                    'sys_lang': 'Zh-Hans', # 你的语言：En英文/Zh-Hans普通话/Zh-Yue粤语/Zh-Chun四川话
                    'ClientId': '001',

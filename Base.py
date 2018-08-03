@@ -507,6 +507,9 @@ class xiaolanBase(object):
         elif mode == 'music_display':
 
             self.log('write', {'log': 'Event:ScreeMusicDisplay', 'level': 'info'})
+        elif mode == 'text_display':
+
+            self.log('write', {'log': 'Event:ScreeTextDisplay', 'level': 'info'})
         else:
 
             self.log('write', {'log': 'Waring:UnknowScreeDisplayModelCommand', 'level': 'warning'})
@@ -521,7 +524,7 @@ class xiaolanBase(object):
         """
         from visual_centre.gesture import Gesture
         gesture = Gesture()
-        if mode == 'start':
+        if mode == 'normal':
 
             self.log('write', {'log': 'Event:StartXiaolanGestureFace++', 'level': 'info'})
             states = gesture.start(more['image'])
@@ -543,7 +546,7 @@ class xiaolanBase(object):
         """
         from visual_centre.text import XiaolanTextRecognition
         text_recognition = XiaolanTextRecognition()
-        if mode == 'start':
+        if mode == 'normal':
 
             self.log('write', {'log': 'Event:XiaolanTextRecognitionStart', 'level': 'info'})
             states = text_recognition.start(more['Image'], text_recognition.get_token())

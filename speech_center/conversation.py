@@ -29,14 +29,37 @@ class Dialogue(xiaolanBase):
         小蓝对话处理
         :return:
         """
-
         self.speaker('ding')
-        threads = [];stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
-        threads.append(stt);threads.append(record)
-        stt.start();record.start()
-        for t in threads: t.join()
+        if self.set['main_setting']['talk_mode'] == 'voice':
+
+            threads = [];stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
+            f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r");text = f.read();f.close()
+        elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+            self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+            self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认', 'RemindWord': [], 'BackgroundImage': ''})
+            while 1 == 1:
+                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                    text = self.text_recognition('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                    break
+                else:
+                    self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                    self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认', 'RemindWord': [], 'BackgroundImage': ''})
+
+        else:
+
+            threads = [];stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+            threads.append(stt);threads.append(record)
+            stt.start();record.start()
+            for t in threads: t.join()
+            f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r");text = f.read();f.close()
+
         self.speaker('dong')
-        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r");text = f.read();f.close()
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'], 'IntentDict': intentdict})
 
@@ -47,40 +70,237 @@ class Dialogue(xiaolanBase):
         :param recordtype: 录制类型
         :return:
         """
-
         self.speaker('ding')
         if recordtype == 'ex':
-            threads = []
-            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
-            threads.append(stt);threads.append(record)
-            stt.start();record.start()
-            for t in threads: t.join()
+
+            if self.set['main_setting']['talk_mode'] == 'voice':
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
+            elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                             'RemindWord': [], 'BackgroundImage': ''})
+                while 1 == 1:
+                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                    if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                        os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                        text = self.text_recognition('normal',
+                                                     {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                        break
+                    else:
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+
+            else:
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
         elif recordtype == 'normal':
-            threads = []
-            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
-            threads.append(stt);threads.append(record)
-            stt.start();record.start()
-            for t in threads: t.join()
+
+            if self.set['main_setting']['talk_mode'] == 'voice':
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
+            elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                             'RemindWord': [], 'BackgroundImage': ''})
+                while 1 == 1:
+                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                    if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                        os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                        text = self.text_recognition('normal',
+                                                     {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                        break
+                    else:
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+
+            else:
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
         elif recordtype == 'ts':
-            threads = []
-            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
-            threads.append(stt);threads.append(record)
-            stt.start();record.start()
-            for t in threads: t.join()
+
+            if self.set['main_setting']['talk_mode'] == 'voice':
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
+            elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                             'RemindWord': [], 'BackgroundImage': ''})
+                while 1 == 1:
+                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                    if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                        os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                        text = self.text_recognition('normal',
+                                                     {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                        break
+                    else:
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+
+            else:
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
         elif recordtype == 's':
-            threads = []
-            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
-            threads.append(stt);threads.append(record)
-            stt.start();record.start()
-            for t in threads: t.join()
+
+            if self.set['main_setting']['talk_mode'] == 'voice':
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
+            elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                             'RemindWord': [], 'BackgroundImage': ''})
+                while 1 == 1:
+                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                    if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                        os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                        text = self.text_recognition('normal',
+                                                     {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                        break
+                    else:
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+
+            else:
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
         else:
-            threads = []
-            stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
-            threads.append(stt);threads.append(record)
-            stt.start();record.start()
-            for t in threads: t.join()
+            if self.set['main_setting']['talk_mode'] == 'voice':
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
+            elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                             'RemindWord': [], 'BackgroundImage': ''})
+                while 1 == 1:
+                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                    if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                        os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                        text = self.text_recognition('normal',
+                                                     {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                        break
+                    else:
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+
+            else:
+
+                threads = []
+                stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                threads.append(stt)
+                threads.append(record)
+                stt.start()
+                record.start()
+                for t in threads: t.join()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                text = f.read()
+                f.close()
         self.speaker('dong')
-        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillResForWaitAnswer', {'Intent': intentdict['intent'], 'Slots': intentdict['slots'], 'IntentDict': intentdict})
 
@@ -100,36 +320,249 @@ class Dialogue(xiaolanBase):
             if a < len(slotname) + 1:
                 self.tts(slotask[a])
                 if recordtype == 'ex':
-                    threads = []
-                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
-                    threads.append(stt);threads.append(record)
-                    stt.start();record.start()
-                    for t in threads: t.join()
+
+                    if self.set['main_setting']['talk_mode'] == 'voice':
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
+                    elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+                        while 1 == 1:
+                            os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                            if self.gesture('normal',
+                                            {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                                text = self.text_recognition('normal',
+                                                             {
+                                                                 'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                                break
+                            else:
+                                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                                self.display('TextDisplay',
+                                             {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                              'RemindWord': [], 'BackgroundImage': ''})
+
+                    else:
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'express', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
                 elif recordtype == 'normal':
-                    threads = []
-                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
-                    threads.append(stt);threads.append(record)
-                    stt.start();record.start()
-                    for t in threads: t.join()
+
+                    if self.set['main_setting']['talk_mode'] == 'voice':
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
+                    elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+                        while 1 == 1:
+                            os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                            if self.gesture('normal',
+                                            {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                                text = self.text_recognition('normal',
+                                                             {
+                                                                 'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                                break
+                            else:
+                                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                                self.display('TextDisplay',
+                                             {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                              'RemindWord': [], 'BackgroundImage': ''})
+
+                    else:
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
                 elif recordtype == 'ts':
-                    threads = []
-                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
-                    threads.append(stt);threads.append(record)
-                    stt.start();record.start()
-                    for t in threads: t.join()
+
+                    if self.set['main_setting']['talk_mode'] == 'voice':
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
+                    elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+                        while 1 == 1:
+                            os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                            if self.gesture('normal',
+                                            {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                                text = self.text_recognition('normal',
+                                                             {
+                                                                 'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                                break
+                            else:
+                                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                                self.display('TextDisplay',
+                                             {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                              'RemindWord': [], 'BackgroundImage': ''})
+
+                    else:
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'translate', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
                 elif recordtype == 's':
-                    threads = []
-                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
-                    threads.append(stt);threads.append(record)
-                    stt.start();record.start()
-                    for t in threads: t.join()
+
+                    if self.set['main_setting']['talk_mode'] == 'voice':
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
+                    elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+                        while 1 == 1:
+                            os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                            if self.gesture('normal',
+                                            {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                                text = self.text_recognition('normal',
+                                                             {
+                                                                 'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                                break
+                            else:
+                                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                                self.display('TextDisplay',
+                                             {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                              'RemindWord': [], 'BackgroundImage': ''})
+
+                    else:
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
                 else:
-                    threads = []
-                    stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
-                    threads.append(stt);threads.append(record)
-                    stt.start();record.start()
-                    for t in threads: t.join()
-                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
+                    if self.set['main_setting']['talk_mode'] == 'voice':
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
+                    elif self.set['main_setting']['talk_mode'] == 'gesture':
+
+                        self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                        self.display('TextDisplay',
+                                     {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                      'RemindWord': [], 'BackgroundImage': ''})
+                        while 1 == 1:
+                            os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                            if self.gesture('normal',
+                                            {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
+                                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
+                                text = self.text_recognition('normal',
+                                                             {
+                                                                 'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
+                                break
+                            else:
+                                self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
+                                self.display('TextDisplay',
+                                             {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
+                                              'RemindWord': [], 'BackgroundImage': ''})
+
+                    else:
+
+                        threads = []
+                        stt = threading.Thread(target=Dialogue.stt, args=(self, "/home/pi/xiaolan/voice.wav",))
+                        record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
+                        threads.append(stt)
+                        threads.append(record)
+                        stt.start()
+                        record.start()
+                        for t in threads: t.join()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', "r")
+                        text = f.read()
+                        f.close()
                 slotturn.append(self.client_nlu('get_slots', {'Text': text, 'SlotsList': [slotname[a], slotdicts[a]]}))
                 a = a + 1
             else:
