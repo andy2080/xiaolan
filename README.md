@@ -84,6 +84,8 @@
 - 添加腾讯语音识别
 - 支持腾讯实时语音识别
 - 推荐使用腾讯实时语音识别，效率高，但是识别率没有百度高
+- 支持简单的手势识别，让聋哑人也能够使用小蓝
+- 支持文字识别，提高聋哑人与小蓝交互的效率
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
