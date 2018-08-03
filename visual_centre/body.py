@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# 小蓝文字识别
+# 小蓝对话系统
 
 # description:
 # author: xiaoland
@@ -8,27 +8,24 @@
 """
     desc:pass
 """
-
-import sys
-import os
 import json
 import requests
+import sys
+import os
 import base64
-import urllib
-import urllib2
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
 
-class XiaolanTextRecognition(xiaolanBase):
+class HumanBodyTrack(xiaolanBase):
 
     def __init__(self):
 
-        super(XiaolanTextRecognition, self).__init__()
+        super(HumanBodyTrack, self).__init__()
 
     def get_token(self):
 
         """
-        获取文字识别token
+        获取人体识别token
         :return:
         """
         apikey = self.set['main_setting']['OCR']['baidu']['AK']
@@ -42,17 +39,18 @@ class XiaolanTextRecognition(xiaolanBase):
         token = r.json()['access_token']
         return token
 
-    def start(self, img, token):
+    def body_keyplace_track(self, img, token):
 
         """
-        开始文字识别
-        :param img: 图片
+        百度人体关键点检测
+        :param img: 检测图片路径
         :param token: token
         :return:
         """
-        url = 'https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic?access_token=' + token
+        url = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/body_analysis?access_token=' + token
         f = open(img, "r")
-        image = urllib.parse.quote(base64.b64encode(f.read()))
+        image = base64.b64encode(f.read())
+        f.close()
         data = {
             'image': image
         }
@@ -63,17 +61,4 @@ class XiaolanTextRecognition(xiaolanBase):
 
         json = r.json()
 
-        result_num = json['words_result_num']
-        turn = 0
-        word = 'a'
-        while 1 == 1:
-            if turn == result_num:
-                break
-            else:
-                word = word + json['words_result'][turn]['words']
-                turn += 1
-
-        return {'States': 'Complete', 'Word': word}
-
-
-
+        return {'States': 'Complete', 'PersonNum': json['person_num']}

@@ -12,13 +12,7 @@
 import sys
 import os
 import re
-import speaker
 import threading
-from tts import baidu_tts
-from tts import youdao_tts
-from stt import baidu_stt
-from stt import ifly_stt
-from nlu import Nlu
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
 

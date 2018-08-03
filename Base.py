@@ -524,7 +524,11 @@ class xiaolanBase(object):
         if mode == 'start':
 
             self.log('write', {'log': 'Event:StartXiaolanGestureFace++', 'level': 'info'})
-            gesture.start(more['image'])
+            states = gesture.start(more['image'])
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:Face++GestureError:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanGestureFace++Complete', 'level': 'debug'})
         else:
 
             self.log('write', {'log': 'Waring:UnknowGestureModelCommand', 'level': 'warning'})
@@ -542,9 +546,27 @@ class xiaolanBase(object):
         if mode == 'start':
 
             self.log('write', {'log': 'Event:XiaolanTextRecognitionStart', 'level': 'info'})
-            return text_recognition.start(more['Image'], text_recognition.get_token())
-
+            states = text_recognition.start(more['Image'], text_recognition.get_token())
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:BaiduTextRecognitionError:' + states['States'], 'level': 'error'})
+                return 'Error'
+            else:
+                self.log('write', {'log': 'Complete:BaiduTextRecognitionComplete', 'level': 'debug'})
+                return states['Word']
         else:
 
             self.log('write', {'log': 'Waring:UnknowTextRecognitionCommand', 'level': 'warning'})
             return 'Error'
+
+    def body_track(self, mode, more):
+
+        """
+        人体检测
+        :param mode: 模式
+        :param more: 更多
+        :return:
+        """
+        from visual_centre.body import HumanBodyTrack
+        if mode == 'BodyTrack':
+
+            pass
