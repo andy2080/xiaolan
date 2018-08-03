@@ -175,6 +175,10 @@ class xiaolanBase(object):
 
             self.log('write', {'log': 'Event:XiaolanFaceAwakenStart', 'level': 'info'})
             face_awaken.awaken()
+        elif mode == 'face_track':
+
+            self.log('write', {'log': 'Event:XiaolanFaceTrackStart', 'level': 'info'})
+            face_awaken.baidu_face_track_camera()
         elif mode == 'all_new_sign_up':
 
             face_awaken.all_new_sign_up_face()
@@ -507,3 +511,18 @@ class xiaolanBase(object):
         elif mode == 'music_display':
 
             self.log('write', {'log': 'Event:ScreeMusicDisplay', 'level': 'info'})
+
+    def gesture(self, mode, more):
+
+        """
+        手势识别
+        :param mode: 模式
+        :param more: 更多
+        :return:
+        """
+        from visual_centre.gesture import Gesture
+        gesture = Gesture()
+        if mode == 'start':
+
+            self.log('write', {'log': 'Event:StartXiaolanGestureFace++', 'level': 'info'})
+            gesture.start(more['image'])

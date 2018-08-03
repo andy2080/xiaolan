@@ -66,6 +66,12 @@ def setting():
                            'AK': 'GuagSnlhsP8qKX2Lj7RbLomq',
                            'SK': 'PiwvPvXIyFdIO3Bc0F2GHtsGdAaeG73D'
                        }
+                   },
+                   'Gesture': {        # 手势识别服务配置
+                       'face++': {     # face++手势识别
+                           'AK': '',
+                           'AS': ''
+                       }
                    }
                },
                'weather': {                     #天气技能，KEY在心知天气获取
