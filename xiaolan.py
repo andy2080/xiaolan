@@ -51,7 +51,7 @@ class Xiaolan(xiaolanBase):
         """
         f = open('/home/pi/xiaolan/memory_center/more/face_track.txt')
         while 1 == 1:
-            sleep(5)
+            time.sleep(5)
             if int(f.read()) > 0 and time.strftime("%H") >= 18:
                 self.log('write', {'log': 'Event:TomorrowWeatherRemind', 'level': 'info'})
                 self.client_to_server('SkillReq', {'Intent': 'weather', 'Slots': {'time': 'tomorrow'}, 'IntengDict': {'Skill': 'Weather', 'KeyWord': 'remind', 'Text': '明天的天气怎么样？', 'WordLexer': {}}})

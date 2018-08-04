@@ -126,7 +126,7 @@ class baidu_stt(xiaolanBase):
         :param token: token
         :return:
         """
-        sleep(1)
+        time.sleep(1)
         texts = []
         lang = self.set['main_setting']['sys_lang']
         if lang == 'En':
@@ -408,7 +408,7 @@ class 	TencentStt(xiaolanBase):
         :param token: 其他
         :return:
         """
-        sleep(1)
+        time.sleep(1)
         texts = []
         url = 'https://aai.tencentcloudapi.com/?'
         SI = self.set['main_setting']['STT']['tencent']['SI']
