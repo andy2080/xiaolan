@@ -33,7 +33,7 @@ class Log(object):
         log_path = os.path.dirname(os.getcwd()) + '/xiaolan/memory_center/more/'
         log_name = log_path + 'xiaolan' + '.log'
         logfile = log_name
-        fh = logging.FileHandler(logfile, mode='w')
+        fh = logging.FileHandler(logfile, mode='r+')
         fh.setLevel(logging.DEBUG)
         formatter = logging.Formatter("%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s")
         fh.setFormatter(formatter)

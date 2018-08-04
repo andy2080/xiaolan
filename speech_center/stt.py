@@ -9,6 +9,7 @@
     desc:pass
 """
 
+import urllib.urlencode
 import sys
 import requests
 import os
@@ -397,7 +398,7 @@ class 	TencentStt(xiaolanBase):
         signf = 'POSTaai.tencentcloudapi.com/?' + req
         signs = hmac.new(signf, SK, sha1).digest()
         signt = base64.b64encode(signs)
-        return urllib.parse.quote(signt)
+        return urllib.quote(signt)
 
 
     def stt_starts(self, fn, token):
@@ -437,9 +438,9 @@ class 	TencentStt(xiaolanBase):
                     'Version': '2018-05-22',
                     'VoiceFormat': 'wav'
                 }
-                signtrue = self.get_auth_signature(urllib.parse.urlencode(data))
+                signtrue = self.get_auth_signature(urllib.urlencode(data))
                 data['Signature'] = signtrue
-                data = urllib.parse.urlencode(data)
+                data = urllib.urlencode(data)
 
                 url = url + data
                 r = requests.post(url)
