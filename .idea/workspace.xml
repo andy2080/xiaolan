@@ -56,6 +56,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="xiaolanClientToServer.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
+              <folding>
+                <element signature="e#107#117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="display.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display_center/display.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,11 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="snowboy.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="snowboy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/auditory_center/awaken/snowboy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+            <state relative-caret-position="437">
+              <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -108,18 +120,6 @@
               <caret line="131" column="95" lean-forward="true" selection-start-line="131" selection-start-column="95" selection-end-line="131" selection-end-column="95" />
               <folding>
                 <element signature="e#32#41#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="text.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visual_centre/text.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="75" column="51" selection-start-line="75" selection-start-column="51" selection-end-line="75" selection-end-column="51" />
-              <folding>
-                <element signature="e#116#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -185,7 +185,6 @@
         <option value="$PROJECT_DIR$/visual_centre/必读（关于视觉唤醒）.txt" />
         <option value="$PROJECT_DIR$/speech_center/nlu.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
         <option value="$PROJECT_DIR$/learning_center/xiaolan_smarthome/Xiao_mi.py" />
         <option value="$PROJECT_DIR$/learning_center/xiaolan_smarthome/Bo_lian.py" />
         <option value="$PROJECT_DIR$/speech_center/aliyun-python-sdk-core/__init__.py" />
@@ -204,6 +203,7 @@
         <option value="$PROJECT_DIR$/Base.py" />
         <option value="$PROJECT_DIR$/speech_center/conversation.py" />
         <option value="$PROJECT_DIR$/auditory_center/awaken/snowboy.py" />
+        <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
       </list>
     </option>
   </component>
@@ -483,16 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2467">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="e#107#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -611,6 +601,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auditory_center/awaken/snowboy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -621,10 +618,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auditory_center/awaken/snowboy.py">
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        <state relative-caret-position="190">
+          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
+          <folding>
+            <element signature="e#107#117#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
