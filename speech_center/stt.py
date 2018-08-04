@@ -23,8 +23,6 @@ import urllib
 import urllib2
 import hmac
 from hashlib import sha1
-from aliyun_python_sdk_core.aliyunsdkcore.client import AcsClient
-from aliyun_python_sdk_core.aliyunsdkcore.request import CommonRequest
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
 
