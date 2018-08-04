@@ -22,6 +22,7 @@ import base64
 import urllib
 import urllib2
 import hmac
+import random
 from hashlib import sha1
 sys.path.append('/home/pi/xiaolan/')
 from Base import xiaolanBase
@@ -29,11 +30,11 @@ from Base import xiaolanBase
 
 domian = 'a'
 
-class baidu_stt(xiaolanBase):
+class BaiduStt(xiaolanBase):
 
     def __init__(self):
 
-        super(baidu_stt, self).__init__()
+        super(BaiduStt, self).__init__()
 
     def get_token(self): #获取token
 
@@ -118,199 +119,21 @@ class baidu_stt(xiaolanBase):
                 transcribed.append(text.upper())
             print (json)
 
-    def stt_starts(self, fn, token):
+    def stt_real_time(self, fn, tok):
 
         """
         百度实时语音识别
-        :param fn: 文件路径
-        :param token: token
+        :param fn: 文件
+        :param tok: token
         :return:
         """
-        time.sleep(2)
-        texts = []
-        lang = self.set['main_setting']['sys_lang']
-        if lang == 'En':
-            dev_id = 1737
-        elif lang == 'Zh-Hans':
-            dev_id = 1936
-        elif lang == 'Zh-Yue':
-            dev_id = 1637
-        elif lang == 'Zh-Chun':
-            dev_id = 1837
-        else:
-            dev_id = 1536
+        self.stt_start(fn, tok)
 
-        f = open(fn, 'rb')
-        long = len(f.read())
-        a = 0
-        while 1 ==1:
-            if long % 30720 == 0:
-                times = 1
-                timess = int(long) / 30720
-                while 1 == 1:
-
-                    if times == timess + 1:
-                        info = {'States': 'BaiduSttComplete', 'Text': texts}
-                        break
-                    else:
-                        file = f.read()
-                        file = file[a:times * 30720]
-                        base_data = base64.b64encode(file)
-
-                        dataf = {"format": "wav",
-                                 "token": token,
-                                 "rate": 16000,
-                                 "speech": base_data,
-                                 "dev_pid": dev_id,
-                                 "cuid": 'b0-10-41-92-84-4d',
-                                 "channel": 1}
-
-                        data = demjson.encode(dataf)
-
-                        r = requests.post('http://vop.baidu.com/server_api',
-                                          data=data,
-                                          headers={'content-type': 'application/json'})
-
-                        try:
-                            if 'result' in r.json():
-                                text = r.json()['result'][0].encode('utf-8')
-                                if text == None:
-                                    texts.append('')
-                                else:
-                                    texts.append(text)
-                                if a == 0:
-                                    a = 30720
-                                else:
-                                    a = times * 30720
-                                times += 1
-                            else:
-                                info = {'States': 'Error:ResultUnfound', 'Text': None}
-                                break
-                        except requests.exceptions.HTTPError:
-                            print ('Request failed with response: %r',
-                                   r.text)
-                            info = {'States': 'BaiduSTTError:Request failed with response', 'Text': None}
-                            break
-                        except requests.exceptions.RequestException:
-                            print ('Request failed.')
-                            info = {'States': 'BaiduSTTError:Request failed.', 'Text': None}
-                            break
-                        except KeyError:
-                            print ('Cannot parse response')
-                            info = {'States': 'BaiduSTTError:Cannot parse response', 'Text': None}
-                            break
-                break
-            else:
-                times = 1
-                timess = long / 30720 - long // 30720
-                while 1 == 1:
-
-                    if times == timess + 1:
-                        file = f.read()
-                        file = file[a:times * 30720]
-                        base_data = base64.b64encode(file)
-
-                        dataf = {"format": "wav",
-                                 "token": token,
-                                 "rate": 16000,
-                                 "speech": base_data,
-                                 "dev_pid": dev_id,
-                                 "cuid": 'b0-10-41-92-84-4d',
-                                 "channel": 1}
-
-                        data = demjson.encode(dataf)
-
-                        r = requests.post('http://vop.baidu.com/server_api',
-                                          data=data,
-                                          headers={'content-type': 'application/json'})
-
-                        try:
-                            if 'result' in r.json():
-                                text = r.json()['result'][0].encode('utf-8')
-                                if text == None:
-                                    texts.append('')
-                                else:
-                                    texts.append(text)
-                                if a == 0:
-                                    a = 30720
-                                else:
-                                    a = times * 30720
-                                times += 1
-
-                            else:
-                                info = {'States': 'Error:ResultUnfound', 'Text': None}
-                                break
-                        except requests.exceptions.HTTPError:
-                            print ('Request failed with response: %r',
-                                   r.text)
-                            info = {'States': 'BaiduSTTError:Request failed with response', 'Text': None}
-                            break
-                        except requests.exceptions.RequestException:
-                            print ('Request failed.')
-                            info = {'States': 'BaiduSTTError:Request failed.', 'Text': None}
-                            break
-                        except KeyError:
-                            print ('Cannot parse response')
-                            info = {'States': 'BaiduSTTError:Cannot parse response', 'Text': None}
-                            break
-                        info = {'States': 'BaiduSttComplete', 'Text': texts}
-                        break
-                    else:
-                        file = f.read()
-                        file = file[a:times * 30720]
-                        base_data = base64.b64encode(file)
-
-                        dataf = {"format": "wav",
-                                 "token": token,
-                                 "rate": 16000,
-                                 "speech": base_data,
-                                 "dev_pid": dev_id,
-                                 "cuid": 'b0-10-41-92-84-4d',
-                                 "channel": 1}
-
-                        data = demjson.encode(dataf)
-
-                        r = requests.post('http://vop.baidu.com/server_api',
-                                          data=data,
-                                          headers={'content-type': 'application/json'})
-
-                        try:
-                            if 'result' in r.json():
-                                text = r.json()['result'][0].encode('utf-8')
-                                if not text:
-                                    texts.append('')
-                                else:
-                                    texts.append(text)
-                                if a == 0:
-                                    a = 30720
-                                else:
-                                    a = times * 30720
-                                times += 1
-                            else:
-                                info = {'States': 'Error:ResultUnfound', 'Text': None}
-                                break
-                        except requests.exceptions.HTTPError:
-                            print ('Request failed with response: %r',
-                                   r.text)
-                            info = {'States': 'BaiduSTTError:Request failed with response', 'Text': None}
-                            break
-                        except requests.exceptions.RequestException:
-                            print ('Request failed.')
-                            info = {'States': 'BaiduSTTError:Request failed.', 'Text': None}
-                            break
-                        except KeyError:
-                            print ('Cannot parse response')
-                            info = {'States': 'BaiduSTTError:Cannot parse response', 'Text': None}
-                            break
-                break
-        f.close()
-        return info
-
-class ifly_stt(xiaolanBase):
+class IflyStt(xiaolanBase):
 
     def __init__(self):
 
-        super(ifly_stt, self).__init__()
+        super(IflyStt, self).__init__()
 
     def stt_start(self, fn, tok):
 
@@ -334,52 +157,17 @@ class ifly_stt(xiaolanBase):
         result = result.read()
         return {'States': 'IflySTTComplete', 'Text': json.loads(result)['data']}
 
-    def stt_starts(self, fn, tok):
+    def stt_real_time(self, fn, tok):
 
         """
         讯飞实时语音识别
-        :param fn: 文件路径
-        :param tok: 其他
+        :param fn:文件路径
+        :param tok:token
         :return:
         """
-        time.sleep(2)
-        texts = []
-        f = open(fn, 'rb')
-        long = len(f.read())
-        while 1 == 1:
-            times = 1
-            timess = long / 30720
-            a = 0
-            if long % 30720 == 0:
-                while 1 == 1:
-                    if times == timess:
-                        info = {'States': 'BaiduSttComplete', 'Text': texts}
-                        break
-                    else:
-                        file = f.read()
-                        file = file[a:times * 30720]
-                        base64_audio = base64.b64encode(file)
-                        body = urllib.urlencode({'audio': base64_audio})
+        self.stt_start(fn, tok)
 
-                        api_key = self.set['main_setting']['STT']['ifly']['key']
-                        param = {"engine_type": "sms16k", "aue": "raw"}
 
-                        x_appid = self.set['main_setting']['STT']['IFLY']['appid']
-                        x_param = base64.b64encode(json.dumps(param).replace(' ', ''))
-                        x_header = {'X-Appid': x_appid,
-                                    'X-CurTime': int(int(round(time.time() * 1000)) / 1000),
-                                    'X-Param': x_param,
-                                    'X-CheckSum': hashlib.md5(api_key + str(x_time) + x_param).hexdigest()
-                                    }
-                        req = urllib2.Request('http://api.xfyun.cn/v1/service/v1/iat', body, x_header)
-                        result = urllib2.urlopen(req)
-                        result = result.read()
-                        a = times * 30720
-                        times += 1
-                        info = {'States': 'IflySTTComplete', 'Text': texts.append(json.loads(result)['data'])}
-                break
-        f.close()
-        return info
 
 class 	TencentStt(xiaolanBase):
 
@@ -387,71 +175,77 @@ class 	TencentStt(xiaolanBase):
 
         super(TencentStt, self).__init__()
 
-    def get_auth_signature(self, req):
+    def urlencode(self, args):
 
         """
-        获取腾讯云请求签名认证
+        进行字典排序和urlencode
         :return:
         """
-        SK = self.set['main_setting']['STT']['tencent']['SK']
-        signf = 'POSTaai.tencentcloudapi.com/?' + req
-        signs = hmac.new(SK, signf, sha1).digest()
-        signt = base64.b64encode(signs)
-        return urllib.quote(signt)
+        tuples = [(k, args[k]) for k in sorted(args.keys()) if args[k]]
+        query_str = urllib.urlencode(tuples)
+        return query_str
 
-
-    def stt_starts(self, fn, token):
+    def signify(self, args):
 
         """
-        腾讯云实时语音识别
+        获取腾讯API签名认证
+        :return:
+        """
+        app_key = self.set['main_setting']['STT']['tencent']['appkey']
+        query_str = urlencode(args)
+        query_str = query_str + '&app_key=' + app_key
+        signiture = md5(query_str)
+        return signiture
+
+
+    def stt_real_time(self, fn, token):
+
+        """
+        腾讯AI开放平台实时语音识别
         :param fn: 文件路径
-        :param token: 其他
+        :param token: token
         :return:
         """
+        ext = 'wav'
         time.sleep(2)
-        texts = []
+        info = {}
         url = 'https://aai.tencentcloudapi.com/?'
-        SI = self.set['main_setting']['STT']['tencent']['SI']
+        appid = self.set['main_setting']['STT']['tencent']['appid']
 
-        times = 1
+        if ext == 'wav':
+            wf = wave.open(fn)
+        else:
+            info['States'] = "Error:Unsupport audio file format!"
 
-        while 1 == 1:
-            if times == 6:
-                break
-            else:
-                f = open(fn, 'rb')
-                voice = f.read()
-                audio = base64.b64encode(voice)
-                data = {
-                    'Action': 'SentenceRecognition',
-                    'Data': audio,
-                    'DataLen': len(f.read()),
-                    'EngSerViceType': '16k',
-                    'Nonce': 12345,
-                    'ProjectId': 0,
-                    'SubServiceType': 1,
-                    'SourceType': 1,
-                    'SecretId': SI,
-                    'Timestamp': int(time.time()),
-                    'UsrAudioKey': 'xiaolan',
-                    'Version': '2018-05-22',
-                    'VoiceFormat': 'wav'
-                }
-                signtrue = self.get_auth_signature(urllib.urlencode(data))
-                data['Signature'] = signtrue
-                data = urllib.urlencode(data)
+        total_len = wf.getnframes() * wf.getsampwidth()
+        seq, end = 0, '0'
+        while end != '1':
+            data = wf.readframes(1024)
+            length = len(data)
+            end = '0' if length + seq < total_len else '1'
 
-                r = requests.post(url,
-                                  data = data)
+            args = {
+                'app_id': appid,
+                'time_stamp': str(int(time.time())),
+                'nonce_str': '%.x' % random.randint(1048576, 104857600),
+                'format': 2,
+                'rate': 16000,
+                'seq': int(seq),
+                'len': int(length),
+                'end': end,
+                'speech_id': '0',
+                'speech_chunk': base64.b64encode(data),
+            }
 
-                text = r.json()['Response']['Result']
-                if not text or text == '':
-                    texts.append('')
-                else:
-                    texts.append(text)
-                times += 1
+            signiture = signify(args, self.app_key)
+            args['sign'] = signiture
+            resp = http_post(self.api_url, args)
 
-        return {'States': 'Complete', 'Text': texts}
+            seq += length
+
+        info['States'] = 'Complete'
+        info['Text'] = resp['data']['speech_text'].encode('utf-8')
+        return info
 
 
 

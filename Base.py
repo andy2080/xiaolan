@@ -14,6 +14,7 @@ import os
 import requests
 import re
 import ctypes
+import hashlib
 sys.path.append('/home/pi/xiaolan')
 
 
@@ -49,6 +50,18 @@ class xiaolanBase(object):
         else:
             return text
 
+    def md5(self, string):
+
+        """
+        MD5加密
+        :param string:
+        :return:
+        """
+        md = hashlib.md5()
+        md.update(string)
+        md5 = md.hexdigest().upper()
+        return md5
+
     def tts(self, saytext):
 
         """
@@ -78,7 +91,7 @@ class xiaolanBase(object):
     def diy_tts(self, saytext, service, more):
 
         """
-        DIY的TTS语音合成
+        DIY_TTS语音合成
         :param saytext: tts文本
         :param service: tts服务
         :param more: 更多
@@ -112,14 +125,15 @@ class xiaolanBase(object):
         :param path: 语音文件
         :return:
         """
-        from speech_center.stt import baidu_stt
-        from speech_center.stt import ifly_stt
+        from speech_center.stt import BaiduStt
+        from speech_center.stt import IflyStt
         from speech_center.stt import TencentStt
+
         if self.set['main_setting']['STT']['service'] == 'baidu':
-            stt = baidu_stt()
+            stt = BaiduStt()
             tok = stt.get_token()
         elif self.set['main_setting']['STT']['service'] == 'ifly':
-            stt = ifly_stt()
+            stt = IflyStt()
             tok = ''
         elif self.set['main_setting']['STT']['service'] == 'tencent':
             stt = TencentStt()
@@ -128,8 +142,8 @@ class xiaolanBase(object):
             self.log('write', {'log': 'BaseSTTUnkonwCommands', 'level': 'warning'})
             return None
 
-        self.log('write', {'log': 'StartSTT', 'level': 'info'})
-        states = stt.stt_starts(path, tok)
+        self.log('write', {'log': 'Event:StartSTT:', 'level': 'info'})
+        states = stt.stt_real_time(path, tok)
 
         if 'Error' in states['States']:
 
@@ -137,22 +151,9 @@ class xiaolanBase(object):
             return None
         else:
 
-            if self.set['main_setting']['STT']['service'] == 'tencent':
-                text = states['Text'][-1]
-            else:
-                text = 'a'
-                a = 0
-                i = len(states['Text'])
-                while 1 == 1:
-                    try:
-                        text = text + states['Text'][a]
-                    except IndexError:
-                        break
-                    else:
-                        a += 1
-                text = text[1:-1]
-            print "YourSttResult:" + text
+            text = states['Text']
 
+            print "YourSttResult:" + text
             if not text or text == '':
                 self.log('write', {'log': 'BaseSTTTextNone', 'level': 'debug'})
                 speaker.speacilrecorder()
