@@ -408,7 +408,7 @@ class 	TencentStt(xiaolanBase):
         :param token: 其他
         :return:
         """
-        time.sleep(1)
+        time.sleep(2)
         texts = []
         url = 'https://aai.tencentcloudapi.com/?'
         SI = self.set['main_setting']['STT']['tencent']['SI']
