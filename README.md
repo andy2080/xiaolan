@@ -87,7 +87,7 @@
 - 支持简单的手势识别，让聋哑人也能够使用小蓝
 - 支持文字识别，提高聋哑人与小蓝交互的效率
 - 添加百度人体识别
-- 腾讯语音识别暂时不提供支持
+- 支持腾讯AI开放平台的AI LAB流式语音识别
 
 ### 英文版本README（EnglishReadmeRelease）
 - 【Sorry!If you can't read this release README, I am sorry about this, My English Is not Very Good】
