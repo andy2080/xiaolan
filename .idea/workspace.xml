@@ -71,10 +71,10 @@
       <file leaf-file-name="stt.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="442" column="45" lean-forward="true" selection-start-line="442" selection-start-column="45" selection-end-line="442" selection-end-column="45" />
+            <state relative-caret-position="190">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
               <folding>
-                <element signature="e#116#139#0" expanded="true" />
+                <element signature="e#116#126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -615,10 +615,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="442" column="45" lean-forward="true" selection-start-line="442" selection-start-column="45" selection-end-line="442" selection-end-column="45" />
+        <state relative-caret-position="190">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
-            <element signature="e#116#139#0" expanded="true" />
+            <element signature="e#116#126#0" expanded="true" />
           </folding>
         </state>
       </provider>

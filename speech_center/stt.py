@@ -9,7 +9,6 @@
     desc:pass
 """
 
-import urllib.urlencode
 import sys
 import requests
 import os
