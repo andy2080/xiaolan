@@ -52,13 +52,14 @@ class Xiaolan(xiaolanBase):
         f = open('/home/pi/xiaolan/memory_center/more/face_track.txt')
         while 1 == 1:
             time.sleep(5)
-            if int(f.read()) > 0 and time.strftime("%H") >= 18:
+            if int(f.read(1)) > 0 and time.strftime("%H") >= 18:
                 self.log('write', {'log': 'Event:TomorrowWeatherRemind', 'level': 'info'})
                 self.client_to_server('SkillReq', {'Intent': 'weather', 'Slots': {'time': 'tomorrow'}, 'IntengDict': {'Skill': 'Weather', 'KeyWord': 'remind', 'Text': '明天的天气怎么样？', 'WordLexer': {}}})
-            elif int(f.read()) > 0 and time.strftime("%H") >= 5 and time.strftime("%H") <= 11:
-                self.log('write', {'log': 'Event:TodayWeatherRemind', 'level': 'info'})
-                self.client_to_server('SkillReq', {'Intent': 'weather', 'Slots': {'time': 'today'}, 'IntengDict': {'Skill': 'Weather', 'KeyWord': 'remind', 'Text': '今天天气怎么样？', 'WordLexer': {}}})
-            elif 0 == 1:
+            elif int(f.read(1)) > 0 and time.strftime("%H") >= 5:
+                if time.strftime("%H") <= 11:
+                    self.log('write', {'log': 'Event:TodayWeatherRemind', 'level': 'info'})
+                    self.client_to_server('SkillReq', {'Intent': 'weather', 'Slots': {'time': 'today'}, 'IntengDict': {'Skill': 'Weather', 'KeyWord': 'remind', 'Text': '今天天气怎么样？', 'WordLexer': {}}})
+            elif not f.read():
                 break
             else:
                 pass
