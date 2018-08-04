@@ -34,6 +34,7 @@ class Dialogue(xiaolanBase):
         if self.set['main_setting']['talk_mode'] == 'voice':
 
             self.recorder('normal', 0)
+            f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
         elif self.set['main_setting']['talk_mode'] == 'gesture':
 
             self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -51,8 +52,10 @@ class Dialogue(xiaolanBase):
         else:
 
             self.recorder('normal', 0)
+            f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
 
         self.speaker('dong')
+
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'], 'IntentDict': intentdict})
 
@@ -69,6 +72,9 @@ class Dialogue(xiaolanBase):
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('express', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
             elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                 self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -90,11 +96,17 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('express', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
         elif recordtype == 'normal':
 
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('normal', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
             elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                 self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -116,11 +128,17 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('normal', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
         elif recordtype == 'ts':
 
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('translate', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
             elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                 self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -142,11 +160,17 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('translate', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
         elif recordtype == 's':
 
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('less_time', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
             elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                 self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -168,10 +192,16 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('less_time', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
         else:
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('normal', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
             elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                 self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -193,8 +223,11 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('normal', 0)
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
         self.speaker('dong')
-        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
+
         intentdict = self.client_to_server('NluReq', {'Text': text})
         self.client_to_server('SkillResForWaitAnswer', {'Intent': intentdict['intent'], 'Slots': intentdict['slots'], 'IntentDict': intentdict})
 
@@ -210,6 +243,7 @@ class Dialogue(xiaolanBase):
         """
         a = 0
         slotturn = []
+        text = ''
         while 1 == 1:
             if a < len(slotname) + 1:
                 self.tts(slotask[a])
@@ -218,6 +252,9 @@ class Dialogue(xiaolanBase):
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('express', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                     elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                         self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -242,11 +279,17 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('express', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                 elif recordtype == 'normal':
 
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('normal', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                     elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                         self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -271,11 +314,17 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('normal', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                 elif recordtype == 'ts':
 
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('translate', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                     elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                         self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -300,11 +349,17 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('translate', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                 elif recordtype == 's':
 
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('less_time', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                     elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                         self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -329,6 +384,9 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('less_time', 0)
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                 else:
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
@@ -357,7 +415,9 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('normal', 0)
-                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
+                        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        text = f.read()
+                        f.close()
                 slotturn.append(self.client_nlu('get_slots', {'Text': text, 'SlotsList': [slotname[a], slotdicts[a]]}))
                 a = a + 1
             else:

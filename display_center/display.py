@@ -56,3 +56,50 @@ class ScreenDisplay(xiaolanBase):
         :param remind: 提醒词列表
         :return:
         """
+
+    def list_display_rocess(self, type, title, list_info, remind, background_image):
+
+        """
+        列表显示
+        :param type: 类型 transverse,vertical
+        :param title: 标题
+        :param list_info: 列表信息
+        :param remind: 提醒词
+        :param background_image: 背景图片URL
+        :return:
+        """
+
+    def standard_display(self, title, image, text, remind, background_image):
+
+        """
+        标准显示
+        :param title: 标题
+        :param image: 图片信息
+        :param remind: 提醒词
+        :param text: 文本
+        :param background_image: 背景图片
+        :return:
+        """
+
+    def left_image_right_text_display_process(self, title, image, text, remind, background_image):
+
+        """
+        左图右文显示
+        :param title: 标题
+        :param image: 图片
+        :param text: 文字
+        :param remind: 提醒词
+        :param background_image: 背景图片
+        :return:
+        """
+
+    def right_image_left_text_display_process(self, title, image, text, remind, background_image):
+        """
+        右图左文显示
+        :param title: 标题
+        :param image: 图片
+        :param text: 文字
+        :param remind: 提醒词
+        :param background_image: 背景图片
+        :return:
+        """
