@@ -11,15 +11,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="setting.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setting.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="xiaolan.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -89,14 +80,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conversation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="conversation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="315" column="11" selection-start-line="315" selection-start-column="11" selection-end-line="315" selection-end-column="11" />
+            <state relative-caret-position="198">
+              <caret line="556" column="101" lean-forward="true" selection-start-line="556" selection-start-column="101" selection-end-line="556" selection-end-column="101" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="snowboy.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/auditory_center/awaken/snowboy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="361">
+              <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -183,7 +183,6 @@
         <option value="$PROJECT_DIR$/memory_center/DateBase.py" />
         <option value="$PROJECT_DIR$/memory_center/Log.py" />
         <option value="$PROJECT_DIR$/visual_centre/必读（关于视觉唤醒）.txt" />
-        <option value="$PROJECT_DIR$/auditory_center/awaken/snowboy.py" />
         <option value="$PROJECT_DIR$/speech_center/nlu.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
@@ -204,6 +203,7 @@
         <option value="$PROJECT_DIR$/setting.py" />
         <option value="$PROJECT_DIR$/Base.py" />
         <option value="$PROJECT_DIR$/speech_center/conversation.py" />
+        <option value="$PROJECT_DIR$/auditory_center/awaken/snowboy.py" />
       </list>
     </option>
   </component>
@@ -424,13 +424,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/visual_centre/必读（关于视觉唤醒）.txt" />
-    <entry file="file://$PROJECT_DIR$/auditory_center/awaken/snowboy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/nlu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -620,11 +613,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="315" column="11" selection-start-line="315" selection-start-column="11" selection-end-line="315" selection-end-column="11" />
+        <state relative-caret-position="198">
+          <caret line="556" column="101" lean-forward="true" selection-start-line="556" selection-start-column="101" selection-end-line="556" selection-end-column="101" />
           <folding>
             <element signature="e#116#126#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auditory_center/awaken/snowboy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
         </state>
       </provider>
     </entry>
