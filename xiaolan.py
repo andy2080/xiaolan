@@ -49,7 +49,7 @@ class Xiaolan(xiaolanBase):
         小蓝天气提醒
         :return:
         """
-        f = open('/home/pi/xiaolan/memory_center/more/face_track.txt')
+        f = open('/home/pi/xiaolan/memory_center/more/face_track.txt', 'r')
         while 1 == 1:
             time.sleep(5)
             if int(f.read(1)) > 0 and time.strftime("%H") >= 18:
