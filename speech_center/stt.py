@@ -141,9 +141,9 @@ class baidu_stt(xiaolanBase):
             dev_id = 1536
 
         f = open(fn, 'rb')
-        file_content = len(f.read())
+        long = len(f.read())
         a = 0
-        for long in file_content:
+        while 1 ==1:
             if long % 30720 == 0:
                 times = 1
                 timess = int(long) / 30720
@@ -345,8 +345,8 @@ class ifly_stt(xiaolanBase):
         time.sleep(1)
         texts = []
         f = open(fn, 'rb')
-        file_content = len(f.read())
-        for long in file_content:
+        long = len(f.read())
+        while 1 == 1:
             times = 1
             timess = long / 30720
             a = 0
@@ -377,7 +377,7 @@ class ifly_stt(xiaolanBase):
                         a = times * 30720
                         times += 1
                         info = {'States': 'IflySTTComplete', 'Text': texts.append(json.loads(result)['data'])}
-
+                break
         f.close()
         return info
 
@@ -425,14 +425,14 @@ class 	TencentStt(xiaolanBase):
                 data = {
                     'Action': 'SentenceRecognition',
                     'Data': audio,
-                    'DataLen': long,
+                    'DataLen': len(f.read()),
                     'EngSerViceType': '16k',
                     'Nonce': 12345,
                     'ProjectId': 0,
                     'SubServiceType': 1,
                     'SourceType': 1,
                     'SecretId': SI,
-                    'Timestamp': time.time(),
+                    'Timestamp': int(time.time()),
                     'UsrAudioKey': 'xiaolan',
                     'Version': '2018-05-22',
                     'VoiceFormat': 'wav'
@@ -441,8 +441,8 @@ class 	TencentStt(xiaolanBase):
                 data['Signature'] = signtrue
                 data = urllib.urlencode(data)
 
-                url = url + data
-                r = requests.post(url)
+                r = requests.post(url,
+                                  data = data)
 
                 text = r.json()['Response']['Result']
                 if not text or text == '':
@@ -450,6 +450,8 @@ class 	TencentStt(xiaolanBase):
                 else:
                     texts.append(text)
                 times += 1
+
+        return {'States': 'Complete', 'Text': texts}
 
 
 
