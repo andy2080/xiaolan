@@ -413,10 +413,10 @@ class 	TencentStt(xiaolanBase):
         url = 'https://aai.tencentcloudapi.com/?'
         SI = self.set['main_setting']['STT']['tencent']['SI']
 
-        time = 1
+        times = 1
 
         while 1 == 1:
-            if time == 6:
+            if times == 6:
                 break
             else:
                 f = open(fn, 'rb')
@@ -449,7 +449,7 @@ class 	TencentStt(xiaolanBase):
                     texts.append('')
                 else:
                     texts.append(text)
-                time += 1
+                times += 1
 
 
 
