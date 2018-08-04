@@ -126,7 +126,7 @@ class baidu_stt(xiaolanBase):
         :param token: token
         :return:
         """
-        time.sleep(1)
+        time.sleep(2)
         texts = []
         lang = self.set['main_setting']['sys_lang']
         if lang == 'En':
@@ -342,7 +342,7 @@ class ifly_stt(xiaolanBase):
         :param tok: 其他
         :return:
         """
-        time.sleep(1)
+        time.sleep(2)
         texts = []
         f = open(fn, 'rb')
         long = len(f.read())
