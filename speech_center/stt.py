@@ -395,7 +395,7 @@ class 	TencentStt(xiaolanBase):
         """
         SK = self.set['main_setting']['STT']['tencent']['SK']
         signf = 'POSTaai.tencentcloudapi.com/?' + req
-        signs = hmac.new(signf, SK, sha1).digest()
+        signs = hmac.new(SK, signf, sha1).digest()
         signt = base64.b64encode(signs)
         return urllib.quote(signt)
 
