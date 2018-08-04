@@ -342,7 +342,7 @@ class ifly_stt(xiaolanBase):
         :param tok: 其他
         :return:
         """
-        sleep(1)
+        time.sleep(1)
         texts = []
         f = open(fn, 'rb')
         file_content = len(f.read())
