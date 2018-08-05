@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get install omxplayer pulseaudio fswebcam cmake g++ gcc python2.7 python3 git python-dev python3-dev python-pyaudio python3-pyaudio sox python-demjson
 sudo apt-get install python-wxgtk3.0
-pip install pyaudio requests hyper crypto wxpython
+pip install pyaudio requests hyper crypto
 sudo apt-get install python-opencv libatlas-base-dev
 sudo apt-get install libevent-dev
 sudo apt-get install memcached
@@ -34,7 +34,7 @@ cd ..
 echo "请输入root账号的密码："
 echo "如果输入完毕之后，停止了运行，在本脚本文件里找到本行，往下数第二行一直拖到最底复制带命令行中执行"
 su root
-pip install pydub
+pip install pydub wxpython
 cp /home/pi/xiaolan/memory_center/more/autostartxl /etc/init.d/
 chmod +777 /etc/init.d/autostartxl
 sudo update-rc.d autostartxl defaults
