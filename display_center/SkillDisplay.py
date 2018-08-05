@@ -3,6 +3,8 @@
 import os
 import sys
 import json
+import wxversion
+wxversion.select("2.8-unicode")
 import wx
 from BaseDisplay import BaseDisplay
 
@@ -108,5 +110,19 @@ class SkillScreenDisplay(BaseDisplay):
         :param text: 文字
         :param remind: 提醒词
         :param background_image: 背景图片
+        :return:
+        """
+
+    def video_stop_display(self):
+
+        """
+        视频暂停播放显示
+        :return:
+        """
+
+    def music_stop_display(self):
+
+        """
+        音乐暂停播放显示
         :return:
         """

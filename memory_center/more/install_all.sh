@@ -1,5 +1,7 @@
 #!/bin/bash
 sudo apt-get install omxplayer pulseaudio fswebcam cmake g++ gcc python2.7 python3 git python-dev python3-dev python-pyaudio python3-pyaudio sox python-demjson
+sudo apt-get install python-opencv python3-pil python3-opencv python3-opengl python3-sdl2 cython3 libgstreamer1.0-0 python3-kivy python3-sdl2
+sudo apt-get install python-wxgtk2.8 python-wxtools wx2.8-i18n
 sudo apt-get install python-wxgtk3.0
 pip install pyaudio requests hyper crypto
 sudo apt-get install python-opencv libatlas-base-dev
