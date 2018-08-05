@@ -21,11 +21,10 @@ import hashlib
 sys.path.append('/home/pi/xiaolan')
 
 
-class xiaolanBase(wx.Frame):
+class xiaolanBase(objcet):
 
     def __init__(self):
 
-        super(xiaolanBase, self).__init__()
         import setting
         self.set = setting.setting()
 
