@@ -4,16 +4,13 @@ import os
 import sys
 import json
 import wx
+from BaseDisplay import BaseDisplay
 
-
-sys.path.append('/home/pi/xiaolan/')
-from Base import xiaolanBase
-
-class ScreenDisplay(xiaolanBase):
+class SkillScreenDisplay(BaseDisplay):
     
     def __init__(self):
 
-        super(ScreenDisplay, self).__init__()
+        super(SkillScreenDisplay, self).__init__()
 
     def text_display_process(self, title, text, remind, background_image):
 
@@ -57,15 +54,25 @@ class ScreenDisplay(xiaolanBase):
         :return:
         """
 
-    def list_display_rocess(self, type, title, list_info, remind, background_image):
+    def transverse_list_display_process(self, title, list_info, remind, background_image):
 
         """
-        列表显示
-        :param type: 类型 transverse,vertical
+        横向列表展示
         :param title: 标题
         :param list_info: 列表信息
         :param remind: 提醒词
         :param background_image: 背景图片URL
+        :return:
+        """
+
+    def vertical_list_display_process(self, title, list_info, remind, background_image):
+
+        """
+        纵向列表显示
+        :param title: 标题
+        :param list_info: 列表信息
+        :param remind: 提醒词
+        :param background_image: 背景图片
         :return:
         """
 

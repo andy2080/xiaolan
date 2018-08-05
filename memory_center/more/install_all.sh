@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo apt-get install omxplayer pulseaudio fswebcam cmake g++ gcc python2.7 python3 git python-dev python3-dev python-pyaudio python3-pyaudio sox python-demjson
 sudo apt-get install python-wxgtk3.0
-pip install pyaudio requests hyper crypto
+pip install pyaudio requests hyper crypto wxpython
 sudo apt-get install python-opencv libatlas-base-dev
 sudo apt-get install libevent-dev
 sudo apt-get install memcached

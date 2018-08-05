@@ -70,7 +70,7 @@ class CommandsDo(xiaolanBase):
 
             log = self.log('read', {'mode': 'all'})
             self.client_to_server('LogResForBrain', data)
-        # ScreeDisplay
+        # ScreeDisplay&TextToSpeech
         Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
         if Type == 'TextDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
@@ -89,6 +89,11 @@ class CommandsDo(xiaolanBase):
         elif Type == 'MusicDisplay':
             Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
             MusicUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['MusicUrl']
+            BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
+            RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
+        elif Type == 'ListDisplay':
+            Title = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Title']
+            ListInfo = respones['ClientShouldDo']['Skill']['ScreeDisplay']['ListInfo']
             BackgroundImageUrl = respones['ClientShouldDo']['Skill']['ScreeDisplay']['BackgroundImageUrl']
             RemindWord = respones['ClientShouldDo']['Skill']['ScreeDisplay']['RemindWord']
         else:
