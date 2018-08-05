@@ -8,6 +8,9 @@
     desc:pass
 """
 import sys
+import wxversion
+wxversion.select("2.8-unicode")
+import wx
 sys.path.append('/home/pi/xiaolan/speech_center')
 import speaker
 import os
@@ -18,10 +21,11 @@ import hashlib
 sys.path.append('/home/pi/xiaolan')
 
 
-class xiaolanBase(object):
+class xiaolanBase(wx.Frame):
 
     def __init__(self):
 
+        super(xiaolanBase, self).__init__()
         import setting
         self.set = setting.setting()
 
@@ -550,7 +554,7 @@ class xiaolanBase(object):
         if mode == 'normal':
 
             self.log('write', {'log': 'Event:XiaolanTextRecognitionStart', 'level': 'info'})
-            states = text_recognition.start(more['Image'], text_recognition.get_token())
+            states = text_recognition.baidu_text_recognition(more['Image'], text_recognition.get_token())
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:BaiduTextRecognitionError:' + states['States'], 'level': 'error'})
                 return 'Error'
@@ -571,6 +575,19 @@ class xiaolanBase(object):
         :return:
         """
         from visual_centre.body import HumanBodyTrack
+        body_trak = HumanBodyTrack()
         if mode == 'BodyTrack':
 
-            pass
+            self.log('write', {'log': 'Event:StartXiaolanHumanBodyTrack', 'level': 'info'})
+            states = body_trak.body_keyplace_track(more['Image'], body_trak.get_token())
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanHuamnBodyTrackFailed', 'level': 'error'})
+            else:
+                return states['Data']
+
+        else:
+
+            self.log('write', {'log': 'Warning:UnknowHumanBodyTrackCommand', 'level': 'warning'})
+
+
+

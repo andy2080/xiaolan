@@ -42,7 +42,7 @@ class XiaolanTextRecognition(xiaolanBase):
         token = r.json()['access_token']
         return token
 
-    def start(self, img, token):
+    def baidu_text_recognition(self, img, token):
 
         """
         开始文字识别

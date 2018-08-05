@@ -61,4 +61,4 @@ class HumanBodyTrack(xiaolanBase):
 
         json = r.json()
 
-        return {'States': 'Complete', 'PersonNum': json['person_num']}
+        return {'States': 'Complete', 'Data': json}
