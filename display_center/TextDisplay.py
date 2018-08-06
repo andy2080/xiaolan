@@ -65,3 +65,5 @@ class TextDisplay(QWidget, xiaolanBase):
         """
         palette = QtGui.QPalette(self)
         palette.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(self.background_image)))
+        palette.move(0, 0)
+        self.setPalette(palette)

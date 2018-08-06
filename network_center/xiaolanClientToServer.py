@@ -226,7 +226,7 @@ class ClientToServer(xiaolanBase):
         data = {
             'ClientEvent': {
                 'Header': {
-                    'NameSpace': 'xiaolan.client.requests.get.remindword',
+                    'NameSpace': 'xiaolan.client.requests.get.remindword.normal',
                     'TimeStamp': int(time.time()),
                     'RequestsId': time.time(),
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
@@ -296,6 +296,35 @@ class ClientToServer(xiaolanBase):
         获取天气提醒词
         :return:
         """
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': 'xiaolan.client.requests.get.remindword.weather',
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
+                },
+                'ConversationInfo': None
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['ClientId'],
+                'States': {
+                    'ClientStates': ['servicing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['working'],
+                    'TtsStates': ['emptying']
+                },
+                'Commands': {
+                    'ClientCommands': ['servicing for user'],
+                    'elseCommands': []
+                }
+            }
+        }
+        r = requests.post(self.brainurl,
+                          data=json.dumps(data))
+        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['BrainEvent']['Respones']['RemindWord']}
 
     def get_recommend_skill(self):
 
@@ -303,3 +332,32 @@ class ClientToServer(xiaolanBase):
         获取推荐技能
         :return:
         """
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': 'xiaolan.client.requests.get.recommendskill',
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
+                },
+                'ConversationInfo': None
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['ClientId'],
+                'States': {
+                    'ClientStates': ['servicing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['working'],
+                    'TtsStates': ['emptying']
+                },
+                'Commands': {
+                    'ClientCommands': ['servicing for user'],
+                    'elseCommands': []
+                }
+            }
+        }
+        r = requests.post(self.brainurl,
+                          data=json.dumps(data))
+        return {'States': r.json()['Debug']['States'], 'RecommendSkill': r.json()['BrainEvent']['Respones']['RecommendSkill']}

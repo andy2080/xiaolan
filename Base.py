@@ -436,12 +436,39 @@ class xiaolanBase(objcet):
                 self.log('write', {'log': 'Complete:XiaolanClientToServerLogResComplete', 'level': 'debug'})
         elif mode == 'get_remind_word':
 
-            self.log('write', {'log': 'Event:StartGetemindWord', 'level': 'info'})
+            self.log('write', {'log': 'Event:StartGetRemindWord', 'level': 'info'})
             states = client_to_server.get_remind_word()
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:XiaolanClientToServerGetRemindWordFailed:' + states['States'], 'level': 'error'})
             else:
                 self.log('write', {'log': 'Complete:XiaolanClientToServerGetRemindWordComplete', 'level': 'debug'})
+                return states['RemindWord']
+        elif mode == 'get_recommend_word':
+
+            self.log('write', {'log': 'Event:StartGetRecommendWord', 'level': 'info'})
+            states = client_to_server.get_recommend_word()
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerGetRecommendWordFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerGetRecommendWordComplete', 'level': 'debug'})
+                return states['RecommendWord']
+        elif mode == 'get_recommend_skill':
+
+            self.log('write', {'log': 'Event:StartGetRecommendSkillWord', 'level': 'info'})
+            states = client_to_server.get_recommend_skill()
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerGetRecommendSkillFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerGetRecommendSkillComplete', 'level': 'debug'})
+                return states['RecommendSkill']
+        elif mode == 'get_weather_remind_word':
+
+            self.log('write', {'log': 'Event:StartGetWatherRemindWord', 'level': 'info'})
+            states = client_to_server.get_remind_word()
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerGetWeatherRemindWordFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerGetWeatherRemindWordComplete', 'level': 'debug'})
                 return states['RemindWord']
         else:
             self.log('write', {'log': 'Error:UnknowRequestsCommands', 'level': 'warning'})
