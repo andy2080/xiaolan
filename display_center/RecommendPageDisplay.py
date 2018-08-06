@@ -27,24 +27,31 @@ class RecommendPage(QWidget):
         推荐页面
         :return:
         """
+        self.set_recommend_background_image()
+        self.set_recommend_word()
+        self.set_remind_word()
 
     def set_recommend_word(self):
 
         """
         设置推荐词
-        :return: [text, text, text]
+        :return:
         """
 
     def set_recommend_background_image(self):
 
         """
         设置推荐背景图片
-        :return: path
+        :return:
         """
+        image_path = '/home/pi/xiaolan/memory_center/display_image/recommend_page_bgi.jpg'
+        palette2 = QtGui.QPalette(self)
+        palette2.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
+        self.setPalette(palette1)
 
     def set_remind_word(self):
 
         """
         设置推荐词
-        :return: [len, text, text]
+        :return:
         """

@@ -2,7 +2,7 @@
 
 # description:
 # author: xiaoland
-# create_time: 2018/8/5
+# create_time: 2018/8/6
 
 """
     desc:pass
@@ -67,21 +67,21 @@ class WeatherPage(QWidget, xiaolanBase):
         """
         if weather == 'rainy':
             image_path = '/home/pi/xiaolan/memory_center/display_image/rainy.jpg'
-            palette1 = QtGui.QPalette(self)
-            palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
-            self.setPalette(palette1)
+            palette3 = QtGui.QPalette(self)
+            palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
+            self.setPalette(palette3)
         elif weather == 'sunny':
             image_path = '/home/pi/xiaolan/memory_center/display_image/sunny.jpg'
-            palette1 = QtGui.QPalette(self)
-            palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
-            self.setPalette(palette1)
+            palette3 = QtGui.QPalette(self)
+            palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
+            self.setPalette(palette3)
         elif weather == 'cloudy':
             image_path = '/home/pi/xiaolan/memory_center/display_image/cloudy.jpg'
-            palette1 = QtGui.QPalette(self)
-            palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
-            self.setPalette(palette1)
+            palette3 = QtGui.QPalette(self)
+            palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
+            self.setPalette(palette3)
         else:
             image_path = '/home/pi/xiaolan/memory_center/display_image/white_cloud_bgi.jpg'
-            palette1 = QtGui.QPalette(self)
-            palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
-            self.setPalette(palette1)
+            palette3 = QtGui.QPalette(self)
+            palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
+            self.setPalette(palette3)
