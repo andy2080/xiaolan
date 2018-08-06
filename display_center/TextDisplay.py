@@ -23,11 +23,11 @@ class TextDisplay(QWidget, xiaolanBase):
     def __init__(self, title, text, remind_word, background_image, remind_word_time):
 
         super(TextDisplay, self).__init__()
+        bgi_req = requests.get(background_image)
         self.text = text
         self.title = title
         self.remind_word = remind_word
         self.remind_word_time = remind_word_time
-        bgi_req = requests.get(background_image)
         self.background_image = bgi_req.content
         self.text_display()
 

@@ -23,8 +23,8 @@ class MusicDisplay(QWidget, xiaolanBase):
 
         super(MusicDisplay, self).__init__()
         bgi_req = requests.get(background_image)
-        self.background_image = bgi_req.content
         icon_req = requests.get(icon)
+        self.background_image = bgi_req.content
         self.remind = remind
         self.icon = icon_req.content
         self.remind_word_time = remind_word_time
