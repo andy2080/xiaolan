@@ -85,7 +85,7 @@ class RecommendPage(QWidget, xiaolanBase):
     def set_remind_word(self):
 
         """
-        设置推荐词
+        设置提醒词
         :return:
         """
         remind_word = QLabel(self)
