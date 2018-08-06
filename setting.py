@@ -16,8 +16,8 @@ def setting():
                    'ClientType': 'xiaolan-display-client-2.0',
                    'userId': '1',
                    'url': {
-                       'xiaolan_nlu': '180.76.156.44',
-                       'xiaolan_brain': '180.76.186.145'
+                       'xiaolan_nlu': 'http://180.76.156.44',
+                       'xiaolan_brain': 'http://180.76.186.145'
                    },
                    'DatebaseUrl': {
                        'XiaolanSkill': '',
