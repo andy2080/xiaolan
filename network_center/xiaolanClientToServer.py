@@ -44,7 +44,7 @@ class ClientToServer(xiaolanBase):
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.requests.xiaolannlu',
-                    'TimeStamp': time.time(),
+                    'TimeStamp': str(time.time()),
                     'ClientId': self.set['main_setting']['ClientId'],
                     'ClientType': self.set['main_setting']['ClientType']
                 },
