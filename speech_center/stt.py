@@ -127,7 +127,7 @@ class BaiduStt(xiaolanBase):
         :param tok: token
         :return:
         """
-        self.stt_start(fn, tok)
+        return self.stt_start(fn, tok)
 
 class IflyStt(xiaolanBase):
 
@@ -165,7 +165,7 @@ class IflyStt(xiaolanBase):
         :param tok:token
         :return:
         """
-        self.stt_start(fn, tok)
+        return self.stt_start(fn, tok)
 
 
 
@@ -192,7 +192,7 @@ class 	TencentStt(xiaolanBase):
         :return:
         """
         app_key = self.set['main_setting']['STT']['tencent']['appkey']
-        query_str = urlencode(args)
+        query_str = urllib.urlencode(args)
         query_str = query_str + '&app_key=' + app_key
         signiture = md5(query_str)
         return signiture
@@ -237,9 +237,10 @@ class 	TencentStt(xiaolanBase):
                 'speech_chunk': base64.b64encode(data),
             }
 
-            signiture = signify(args, self.app_key)
+            signiture = self.signify(args)
             args['sign'] = signiture
-            resp = http_post(self.api_url, args)
+            resp = requests.post(url,
+                                 data=args)
 
             seq += length
 
