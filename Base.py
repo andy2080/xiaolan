@@ -21,7 +21,7 @@ import hashlib
 sys.path.append('/home/pi/xiaolan')
 
 
-class xiaolanBase(objcet):
+class xiaolanBase(object):
 
     def __init__(self):
 
