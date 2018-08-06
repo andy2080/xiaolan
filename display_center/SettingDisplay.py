@@ -28,3 +28,10 @@ class SettingPage(QWidget, xiaolanBase):
         设置页面
         :return:
         """
+
+    def set_setting_button(self):
+
+        """
+        设置设置按钮
+        :return:
+        """

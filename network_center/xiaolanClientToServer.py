@@ -93,7 +93,7 @@ class ClientToServer(xiaolanBase):
             },
             'Debug': {
                 'TimeStamp': str(int(time.time())),
-                'ClientId': setting.setting()['main_setting']['clientid'],
+                'ClientId': setting.setting()['main_setting']['ClientId'],
                 'States': {
                     'ClientStates': ['serviceing'],
                     'NluStates': ['working'],
@@ -150,7 +150,7 @@ class ClientToServer(xiaolanBase):
             },
             'Debug': {
                 'TimeStamp': str(int(time.time())),
-                'ClientId': setting.setting()['main_setting']['clientid'],
+                'ClientId': setting.setting()['main_setting']['ClientId'],
                 'States': {
                     'ClientStates': ['serviceing'],
                     'NluStates': ['working'],
@@ -177,4 +177,129 @@ class ClientToServer(xiaolanBase):
         :param intentdict: Nlu识别结果
         :return:
         """
-        pass
+
+    def log_res_for_brain(self, log):
+
+        """
+        log返回给brain
+        :param log: log
+        :return:
+        """
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': 'xiaolan.client.respones.client.log',
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
+                },
+                'ConversationInfo': None
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'Log': log,
+                'ClientId': setting.setting()['main_setting']['ClientId'],
+                'States': {
+                    'ClientStates': ['serviceing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['working'],
+                    'TtsStates': ['emptying']
+                },
+                'Commands': {
+                    'ClientCommands': ['service for user'],
+                    'elseCommands': []
+                }
+            }
+        }
+        r = requests.post(self.brainurl,
+                          data=json.dumps(data))
+        return {'States': r.json()['Debug']['States']}
+
+
+    def get_remind_word(self):
+
+        """
+        获取提醒词
+        :return:
+        """
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': 'xiaolan.client.requests.get.remindword',
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
+                },
+                'ConversationInfo': None
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['ClientId'],
+                'States': {
+                    'ClientStates': ['servicing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['working'],
+                    'TtsStates': ['emptying']
+                },
+                'Commands': {
+                    'ClientCommands': ['servicing for user'],
+                    'elseCommands': []
+                }
+            }
+        }
+        r = requests.post(self.brainurl,
+                          data=json.dumps(data))
+        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['BrainEvent']['Respones']['RemindWord']}
+
+    def get_recommend_word(self):
+
+        """
+        获取推荐词
+        :return:
+        """
+        data = {
+            'ClientEvent': {
+                'Header': {
+                    'NameSpace': 'xiaolan.client.requests.get.recommendword',
+                    'TimeStamp': int(time.time()),
+                    'RequestsId': time.time(),
+                    'RequestsFrom': setting.setting()['main_setting']['ClientType'],
+                    'ClientId': setting.setting()['main_setting']['ClientId']
+                },
+                'ConversationInfo': None
+            },
+            'Debug': {
+                'TimeStamp': str(int(time.time())),
+                'ClientId': setting.setting()['main_setting']['ClientId'],
+                'States': {
+                    'ClientStates': ['servicing'],
+                    'NluStates': ['working'],
+                    'SttStates': ['working'],
+                    'TtsStates': ['emptying']
+                },
+                'Commands': {
+                    'ClientCommands': ['servicing for user'],
+                    'elseCommands': []
+                }
+            }
+        }
+        r = requests.post(self.brainurl,
+                          data=json.dumps(data))
+        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['BrainEvent']['Respones']['RecommendWord']}
+
+
+    def get_weather_remind__word(self):
+
+        """
+        获取天气提醒词
+        :return:
+        """
+
+    def get_recommend_skill(self):
+
+        """
+        获取推荐技能
+        :return:
+        """

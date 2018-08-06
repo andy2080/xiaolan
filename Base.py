@@ -429,10 +429,20 @@ class xiaolanBase(objcet):
         elif mode == 'LogResForBrain':
 
             self.log('write', {'log': 'Event:StartSendLogToXiaolanBrain'})
+            states = client_to_server.log_res_for_brain(more['log'])
             if 'Error' in states['States']:
-                self.log('write', {'log': 'Error:XiaolanClientToServerDiyReqFailed:' + states['States'], 'level': 'error'})
+                self.log('write', {'log': 'Error:XiaolanClientToServerLogResFailed:' + states['States'], 'level': 'error'})
             else:
-                self.log('write', {'log': 'Complete:XiaolanClientToServerDiyReqComplete', 'level': 'debug'})
+                self.log('write', {'log': 'Complete:XiaolanClientToServerLogResComplete', 'level': 'debug'})
+        elif mode == 'get_remind_word':
+
+            self.log('write', {'log': 'Event:StartGetemindWord', 'level': 'info'})
+            states = client_to_server.get_remind_word()
+            if 'Error' in states['States']:
+                self.log('write', {'log': 'Error:XiaolanClientToServerGetRemindWordFailed:' + states['States'], 'level': 'error'})
+            else:
+                self.log('write', {'log': 'Complete:XiaolanClientToServerGetRemindWordComplete', 'level': 'debug'})
+                return states['RemindWord']
         else:
             self.log('write', {'log': 'Error:UnknowRequestsCommands', 'level': 'warning'})
 

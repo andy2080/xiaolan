@@ -32,6 +32,23 @@ class WeatherPage(QWidget, xiaolanBase):
         weather = self.set_weather()
         self.set_weather_background_image(weather)
         self.set_remind_word()
+        # 小蓝设置按钮
+        setting_button = QPushButton("", self)
+        setting_button.move(904, 50)
+        setting_button.pushButton.setStyleSheet(
+            'QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/setting.png)}')
+
+        # 技能中心按钮
+        setting_button = QPushButton("", self)
+        setting_button.move(824, 50)
+        setting_button.pushButton.setStyleSheet(
+            'QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/skill_center.png)}')
+
+        # 帮助中心按钮
+        setting_button = QPushButton("", self)
+        setting_button.move(744, 50)
+        setting_button.pushButton.setStyleSheet(
+            'QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/help_center.png)}')
 
     def set_remind_word(self):
 
@@ -66,22 +83,22 @@ class WeatherPage(QWidget, xiaolanBase):
         :return:
         """
         if weather == 'rainy':
-            image_path = '/home/pi/xiaolan/memory_center/display_image/rainy.jpg'
+            image_path = '/home/pi/xiaolan/memory_center/display_image/rainy.png'
             palette3 = QtGui.QPalette(self)
             palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
             self.setPalette(palette3)
         elif weather == 'sunny':
-            image_path = '/home/pi/xiaolan/memory_center/display_image/sunny.jpg'
+            image_path = '/home/pi/xiaolan/memory_center/display_image/sunny.png'
             palette3 = QtGui.QPalette(self)
             palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
             self.setPalette(palette3)
         elif weather == 'cloudy':
-            image_path = '/home/pi/xiaolan/memory_center/display_image/cloudy.jpg'
+            image_path = '/home/pi/xiaolan/memory_center/display_image/cloudy.png'
             palette3 = QtGui.QPalette(self)
             palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
             self.setPalette(palette3)
         else:
-            image_path = '/home/pi/xiaolan/memory_center/display_image/white_cloud_bgi.jpg'
+            image_path = '/home/pi/xiaolan/memory_center/display_image/white_cloud_bgi.png'
             palette3 = QtGui.QPalette(self)
             palette3.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
             self.setPalette(palette3)

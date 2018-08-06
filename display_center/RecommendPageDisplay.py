@@ -32,6 +32,23 @@ class RecommendPage(QWidget, xiaolanBase):
         self.set_recommend_background_image()
         self.set_recommend_word()
         self.set_remind_word()
+        # 小蓝设置按钮
+        setting_button = QPushButton("", self)
+        setting_button.move(904, 50)
+        setting_button.pushButton.setStyleSheet(
+            'QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/setting.png)}')
+
+        # 技能中心按钮
+        setting_button = QPushButton("", self)
+        setting_button.move(824, 50)
+        setting_button.pushButton.setStyleSheet(
+            'QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/skill_center.png)}')
+
+        # 帮助中心按钮
+        setting_button = QPushButton("", self)
+        setting_button.move(744, 50)
+        setting_button.pushButton.setStyleSheet(
+            'QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/help_center.png)}')
 
     def set_recommend_word(self):
 
@@ -60,7 +77,7 @@ class RecommendPage(QWidget, xiaolanBase):
         设置推荐背景图片
         :return:
         """
-        image_path = '/home/pi/xiaolan/memory_center/display_image/recommend_page_bgi.jpg'
+        image_path = '/home/pi/xiaolan/memory_center/display_image/recommend_page_bgi.png'
         palette2 = QtGui.QPalette(self)
         palette2.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
         self.setPalette(palette1)

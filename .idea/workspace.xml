@@ -18,32 +18,110 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="5671" />
+          <entry key="py" value="6840" />
           <entry key="sh" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="9" />
-          <entry key="Python" value="5671" />
+          <entry key="Python" value="6840" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="22" />
+          <entry key="py" value="28" />
           <entry key="sh" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="1" />
-          <entry key="Python" value="22" />
+          <entry key="Python" value="28" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="431" column="65" selection-start-line="431" selection-start-column="65" selection-end-line="431" selection-end-column="65" />
+              <folding>
+                <element signature="e#107#117#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="289" column="118" selection-start-line="289" selection-start-column="118" selection-end-line="289" selection-end-column="118" />
+              <folding>
+                <element signature="e#107#117#0" expanded="true" />
+                <marker date="1533548605129" expanded="true" signature="7058:7068" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/display_center/RecommendPageDisplay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+              <folding>
+                <element signature="e#106#115#0" expanded="true" />
+                <marker date="1533549868496" expanded="true" signature="382:383" ph="..." />
+                <marker date="1533549868496" expanded="true" signature="382:388" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/display_center/WeatherPageDisplay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="570">
+              <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+              <folding>
+                <element signature="e#106#115#0" expanded="true" />
+                <marker date="1533549892547" expanded="true" signature="380:381" ph="..." />
+                <marker date="1533549892547" expanded="true" signature="1501:1767" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/display_center/ListDisplay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#106#115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/display_center/MusicDisplay.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+              <folding>
+                <element signature="e#106#116#0" expanded="true" />
+                <marker date="1533549927224" expanded="true" signature="381:382" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display_center/TextDisplay.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -57,73 +135,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_center/ListDisplay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
-              <folding>
-                <element signature="e#106#115#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_center/StandardDisplay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-              <folding>
-                <element signature="e#106#115#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_center/WeatherPageDisplay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
-              <folding>
-                <element signature="e#106#115#0" expanded="true" />
-                <marker date="1533545270679" expanded="true" signature="380:381" ph="..." />
-                <marker date="1533545270679" expanded="true" signature="731:997" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/display_center/RecommendPageDisplay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
-              <folding>
-                <element signature="e#106#115#0" expanded="true" />
-                <marker date="1533545785226" expanded="true" signature="382:383" ph="..." />
-                <marker date="1533545785226" expanded="true" signature="382:388" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display_center/HelpCenterDisplay.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+            <state relative-caret-position="190">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding>
-                <element signature="e#106#115#0" expanded="true" />
                 <marker date="1533545101233" expanded="true" signature="383:389" ph="..." />
                 <marker date="1533545101233" expanded="true" signature="635:703" ph="..." />
               </folding>
@@ -132,27 +148,14 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/display_center/SkillCenterDisplay.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-              <folding>
-                <element signature="e#106#115#0" expanded="true" />
-                <marker date="1533545226743" expanded="true" signature="384:385" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display_center/SettingDisplay.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
+            <state relative-caret-position="589">
+              <caret line="36" column="11" lean-forward="true" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
               <folding>
                 <element signature="e#106#115#0" expanded="true" />
-                <marker date="1533536556404" expanded="true" signature="380:381" ph="..." />
-                <marker date="1533536556404" expanded="true" signature="380:386" ph="..." />
+                <marker date="1533546158699" expanded="true" signature="380:381" ph="..." />
+                <marker date="1533546158699" expanded="true" signature="380:386" ph="..." />
               </folding>
             </state>
           </provider>
@@ -161,12 +164,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/display_center/MainPageDisplay.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
+            <state relative-caret-position="190">
+              <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
               <folding>
                 <element signature="e#106#116#0" expanded="true" />
-                <marker date="1533534602551" expanded="true" signature="461:462" ph="..." />
-                <marker date="1533534602551" expanded="true" signature="1220:2012" ph="..." />
+                <marker date="1533546124591" expanded="true" signature="461:462" ph="..." />
+                <marker date="1533546124591" expanded="true" signature="1220:1508" ph="..." />
               </folding>
             </state>
           </provider>
@@ -200,11 +203,14 @@
       <find>time.sleep(1)</find>
       <find>xiaolan_base</find>
       <find>palette1</find>
+      <find>jpg</find>
+      <find>client_to_server</find>
     </findStrings>
     <replaceStrings>
       <replace>30720</replace>
       <replace>stt = threading.Thread(target=Dialogue.stt, args=(self, &quot;/home/pi/xiaolan/voice.wav&quot;,));record = threading.Thread(target=Dialogue.recorder, args=(self, 'less_time', 0)</replace>
       <replace>palette3</replace>
+      <replace>png</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -239,7 +245,6 @@
         <option value="$PROJECT_DIR$/memory_center/more/face_track.txt" />
         <option value="$PROJECT_DIR$/visual_centre/gesture.py" />
         <option value="$PROJECT_DIR$/visual_centre/使用人脸唤醒必看.txt" />
-        <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
         <option value="$PROJECT_DIR$/visual_centre/face.py" />
         <option value="$PROJECT_DIR$/auditory_center/awaken/snowboy.py" />
         <option value="$PROJECT_DIR$/memory_center/Log.py" />
@@ -252,21 +257,22 @@
         <option value="$PROJECT_DIR$/visual_centre/text.py" />
         <option value="$PROJECT_DIR$/visual_centre/body.py" />
         <option value="$PROJECT_DIR$/display_center/SkillDisplay.py" />
-        <option value="$PROJECT_DIR$/Base.py" />
         <option value="$PROJECT_DIR$/display_center/ButtonProcess.py" />
         <option value="$PROJECT_DIR$/display_center/BaseDisplay.py" />
         <option value="$PROJECT_DIR$/memory_center/more/install_all.sh" />
-        <option value="$PROJECT_DIR$/display_center/MusicDisplay.py" />
         <option value="$PROJECT_DIR$/display_center/VideoDisplay.py" />
-        <option value="$PROJECT_DIR$/display_center/ListDisplay.py" />
         <option value="$PROJECT_DIR$/display_center/TextDisplay.py" />
-        <option value="$PROJECT_DIR$/display_center/MainPageDisplay.py" />
-        <option value="$PROJECT_DIR$/display_center/SettingDisplay.py" />
         <option value="$PROJECT_DIR$/display_center/StandardDisplay.py" />
         <option value="$PROJECT_DIR$/display_center/HelpCenterDisplay.py" />
         <option value="$PROJECT_DIR$/display_center/SkillCenterDisplay.py" />
-        <option value="$PROJECT_DIR$/display_center/WeatherPageDisplay.py" />
+        <option value="$PROJECT_DIR$/display_center/MainPageDisplay.py" />
+        <option value="$PROJECT_DIR$/display_center/SettingDisplay.py" />
+        <option value="$PROJECT_DIR$/Base.py" />
+        <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
         <option value="$PROJECT_DIR$/display_center/RecommendPageDisplay.py" />
+        <option value="$PROJECT_DIR$/display_center/WeatherPageDisplay.py" />
+        <option value="$PROJECT_DIR$/display_center/ListDisplay.py" />
+        <option value="$PROJECT_DIR$/display_center/MusicDisplay.py" />
       </list>
     </option>
   </component>
@@ -304,6 +310,11 @@
               <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
               <item name="memory_center" type="462c0819:PsiDirectoryNode" />
               <item name="more" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
+              <item name="network_center" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
@@ -494,16 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
-          <folding>
-            <element signature="e#107#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/setting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -639,30 +640,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#107#117#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/memory_center/more/install_all.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/display_center/MusicDisplay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
-          <folding>
-            <element signature="e#106#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -676,12 +657,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/display_center/ListDisplay.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
+        <state relative-caret-position="456">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display_center/StandardDisplay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
           <folding>
             <element signature="e#106#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display_center/SkillCenterDisplay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+          <folding>
+            <element signature="e#106#115#0" expanded="true" />
+            <marker date="1533545226743" expanded="true" signature="384:385" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="431" column="65" selection-start-line="431" selection-start-column="65" selection-end-line="431" selection-end-column="65" />
+          <folding>
+            <element signature="e#107#117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanClientToServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="289" column="118" selection-start-line="289" selection-start-column="118" selection-end-line="289" selection-end-column="118" />
+          <folding>
+            <element signature="e#107#117#0" expanded="true" />
+            <marker date="1533548605129" expanded="true" signature="7058:7068" ph="..." />
           </folding>
         </state>
       </provider>
@@ -696,52 +716,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/display_center/SkillCenterDisplay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533545226743" expanded="true" signature="384:385" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/display_center/StandardDisplay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/display_center/SettingDisplay.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="11" lean-forward="true" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533536556404" expanded="true" signature="380:381" ph="..." />
-            <marker date="1533536556404" expanded="true" signature="380:386" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/display_center/HelpCenterDisplay.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        <state relative-caret-position="190">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding>
-            <element signature="e#106#115#0" expanded="true" />
             <marker date="1533545101233" expanded="true" signature="383:389" ph="..." />
             <marker date="1533545101233" expanded="true" signature="635:703" ph="..." />
           </folding>
@@ -750,36 +729,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/display_center/MainPageDisplay.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
+        <state relative-caret-position="190">
+          <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
           <folding>
             <element signature="e#106#116#0" expanded="true" />
-            <marker date="1533534602551" expanded="true" signature="461:462" ph="..." />
-            <marker date="1533534602551" expanded="true" signature="1220:2012" ph="..." />
+            <marker date="1533546124591" expanded="true" signature="461:462" ph="..." />
+            <marker date="1533546124591" expanded="true" signature="1220:1508" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/display_center/WeatherPageDisplay.py">
+    <entry file="file://$PROJECT_DIR$/display_center/SettingDisplay.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="41" column="34" lean-forward="true" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state relative-caret-position="589">
+          <caret line="36" column="11" lean-forward="true" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
           <folding>
             <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533545270679" expanded="true" signature="380:381" ph="..." />
-            <marker date="1533545270679" expanded="true" signature="731:997" ph="..." />
+            <marker date="1533546158699" expanded="true" signature="380:381" ph="..." />
+            <marker date="1533546158699" expanded="true" signature="380:386" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/display_center/RecommendPageDisplay.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="74" column="51" selection-start-line="74" selection-start-column="51" selection-end-line="74" selection-end-column="51" />
+        <state relative-caret-position="437">
+          <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
           <folding>
             <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533545785226" expanded="true" signature="382:383" ph="..." />
-            <marker date="1533545785226" expanded="true" signature="382:388" ph="..." />
+            <marker date="1533549868496" expanded="true" signature="382:383" ph="..." />
+            <marker date="1533549868496" expanded="true" signature="382:388" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display_center/WeatherPageDisplay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="50" column="106" selection-start-line="50" selection-start-column="106" selection-end-line="50" selection-end-column="106" />
+          <folding>
+            <element signature="e#106#115#0" expanded="true" />
+            <marker date="1533549892547" expanded="true" signature="380:381" ph="..." />
+            <marker date="1533549892547" expanded="true" signature="1501:1767" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display_center/ListDisplay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#106#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/display_center/MusicDisplay.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+          <folding>
+            <element signature="e#106#116#0" expanded="true" />
+            <marker date="1533549927224" expanded="true" signature="381:382" ph="..." />
           </folding>
         </state>
       </provider>

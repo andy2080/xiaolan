@@ -62,17 +62,17 @@ class MainPage(QWidget, xiaolanBase):
         # 小蓝设置按钮
         setting_button = QPushButton("", self)
         setting_button.move(904, 50)
-        setting_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/setting.jpg)}')
+        setting_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/setting.png)}')
 
         # 技能中心按钮
         setting_button = QPushButton("", self)
         setting_button.move(824, 50)
-        setting_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/skill_center.jpg)}')
+        setting_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/skill_center.png)}')
 
         # 帮助中心按钮
         setting_button = QPushButton("", self)
         setting_button.move(744, 50)
-        setting_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/help_center.jpg)}')
+        setting_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/help_center.png)}')
 
     def set_background_image(self):
 
@@ -80,7 +80,7 @@ class MainPage(QWidget, xiaolanBase):
         设置背景图片
         :return:
         """
-        image_path = '/home/pi/xiaolan/memory_center/display_image/main_page_bgi.jpg'
+        image_path = '/home/pi/xiaolan/memory_center/display_image/main_page_bgi.png'
         palette1 = QtGui.QPalette(self)
         palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(image_path)))
         self.setPalette(palette1)
