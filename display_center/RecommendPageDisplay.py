@@ -13,8 +13,10 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLineEdit, QLabel
 from PyQt4 import QtGui
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
+sys.path.append('/home/pi/xiaolan/')
+from Base import xiaolanBase
 
-class RecommendPage(QWidget):
+class RecommendPage(QWidget, xiaolanBase):
 
     def __init__(self):
 
@@ -37,6 +39,20 @@ class RecommendPage(QWidget):
         设置推荐词
         :return:
         """
+        recommend_list = self.client_to_server('get_recommend_word', 0)
+        recommend_word1 = QLabel(self)
+        recommend_word1.move(512, 300)
+        recommend_word1.setText(recommend_list[0])
+        recommend_word1.adjustSize()
+        recommend_word2 = QLabel(self)
+        recommend_word2.move(487, 300)
+        recommend_word2.setText(recommend_list[1])
+        recommend_word2.adjustSize()
+        recommend_word3 = QLabel(self)
+        recommend_word3.move(537, 300)
+        recommend_word3.setText(recommend_list[2])
+        recommend_word3.adjustSize()
+
 
     def set_recommend_background_image(self):
 
@@ -55,3 +71,8 @@ class RecommendPage(QWidget):
         设置推荐词
         :return:
         """
+        remind_word = QLabel(self)
+        text = self.client_to_server('get_recommend_remind_word', 0)
+        remind_word.move(362, 540)
+        remind_word.setText(text)
+        remind_word.adjustSize()
