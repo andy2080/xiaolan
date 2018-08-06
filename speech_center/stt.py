@@ -194,7 +194,7 @@ class 	TencentStt(xiaolanBase):
         app_key = self.set['main_setting']['STT']['tencent']['appkey']
         query_str = urllib.urlencode(args)
         query_str = query_str + '&app_key=' + app_key
-        signiture = md5(query_str)
+        signiture = self.md5(query_str)
         return signiture
 
 
