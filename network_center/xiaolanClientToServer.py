@@ -24,8 +24,8 @@ class ClientToServer(xiaolanBase):
     def __init__(self):
 
         super(ClientToServer, self).__init__()
-        self.brainurl = self.set['main_setting']['url']['xiaolan_brain']
-        self.nluurl = self.set['main_setting']['url']['xiaolan_nlu']
+        self.brainurl = self.set['main_setting']['url']['xiaolan_brain'] + ':8000'
+        self.nluurl = self.set['main_setting']['url']['xiaolan_nlu'] + ':8000'
     
     def diy_req(self, data):
         
