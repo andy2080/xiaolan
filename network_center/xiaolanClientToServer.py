@@ -152,7 +152,7 @@ class ClientToServer(xiaolanBase):
                 'TimeStamp': str(int(time.time())),
                 'ClientId': setting.setting()['main_setting']['ClientId'],
                 'States': {
-                    'ClientStates': ['serviceing'],
+                    'ClientStates': ['servicing'],
                     'NluStates': ['working'],
                     'SttStates': ['working'],
                     'TtsStates': ['emptying']

@@ -34,6 +34,7 @@ class Dialogue(xiaolanBase):
         if self.set['main_setting']['talk_mode'] == 'voice':
 
             self.recorder('normal', 0)
+            self.stt('./voice.wav')
             f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
         elif self.set['main_setting']['talk_mode'] == 'gesture':
 
@@ -52,6 +53,7 @@ class Dialogue(xiaolanBase):
         else:
 
             self.recorder('normal', 0)
+            self.stt('./voice.wav')
             f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r');text = f.read();f.close()
 
         self.speaker('dong')
@@ -72,6 +74,7 @@ class Dialogue(xiaolanBase):
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('express', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -96,6 +99,7 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('express', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -104,6 +108,7 @@ class Dialogue(xiaolanBase):
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('normal', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -128,6 +133,7 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('normal', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -136,6 +142,7 @@ class Dialogue(xiaolanBase):
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('translate', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -160,6 +167,7 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('translate', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -168,6 +176,7 @@ class Dialogue(xiaolanBase):
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('less_time', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -192,6 +201,7 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('less_time', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -199,6 +209,7 @@ class Dialogue(xiaolanBase):
             if self.set['main_setting']['talk_mode'] == 'voice':
 
                 self.recorder('normal', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -223,6 +234,7 @@ class Dialogue(xiaolanBase):
             else:
 
                 self.recorder('normal', 0)
+                self.stt('./voice.wav')
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                 text = f.read()
                 f.close()
@@ -241,9 +253,9 @@ class Dialogue(xiaolanBase):
         :param slotask: 槽位询问语句
         :return:
         """
+        text = ''
         a = 0
         slotturn = []
-        text = ''
         while 1 == 1:
             if a < len(slotname) + 1:
                 self.tts(slotask[a])
@@ -253,6 +265,7 @@ class Dialogue(xiaolanBase):
 
                         self.recorder('express', 0)
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                        self.stt('./voice.wav')
                         text = f.read()
                         f.close()
                     elif self.set['main_setting']['talk_mode'] == 'gesture':
@@ -279,6 +292,7 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('express', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -287,6 +301,7 @@ class Dialogue(xiaolanBase):
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('normal', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -314,6 +329,7 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('normal', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -322,6 +338,7 @@ class Dialogue(xiaolanBase):
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('translate', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -349,6 +366,7 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('translate', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -357,6 +375,7 @@ class Dialogue(xiaolanBase):
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('less_time', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -384,6 +403,7 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('less_time', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()
@@ -391,6 +411,7 @@ class Dialogue(xiaolanBase):
                     if self.set['main_setting']['talk_mode'] == 'voice':
 
                         self.recorder('normal', 0)
+                        self.stt('./voice.wav')
                     elif self.set['main_setting']['talk_mode'] == 'gesture':
 
                         self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
@@ -415,6 +436,7 @@ class Dialogue(xiaolanBase):
                     else:
 
                         self.recorder('normal', 0)
+                        self.stt('./voice.wav')
                         f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
                         text = f.read()
                         f.close()

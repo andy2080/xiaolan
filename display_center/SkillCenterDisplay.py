@@ -47,21 +47,28 @@ class SkillCenterPage(QWidget, xiaolanBase):
             if turn == long + 1:
                 break
             else:
-                # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                recommend_skill_image = requests.get(recommend_skill[turn])
-                palette1 = QtGui.QPalette(self)
-                palette1.setBrush(self.backgroundRole(), QtGui.QBrush(QtGui.QPixmap(recommend_skill_image.content)))
-                palette1.move(we, hi)
-                self.setPalette(palette1)
+                requests.get(recommend_skill[turn])
+                with open(r"/home/pi/xiaolan/memory_center/display_image/skill_recommend_image.png", 'wb') as f:
+                    r.raw.decode_content = True
+                    shutil.copyfileobj(r.raw, f)
+
+                skill_button = QPushButton("", self)
+                skill_button.move(744, 50)
+                sskill_button.pushButton.setStyleSheet('QPushButton{border-image:url(/home/pi/xiaolan/memory_center/display_image/skill_recommend_image.png)}')
+                button.clicked.connect(self.skill_page_display)
+                skill_button.move(we, hi)
+
+                f = open('/home/pi/xiaolan/memory_center/more/recommend_skill', 'w')
+                f.write(recommend_skill[turn])
+                f.close()
+
                 turn += 1
                 hi += 60
-                # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    def skill_page_display(self, skill):
+    def skill_page_display(self):
 
         """
         技能介绍页面
-        :param skill: skill
         :return:
         """
 
