@@ -215,10 +215,7 @@ class 	TencentStt(xiaolanBase):
         url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_asrs'
         appid = self.set['main_setting']['STT']['tencent']['appid']
 
-        if ext == 'wav':
-            wf = wave.open(fn)
-        else:
-            info['States'] = "Error:Unsupport audio file format!"
+        wf = wave.open(fn)
 
         total_len = wf.getnframes() * wf.getsampwidth()
         seq, end = 0, '0'
