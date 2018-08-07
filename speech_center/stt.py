@@ -192,7 +192,7 @@ class 	TencentStt(xiaolanBase):
         :return:
         """
         app_key = self.set['main_setting']['STT']['tencent']['appkey']
-        query_str = urllib.urlencode(args)
+        query_str = self.urlencode(args)
         query_str = query_str + '&app_key=' + app_key
         signiture = self.md5(query_str)
         return signiture
@@ -207,9 +207,9 @@ class 	TencentStt(xiaolanBase):
         :return:
         """
         ext = 'wav'
-        time.sleep(2)
+        time.sleep(3)
         info = {}
-        url = 'https://aai.tencentcloudapi.com/?'
+        url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_asrs'
         appid = self.set['main_setting']['STT']['tencent']['appid']
 
         if ext == 'wav':
@@ -243,9 +243,14 @@ class 	TencentStt(xiaolanBase):
                                  data=args)
 
             seq += length
-
-        info['States'] = 'Complete'
-        info['Text'] = resp['data']['speech_text'].encode('utf-8')
+        resp = json.loads(resp)
+        try:
+            info['Text'] = resp['data']['speech_text'].encode('utf-8')
+        except KeyError:
+            info['Text'] = None
+            info['States'] = 'Error:KeyError:data_missing'
+        else:
+            info['States'] = 'Complete'
         return info
 
 

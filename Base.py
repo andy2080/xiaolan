@@ -160,6 +160,9 @@ class xiaolanBase(object):
             if not text or text == '':
                 self.log('write', {'log': 'BaseSTTTextNone', 'level': 'debug'})
                 speaker.speacilrecorder()
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "w")
+                f.write(None)
+                f.close()
             else:
                 self.log('write', {'log': 'BaseSTTComplete' + text, 'level': 'debug'})
                 f = open('/home/pi/xiaolan/memory_center/more/text.txt', "w")
@@ -593,14 +596,20 @@ class xiaolanBase(object):
             states = text_recognition.baidu_text_recognition(more['Image'], text_recognition.get_token())
             if 'Error' in states['States']:
                 self.log('write', {'log': 'Error:BaiduTextRecognitionError:' + states['States'], 'level': 'error'})
-                return 'Error'
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "w")
+                f.write(None)
+                f.close()
             else:
                 self.log('write', {'log': 'Complete:BaiduTextRecognitionComplete', 'level': 'debug'})
-                return states['Word']
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', "w")
+                f.write(states['Word'])
+                f.close()
         else:
 
             self.log('write', {'log': 'Waring:UnknowTextRecognitionCommand', 'level': 'warning'})
-            return 'Error'
+            f = open('/home/pi/xiaolan/memory_center/more/text.txt', "w")
+            f.write(None)
+            f.close()
 
     def body_track(self, mode, more):
 

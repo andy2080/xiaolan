@@ -94,7 +94,7 @@ class Xiaolan(xiaolanBase):
         threads.append(weather_remind);threads.append(awaken);threads.append(face_track)
         weather_remind.start();awaken.start();face_track.start()
         for t in threads: t.join()
-       """
+        """
 
 
 

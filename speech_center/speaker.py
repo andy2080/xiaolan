@@ -5,11 +5,11 @@ import os
 
 def ding(): #开始录制指令提示音
 
-    os.system('mplayer /home/pi/xiaolan/memory_center/musiclib/ding.wav')
+    os.system('omxplayer /home/pi/xiaolan/memory_center/musiclib/ding.wav')
 
 def dong(): #结束录制指令提示音
 
-    os.system('mplayer /home/pi/xiaolan/memory_center/musiclib/dong.wav')
+    os.system('omxplayer /home/pi/xiaolan/memory_center/musiclib/dong.wav')
 
 def kacha(): #拍照声
     
