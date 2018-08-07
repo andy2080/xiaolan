@@ -212,7 +212,7 @@ class 	TencentStt(xiaolanBase):
         ext = 'wav'
         time.sleep(2)
         info = {}
-        url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_asrs'
+        url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_wxasrs'
         appid = self.set['main_setting']['STT']['tencent']['appid']
 
         wf = wave.open(fn)
@@ -230,11 +230,13 @@ class 	TencentStt(xiaolanBase):
                 'nonce_str': '%.x' % random.randint(1048576, 104857600),
                 'format': 2,
                 'rate': 16000,
+                'bits': 16,
                 'seq': int(seq),
                 'len': int(length),
                 'end': end,
                 'speech_id': '0',
                 'speech_chunk': base64.b64encode(data),
+                'cont_res': 0
             }
 
             signiture = self.signify(args)

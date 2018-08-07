@@ -34,7 +34,7 @@ def setting():
                            'appid': ''
                        },
                        'tencent': {
-                           'appid': '	2107599669',
+                           'appid': '2107599669',
                            'appkey': 'PltiJiHhiLg08HZm'
                        }
                    },
