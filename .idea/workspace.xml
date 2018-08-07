@@ -74,7 +74,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
+            <state relative-caret-position="2869">
               <caret line="214" column="60" selection-start-line="214" selection-start-column="60" selection-end-line="214" selection-end-column="60" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
@@ -228,8 +228,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
     <option name="y" value="15" />
-    <option name="width" value="2275" />
-    <option name="height" value="1370" />
+    <option name="width" value="1943" />
+    <option name="height" value="1103" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -647,7 +647,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
+        <state relative-caret-position="2869">
           <caret line="214" column="60" selection-start-line="214" selection-start-column="60" selection-end-line="214" selection-end-column="60" />
           <folding>
             <element signature="e#116#126#0" expanded="true" />
