@@ -56,6 +56,8 @@ class BaiduStt(xiaolanBase):
             return token
 
     def stt_start(self, fp, token):
+
+        time.sleep(6)
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
@@ -137,6 +139,7 @@ class IflyStt(xiaolanBase):
 
     def stt_start(self, fn, tok):
 
+        time.sleep(6)
         f = open(fn, 'rb')
         file_content = f.read()
         base64_audio = base64.b64encode(file_content)
@@ -207,7 +210,7 @@ class 	TencentStt(xiaolanBase):
         :return:
         """
         ext = 'wav'
-        time.sleep(3)
+        time.sleep(2)
         info = {}
         url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_asrs'
         appid = self.set['main_setting']['STT']['tencent']['appid']

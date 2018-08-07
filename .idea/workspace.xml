@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="881912f4-c791-4ad3-9a47-93b788ecc86d" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/speech_center/conversation.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_center/conversation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speech_center/stt.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_center/stt.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,26 +16,27 @@
     <session id="-868830658">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="9481" />
+          <entry key="py" value="9513" />
           <entry key="sh" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="9" />
-          <entry key="Python" value="9481" />
+          <entry key="Python" value="9513" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="PNG" value="1" />
-          <entry key="py" value="61" />
+          <entry key="py" value="62" />
           <entry key="sh" value="1" />
           <entry key="umdl" value="1" />
         </counts>
@@ -43,7 +46,7 @@
           <entry key="Bash" value="1" />
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="61" />
+          <entry key="Python" value="62" />
         </counts>
       </usages-collector>
     </session>
@@ -53,7 +56,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
+            <state relative-caret-position="57">
               <caret line="599" column="28" selection-start-line="599" selection-start-column="28" selection-end-line="599" selection-end-column="28" />
               <folding>
                 <element signature="e#107#117#0" expanded="true" />
@@ -63,10 +66,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/setting.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1655">
-              <caret line="136" selection-start-line="136" selection-end-line="136" />
+            <state relative-caret-position="368">
+              <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
               </folding>
@@ -86,7 +98,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1793">
+            <state relative-caret-position="1691">
               <caret line="95" column="34" selection-start-line="95" selection-start-column="34" selection-end-line="95" selection-end-column="34" />
               <folding>
                 <element signature="e#117#127#0" expanded="true" />
@@ -95,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
+            <state relative-caret-position="304">
               <caret line="35" column="161" selection-start-line="35" selection-start-column="161" selection-end-line="35" selection-end-column="161" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
@@ -206,13 +218,13 @@
         <option value="$PROJECT_DIR$/display_center/TextDisplay.py" />
         <option value="$PROJECT_DIR$/display_center/SkillCenterDisplay.py" />
         <option value="$PROJECT_DIR$/network_center/xiaolanClientToServer.py" />
-        <option value="$PROJECT_DIR$/setting.py" />
         <option value="$PROJECT_DIR$/speech_center/speaker.py" />
         <option value="$PROJECT_DIR$/xiaolan.py" />
         <option value="$PROJECT_DIR$/Base.py" />
         <option value="$PROJECT_DIR$/auditory_center/recorder.py" />
-        <option value="$PROJECT_DIR$/speech_center/stt.py" />
         <option value="$PROJECT_DIR$/speech_center/conversation.py" />
+        <option value="$PROJECT_DIR$/setting.py" />
+        <option value="$PROJECT_DIR$/speech_center/stt.py" />
       </list>
     </option>
   </component>
@@ -227,7 +239,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -254,6 +265,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -295,7 +307,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.15616623" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.15817694" />
       <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.15616623" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -308,7 +320,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32765958" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32765958" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32719547" />
       <window_info anchor="right" id="R Graphics" order="0" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="R Packages" order="2" />
@@ -384,9 +396,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="41">
           <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#121#130#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -394,9 +403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1083">
           <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-          <folding>
-            <element signature="e#116#125#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -404,9 +410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="41" column="40" lean-forward="true" selection-start-line="41" selection-start-column="40" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="e#116#126#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -414,9 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="e#115#126#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -424,12 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1729">
           <caret line="91" column="28" selection-start-line="91" selection-start-column="28" selection-end-line="91" selection-end-column="28" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1533479927680" expanded="true" signature="3393:3594" ph="..." />
-            <marker date="1533479927680" expanded="true" signature="5419:5659" ph="..." />
-            <marker date="1533479927680" expanded="true" signature="5810:6014" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -437,15 +431,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3059">
           <caret line="161" selection-start-line="161" selection-end-line="161" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1533471520463" expanded="true" signature="583:722" ph="..." />
-            <marker date="1533471520463" expanded="true" signature="975:1152" ph="..." />
-            <marker date="1533471520463" expanded="true" signature="1406:1551" ph="..." />
-            <marker date="1533471520463" expanded="true" signature="1713:2248" ph="..." />
-            <marker date="1533471520463" expanded="true" signature="2897:3603" ph="..." />
-            <marker date="1533471520463" expanded="true" signature="3676:3686" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -453,10 +438,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1533472557517" expanded="true" signature="228:234" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -471,9 +452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="68" selection-start-line="14" selection-start-column="68" selection-end-line="14" selection-end-column="68" />
-          <folding>
-            <element signature="e#106#116#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -481,9 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -491,9 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="16" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -501,11 +473,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-19">
           <caret line="16" column="28" lean-forward="true" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533545101233" expanded="true" signature="383:389" ph="..." />
-            <marker date="1533545101233" expanded="true" signature="635:703" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -513,11 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="88" column="37" lean-forward="true" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533549892547" expanded="true" signature="380:381" ph="..." />
-            <marker date="1533549892547" expanded="true" signature="1501:1767" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -525,10 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-          <folding>
-            <element signature="e#107#117#0" expanded="true" />
-            <marker date="1533564093359" expanded="true" signature="397:398" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,9 +504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#46#61#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -556,9 +511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
           <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-          <folding>
-            <element signature="e#31#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -566,9 +518,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="72" column="32" lean-forward="true" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
-          <folding>
-            <element signature="e#114#124#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -576,11 +525,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="73" column="36" lean-forward="true" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="36" />
-          <folding>
-            <element signature="e#106#116#0" expanded="true" />
-            <marker date="1533546124591" expanded="true" signature="461:462" ph="..." />
-            <marker date="1533546124591" expanded="true" signature="1220:1508" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -588,10 +532,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-          <folding>
-            <element signature="e#106#116#0" expanded="true" />
-            <marker date="1533564056937" expanded="true" signature="397:398" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -599,10 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="55" column="30" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
-          <folding>
-            <element signature="e#107#117#0" expanded="true" />
-            <marker date="1533576232645" expanded="true" signature="7114:7124" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -610,11 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1501">
           <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533557996414" expanded="true" signature="382:383" ph="..." />
-            <marker date="1533557996414" expanded="true" signature="382:388" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -622,11 +553,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="36" column="11" lean-forward="true" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="11" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533546158699" expanded="true" signature="380:381" ph="..." />
-            <marker date="1533546158699" expanded="true" signature="380:386" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,11 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="988">
           <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#106#115#0" expanded="true" />
-            <marker date="1533568810972" expanded="true" signature="384:385" ph="..." />
-            <marker date="1533568810972" expanded="true" signature="1865:1871" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -646,9 +567,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,6 +580,13 @@
     <entry file="file://$PROJECT_DIR$/auditory_center/awaken/hotword/snowboy.umdl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1178">
+          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auditory_center/recorder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -671,7 +596,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xiaolan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1793">
+        <state relative-caret-position="1691">
           <caret line="95" column="34" selection-start-line="95" selection-start-column="34" selection-end-line="95" selection-end-column="34" />
           <folding>
             <element signature="e#117#127#0" expanded="true" />
@@ -681,7 +606,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
+        <state relative-caret-position="57">
           <caret line="599" column="28" selection-start-line="599" selection-start-column="28" selection-end-line="599" selection-end-column="28" />
           <folding>
             <element signature="e#107#117#0" expanded="true" />
@@ -691,35 +616,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/setting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-247">
-          <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
+        <state relative-caret-position="494">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/network_center/xiaolanServerCommandDo.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1178">
-          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-          <folding>
-            <element signature="e#25#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1655">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
+        <state relative-caret-position="304">
+          <caret line="35" column="161" selection-start-line="35" selection-start-column="161" selection-end-line="35" selection-end-column="161" />
           <folding>
             <element signature="e#116#126#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="35" column="161" selection-start-line="35" selection-start-column="161" selection-end-line="35" selection-end-column="161" />
+        <state relative-caret-position="368">
+          <caret line="141" column="20" selection-start-line="141" selection-start-column="20" selection-end-line="141" selection-end-column="20" />
           <folding>
             <element signature="e#116#126#0" expanded="true" />
           </folding>

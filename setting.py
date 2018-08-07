@@ -24,7 +24,7 @@ def setting():
                        'XiaolanFace': ''
                    },
                    'STT': {
-                       'service': 'baidu', #STT服务选择 百度:baidu 讯飞:ifly 腾讯：tencent
+                       'service': 'tencent', #STT服务选择 百度:baidu 讯飞:ifly 腾讯：tencent
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
                             'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
                             'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
@@ -39,7 +39,7 @@ def setting():
                        }
                    },
                    'TTS': {
-                       'service': 'baiud', #TTS服务选择 baidu youdao
+                       'service': 'baidu', #TTS服务选择 baidu youdao
                        'baidu': {        #百度TTS服务配置，AK和SK在百度云申请
                            'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
                            'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
