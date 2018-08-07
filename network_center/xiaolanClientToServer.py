@@ -53,6 +53,7 @@ class ClientToServer(xiaolanBase):
                 'Text': text,
             }
         }
+        data = json.dumps(data)
         try:
             r = requests.post(self.nluurl,
                               data = data)
