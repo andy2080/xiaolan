@@ -33,7 +33,7 @@ class Dialogue(xiaolanBase):
         self.speaker('ding')
         if self.set['main_setting']['talk_mode'] == 'voice':
 
-            threads = [];stt = threading.Thread(target=self.stt, args=(self, './voice.wav'));record = threading.Thread(target=self.recorder, args=(self, 'normal', 0))
+            threads = [];stt = threading.Thread(target=Dialogue.stt, args=(self, './voice.wav'));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
             threads.append(stt);threads.append(record);stt.start();record.start()
             for t in threads: t.join()
         elif self.set['main_setting']['talk_mode'] == 'gesture':
@@ -53,8 +53,8 @@ class Dialogue(xiaolanBase):
         else:
 
             threads = []
-            stt = threading.Thread(target=self.stt, args=(self, './voice.wav'))
-            record = threading.Thread(target=self.recorder, args=(self, 'normal', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, './voice.wav'))
+            record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
             threads.append(stt)
             threads.append(record)
             stt.start()
@@ -81,7 +81,7 @@ class Dialogue(xiaolanBase):
         self.speaker('ding')
         if self.set['main_setting']['talk_mode'] == 'voice':
 
-            threads = [];stt = threading.Thread(target=self.stt, args=(self, './voice.wav'));record = threading.Thread(target=self.recorder, args=(self, 'normal', 0))
+            threads = [];stt = threading.Thread(target=Dialogue.stt, args=(self, './voice.wav'));record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
             threads.append(stt);threads.append(record);stt.start();record.start()
             for t in threads: t.join()
         elif self.set['main_setting']['talk_mode'] == 'gesture':
@@ -101,8 +101,8 @@ class Dialogue(xiaolanBase):
         else:
 
             threads = []
-            stt = threading.Thread(target=self.stt, args=(self, './voice.wav'))
-            record = threading.Thread(target=self.recorder, args=(self, 'normal', 0))
+            stt = threading.Thread(target=Dialogue.stt, args=(self, './voice.wav'))
+            record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
             threads.append(stt)
             threads.append(record)
             stt.start()
@@ -138,8 +138,8 @@ class Dialogue(xiaolanBase):
                 if self.set['main_setting']['talk_mode'] == 'voice':
 
                     threads = []
-                    stt = threading.Thread(target=self.stt, args=(self, './voice.wav'))
-                    record = threading.Thread(target=self.recorder, args=(self, 'normal', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, './voice.wav'))
+                    record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
                     threads.append(stt)
                     threads.append(record)
                     stt.start()
@@ -168,8 +168,8 @@ class Dialogue(xiaolanBase):
                 else:
 
                     threads = []
-                    stt = threading.Thread(target=self.stt, args=(self, './voice.wav'))
-                    record = threading.Thread(target=self.recorder, args=(self, 'normal', 0))
+                    stt = threading.Thread(target=Dialogue.stt, args=(self, './voice.wav'))
+                    record = threading.Thread(target=Dialogue.recorder, args=(self, 'normal', 0))
                     threads.append(stt)
                     threads.append(record)
                     stt.start()
