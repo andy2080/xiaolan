@@ -24,18 +24,10 @@ def setting():
                        'XiaolanFace': ''
                    },
                    'STT': {
-                       'service': 'tencent', #STT服务选择 百度:baidu 讯飞:ifly 腾讯：tencent
+                       'service': 'baidu', #STT服务选择 百度:baidu
                        'baidu': {        #百度STT服务配置，AK和SK在百度云申请
                             'AK': 'TSFp0BKH547h7Agjf2WkV2Ll',
                             'SK': 'c9RZ1ZLxPe6wQVWOUwjaWOLvM7EpXHwe'
-                       },
-                       'ifly': {
-                           'key': '',
-                           'appid': ''
-                       },
-                       'tencent': {
-                           'appid': '2107599669',
-                           'appkey': 'PltiJiHhiLg08HZm'
                        }
                    },
                    'TTS': {

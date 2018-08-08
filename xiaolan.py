@@ -96,18 +96,13 @@ class Xiaolan(xiaolanBase):
         for t in threads: t.join()
         """
 
-
-
-x = Xiaolan()
-d = Dialogue()
-
 try:
     mode = sys.argv[1]
 except IndexError:
-    x.start()
+    Xiaolan().start()
 else:
     if mode == 'unawaken':
-        d.conversation()
+        Dialogue().conversation()
     else:
         x.start()
 

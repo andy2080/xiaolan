@@ -22,6 +22,7 @@ import base64
 import urllib
 import urllib2
 import hmac
+import threading
 import random
 from hashlib import sha1
 sys.path.append('/home/pi/xiaolan/')
@@ -38,6 +39,7 @@ class BaiduStt(xiaolanBase):
 
     def get_token(self): #获取token
 
+        token = ''
         AK = self.set['main_setting']['STT']['baidu']['AK']
         SK = self.set['main_setting']['STT']['baidu']['SK']
         url = 'http://openapi.baidu.com/oauth/2.0/token'
@@ -57,14 +59,122 @@ class BaiduStt(xiaolanBase):
 
     def stt_start(self, fp, token):
 
-        time.sleep(6)
+        """
+        百度语音识别
+        :param fp:文件
+        :param token: token
+        :return:
+        """
+        try:
+            wav_file = open(fn, "rb")
+        except IOError:
+            self.log('write', {'log': 'Error:IoError:UnfoundFile', 'level': 'error'})
+            return {'States': 'Error', 'Text': None}
+        # 设置识别模型
+        lang = self.set['main_setting']['sys_lang']
+        if lang == 'En':
+            dev_id = 1737
+        elif lang == 'Zh-Hans':
+            dev_id = 1936
+        elif lang == 'Zh-Yue':
+            dev_id = 1637
+        elif lang == 'Zh-Chun':
+            dev_id = 1837
+        else:
+            dev_id = 1536
+        # 多线程处理判断
+        if len(wav_file) < 10000:
+
+            dataf = {"format": "wav",
+                     "token": token,
+                     "len": len(audio),
+                     "rate": frame_rate,
+                     "speech": base_data,
+                     "dev_pid": dev_id,
+                     "cuid": 'b0-10-41-92-84-4d',
+                     "channel": 1}
+
+            data = demjson.encode(dataf)
+
+            r = requests.post('http://vop.baidu.com/server_api',
+                              data=data,
+                              headers={'content-type': 'application/json'})
+
+            try:
+                r.raise_for_status()
+                text = ''
+                if 'result' in r.json():
+                    text = r.json()['result'][0].encode('utf-8')
+                    return {'States': 'BaiduSTTComplete', 'Text': text}
+            except requests.exceptions.HTTPError:
+                print ('Request failed with response: %r',
+                       r.text)
+                return {'States': 'BaiduSTTError:Request failed with response'}
+            except requests.exceptions.RequestException:
+                print ('Request failed.')
+                return {'States': 'BaiduSTTError:Request failed.'}
+            except ValueError as e:
+                print ('Cannot parse response: %s',
+                       e.args[0])
+                return {'States': 'BaiduSTTError:Request failed.'}
+            except KeyError:
+                print ('Cannot parse response')
+                return {'States': 'BaiduSTTError:Cannot parse response'}
+            else:
+                transcribed = []
+                if text:
+                    transcribed.append(text.upper())
+                print (json)
+
+        else:
+
+            long = len(wav_file)
+            thread_long = long / 6
+            threads = []
+            stt_thread_1 = threading.Thread(target=BaiduStt.stt_thread_1, args=(self, fn, 0, thread_long))
+            stt_thread_2 = threading.Thread(target=BaiduStt.stt_thread_2, args=(self, fn, thread_long, thread_long * 2))
+            stt_thread_3 = threading.Thread(target=BaiduStt.stt_thread_3, args=(self, fn, thread_long * 2, thread_long * 3))
+            stt_thread_4 = threading.Thread(target=BaiduStt.stt_thread_4, args=(self, fn, thread_long * 3, thread_long * 4))
+            stt_thread_5 = threading.Thread(target=BaiduStt.stt_thread_5, args=(self, fn, thread_long * 4, thread_long * 5))
+            stt_thread_6 = threading.Thread(target=BaiduStt.stt_thread_6, args=(self, fn, thread_long * 5, long))
+            threads.append(stt_thread_1)
+            threads.append(stt_thread_2)
+            threads.append(stt_thread_3)
+            threads.append(stt_thread_4)
+            threads.append(stt_thread_5)
+            threads.append(stt_thread_6)
+            stt_thread_1.start()
+            stt_thread_2.start()
+            stt_thread_3.start()
+            stt_thread_4.start()
+            stt_thread_5.start()
+            stt_thread_6.start()
+            for t in threads:
+                t.join()
+
+    def stt_thread_1(self, fn, start, end):
+
+        """
+        STT线程1
+        :param start: 开始
+        :param end: 结束
+        :param fn: 文件
+        :return:
+        """
+
+    def stt_starts(self, fp, token):
+
+        """
+        百度语音识别
+        :param fp:文件
+        :param token: token
+        :return:
+        """
         try:
             wav_file = wave.open(fp, 'rb')
         except IOError:
-            self._logger.critical('wav file not found: %s',
-                                  fp,
-                                  exc_info=True)
-            return []
+            self.log('write', {'log': 'Error:IoError:UnfoundFile', 'level': 'error'})
+            return {'States': 'Error', 'Text': None}
         n_frames = wav_file.getnframes()
         frame_rate = wav_file.getframerate()
         audio = wav_file.readframes(n_frames)
@@ -81,20 +191,20 @@ class BaiduStt(xiaolanBase):
         else:
             dev_id = 1536
         dataf = {"format": "wav",
-                "token": token,
-                "len": len(audio),
-                "rate": frame_rate,
-                "speech": base_data,
-                "dev_pid": dev_id,
-                "cuid": 'b0-10-41-92-84-4d',
-                "channel": 1}
-        
+                 "token": token,
+                 "len": len(audio),
+                 "rate": frame_rate,
+                 "speech": base_data,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1}
+
         data = demjson.encode(dataf)
-        
+
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
                           headers={'content-type': 'application/json'})
-        
+
         try:
             r.raise_for_status()
             text = ''
@@ -110,7 +220,7 @@ class BaiduStt(xiaolanBase):
             return {'States': 'BaiduSTTError:Request failed.'}
         except ValueError as e:
             print ('Cannot parse response: %s',
-                                  e.args[0])
+                   e.args[0])
             return {'States': 'BaiduSTTError:Request failed.'}
         except KeyError:
             print ('Cannot parse response')
@@ -121,15 +231,17 @@ class BaiduStt(xiaolanBase):
                 transcribed.append(text.upper())
             print (json)
 
-    def stt_real_time(self, fn, tok):
 
-        """
-        百度实时语音识别
-        :param fn: 文件
-        :param tok: token
-        :return:
-        """
-        return self.stt_start(fn, tok)
+
+
+
+
+
+
+
+
+
+
 
 class IflyStt(xiaolanBase):
 
@@ -139,7 +251,6 @@ class IflyStt(xiaolanBase):
 
     def stt_start(self, fn, tok):
 
-        time.sleep(6)
         f = open(fn, 'rb')
         file_content = f.read()
         base64_audio = base64.b64encode(file_content)
@@ -159,16 +270,6 @@ class IflyStt(xiaolanBase):
         result = urllib2.urlopen(req)
         result = result.read()
         return {'States': 'IflySTTComplete', 'Text': json.loads(result)['data']}
-
-    def stt_real_time(self, fn, tok):
-
-        """
-        讯飞实时语音识别
-        :param fn:文件路径
-        :param tok:token
-        :return:
-        """
-        return self.stt_start(fn, tok)
 
 
 
@@ -201,7 +302,7 @@ class 	TencentStt(xiaolanBase):
         return signiture
 
 
-    def stt_real_time(self, fn, token):
+    def stt_start(self, fn, token):
 
         """
         腾讯AI开放平台实时语音识别
@@ -212,11 +313,11 @@ class 	TencentStt(xiaolanBase):
         ext = 'wav'
         time.sleep(2)
         info = {}
-        url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_wxasrs'
+        url = 'https://api.ai.qq.com/fcgi-bin/aai/aai_asrs'
         appid = self.set['main_setting']['STT']['tencent']['appid']
 
         wf = wave.open(fn)
-
+        resp = {}
         total_len = wf.getnframes() * wf.getsampwidth()
         seq, end = 0, '0'
         while end != '1':

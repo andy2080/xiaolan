@@ -129,24 +129,10 @@ class xiaolanBase(object):
         :return:
         """
         from speech_center.stt import BaiduStt
-        from speech_center.stt import IflyStt
-        from speech_center.stt import TencentStt
 
-        if self.set['main_setting']['STT']['service'] == 'baidu':
-            stt = BaiduStt()
-            tok = stt.get_token()
-        elif self.set['main_setting']['STT']['service'] == 'ifly':
-            stt = IflyStt()
-            tok = ''
-        elif self.set['main_setting']['STT']['service'] == 'tencent':
-            stt = TencentStt()
-            tok = ''
-        else:
-            self.log('write', {'log': 'BaseSTTUnkonwCommands', 'level': 'warning'})
-            return None
-
-        self.log('write', {'log': 'Event:StartSTT:', 'level': 'info'})
-        states = stt.stt_real_time(path, tok)
+        stt = BaiduStt()
+        self.log('write', {'log': 'Event:StartSTT', 'level': 'info'})
+        states = stt.stt_start(path, tok)
 
         if 'Error' in states['States']:
 
