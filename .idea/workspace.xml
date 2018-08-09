@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="881912f4-c791-4ad3-9a47-93b788ecc86d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/memory_center/more/text_1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory_center/more/text_2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory_center/more/text_3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory_center/more/text_4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory_center/more/text_5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memory_center/more/text_6.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Base.py" beforeDir="false" afterPath="$PROJECT_DIR$/Base.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setting.py" beforeDir="false" afterPath="$PROJECT_DIR$/setting.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/speech_center/conversation.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_center/conversation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/speech_center/stt.py" beforeDir="false" afterPath="$PROJECT_DIR$/speech_center/stt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xiaolan.py" beforeDir="false" afterPath="$PROJECT_DIR$/xiaolan.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,21 +23,22 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="10270" />
+          <entry key="py" value="10562" />
           <entry key="sh" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="28" />
-          <entry key="Python" value="10270" />
+          <entry key="Python" value="10562" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -43,6 +47,7 @@
           <entry key="log" value="2" />
           <entry key="py" value="63" />
           <entry key="sh" value="3" />
+          <entry key="txt" value="6" />
           <entry key="umdl" value="1" />
         </counts>
       </usages-collector>
@@ -50,7 +55,7 @@
         <counts>
           <entry key="Bash" value="3" />
           <entry key="Image" value="1" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="9" />
           <entry key="Python" value="63" />
         </counts>
       </usages-collector>
@@ -61,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="802">
-              <caret line="103" column="48" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
+            <state relative-caret-position="1938">
+              <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
               <folding>
                 <element signature="e#107#117#0" expanded="true" />
               </folding>
@@ -73,21 +78,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/setting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+            <state relative-caret-position="342">
+              <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
+            <state relative-caret-position="1233">
+              <caret line="273" column="16" selection-start-line="273" selection-start-column="16" selection-end-line="273" selection-end-column="16" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
-                <marker date="1533688579069" expanded="true" signature="5136:5146" ph="..." />
-                <marker date="1533688579069" expanded="true" signature="5136:5269" ph="..." />
+                <marker date="1533828679370" expanded="true" signature="5241:5251" ph="..." />
+                <marker date="1533828679370" expanded="true" signature="5241:16798" ph="..." />
               </folding>
             </state>
           </provider>
@@ -102,10 +107,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/xiaolan.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
+            <state relative-caret-position="583">
               <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#117#127#0" expanded="true" />
@@ -117,7 +122,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
+            <state relative-caret-position="1235">
               <caret line="69" selection-start-line="69" selection-end-line="69" />
               <folding>
                 <element signature="e#116#126#0" expanded="true" />
@@ -228,18 +233,21 @@
         <option value="$PROJECT_DIR$/memory_center/more/xiaolan.log" />
         <option value="$PROJECT_DIR$/memory_center/more/install_all.sh" />
         <option value="$PROJECT_DIR$/Base.py" />
-        <option value="$PROJECT_DIR$/setting.py" />
-        <option value="$PROJECT_DIR$/speech_center/stt.py" />
         <option value="$PROJECT_DIR$/speech_center/conversation.py" />
         <option value="$PROJECT_DIR$/xiaolan.py" />
+        <option value="$PROJECT_DIR$/setting.py" />
+        <option value="$PROJECT_DIR$/speech_center/stt.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="65" />
     <option name="y" value="15" />
-    <option name="width" value="1943" />
-    <option name="height" value="1103" />
+    <option name="width" value="2275" />
+    <option name="height" value="1370" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -262,12 +270,6 @@
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
               <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
               <item name="memory_center" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
-              <item name="xiaolan" type="462c0819:PsiDirectoryNode" />
-              <item name="memory_center" type="462c0819:PsiDirectoryNode" />
-              <item name="more" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="xiaolan" type="b2602c69:ProjectViewProjectNode" />
@@ -325,7 +327,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.15817694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49858356" visible="true" weight="0.16018766" />
       <window_info id="Structure" order="1" sideWeight="0.50141644" side_tool="true" weight="0.15616623" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -350,26 +352,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/learning_center/skills/smarthome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/memory_center/more/first_start_xiaolan" />
-    <entry file="file://$PROJECT_DIR$/visual_centre/必读（关于视觉唤醒）.txt" />
-    <entry file="file://$PROJECT_DIR$/learning_center/xiaolan_smarthome/Xiaolan_mi" />
-    <entry file="file://$PROJECT_DIR$/learning_center/xiaolan_smarthome/Xiao_mi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/learning_center/xiaolan_smarthome/Bo_lian.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/visual_centre/新建文本文档.txt" />
     <entry file="file://$PROJECT_DIR$/speech_center/aliyun-python-sdk-core/__init__.py" />
     <entry file="file://$PROJECT_DIR$/memory_center/more/text.txt">
@@ -613,30 +595,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="802">
-          <caret line="103" column="48" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
+        <state relative-caret-position="1938">
+          <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#107#117#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/setting.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+        <state relative-caret-position="1235">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+          <folding>
+            <element signature="e#116#126#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
+    <entry file="file://$PROJECT_DIR$/xiaolan.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="149" column="32" lean-forward="true" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
+        <state relative-caret-position="583">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
           <folding>
-            <element signature="e#116#126#0" expanded="true" />
-            <marker date="1533688579069" expanded="true" signature="5136:5146" ph="..." />
-            <marker date="1533688579069" expanded="true" signature="5136:5269" ph="..." />
+            <element signature="e#117#127#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/text_2.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/text_1.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/text_3.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/text_4.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/text_5.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memory_center/more/text_6.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="60" selection-start-line="18" selection-start-column="60" selection-end-line="18" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -647,22 +655,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speech_center/conversation.py">
+    <entry file="file://$PROJECT_DIR$/speech_center/stt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="1233">
+          <caret line="273" column="16" selection-start-line="273" selection-start-column="16" selection-end-line="273" selection-end-column="16" />
           <folding>
             <element signature="e#116#126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/xiaolan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="e#117#127#0" expanded="true" />
+            <marker date="1533828679370" expanded="true" signature="5241:5251" ph="..." />
+            <marker date="1533828679370" expanded="true" signature="5241:16798" ph="..." />
           </folding>
         </state>
       </provider>

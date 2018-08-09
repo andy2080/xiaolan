@@ -66,7 +66,7 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         try:
-            wav_file = open(fn, "rb")
+            wav_file = open(fp, "rb")
         except IOError:
             self.log('write', {'log': 'Error:IoError:UnfoundFile', 'level': 'error'})
             return {'States': 'Error', 'Text': None}
@@ -131,12 +131,12 @@ class BaiduStt(xiaolanBase):
             long = len(wav_file)
             thread_long = long / 6
             threads = []
-            stt_thread_1 = threading.Thread(target=BaiduStt.stt_thread_1, args=(self, fn, 0, thread_long))
-            stt_thread_2 = threading.Thread(target=BaiduStt.stt_thread_2, args=(self, fn, thread_long, thread_long * 2))
-            stt_thread_3 = threading.Thread(target=BaiduStt.stt_thread_3, args=(self, fn, thread_long * 2, thread_long * 3))
-            stt_thread_4 = threading.Thread(target=BaiduStt.stt_thread_4, args=(self, fn, thread_long * 3, thread_long * 4))
-            stt_thread_5 = threading.Thread(target=BaiduStt.stt_thread_5, args=(self, fn, thread_long * 4, thread_long * 5))
-            stt_thread_6 = threading.Thread(target=BaiduStt.stt_thread_6, args=(self, fn, thread_long * 5, long))
+            stt_thread_1 = threading.Thread(target=BaiduStt.stt_thread_1, args=(self, token, fn, 0, thread_long, dev_id))
+            stt_thread_2 = threading.Thread(target=BaiduStt.stt_thread_2, args=(self, token, fn, thread_long, thread_long * 2, dev_id))
+            stt_thread_3 = threading.Thread(target=BaiduStt.stt_thread_3, args=(self, token, fn, thread_long * 2, thread_long * 3, dev_id))
+            stt_thread_4 = threading.Thread(target=BaiduStt.stt_thread_4, args=(self, token, fn, thread_long * 3, thread_long * 4, dev_id))
+            stt_thread_5 = threading.Thread(target=BaiduStt.stt_thread_5, args=(self, token, fn, thread_long * 4, thread_long * 5, dev_id))
+            stt_thread_6 = threading.Thread(target=BaiduStt.stt_thread_6, args=(self, token, fn, thread_long * 5, long, dev_id))
             threads.append(stt_thread_1)
             threads.append(stt_thread_2)
             threads.append(stt_thread_3)
@@ -152,15 +152,353 @@ class BaiduStt(xiaolanBase):
             for t in threads:
                 t.join()
 
-    def stt_thread_1(self, fn, start, end):
+    def stt_thread_1(self, token, fn, start, end, dev_id):
 
         """
-        STT线程1
+        STT识别线程1
         :param start: 开始
         :param end: 结束
         :param fn: 文件
+        :param dev_id: 语言模型
+        :param token: token
         :return:
         """
+        f = open(fn, "rb")
+        audio = f.read()[start:end]
+        dataf = {
+                 "format": "wav",
+                 "token": token,
+                 "len": len(audio),
+                 "rate": 16000,
+                 "speech": audio,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1
+        }
+
+        data = demjson.encode(dataf)
+
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+                f = open("/home/pi/xiaolan/memory_center/more/text_1.txt", "w")
+                f.write(text)
+                f.close()
+        except requests.exceptions.HTTPError:
+            print ('Request failed with response: %r',
+                   r.text)
+            return {'States': 'BaiduSTTError:Request failed with response'}
+        except requests.exceptions.RequestException:
+            print ('Request failed.')
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except ValueError as e:
+            print ('Cannot parse response: %s',
+                   e.args[0])
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except KeyError:
+            print ('Cannot parse response')
+            return {'States': 'BaiduSTTError:Cannot parse response'}
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print(json)
+
+    def stt_thread_2(self, token, fn, start, end, dev_id):
+
+        """
+        STT识别线程2
+        :param start: 开始
+        :param end: 结束
+        :param fn: 文件
+        :param dev_id: 语言模型
+        :param token: token
+        :return:
+        """
+        f = open(fn, "rb")
+        audio = f.read()[start:end]
+        dataf = {
+                 "format": "wav",
+                 "token": token,
+                 "len": len(audio),
+                 "rate": 16000,
+                 "speech": audio,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1
+        }
+
+        data = demjson.encode(dataf)
+
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+                f = open("/home/pi/xiaolan/memory_center/more/text_2.txt", "w")
+                f.write(text)
+                f.close()
+        except requests.exceptions.HTTPError:
+            print ('Request failed with response: %r',
+                   r.text)
+            return {'States': 'BaiduSTTError:Request failed with response'}
+        except requests.exceptions.RequestException:
+            print ('Request failed.')
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except ValueError as e:
+            print ('Cannot parse response: %s',
+                   e.args[0])
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except KeyError:
+            print ('Cannot parse response')
+            return {'States': 'BaiduSTTError:Cannot parse response'}
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print(json)
+
+    def stt_thread_3(self, token, fn, start, end, dev_id):
+
+        """
+        STT识别线程3
+        :param start: 开始
+        :param end: 结束
+        :param fn: 文件
+        :param dev_id: 语言模型
+        :param token: token
+        :return:
+        """
+        f = open(fn, "rb")
+        audio = f.read()[start:end]
+        dataf = {
+                 "format": "wav",
+                 "token": token,
+                 "len": len(audio),
+                 "rate": 16000,
+                 "speech": audio,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1
+        }
+
+        data = demjson.encode(dataf)
+
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+                f = open("/home/pi/xiaolan/memory_center/more/text_3.txt", "w")
+                f.write(text)
+                f.close()
+        except requests.exceptions.HTTPError:
+            print ('Request failed with response: %r',
+                   r.text)
+            return {'States': 'BaiduSTTError:Request failed with response'}
+        except requests.exceptions.RequestException:
+            print ('Request failed.')
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except ValueError as e:
+            print ('Cannot parse response: %s',
+                   e.args[0])
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except KeyError:
+            print ('Cannot parse response')
+            return {'States': 'BaiduSTTError:Cannot parse response'}
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print(json)
+
+    def stt_thread_4(self, token, fn, start, end, dev_id):
+
+        """
+        STT识别线程4
+        :param start: 开始
+        :param end: 结束
+        :param fn: 文件
+        :param dev_id: 语言模型
+        :param token: token
+        :return:
+        """
+        f = open(fn, "rb")
+        audio = f.read()[start:end]
+        dataf = {
+                 "format": "wav",
+                 "token": token,
+                 "len": len(audio),
+                 "rate": 16000,
+                 "speech": audio,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1
+        }
+
+        data = demjson.encode(dataf)
+
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+                f = open("/home/pi/xiaolan/memory_center/more/text_4.txt", "w")
+                f.write(text)
+                f.close()
+        except requests.exceptions.HTTPError:
+            print ('Request failed with response: %r',
+                   r.text)
+            return {'States': 'BaiduSTTError:Request failed with response'}
+        except requests.exceptions.RequestException:
+            print ('Request failed.')
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except ValueError as e:
+            print ('Cannot parse response: %s',
+                   e.args[0])
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except KeyError:
+            print ('Cannot parse response')
+            return {'States': 'BaiduSTTError:Cannot parse response'}
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print(json)
+
+    def stt_thread_5(self, token, fn, start, end, dev_id):
+
+        """
+        STT识别线程5
+        :param start: 开始
+        :param end: 结束
+        :param fn: 文件
+        :param dev_id: 语言模型
+        :param token: token
+        :return:
+        """
+        f = open(fn, "rb")
+        audio = f.read()[start:end]
+        dataf = {
+                 "format": "wav",
+                 "token": token,
+                 "len": len(audio),
+                 "rate": 16000,
+                 "speech": audio,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1
+        }
+
+        data = demjson.encode(dataf)
+
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+                f = open("/home/pi/xiaolan/memory_center/more/text_5.txt", "w")
+                f.write(text)
+                f.close()
+        except requests.exceptions.HTTPError:
+            print ('Request failed with response: %r',
+                   r.text)
+            return {'States': 'BaiduSTTError:Request failed with response'}
+        except requests.exceptions.RequestException:
+            print ('Request failed.')
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except ValueError as e:
+            print ('Cannot parse response: %s',
+                   e.args[0])
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except KeyError:
+            print ('Cannot parse response')
+            return {'States': 'BaiduSTTError:Cannot parse response'}
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print(json)
+
+    def stt_thread_6(self, token, fn, start, end, dev_id):
+
+        """
+        STT识别线程6
+        :param start: 开始
+        :param end: 结束
+        :param fn: 文件
+        :param dev_id: 语言模型
+        :param token: token
+        :return:
+        """
+        f = open(fn, "rb")
+        audio = f.read()[start:end]
+        dataf = {
+                 "format": "wav",
+                 "token": token,
+                 "len": len(audio),
+                 "rate": 16000,
+                 "speech": audio,
+                 "dev_pid": dev_id,
+                 "cuid": 'b0-10-41-92-84-4d',
+                 "channel": 1
+        }
+
+        data = demjson.encode(dataf)
+
+        r = requests.post('http://vop.baidu.com/server_api',
+                          data=data,
+                          headers={'content-type': 'application/json'})
+
+        try:
+            r.raise_for_status()
+            text = ''
+            if 'result' in r.json():
+                text = r.json()['result'][0].encode('utf-8')
+                f = open("/home/pi/xiaolan/memory_center/more/text_6.txt", "w")
+                f.write(text)
+                f.close()
+        except requests.exceptions.HTTPError:
+            print ('Request failed with response: %r',
+                   r.text)
+            return {'States': 'BaiduSTTError:Request failed with response'}
+        except requests.exceptions.RequestException:
+            print ('Request failed.')
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except ValueError as e:
+            print ('Cannot parse response: %s',
+                   e.args[0])
+            return {'States': 'BaiduSTTError:Request failed.'}
+        except KeyError:
+            print ('Cannot parse response')
+            return {'States': 'BaiduSTTError:Cannot parse response'}
+        else:
+            transcribed = []
+            if text:
+                transcribed.append(text.upper())
+            print (json)
 
     def stt_starts(self, fp, token):
 
