@@ -43,8 +43,8 @@ class ClientToServer(xiaolanBase):
         data = {
             'ClientEvent': {
                 'Header': {
-                    'NameSpace': 'xiaolan.client.requests.xiaolannlu',
-                    'TimeStamp': str(time.time()),
+                    'NameSpace': 'xiaolan.client.requests.xiaolannlu.process',
+                    'TimeStamp': str(int(time.time())),
                     'ClientId': self.set['main_setting']['ClientId'],
                     'ClientType': self.set['main_setting']['ClientType']
                 },
@@ -74,13 +74,13 @@ class ClientToServer(xiaolanBase):
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.respones.skill.askslots',
-                    'TimeStamp': time.time(),
+                    'TimeStamp': str(int(time.time())),
                     'RequestsId': '7636',
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
                     'ClientId': setting.setting()['main_setting']['ClientId']
                 },
                 'ConversationInfo': {
-                    'ConversationId': None,
+                    'ConversationId': '674536876453',
                     'ShouldHandlerSkill': skill,
                     'SkillShouldHandler': None,
                     'SkillAwakenKeyword': None,
@@ -130,8 +130,8 @@ class ClientToServer(xiaolanBase):
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.requests.user.skill.need',
-                    'TimeStamp': int(time.time()),
-                    'RequestsId': time.time(),
+                    'TimeStamp': str(int(time.time())),
+                    'RequestsId': base64.b64encode(int(time.time())),
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
                     'ClientId': setting.setting()['main_setting']['ClientId']
                 },
@@ -144,7 +144,6 @@ class ClientToServer(xiaolanBase):
                         'Intent': intent,
                         'WordLexer': intentdict['WordLexer'],
                         'Text': intentdict['Text'],
-                        'SkillDate': self.set[intentdict['Skill']],
                         'Slots': slots
                     }
                 }
@@ -172,7 +171,7 @@ class ClientToServer(xiaolanBase):
 
         """
         小蓝客户端发送给技能的waitanswer反馈
-        shouldEndConversatiom为False的返回（waitAnswer为True）
+        shouldEndConversation为False的返回（waitAnswer为True）
         :param intent: 意图
         :param slots: 槽位
         :param intentdict: Nlu识别结果
@@ -190,7 +189,7 @@ class ClientToServer(xiaolanBase):
             'ClientEvent': {
                 'Header': {
                     'NameSpace': 'xiaolan.client.respones.client.log',
-                    'TimeStamp': int(time.time()),
+                    'TimeStamp': str(int(time.time())),
                     'RequestsId': time.time(),
                     'RequestsFrom': setting.setting()['main_setting']['ClientType'],
                     'ClientId': setting.setting()['main_setting']['ClientId']
