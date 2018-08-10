@@ -367,7 +367,7 @@ class xiaolanBase(object):
         if mode == 'SkillReq':
 
             self.log('write', {'log': 'Event:XiaolanBrainRequestsStart', 'level': 'info'})
-            states = client_to_server.client_skill_req(more['Intent'], more['Slots'], more['IntentDict'])
+            client_to_server.client_skill_req(more['Intent'], more['Slots'], more['IntentDict'])
         elif mode == 'NluReq':
 
             self.log('write', {'log': 'Event:XiaolanNluRequestsStart', 'level': 'info'})
