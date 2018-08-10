@@ -121,7 +121,6 @@ class Dialogue(xiaolanBase):
         :param slotask: 槽位询问语句
         :return:
         """
-        text = ''
         a = 0
         slotturn = []
         while 1 == 1:
@@ -155,6 +154,11 @@ class Dialogue(xiaolanBase):
 
                     self.recorder('normal', 0)
                     self.stt('./voice.wav')
+
+                f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
+                text = f.read()
+                f.close()
+
                 slotturn.append(self.client_nlu('get_slots', {'Text': text, 'SlotsList': [slotname[a], slotdicts[a]]}))
                 a = a + 1
             else:
