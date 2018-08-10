@@ -68,50 +68,6 @@ class Dialogue(xiaolanBase):
             self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'],
                                   'IntentDict': intentdict})
 
-    def wait_answer(self):
-
-        """
-        等待答案处理
-        :return:
-        """
-        self.speaker('ding')
-        if self.set['main_setting']['talk_mode'] == 'voice':
-
-            self.recorder('normal', 0)
-            self.stt('./voice.wav')
-        elif self.set['main_setting']['talk_mode'] == 'gesture':
-
-            self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
-            self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别', 'Title': '小蓝文字识别交互确认',
-                         'RemindWord': [], 'BackgroundImage': ''})
-            while 1 == 1:
-                os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
-                if self.gesture('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'}) == 'ok':
-                    os.system('raspistill -o /home/pi/xiaolan/memory_center/face_img/face.jpg')
-                    self.text_recognition('normal', {'Image': '/home/pi/xiaolan/memory_center/face_img/face.jpg'})
-                    break
-                else:
-                    self.tts('请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别')
-                    self.display('TextDisplay', {'Text': '请将您写好的文字放置在摄像头之前，放置完毕以后请做出ok的手势，将会自动开始识别',
-                                 'Title': '小蓝文字识别交互确认', 'RemindWord': [], 'BackgroundImage': ''})
-
-        else:
-
-            self.recorder('normal', 0)
-            self.stt('./voice.wav')
-        self.speaker('dong')
-
-        f = open('/home/pi/xiaolan/memory_center/more/text.txt', 'r')
-        text = f.read()
-        f.close()
-
-        if text == 'None':
-            pass
-        else:
-            intentdict = self.client_to_server('NluReq', {'Text': text})
-            self.client_to_server('SkillResForWaitAnswer', {'Intent': intentdict['intent'],
-                                  'Slots': intentdict['slots'], 'IntentDict': intentdict})
-
     def ask_slots(self, slotname, slotdicts, slotask):
 
         """

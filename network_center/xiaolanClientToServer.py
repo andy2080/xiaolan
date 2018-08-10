@@ -252,7 +252,7 @@ class ClientToServer(xiaolanBase):
         }
         r = requests.post(self.brainurl,
                           data=json.dumps(data))
-        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['BrainEvent']['Respones']['RemindWord']}
+        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['Respones']['RemindWord']}
 
     def get_recommend_word(self):
 
@@ -288,7 +288,7 @@ class ClientToServer(xiaolanBase):
         }
         r = requests.post(self.brainurl,
                           data=json.dumps(data))
-        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['BrainEvent']['Respones']['RecommendWord']}
+        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['Respones']['RecommendWord']}
 
 
     def get_weather_remind__word(self):
@@ -325,7 +325,7 @@ class ClientToServer(xiaolanBase):
         }
         r = requests.post(self.brainurl,
                           data=json.dumps(data))
-        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['BrainEvent']['Respones']['RemindWord']}
+        return {'States': r.json()['Debug']['States'], 'RemindWord': r.json()['Respones']['RemindWord']}
 
     def get_recommend_skill(self):
 
@@ -361,4 +361,4 @@ class ClientToServer(xiaolanBase):
         }
         r = requests.post(self.brainurl,
                           data=json.dumps(data))
-        return {'States': r.json()['Debug']['States'], 'RecommendSkill': r.json()['BrainEvent']['Respones']['RecommendSkill']}
+        return {'States': r.json()['Debug']['States'], 'RecommendSkill': r.json()['Respones']['RecommendSkill']}

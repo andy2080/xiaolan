@@ -99,19 +99,19 @@ class CommandsDo(xiaolanBase):
         else:
             pass
         # OutputSpeech
-        if respones['ClientShouldDo']['Skill']['OutputSpeech'] != None or respones['ClientShouldDo']['Skill']['OutputSpeech'] != '':
-            self.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'])
-        else:
+        if not respones['ClientShouldDo']['Skill']['OutputSpeech'] or respones['ClientShouldDo']['Skill']['OutputSpeech'] == '':
             pass
+        else:
+            self.tts(respones['ClientShouldDo']['Skill']['OutputSpeech'])
         # AskSlots
-        if respones['ClientShouldDo']['Skill']['AskSlots'] != None or respones['ClientShouldDo']['Skill']['AskSlots'] != {}:
+        if not respones['ClientShouldDo']['Skill']['AskSlots'] or respones['ClientShouldDo']['Skill']['AskSlots'] == {}:
+            pass
+        else:
             slotsturn = self.dialogue('ask_slots', {'SlotNames': respones['ClientShouldDo']['Skill']['AskSlots']['SlotsName'], 'SlotDicts': respones['ClientShouldDo']['Skill']['AskSlots']['SlotsDict'], 'SlotAsks': respones['ClientShouldDo']['Skill']['AskSlots']['SlotsAsk'], 'RecordTypes': respones['ClientShouldDo']['Skill']['AskSlots']['RecordType']})
             self.client_to_server('SkillResForAskSlots', {'SkillName': respones['ClientShouldDo']['Skill']['SkillName'], 'Slots': slotsturn})
-        else:
-            pass
         # WaitAnswer
-        if respones['ClientShouldDo']['Skill']['ShouldEndConversation'] == 'Ture':
-            text = self.dialogue('wait_answer', {'RecordType': respones['ClientShouldDo']['Skill']['RecordType']})
+        if respones['ClientShouldDo']['Skill']['ShouldEndConversation'] == 'True':
+            self.dialogue('conversation', {})
         else:
             pass
             

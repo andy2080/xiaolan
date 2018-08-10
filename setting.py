@@ -20,7 +20,8 @@ def setting():
                    },
                    'DatebaseUrl': {
                        'XiaolanSkill': '',
-                       'XiaolanFace': ''
+                       'XiaolanFace': '',
+                       'XiaolanBrain': ''
                    },
                    'STT': {
                        'service': 'baidu', #STT服务选择 百度:baidu
