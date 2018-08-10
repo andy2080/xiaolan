@@ -26,50 +26,8 @@ class CommandsDo(xiaolanBase):
             os.system('sudo reboot')
         elif syscommands == 'SendLog':
 
-            data = {
-                        'ClientEvent': {
-                            'Header': {
-                                'NameSpace': 'xiaolan.client.send.ClientLog',
-                                'TimeStamp': int(time.time),
-                                'RequestsId': '8476',
-                                'RequestsFrom': setting.setting()['main_setting']['ClientType'],
-                                'ClientId': setting.setting()['main_setting']['ClientId']
-                            },
-                            'ConversationInfo': {
-                                'ConversationId': None,
-                                'ShouldHandlerSkill': None,
-                                'SkillShouldHandler': None,
-                                'SkillAwakenKeyword': None,
-                                'SendToSkillInfo': {
-                                      'Intent': None,
-                                      'Text': None,
-                                      'Slots': {
-                                          'slot1': None
-                                      }
-                                }
-                            },
-                            'ClientLog': self.log.Get("all")
-                        },
-                        'Debug': {
-                            'TimeStamp': str(time.time()),
-                            'ClientId': setting.setting()['main_setting']['ClientId'],
-                            'States': {
-                                'ClientStates': ['working'],
-                                'NluStates': ['emptying'],
-                                'SttStates': ['emptying'],
-                                'TtsStates': ['emptying']
-                            },
-                            'Commands': {
-                                'ClientCommands': [],
-                                'elseCommands': []
-                            }
-                        }
-            }
-            r = requests.post(self.url,
-                              data=data)
-
             log = self.log('read', {'mode': 'all'})
-            self.client_to_server('LogResForBrain', data)
+            self.client_to_server('LogResForBrain', {'log': log})
         # ScreeDisplay&TextToSpeech
         Type = respones['ClientShouldDo']['Skill']['ScreeDisplay']['Type']
         if Type == 'TextDisplay':

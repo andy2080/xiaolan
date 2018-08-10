@@ -65,8 +65,7 @@ class Dialogue(xiaolanBase):
             pass
         else:
             intentdict = self.client_to_server('NluReq', {'Text': text})
-            self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'],
-                                  'IntentDict': intentdict})
+            self.client_to_server('SkillReq', {'Intent': intentdict['Intent'], 'Slots': intentdict['Slots'], 'IntentDict': intentdict})
 
     def ask_slots(self, slotname, slotdicts, slotask):
 

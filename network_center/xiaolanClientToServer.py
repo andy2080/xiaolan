@@ -168,17 +168,6 @@ class ClientToServer(xiaolanBase):
                           data=json.dumps(data))
         self.commands_do('Normal', {'Respones': r.json()})
 
-    def client_skill_res_wait_answer(self, intent, slots, intentdict):
-
-        """
-        小蓝客户端发送给技能的waitanswer反馈
-        shouldEndConversation为False的返回（waitAnswer为True）
-        :param intent: 意图
-        :param slots: 槽位
-        :param intentdict: Nlu识别结果
-        :return:
-        """
-
     def log_res_for_brain(self, log):
 
         """

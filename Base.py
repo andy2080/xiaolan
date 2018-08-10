@@ -390,15 +390,6 @@ class xiaolanBase(object):
             else:
                 self.log('write', {'log': 'Complete:XiaolanClientRequestsXiaolanNluProcessingEngineComplete', 'level': 'debug'})
                 return intentdict
-
-        elif mode == 'SkillResForWaitAnswer':
-
-            self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillWaitAnswerResponesStart', 'level': 'info'})
-            states = client_to_server.client_skill_res_wait_answer(more['Intent'], more['Slots'], more['IntentDict'])
-            if 'Error' in states['States']:
-                self.log('write', {'log': 'Error:XiaolanSkillRequestsForSkillWaitAnswerResponesError:' + states['States'], 'level': 'error'})
-            else:
-                self.log('write', {'log': 'Complete:XiaolanSkillRequestsForSkillWaitAnswerResponesComplete', 'level': 'debug'})
         elif mode == 'SkillResForAskSlots':
 
             self.log('write', {'log': 'Event:XiaolanSkillRequestsForSkillAskSlotsResponesStart', 'level': 'info'})
