@@ -85,16 +85,16 @@ class BaiduStt(xiaolanBase):
         # 多线程处理判断
         if len(wav_file) < 10000:
 
-            dataf = {"format": "wav",
+            data = {"format": "wav",
                      "token": token,
-                     "len": len(audio),
-                     "rate": frame_rate,
-                     "speech": base_data,
+                     "len": len(wav_file.read()),
+                     "rate": 16000,
+                     "speech": base64.b64encode(wav_file.read()),
                      "dev_pid": dev_id,
                      "cuid": 'b0-10-41-92-84-4d',
                      "channel": 1}
 
-            data = demjson.encode(dataf)
+            data = demjson.encode(data)
 
             r = requests.post('http://vop.baidu.com/server_api',
                               data=data,
@@ -151,6 +151,14 @@ class BaiduStt(xiaolanBase):
             stt_thread_6.start()
             for t in threads:
                 t.join()
+            f = open("/home/pi/xiaolan/memory_center/more/text_1.txt");text_1 = f.read();f.close()
+            f = open("/home/pi/xiaolan/memory_center/more/text_2.txt");text_2 = f.read();f.close()
+            f = open("/home/pi/xiaolan/memory_center/more/text_3.txt");text_3 = f.read();f.close()
+            f = open("/home/pi/xiaolan/memory_center/more/text_4.txt");text_4 = f.read();f.close()
+            f = open("/home/pi/xiaolan/memory_center/more/text_5.txt");text_5 = f.read();f.close()
+            f = open("/home/pi/xiaolan/memory_center/more/text_6.txt");text_6 = f.read();f.close()
+            text = text_1 + text_2 + text_3 + text_4 + text_5 + text_6
+            return {'States': 'Complete', 'Text': text}
 
     def stt_thread_1(self, token, fn, start, end, dev_id):
 
@@ -164,11 +172,11 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         f = open(fn, "rb")
-        audio = f.read()[start:end]
-        dataf = {
+        audio = base64.b64(f.read()[start:end])
+        data = {
                  "format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": 16000,
                  "speech": audio,
                  "dev_pid": dev_id,
@@ -176,7 +184,7 @@ class BaiduStt(xiaolanBase):
                  "channel": 1
         }
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
@@ -222,11 +230,11 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         f = open(fn, "rb")
-        audio = f.read()[start:end]
-        dataf = {
+        audio = base64.b64(f.read()[start:end])
+        data = {
                  "format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": 16000,
                  "speech": audio,
                  "dev_pid": dev_id,
@@ -234,7 +242,7 @@ class BaiduStt(xiaolanBase):
                  "channel": 1
         }
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
@@ -280,11 +288,11 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         f = open(fn, "rb")
-        audio = f.read()[start:end]
-        dataf = {
+        audio = base64.b64(f.read()[start:end])
+        data = {
                  "format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": 16000,
                  "speech": audio,
                  "dev_pid": dev_id,
@@ -292,7 +300,7 @@ class BaiduStt(xiaolanBase):
                  "channel": 1
         }
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
@@ -338,11 +346,11 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         f = open(fn, "rb")
-        audio = f.read()[start:end]
-        dataf = {
+        audio = base64.b64(f.read()[start:end])
+        data = {
                  "format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": 16000,
                  "speech": audio,
                  "dev_pid": dev_id,
@@ -350,7 +358,7 @@ class BaiduStt(xiaolanBase):
                  "channel": 1
         }
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
@@ -396,11 +404,11 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         f = open(fn, "rb")
-        audio = f.read()[start:end]
-        dataf = {
+        audio = base64.b64(f.read()[start:end])
+        data = {
                  "format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": 16000,
                  "speech": audio,
                  "dev_pid": dev_id,
@@ -408,7 +416,7 @@ class BaiduStt(xiaolanBase):
                  "channel": 1
         }
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
@@ -454,11 +462,11 @@ class BaiduStt(xiaolanBase):
         :return:
         """
         f = open(fn, "rb")
-        audio = f.read()[start:end]
-        dataf = {
+        speech = base64.b64(f.read()[start:end])
+        data = {
                  "format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": 16000,
                  "speech": audio,
                  "dev_pid": dev_id,
@@ -466,7 +474,7 @@ class BaiduStt(xiaolanBase):
                  "channel": 1
         }
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
@@ -498,7 +506,7 @@ class BaiduStt(xiaolanBase):
             transcribed = []
             if text:
                 transcribed.append(text.upper())
-            print (json)
+            print(json)
 
     def stt_starts(self, fp, token):
 
@@ -528,16 +536,16 @@ class BaiduStt(xiaolanBase):
             dev_id = 1837
         else:
             dev_id = 1536
-        dataf = {"format": "wav",
+        data = {"format": "wav",
                  "token": token,
-                 "len": len(audio),
+                 "len": len(f.read()[start:end]),
                  "rate": frame_rate,
                  "speech": base_data,
                  "dev_pid": dev_id,
                  "cuid": 'b0-10-41-92-84-4d',
                  "channel": 1}
 
-        data = demjson.encode(dataf)
+        data = demjson.encode(data)
 
         r = requests.post('http://vop.baidu.com/server_api',
                           data=data,
