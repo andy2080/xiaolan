@@ -91,5 +91,7 @@
 - 添加百度人体识别
 - 支持腾讯AI开放平台的AI LAB流式语音识别
 - pyqt4、pyqt5、wxpython
+- 移植至腾讯工蜂
+- 移植至coding（coding.net）
 
 
